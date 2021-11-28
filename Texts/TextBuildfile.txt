@@ -1,0 +1,90 @@
+#0x903 CharmString
+Cha
+
+## MagicString
+Mag
+
+## LuckString
+Lck
+
+## StatString
+Stat
+
+## mssCharmDesc
+Charm: W.I.P.[N]
+Currently has no effect.
+
+## mssBMagDesc
+Black Magic[N]
+mastery level. W.I.P.
+
+## mssWMagDesc
+White Magic[N]
+mastery level. W.I.P.
+
+## mssKnucklesDesc
+Knuckles[N]
+mastery level. W.I.P.
+
+## mssRideDesc
+Ride mastery [N]
+level. W.I.P.
+
+## mssFlyDesc
+Fly mastery [N]
+level. W.I.P.
+
+## mssLeaderDesc
+LeaderShip mastery [N]
+level. W.I.P.
+
+
+## msgCharmName
+Charm
+
+## msgCharmDesc
+Nothing but just for test LOL
+
+## umGambitName
+Gambit
+
+## umGambitDesc
+Gambit: Three House's[N]
+Style AOE attack.
+
+## umAOEDefaultName
+Default
+
+## umAOEDefaultDesc
+Default
+
+## umAOEAssemblyName
+Assembly
+
+## umAOEAssemblyDesc
+Assembly
+
+## umAOEBaszeName
+Basze
+
+## umAOEBaszeDesc
+Basze
+
+## umAOEAbsorptionName
+Absorption
+
+## umAOEAbsorptionDesc
+Absorption
+
+## umAOEFusilladeName
+Fusillade
+
+## umAOEFusilladeDesc
+Fusillade
+
+
+## umAOEFireArrowsName
+FireArrows
+
+## umAOEFireArrowsDesc
+FireArrows

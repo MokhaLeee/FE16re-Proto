@@ -1,0 +1,48 @@
+MESSAGE
+	
+#include "EAstdlib.event"
+#include "Extensions/Hack Installation.txt"
+#include "_6CDefinitions.event"
+#include "_FuncDefs.event"
+
+#include "Custom Definations.event"
+
+ORG FreeSpace	
+	// Text should be first
+	// To make Engine Hacks got stringID definition
+	
+	MESSAGE Texts_AT CURRENTOFFSET
+	#include "Texts/InstallTextData.event"
+	
+	
+	MESSAGE EngineHacks_AT CURRENTOFFSET
+	#include "_FreeRamSpaceDef.event"
+	#include "EngineHacks/_MasterHackInstaller.event"
+	
+	
+	// Table should after Engine Hacks
+	// Cause some const value is defined in SkillSystem(Ids)
+	
+	MESSAGE Tables_AT CURRENTOFFSET
+	#include "Tables/Table Installer.event"
+
+
+	MESSAGE END_AT CURRENTOFFSET
+
+
+
+// For Debug
+
+PUSH
+	ORG $8B3C22
+	BYTE 0x10 	// 光之剑
+	
+	ORG $803D78
+	BYTE 181	// Eirika剑A
+	
+	ORG	$2C5AC
+	BYTE $64 $20	//Exp=100
+	
+	ORG $803DA4
+	BYTE 100	// Seth Hp=100
+POP

@@ -1,0 +1,14 @@
+#ifndef CUSTOM_DEF
+	#define CUSTOM_DEF
+
+	#ifndef HACK_INSTALLATION
+		#include "Extensions/Hack Installation.txt"
+	#endif
+
+
+
+	#define FreeSpace $B2A610
+	#define FreeSpaceBLRange 0x1C1EC0
+
+	#define ICON_SHEET_SKILLS 0x1		// For Icon Display
+#endif

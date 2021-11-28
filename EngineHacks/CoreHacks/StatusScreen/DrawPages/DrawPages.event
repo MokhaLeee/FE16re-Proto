@@ -1,0 +1,15 @@
+
+#include "src/DrawPageLeft.lyn.event"
+#include "src/DrawPage1.lyn.event"
+#include "src/DrawPage3.lyn.event"
+
+PUSH	
+	ORG $86E44
+	jumpToHack(StatScreen_DrawLeftText)
+	
+	ORG $205B24
+	POIN StatScreen_DrawPage1
+	
+	ORG $205B24+8
+	POIN StatScreen_DrawPage3
+POP

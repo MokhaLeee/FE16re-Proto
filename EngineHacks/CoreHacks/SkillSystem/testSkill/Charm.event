@@ -1,0 +1,17 @@
+#define SKILL_CHARM 0x1
+
+CharmSkillId: BYTE SKILL_CHARM
+
+ALIGN 4
+SkillInfo_Charm:
+	/* name */ SHORT msgCharmName
+	/* desc */ SHORT msgCharmDesc
+	/* icon */ POIN SkillIconGfx_Charm
+
+ALIGN 4
+SkillIconGfx_Charm:
+	#incbin "Charm.dmp"
+	WORD $0
+
+InjectSkillInfo(SKILL_CHARM, SkillInfo_Charm)
+InjectSkillInfo(2, SkillInfo_Charm)

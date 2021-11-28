@@ -1,0 +1,16 @@
+#ifndef MODULAR_LEVELUP_INCLUDED
+#define MODULAR_LEVELUP_INCLUDED
+
+// Modular Level Up
+// hack by Stan
+
+#include "ModLuInternal.event"
+
+#include "Src/ModLuFuncs.lyn.event"
+
+ALIGN 4
+GetUnitMaxLevelFunc:
+	POIN MLUStandardGetMaxLevel
+
+
+#endif // MODULAR_LEVELUP_INCLUDED

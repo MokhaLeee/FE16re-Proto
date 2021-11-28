@@ -1,0 +1,152 @@
+#define RMenu(up,down,left,right,xcoord,ycoord,TID) "POIN up down left right;BYTE xcoord ycoord; SHORT TID; WORD 0 0;"
+#define RMenu(up,down,left,right,xcoord,ycoord,TID,Getter) "POIN up down left right; BYTE xcoord ycoord; SHORT TID; POIN 0 Getter|1"
+#define RMenu(up,down,left,right,xcoord,ycoord,SlotID,Looper,Getter) "POIN up down left right; BYTE xcoord ycoord; SHORT SlotID; POIN Looper|1 Getter|1"
+ 
+
+#define NameDescGetter 0x88bd5
+#define ClassDescGetter 0x88c01
+#define ConditionGetter 0x88a2d
+#define StrMagGetter 0x88b09 
+
+PUSH
+ORG $889D8
+POIN RText_PageUnit
+
+ORG $889F8
+POIN RText_PageWpnExp
+POP
+
+
+ALIGN 4
+RText_PageUnit:
+	// Line 1
+	ST_Str:
+	RMenu(0,ST_Mag,ST_Name,ST_Lck,0x66,0x18,0x546)
+	
+	ST_Mag:
+	RMenu(ST_Str,ST_Skl,ST_Name,ST_Cha,0x66,0x28,0x547)
+	
+	ST_Skl:
+	RMenu(ST_Mag,ST_Spd,ST_Name,ST_Mov,0x66,0x38,0x548)
+	
+	ST_Spd:
+	RMenu(ST_Skl,ST_Def,ST_Name,ST_Con,0x66,0x48,0x549)
+	
+	ST_Def:
+	RMenu(ST_Spd,ST_Res,ST_Name,ST_Stat,0x66,0x58,0x54B)
+	
+	ST_Res:
+	RMenu(ST_Def,ST_Skill0,ST_Class,ST_Stat,0x66,0x68,0x54C)
+	
+	
+	// Line 2
+	ST_Lck:
+	RMenu(0,ST_Cha,ST_Str,0,0xA6,0x18,0x54A)
+	
+	ST_Cha:
+	RMenu(ST_Lck,ST_Mov,ST_Mag,0,0xA6,0x28,mssCharmDesc)
+	
+	ST_Mov:
+	RMenu(ST_Cha,ST_Con,ST_Skl,0,0xA6,0x38,0x54D)
+	
+	ST_Con:
+	RMenu(ST_Mov,ST_Stat,ST_Spd,0,0xA6,0x48,0x54E)
+	
+	ST_Stat:
+	RMenu(ST_Con,ST_Skill0,ST_Def,0,0xA6,0x58,0x552,ConditionGetter)
+	
+	
+	// Left
+	ST_Name:
+	RMenu(0,ST_Class,0,ST_Spd,0x18,0x50,0x0,NameDescGetter)
+	
+	ST_Class:
+	RMenu(ST_Name,ST_Level,0,ST_Res,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	ST_Level:
+	RMenu(ST_Class,ST_HP,0,ST_Exp,0x6,0x78,0x542)
+	
+	ST_Exp:
+	RMenu(ST_Class,ST_HP,ST_Level,ST_Res,0x26,0x78,0x543)
+	
+	ST_HP:
+	RMenu(ST_Level,0,0,ST_Res,0x6,0x88,0x544)
+	
+	
+	// Skills
+	ST_Skill0:
+	RMenu(ST_Res,0,ST_HP,ST_Skill1,136,136,0,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill1:
+	RMenu(ST_Res,0,ST_Skill0,ST_Skill2,152,136,1,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill2:
+	RMenu(ST_Res,0,ST_Skill1,ST_Skill3,168,136,2,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill3:
+	RMenu(ST_Stat,0,ST_Skill2,ST_Skill4,184,136,3,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill4:
+	RMenu(ST_Stat,0,ST_Skill3,ST_Skill5,200,136,4,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill5:
+	RMenu(ST_Stat,0,ST_Skill4,0,216,136,5,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	
+	
+	
+	
+	
+	
+	
+ALIGN 4
+RText_PageWpnExp:
+	WT_Sword:
+	RMenu(0,WT_Lance,WT_Name,WT_BMag,0x68,0x18,0x561)
+	
+	WT_Lance:
+	RMenu(WT_Sword,WT_Axe,WT_Name,WT_Staff,0x68,0x28,0x562)
+	
+	WT_Axe:
+	RMenu(WT_Lance,WT_Bow,WT_Name,WT_Ride,0x68,0x38,0x563)
+	
+	WT_Bow:
+	RMenu(WT_Axe,WT_Knu,WT_Name,WT_Fly,0x68,0x48,0x564)
+	
+	WT_Knu:
+	RMenu(WT_Bow,0,WT_Class,WT_Leader,0x68,0x58,mssKnucklesDesc)
+	
+	
+	// Line 2
+	WT_BMag:
+	RMenu(0,WT_Staff,WT_Sword,0,0xA8,0x18,mssBMagDesc)
+	
+	WT_Staff:
+	RMenu(WT_BMag,WT_Ride,WT_Lance,0,0xA8,0x28,0x568)
+	
+	WT_Ride:
+	RMenu(WT_Staff,WT_Fly,WT_Axe,0,0xA8,0x38,mssRideDesc)
+	
+	WT_Fly:
+	RMenu(WT_Ride,WT_Leader,WT_Bow,0,0xA8,0x48,mssFlyDesc)
+	
+	WT_Leader:
+	RMenu(WT_Fly,0,WT_Knu,0,0xA8,0x58,mssLeaderDesc)
+	
+	// Left
+	WT_Name:
+	RMenu(0,WT_Class,0,WT_Bow,0x18,0x50,0x0,NameDescGetter)
+	
+	WT_Class:
+	RMenu(WT_Name,WT_Level,0,WT_Knu,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	WT_Level:
+	RMenu(WT_Class,WT_HP,0,WT_Exp,0x6,0x78,0x542)
+	
+	WT_Exp:
+	RMenu(WT_Class,WT_HP,WT_Level,WT_Knu,0x26,0x78,0x543)
+	
+	WT_HP:
+	RMenu(WT_Level,0,0,WT_Knu,0x6,0x88,0x544)
+	
+	

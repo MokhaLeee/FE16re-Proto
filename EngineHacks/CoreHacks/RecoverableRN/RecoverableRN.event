@@ -1,0 +1,11 @@
+#ifndef RECOVERABLE_RN
+#define RECOVERABLE_RN
+
+ALIGN 4
+#include "src/RecoverableRN.lyn.event"
+
+//#define gpRNState2 0x03003600	占用了6个字节
+//#include "FreeRamSpaceDef.event"
+
+		
+#endif // RECOVERABLE_RN

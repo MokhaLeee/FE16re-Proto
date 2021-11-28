@@ -1,0 +1,17 @@
+1. Modular Level Up
+	添加了Charm属性且可升级与初始化，但尚未使其形成实战效果；
+	成长遵循三房Style的半随机增长：增长点数依旧随机，然而已不可凹点。重新开始当前章节则可重置成长点数分配；
+	另外角色成长有保底，Hp之外至少成长三点。
+	已实现ModLu+Str/Mag Split+BattleUnitHook的完美适配。
+
+2. AOE Attack
+	AOE Attack可通过菜单下“Gambit”选项生效，可对范围敌人造成不致死的十点伤害；
+	目前尚未实装骑士团效果，因此AOE攻击可无限使用；
+	已将AOE Attack与UnitActionRework/UnitMenuRework完美适配；
+
+3. SkillSystem
+	SkillSystem以StanH的SkillLite为模板制作，目前只做示例技能，尚未实装效果；
+	已实现SkillSystem与IconDisplayRework的适配；
+
+4. UnitExtension
+	扩展了UnitStruct
