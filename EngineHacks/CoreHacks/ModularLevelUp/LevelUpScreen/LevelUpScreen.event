@@ -103,12 +103,9 @@ PUSH
 		WORD 0x20235A8
 
 	ORG $73588
-	#incbin "LevelUpScreen/WriteGrowthtoRamAnimOn.dmp"
-	POIN WriteGrowthtoRamAnimOn_MoreCharm|1
-//	SHORT 0xE091
+	#include "LevelUpScreenMisc/WriteGrowthtoRamAnimOn.lyn.event"
 	POP
 
-	#include "LevelUpScreen/WriteGrowthtoRamAnimOn_MoreCharm.lyn.event" 
 	
 	PUSH
 	//Change list of stat text IDS
@@ -121,7 +118,7 @@ PUSH
 	//callHack_r3(LevelUpWriteBackMag)
 	
 	//###### Growths: Animations off #####
-//	#ifdef ExpandedLevelUpScreen
+	#ifdef ExpandedLevelUpScreen
 		//Repoint TSA Graphics: 8035B0 (1054) Palette 803B10 TSA 8039E8 32x15
 		ORG $7EB8C
 		POIN NewLevelUpTsa
@@ -133,7 +130,7 @@ PUSH
 		BYTE 0xFC
 		ORG $7F330 //lower portrait placement
 		jumpToHack(lowerportrait)
-//	#endif
+	#endif
 	
 	//Add new stat names
 	ORG $7EBA0
@@ -189,7 +186,7 @@ Growths_Anims_Off_Stat_Name_Table:
 
 	ALIGN 4
 	NewLevelUpTsa:
-	#incext compress "LevelUpScreen/NewLevelupTsaDecomp.dmp"
+	#incext compress "LevelUpScreenMisc/NewLevelupTsaDecomp.dmp"
 
 	
 
@@ -229,8 +226,7 @@ POIN Get_New_Charm 0x7ED28
 
 ALIGN 4
 Promo_Stat_Name_Table:
-#incbin "LevelUpScreen/PromoStatNameTable.dmp"
-//POIN 0xA01180
+#incbin "LevelUpScreenMisc/PromoStatNameTable.dmp"
 POIN Charm_Text_ID_Pointer
 POIN Mov_Text_ID_Pointer
 	

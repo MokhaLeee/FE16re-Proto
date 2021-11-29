@@ -72,8 +72,7 @@ UnitMenuTable:
 	UM_Attack_B
 	
 	//B.Magic
-	//#define	BMagic_Desc	$21D
-	//MenuCommand(msgUMMagicName, BMagic_Desc, GreenText, Magic_Usability, MagicEffect)
+	MenuCommand(umBMagName, umBMagDesc, GreenText, BMag_Usability, BMag_Effect)
 	
 	//Gambit
 	MenuCommand(umGambitName, umGambitDesc, OrangeText, Gambit_UpperMenu_Usability, Gambit_UpperMenu_Effect, Gambit_UpperMenu_Hover, Gambit_UpperMenu_Unhover)

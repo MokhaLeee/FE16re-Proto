@@ -3,7 +3,8 @@
 
 #include "DrawPages/DrawPages.event"
 #include "SkillStatScreen/SkillsStatScreen.event"
-#include "rText/rText.event"
+#include "rText/_rText.event"
+#include "Icons/Icons.event"
 
 PUSH
 	ORG $86E44

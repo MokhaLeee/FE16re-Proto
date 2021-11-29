@@ -1,0 +1,2 @@
+BattleToUnitHook -> Battle2UnitFuncList
+ChapterInitHook -> ResetUnitMagic

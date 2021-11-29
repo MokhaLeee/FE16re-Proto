@@ -8,20 +8,8 @@
 	#include "CheckCap/CheckCap.lyn.event"
 	#include "GrowthGetters/GrowthGetters.event"
 	#include "LevelUpScreen/LevelUpScreen.event"
+	#include "Promotion/Promotion.event"
 	
 	#include HookList.event
-	
-	
-	ALIGN 4
-	#include "Promotion/src_CheckCap/PromoCheckCap.lyn.event"
-	
-	PUSH
-	ORG $7369A
-	#include "Promotion/WritePromotoRAM.lyn.event"
-	POP
-	
-	ALIGN 4
-	WritePromotoRAM_MoreCharm:
-		#include "Promotion/WritePromotoRAM_MoreCharm.lyn.event"
 	
 #endif // MOD_LU

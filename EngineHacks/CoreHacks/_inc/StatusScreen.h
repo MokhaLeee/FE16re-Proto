@@ -46,7 +46,7 @@ enum
 
     STATSCREEN_TEXT_UNUSUED, // 2 (was Exp?)
 
-    STATSCREEN_TEXT_POWLABEL, // 3
+    STATSCREEN_TEXT_POWLABEL, // 3		
     STATSCREEN_TEXT_SKLLABEL, // 4
     STATSCREEN_TEXT_SPDLABEL, // 5
     STATSCREEN_TEXT_LCKLABEL, // 6
@@ -55,11 +55,11 @@ enum
     STATSCREEN_TEXT_MOVLABEL, // 9
     STATSCREEN_TEXT_CONLABEL, // 10
     STATSCREEN_TEXT_AIDLABEL, // 11		// Now is Magic
-    STATSCREEN_TEXT_RESCUENAME, // 12
+    STATSCREEN_TEXT_RESCUENAME, // 12	// as Eqp in Page1
     STATSCREEN_TEXT_AFFINLABEL, // 13	// Now is charm
     STATSCREEN_TEXT_STATUS, // 14
 
-    STATSCREEN_TEXT_ITEM0, // 15
+    STATSCREEN_TEXT_ITEM0, // 15		
     STATSCREEN_TEXT_ITEM1, // 16
     STATSCREEN_TEXT_ITEM2, // 17
     STATSCREEN_TEXT_ITEM3, // 18
@@ -169,8 +169,11 @@ void DrawStatScreenBar(u16 BarId, u8 x, u8 y, s8 ValueBase, s8 ValueReal, s8 Max
 extern u16 gpCharmString;
 extern u16 gpLuckString;
 extern u16 gpStatString;
+extern u16 gpEqpString;
+
 extern void DrawBarsInternal(int,int,u16* tilemap,int,int,int,int);// 0x8086B2C
 extern int GetDisplayRankSpecialCharFromExp(int wexp);
+extern u16* IconSheet3[];
 
 void NuDrawStatScreenBwl(void);
 

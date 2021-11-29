@@ -1,0 +1,49 @@
+
+#ifndef ICON_GFX_SHEET3
+#define ICON_GFX_SHEET3
+
+ALIGN 4
+Icon_Sword:
+	#incbin Icon_Sword.dmp
+
+ALIGN 4
+Icon_Axe:
+	#incbin Icon_Axe.dmp
+
+ALIGN 4	
+Icon_Lance:	
+	#incbin Icon_Lance.dmp
+
+ALIGN 4
+Icon_Bow:
+	#incbin Icon_Bow.dmp
+
+ALIGN 4
+Icon_Brawl:
+	#incbin Icon_Brawl.dmp
+
+ALIGN 4
+Icon_Reason:
+	#incbin Icon_Reason.dmp
+
+ALIGN 4	
+Icon_Faith:
+	#incbin Icon_Faith.dmp
+
+ALIGN 4
+Icon_Auth:
+	#incbin Icon_Authority.dmp
+
+ALIGN 4
+Icon_Riding:
+	#incbin Icon_Riding.dmp
+
+ALIGN 4
+Icon_Flying:
+	#incbin Icon_Flying.dmp
+
+ALIGN 4
+Icon_Heavy:
+	#incbin Icon_Heavy.dmp
+	
+#endif // ICON_GFX_SHEET3

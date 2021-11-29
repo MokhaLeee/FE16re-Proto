@@ -16,7 +16,7 @@ ORG FreeSpace
 	
 	
 	MESSAGE EngineHacks_AT CURRENTOFFSET
-	#include "_FreeRamSpaceDef.event"
+	#include "_ValGlobal.event"
 	#include "EngineHacks/_MasterHackInstaller.event"
 	
 	
@@ -26,23 +26,38 @@ ORG FreeSpace
 	MESSAGE Tables_AT CURRENTOFFSET
 	#include "Tables/Table Installer.event"
 
-
+	
+	MESSAGE Graphics_AT CURRENTOFFSET
+	#include "Graphics/Install_Portraits.event"
+	
+	
 	MESSAGE END_AT CURRENTOFFSET
 
 
 
 // For Debug
+MESSAGE
+
 
 PUSH
-	ORG $8B3C22
-	BYTE 0x10 	// 光之剑
-	
-	ORG $803D78
-	BYTE 181	// Eirika剑A
-	
 	ORG	$2C5AC
 	BYTE $64 $20	//Exp=100
 	
+	ORG $8B3C22
+	BYTE 0x10 		// 光之剑
+	
+	ORG $803D78
+	BYTE 181		// Eirika剑A
+	
+	ORG $8B3C2B
+	BYTE $50		// Eirika 10级
+	
+	ORG $8B3C35
+	BYTE $68//98	// Eirika get Lunar Brace
+	
 	ORG $803DA4
-	BYTE 100	// Seth Hp=100
+	BYTE 100		// Seth Hp=100
+	
+	ORG $8B3C29
+	BYTE $26		// Eirika Class = Mage
 POP

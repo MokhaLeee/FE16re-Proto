@@ -22,5 +22,6 @@ void CallMapEventEngine(u32*,u8); // 0x800D07D
 void CallEventDefinition(u32*,u8); // 0x8082E81
 u32 CheckNextEventDefinition(u32*); // 0x8082F29
 void ClearActiveEventRegistry(u32*); // 0x80845A5
+int MapEventEngineExists(); // 0x800D199
 
 #endif // GBAFE_EVENT_H

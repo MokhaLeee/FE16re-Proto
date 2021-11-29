@@ -25,439 +25,490 @@
 	.type	StatScreen_DrawPage1, %function
 StatScreen_DrawPage1:
 	@ Function supports interworking.
-	@ args = 0, pretend = 0, frame = 0
+	@ args = 0, pretend = 0, frame = 16
 	@ frame_needed = 0, uses_anonymous_args = 0
-@ StatusScreen/DrawPages/src/DrawPage1.c:136: 	Unit* unit = gStatScreen.unit;
-	ldr	r3, .L2	@ tmp181,
-@ StatusScreen/DrawPages/src/DrawPage1.c:135: void StatScreen_DrawPage1(void){
-	push	{r0, r1, r2, r4, r5, r6, r7, lr}	@
-@ StatusScreen/DrawPages/src/DrawPage1.c:12: 		GetStringFromIndex(0x4FE));
-	ldr	r7, .L2+4	@ tmp183,
-@ StatusScreen/DrawPages/src/DrawPage1.c:141: }
-	@ sp needed	@
-@ StatusScreen/DrawPages/src/DrawPage1.c:12: 		GetStringFromIndex(0x4FE));
-	ldr	r0, .L2+8	@,
-@ StatusScreen/DrawPages/src/DrawPage1.c:136: 	Unit* unit = gStatScreen.unit;
+	push	{r4, r5, r6, r7, lr}	@
+@ StatusScreen/DrawPages/src/DrawPage1.c:153: 	Unit* unit = gStatScreen.unit;
+	ldr	r3, .L6	@ tmp188,
+@ StatusScreen/DrawPages/src/DrawPage1.c:152: void StatScreen_DrawPage1(void){
+	sub	sp, sp, #28	@,,
+@ StatusScreen/DrawPages/src/DrawPage1.c:13: 		GetStringFromIndex(0x4FE));
+	ldr	r6, .L6+4	@ tmp190,
+	ldr	r0, .L6+8	@,
+@ StatusScreen/DrawPages/src/DrawPage1.c:153: 	Unit* unit = gStatScreen.unit;
 	ldr	r4, [r3, #12]	@ unit, gStatScreen.unit
-@ StatusScreen/DrawPages/src/DrawPage1.c:8: 	DrawTextInline(		// Str
-	movs	r5, #0	@ tmp186,
-@ StatusScreen/DrawPages/src/DrawPage1.c:12: 		GetStringFromIndex(0x4FE));
-	bl	.L4		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:8: 	DrawTextInline(		// Str
-	ldr	r6, .L2+12	@ tmp185,
-	movs	r3, r5	@, tmp186
+@ StatusScreen/DrawPages/src/DrawPage1.c:13: 		GetStringFromIndex(0x4FE));
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:9: 	DrawTextInline(		// Str
+	movs	r5, #0	@ tmp193,
+	ldr	r7, .L6+12	@ tmp192,
+	str	r0, [sp, #4]	@ tmp342,
+	movs	r0, r7	@ tmp192, tmp192
+	ldr	r7, .L6+16	@ tmp194,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+16	@ tmp184,
-	str	r0, [sp, #4]	@ tmp322,
-	str	r5, [sp]	@ tmp186,
-	movs	r0, r6	@ tmp185, tmp185
-	ldr	r6, .L2+20	@ tmp187,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:18: 		GetStringFromIndex(0x4FF));
-	ldr	r0, .L2+24	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp323,
-@ StatusScreen/DrawPages/src/DrawPage1.c:14: 	DrawTextInline(		// Mag
+	ldr	r1, .L6+20	@ tmp191,
+	str	r5, [sp]	@ tmp193,
+	str	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:19: 		GetStringFromIndex(0x4FF));
+	ldr	r0, .L6+24	@,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:15: 	DrawTextInline(		// Mag
+	ldr	r7, .L6+28	@ tmp198,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+28	@ tmp190,
-	str	r3, [sp, #4]	@ tmp323,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+32	@ tmp191,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:24: 		GetStringFromIndex(0x4EC));
-	ldr	r0, .L2+36	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp324,
-@ StatusScreen/DrawPages/src/DrawPage1.c:20: 	DrawTextInline(		// Skl
+	ldr	r1, .L6+32	@ tmp197,
+	str	r0, [sp, #4]	@ tmp343,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp198, tmp198
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:25: 		GetStringFromIndex(0x4EC));
+	ldr	r0, .L6+36	@,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:21: 	DrawTextInline(		// Skl
+	ldr	r7, .L6+40	@ tmp204,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+40	@ tmp196,
-	str	r3, [sp, #4]	@ tmp324,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+44	@ tmp197,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:30: 		GetStringFromIndex(0x4ED));
-	ldr	r0, .L2+48	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp325,
-@ StatusScreen/DrawPages/src/DrawPage1.c:26: 	DrawTextInline(		// Spd
+	ldr	r1, .L6+44	@ tmp203,
+	str	r0, [sp, #4]	@ tmp344,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp204, tmp204
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:31: 		GetStringFromIndex(0x4ED));
+	ldr	r0, .L6+48	@,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:27: 	DrawTextInline(		// Spd
+	ldr	r7, .L6+52	@ tmp210,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+52	@ tmp202,
-	str	r3, [sp, #4]	@ tmp325,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+56	@ tmp203,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:36: 		GetStringFromIndex(0x4EF));
-	ldr	r0, .L2+60	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp326,
-@ StatusScreen/DrawPages/src/DrawPage1.c:32: 	DrawTextInline(		// Def
+	ldr	r1, .L6+56	@ tmp209,
+	str	r0, [sp, #4]	@ tmp345,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp210, tmp210
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:37: 		GetStringFromIndex(0x4EF));
+	ldr	r0, .L6+60	@,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:33: 	DrawTextInline(		// Def
+	ldr	r7, .L6+64	@ tmp216,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+64	@ tmp208,
-	str	r3, [sp, #4]	@ tmp326,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+68	@ tmp209,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:42: 		GetStringFromIndex(0x4F0));
-	movs	r0, #158	@ tmp347,
-	lsls	r0, r0, #3	@, tmp347,
-	bl	.L4		@
-	movs	r3, r0	@ tmp327,
-@ StatusScreen/DrawPages/src/DrawPage1.c:38: 	DrawTextInline(		// Res
+	ldr	r1, .L6+68	@ tmp215,
+	str	r0, [sp, #4]	@ tmp346,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp216, tmp216
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:43: 		GetStringFromIndex(0x4F0));
+	movs	r0, #158	@,
+	lsls	r0, r0, #3	@,,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:39: 	DrawTextInline(		// Res
+	ldr	r7, .L6+72	@ tmp222,
 	movs	r2, #3	@,
-	ldr	r1, .L2+72	@ tmp214,
-	str	r3, [sp, #4]	@ tmp327,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+76	@ tmp215,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:50: 		GetStringFromIndex(gpLuckString));
-	ldr	r3, .L2+80	@ tmp218,
+	ldr	r1, .L6+76	@ tmp221,
+	movs	r3, r5	@, tmp193
+	str	r0, [sp, #4]	@ tmp347,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp222, tmp222
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:51: 		GetStringFromIndex(gpLuckString));
+	ldr	r3, .L6+80	@ tmp225,
 	ldrh	r0, [r3]	@ gpLuckString, gpLuckString
-	bl	.L4		@
-	movs	r3, r0	@ tmp328,
-@ StatusScreen/DrawPages/src/DrawPage1.c:46: 	DrawTextInline(		// Lck
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:47: 	DrawTextInline(		// Lck
+	ldr	r7, .L6+84	@ tmp229,
 	movs	r2, #3	@,
-	ldr	r1, .L2+84	@ tmp221,
-	str	r3, [sp, #4]	@ tmp328,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+88	@ tmp222,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:56: 		GetStringFromIndex(gpCharmString));
-	ldr	r3, .L2+92	@ tmp225,
+	ldr	r1, .L6+88	@ tmp228,
+	movs	r3, r5	@, tmp193
+	str	r0, [sp, #4]	@ tmp348,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp229, tmp229
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:57: 		GetStringFromIndex(gpCharmString));
+	ldr	r3, .L6+92	@ tmp232,
 	ldrh	r0, [r3]	@ gpCharmString, gpCharmString
-	bl	.L4		@
-	movs	r3, r0	@ tmp329,
-@ StatusScreen/DrawPages/src/DrawPage1.c:52: 	DrawTextInline(		// Cha
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:53: 	DrawTextInline(		// Cha
+	ldr	r7, .L6+96	@ tmp236,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+96	@ tmp228,
-	str	r3, [sp, #4]	@ tmp329,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+100	@ tmp229,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:62: 		GetStringFromIndex(0x37));
+	ldr	r1, .L6+100	@ tmp235,
+	str	r0, [sp, #4]	@ tmp349,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp236, tmp236
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:63: 		GetStringFromIndex(0x37));
 	movs	r0, #55	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp330,
-@ StatusScreen/DrawPages/src/DrawPage1.c:58: 	DrawTextInline(		// Mov
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:59: 	DrawTextInline(		// Mov
+	ldr	r7, .L6+104	@ tmp241,
+	movs	r3, r5	@, tmp193
 	movs	r2, #3	@,
-	ldr	r1, .L2+104	@ tmp233,
-	str	r3, [sp, #4]	@ tmp330,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+108	@ tmp234,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:68: 		GetStringFromIndex(0x4F7));
-	ldr	r0, .L2+112	@,
-	bl	.L4		@
-	movs	r3, r0	@ tmp331,
-@ StatusScreen/DrawPages/src/DrawPage1.c:64: 	DrawTextInline(		// Con
+	ldr	r1, .L6+108	@ tmp240,
+	str	r0, [sp, #4]	@ tmp350,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp241, tmp241
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:69: 		GetStringFromIndex(0x4F7));
+	ldr	r0, .L6+112	@,
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:65: 	DrawTextInline(		// Con
+	ldr	r7, .L6+116	@ tmp247,
 	movs	r2, #3	@,
-	ldr	r1, .L2+116	@ tmp239,
-	str	r3, [sp, #4]	@ tmp331,
-	str	r5, [sp]	@ tmp186,
-	movs	r3, r5	@, tmp186
-	ldr	r0, .L2+120	@ tmp240,
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:74: 		GetStringFromIndex(gpStatString));
-	ldr	r3, .L2+124	@ tmp243,
-	ldrh	r0, [r3]	@ gpStatString, gpStatString
-	bl	.L4		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:70: 	DrawTextInline(		// Status
-	ldr	r7, .L2+128	@ tmp247,
-	movs	r3, r5	@, tmp186
-	movs	r2, #3	@,
-	ldr	r1, .L2+132	@ tmp246,
-	str	r0, [sp, #4]	@ tmp332,
-	str	r5, [sp]	@ tmp186,
+	ldr	r1, .L6+120	@ tmp246,
+	movs	r3, r5	@, tmp193
+	str	r0, [sp, #4]	@ tmp351,
+	str	r5, [sp]	@ tmp193,
 	movs	r0, r7	@ tmp247, tmp247
-	bl	.L5		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:80: 	DrawStatScreenBar(0,5,1,	// Pow
-	movs	r6, #20	@ _6,
-@ StatusScreen/DrawPages/src/DrawPage1.c:82: 	GetUnitPower(unit),
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:75: 		GetStringFromIndex(gpStatString));
+	ldr	r3, .L6+124	@ tmp250,
+	ldrh	r0, [r3]	@ gpStatString, gpStatString
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:71: 	DrawTextInline(		// Status
+	ldr	r7, .L6+128	@ tmp254,
+	movs	r2, #3	@,
+	ldr	r1, .L6+132	@ tmp253,
+	movs	r3, r5	@, tmp193
+	str	r0, [sp, #4]	@ tmp352,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r7	@ tmp254, tmp254
+	ldr	r7, [sp, #12]	@ tmp194, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:81: 	DrawStatScreenBar(0,5,1,	// Pow
+	movs	r7, #20	@ _14,
+@ StatusScreen/DrawPages/src/DrawPage1.c:83: 	GetUnitPower(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+136	@ tmp250,
-@ StatusScreen/DrawPages/src/DrawPage1.c:80: 	DrawStatScreenBar(0,5,1,	// Pow
-	ldrsb	r6, [r4, r6]	@ _6,* _6
-@ StatusScreen/DrawPages/src/DrawPage1.c:82: 	GetUnitPower(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:83: 	unit->pClassData->maxPow );
+	ldr	r3, .L6+136	@ tmp257,
+@ StatusScreen/DrawPages/src/DrawPage1.c:81: 	DrawStatScreenBar(0,5,1,	// Pow
+	ldrsb	r7, [r4, r7]	@ _14,* _14
+@ StatusScreen/DrawPages/src/DrawPage1.c:83: 	GetUnitPower(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:84: 	unit->pClassData->maxPow );
 	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:80: 	DrawStatScreenBar(0,5,1,	// Pow
-	ldrb	r3, [r3, #20]	@ tmp252,
-	lsls	r0, r0, #24	@ tmp254, tmp333,
-	lsls	r3, r3, #24	@ tmp252, tmp252,
-	asrs	r3, r3, #24	@ tmp252, tmp252,
-	asrs	r0, r0, #24	@ tmp253, tmp254,
+@ StatusScreen/DrawPages/src/DrawPage1.c:81: 	DrawStatScreenBar(0,5,1,	// Pow
+	ldrb	r3, [r3, #20]	@ tmp259,
+	lsls	r3, r3, #24	@ tmp259, tmp259,
+	asrs	r3, r3, #24	@ tmp259, tmp259,
+	lsls	r0, r0, #24	@ tmp261, tmp353,
+	str	r3, [sp, #4]	@ tmp259,
+	asrs	r0, r0, #24	@ tmp260, tmp261,
+	movs	r3, r7	@, _14
+	ldr	r7, .L6+140	@ tmp262,
 	movs	r2, #1	@,
 	movs	r1, #5	@,
-	str	r3, [sp, #4]	@ tmp252,
-	str	r0, [sp]	@ tmp253,
-	movs	r3, r6	@, _6
-	movs	r0, r5	@, tmp186
-	ldr	r5, .L2+140	@ tmp255,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:86: 	*GetMagAt(unit),
+	str	r0, [sp]	@ tmp260,
+	movs	r0, r5	@, tmp193
+	str	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:87: 	*GetMagAt(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+144	@ tmp256,
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:85: 	DrawStatScreenBar(1,5,3,	// Mag
-	movs	r7, #0	@ _12,
-	ldr	r3, .L2+148	@ tmp257,
-	ldrsb	r7, [r0, r7]	@ _12,* _12
+	ldr	r3, .L6+144	@ tmp263,
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:86: 	DrawStatScreenBar(1,5,3,	// Mag
+	movs	r7, #0	@ _20,
+	ldr	r3, .L6+148	@ tmp264,
+	ldrsb	r7, [r0, r7]	@ _20,* _20
 	movs	r0, r4	@, unit
-	bl	.L6		@
-	movs	r6, r0	@ tmp258, tmp335
-	ldr	r3, .L2+152	@ tmp260,
+	bl	.L10		@
+	ldr	r3, .L6+152	@ tmp267,
+	str	r0, [sp, #20]	@ tmp355, %sfp
 	movs	r0, r4	@, unit
-	bl	.L6		@
-	str	r6, [sp]	@ tmp258,
-@ StatusScreen/DrawPages/src/DrawPage1.c:90: 	DrawStatScreenBar(2,5,5,	// Skl
-	movs	r6, #21	@ _15,
-@ StatusScreen/DrawPages/src/DrawPage1.c:85: 	DrawStatScreenBar(1,5,3,	// Mag
-	movs	r3, r7	@, _12
+	bl	.L10		@
+	ldr	r3, [sp, #20]	@ tmp265, %sfp
 	movs	r2, #3	@,
 	movs	r1, #5	@,
-	str	r0, [sp, #4]	@ tmp336,
+	str	r0, [sp, #4]	@ tmp356,
+	str	r3, [sp]	@ tmp265,
 	movs	r0, #1	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:92: 	GetUnitSkill(unit),
+	movs	r3, r7	@, _20
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:91: 	DrawStatScreenBar(2,5,5,	// Skl
+	movs	r7, #21	@ _23,
+@ StatusScreen/DrawPages/src/DrawPage1.c:93: 	GetUnitSkill(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+156	@ tmp264,
-@ StatusScreen/DrawPages/src/DrawPage1.c:90: 	DrawStatScreenBar(2,5,5,	// Skl
-	ldrsb	r6, [r4, r6]	@ _15,* _15
-@ StatusScreen/DrawPages/src/DrawPage1.c:92: 	GetUnitSkill(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:93: 	unit->pClassData->maxSkl );
-	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:90: 	DrawStatScreenBar(2,5,5,	// Skl
-	ldrb	r3, [r3, #21]	@ tmp266,
+	ldr	r3, .L6+156	@ tmp271,
+@ StatusScreen/DrawPages/src/DrawPage1.c:91: 	DrawStatScreenBar(2,5,5,	// Skl
+	ldrsb	r7, [r4, r7]	@ _23,* _23
+@ StatusScreen/DrawPages/src/DrawPage1.c:93: 	GetUnitSkill(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:91: 	DrawStatScreenBar(2,5,5,	// Skl
 	movs	r2, #5	@,
-	lsls	r3, r3, #24	@ tmp266, tmp266,
-	asrs	r3, r3, #24	@ tmp266, tmp266,
-	str	r3, [sp, #4]	@ tmp266,
-	movs	r3, r6	@, _15
-@ StatusScreen/DrawPages/src/DrawPage1.c:95: 	DrawStatScreenBar(3,5,7,	// Spd
-	movs	r6, #22	@ _20,
-@ StatusScreen/DrawPages/src/DrawPage1.c:90: 	DrawStatScreenBar(2,5,5,	// Skl
-	lsls	r0, r0, #24	@ tmp268, tmp337,
-	asrs	r0, r0, #24	@ tmp267, tmp268,
-	movs	r1, r2	@,
-	str	r0, [sp]	@ tmp267,
-	movs	r0, #2	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:97: 	GetUnitSpeed(unit),
-	movs	r0, r4	@, unit
-	ldr	r3, .L2+160	@ tmp270,
-@ StatusScreen/DrawPages/src/DrawPage1.c:95: 	DrawStatScreenBar(3,5,7,	// Spd
-	ldrsb	r6, [r4, r6]	@ _20,* _20
-@ StatusScreen/DrawPages/src/DrawPage1.c:97: 	GetUnitSpeed(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:98: 	unit->pClassData->maxSpd );
+@ StatusScreen/DrawPages/src/DrawPage1.c:94: 	unit->pClassData->maxSkl );
 	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:95: 	DrawStatScreenBar(3,5,7,	// Spd
-	ldrb	r3, [r3, #22]	@ tmp272,
-	lsls	r3, r3, #24	@ tmp272, tmp272,
-	asrs	r3, r3, #24	@ tmp272, tmp272,
-	str	r3, [sp, #4]	@ tmp272,
-	movs	r3, r6	@, _20
-@ StatusScreen/DrawPages/src/DrawPage1.c:100: 	DrawStatScreenBar(4,5,9,	// Def
-	movs	r6, #23	@ _25,
-@ StatusScreen/DrawPages/src/DrawPage1.c:95: 	DrawStatScreenBar(3,5,7,	// Spd
-	lsls	r0, r0, #24	@ tmp274, tmp338,
-	asrs	r0, r0, #24	@ tmp273, tmp274,
+@ StatusScreen/DrawPages/src/DrawPage1.c:91: 	DrawStatScreenBar(2,5,5,	// Skl
+	ldrb	r3, [r3, #21]	@ tmp273,
+	lsls	r0, r0, #24	@ tmp275, tmp357,
+	lsls	r3, r3, #24	@ tmp273, tmp273,
+	asrs	r3, r3, #24	@ tmp273, tmp273,
+	asrs	r0, r0, #24	@ tmp274, tmp275,
+	movs	r1, r2	@,
+	str	r3, [sp, #4]	@ tmp273,
+	str	r0, [sp]	@ tmp274,
+	movs	r3, r7	@, _23
+	movs	r0, #2	@,
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:96: 	DrawStatScreenBar(3,5,7,	// Spd
+	movs	r7, #22	@ _28,
+@ StatusScreen/DrawPages/src/DrawPage1.c:98: 	GetUnitSpeed(unit),
+	movs	r0, r4	@, unit
+	ldr	r3, .L6+160	@ tmp277,
+@ StatusScreen/DrawPages/src/DrawPage1.c:96: 	DrawStatScreenBar(3,5,7,	// Spd
+	ldrsb	r7, [r4, r7]	@ _28,* _28
+@ StatusScreen/DrawPages/src/DrawPage1.c:98: 	GetUnitSpeed(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:99: 	unit->pClassData->maxSpd );
+	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
+@ StatusScreen/DrawPages/src/DrawPage1.c:96: 	DrawStatScreenBar(3,5,7,	// Spd
+	ldrb	r3, [r3, #22]	@ tmp279,
+	lsls	r0, r0, #24	@ tmp281, tmp358,
+	lsls	r3, r3, #24	@ tmp279, tmp279,
+	asrs	r3, r3, #24	@ tmp279, tmp279,
+	asrs	r0, r0, #24	@ tmp280, tmp281,
 	movs	r2, #7	@,
 	movs	r1, #5	@,
-	str	r0, [sp]	@ tmp273,
+	str	r3, [sp, #4]	@ tmp279,
+	str	r0, [sp]	@ tmp280,
+	movs	r3, r7	@, _28
 	movs	r0, #3	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:102: 	GetUnitDefense(unit),
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:101: 	DrawStatScreenBar(4,5,9,	// Def
+	movs	r7, #23	@ _33,
+@ StatusScreen/DrawPages/src/DrawPage1.c:103: 	GetUnitDefense(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+164	@ tmp276,
-@ StatusScreen/DrawPages/src/DrawPage1.c:100: 	DrawStatScreenBar(4,5,9,	// Def
-	ldrsb	r6, [r4, r6]	@ _25,* _25
-@ StatusScreen/DrawPages/src/DrawPage1.c:102: 	GetUnitDefense(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:103: 	unit->pClassData->maxDef );
+	ldr	r3, .L6+164	@ tmp283,
+@ StatusScreen/DrawPages/src/DrawPage1.c:101: 	DrawStatScreenBar(4,5,9,	// Def
+	ldrsb	r7, [r4, r7]	@ _33,* _33
+@ StatusScreen/DrawPages/src/DrawPage1.c:103: 	GetUnitDefense(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:104: 	unit->pClassData->maxDef );
 	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:100: 	DrawStatScreenBar(4,5,9,	// Def
-	ldrb	r3, [r3, #23]	@ tmp278,
-	lsls	r3, r3, #24	@ tmp278, tmp278,
-	asrs	r3, r3, #24	@ tmp278, tmp278,
-	str	r3, [sp, #4]	@ tmp278,
-	movs	r3, r6	@, _25
-@ StatusScreen/DrawPages/src/DrawPage1.c:105: 	DrawStatScreenBar(5,5,11,	// Res
-	movs	r6, #24	@ _30,
-@ StatusScreen/DrawPages/src/DrawPage1.c:100: 	DrawStatScreenBar(4,5,9,	// Def
-	lsls	r0, r0, #24	@ tmp280, tmp339,
-	asrs	r0, r0, #24	@ tmp279, tmp280,
+@ StatusScreen/DrawPages/src/DrawPage1.c:101: 	DrawStatScreenBar(4,5,9,	// Def
+	ldrb	r3, [r3, #23]	@ tmp285,
+	lsls	r0, r0, #24	@ tmp287, tmp359,
+	lsls	r3, r3, #24	@ tmp285, tmp285,
+	asrs	r3, r3, #24	@ tmp285, tmp285,
+	asrs	r0, r0, #24	@ tmp286, tmp287,
 	movs	r2, #9	@,
 	movs	r1, #5	@,
-	str	r0, [sp]	@ tmp279,
+	str	r3, [sp, #4]	@ tmp285,
+	str	r0, [sp]	@ tmp286,
+	movs	r3, r7	@, _33
 	movs	r0, #4	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:107: 	GetUnitResistance(unit),
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:106: 	DrawStatScreenBar(5,5,11,	// Res
+	movs	r7, #24	@ _38,
+@ StatusScreen/DrawPages/src/DrawPage1.c:108: 	GetUnitResistance(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+168	@ tmp282,
-@ StatusScreen/DrawPages/src/DrawPage1.c:105: 	DrawStatScreenBar(5,5,11,	// Res
-	ldrsb	r6, [r4, r6]	@ _30,* _30
-@ StatusScreen/DrawPages/src/DrawPage1.c:107: 	GetUnitResistance(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:108: 	unit->pClassData->maxRes );
-	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:105: 	DrawStatScreenBar(5,5,11,	// Res
-	ldrb	r3, [r3, #24]	@ tmp284,
+	ldr	r3, .L6+168	@ tmp289,
+@ StatusScreen/DrawPages/src/DrawPage1.c:106: 	DrawStatScreenBar(5,5,11,	// Res
+	ldrsb	r7, [r4, r7]	@ _38,* _38
+@ StatusScreen/DrawPages/src/DrawPage1.c:108: 	GetUnitResistance(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:106: 	DrawStatScreenBar(5,5,11,	// Res
 	movs	r1, #5	@,
-	lsls	r3, r3, #24	@ tmp284, tmp284,
-	asrs	r3, r3, #24	@ tmp284, tmp284,
-	str	r3, [sp, #4]	@ tmp284,
-	movs	r3, r6	@, _30
-@ StatusScreen/DrawPages/src/DrawPage1.c:110: 	DrawStatScreenBar(6,13,1,	// Lck
-	movs	r6, #25	@ _35,
-@ StatusScreen/DrawPages/src/DrawPage1.c:105: 	DrawStatScreenBar(5,5,11,	// Res
-	lsls	r0, r0, #24	@ tmp286, tmp340,
-	asrs	r0, r0, #24	@ tmp285, tmp286,
+@ StatusScreen/DrawPages/src/DrawPage1.c:109: 	unit->pClassData->maxRes );
+	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
+@ StatusScreen/DrawPages/src/DrawPage1.c:106: 	DrawStatScreenBar(5,5,11,	// Res
+	ldrb	r3, [r3, #24]	@ tmp291,
+	lsls	r0, r0, #24	@ tmp293, tmp360,
+	lsls	r3, r3, #24	@ tmp291, tmp291,
+	asrs	r3, r3, #24	@ tmp291, tmp291,
+	asrs	r0, r0, #24	@ tmp292, tmp293,
 	movs	r2, #11	@,
-	str	r0, [sp]	@ tmp285,
+	str	r3, [sp, #4]	@ tmp291,
+	str	r0, [sp]	@ tmp292,
+	movs	r3, r7	@, _38
 	movs	r0, r1	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:112: 	GetUnitLuck(unit),
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:111: 	DrawStatScreenBar(6,13,1,	// Lck
+	movs	r7, #25	@ _43,
+@ StatusScreen/DrawPages/src/DrawPage1.c:113: 	GetUnitLuck(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+172	@ tmp288,
-@ StatusScreen/DrawPages/src/DrawPage1.c:110: 	DrawStatScreenBar(6,13,1,	// Lck
-	ldrsb	r6, [r4, r6]	@ _35,* _35
-@ StatusScreen/DrawPages/src/DrawPage1.c:112: 	GetUnitLuck(unit),
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:110: 	DrawStatScreenBar(6,13,1,	// Lck
-	movs	r3, #30	@ tmp289,
-	lsls	r0, r0, #24	@ tmp291, tmp341,
-	asrs	r0, r0, #24	@ tmp290, tmp291,
+	ldr	r3, .L6+172	@ tmp295,
+@ StatusScreen/DrawPages/src/DrawPage1.c:111: 	DrawStatScreenBar(6,13,1,	// Lck
+	ldrsb	r7, [r4, r7]	@ _43,* _43
+@ StatusScreen/DrawPages/src/DrawPage1.c:113: 	GetUnitLuck(unit),
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:111: 	DrawStatScreenBar(6,13,1,	// Lck
+	movs	r3, #30	@ tmp296,
+	lsls	r0, r0, #24	@ tmp298, tmp361,
+	asrs	r0, r0, #24	@ tmp297, tmp298,
 	movs	r2, #1	@,
 	movs	r1, #13	@,
-	str	r3, [sp, #4]	@ tmp289,
-	str	r0, [sp]	@ tmp290,
-	movs	r3, r6	@, _35
+	str	r3, [sp, #4]	@ tmp296,
+	str	r0, [sp]	@ tmp297,
+	movs	r3, r7	@, _43
 	movs	r0, #6	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:116: 	*GetChaAt(unit),
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:117: 	*GetChaAt(unit),
 	movs	r0, r4	@, unit
-	ldr	r3, .L2+176	@ tmp293,
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:115: 	DrawStatScreenBar(7,13,3,	// Cha
-	movs	r7, #0	@ _39,
-	ldr	r3, .L2+180	@ tmp294,
-	ldrsb	r7, [r0, r7]	@ _39,* _39
+	ldr	r3, .L6+176	@ tmp300,
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:116: 	DrawStatScreenBar(7,13,3,	// Cha
+	movs	r7, #0	@ _47,
+	ldr	r3, .L6+180	@ tmp301,
+	ldrsb	r7, [r0, r7]	@ _47,* _47
 	movs	r0, r4	@, unit
-	bl	.L6		@
-	movs	r6, r0	@ tmp295, tmp343
-	ldr	r3, .L2+184	@ tmp297,
+	bl	.L10		@
+	ldr	r3, .L6+184	@ tmp304,
+	str	r0, [sp, #20]	@ tmp363, %sfp
 	movs	r0, r4	@, unit
-	bl	.L6		@
-	str	r6, [sp]	@ tmp295,
-@ StatusScreen/DrawPages/src/DrawPage1.c:121: 	unit->pClassData->baseMov,
-	movs	r6, #18	@ _43,
-@ StatusScreen/DrawPages/src/DrawPage1.c:115: 	DrawStatScreenBar(7,13,3,	// Cha
-	movs	r3, r7	@, _39
+	bl	.L10		@
+	ldr	r3, [sp, #20]	@ tmp302, %sfp
 	movs	r2, #3	@,
 	movs	r1, #13	@,
-	str	r0, [sp, #4]	@ tmp344,
+	str	r0, [sp, #4]	@ tmp364,
+	str	r3, [sp]	@ tmp302,
 	movs	r0, #7	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:121: 	unit->pClassData->baseMov,
+	movs	r3, r7	@, _47
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:122: 	unit->pClassData->baseMov,
+	movs	r7, #18	@ _51,
 	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:120: 	DrawStatScreenBar(8,13,5,	// Mov
+@ StatusScreen/DrawPages/src/DrawPage1.c:121: 	DrawStatScreenBar(8,13,5,	// Mov
 	movs	r0, r4	@, unit
-@ StatusScreen/DrawPages/src/DrawPage1.c:121: 	unit->pClassData->baseMov,
-	ldrsb	r6, [r3, r6]	@ _43,* _43
-@ StatusScreen/DrawPages/src/DrawPage1.c:120: 	DrawStatScreenBar(8,13,5,	// Mov
-	ldr	r3, .L2+188	@ tmp302,
-	bl	.L6		@
-	movs	r3, #15	@ tmp305,
+@ StatusScreen/DrawPages/src/DrawPage1.c:122: 	unit->pClassData->baseMov,
+	ldrsb	r7, [r3, r7]	@ _51,* _51
+@ StatusScreen/DrawPages/src/DrawPage1.c:121: 	DrawStatScreenBar(8,13,5,	// Mov
+	ldr	r3, .L6+188	@ tmp309,
+	bl	.L10		@
+	movs	r3, #15	@ tmp312,
 	movs	r1, #13	@,
-	str	r3, [sp, #4]	@ tmp305,
-	str	r0, [sp]	@ tmp345,
-	movs	r3, r6	@, _43
 	movs	r2, #5	@,
+	str	r3, [sp, #4]	@ tmp312,
+	str	r0, [sp]	@ tmp365,
+	movs	r3, r7	@, _51
 	movs	r0, #8	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:127: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
 	ldr	r2, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
+@ StatusScreen/DrawPages/src/DrawPage1.c:127: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
 	ldr	r3, [r4]	@ unit_2->pCharacterData, unit_2->pCharacterData
-@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
-	ldrb	r6, [r2, #17]	@ tmp310,
-	ldrb	r3, [r3, #19]	@ tmp312,
-@ StatusScreen/DrawPages/src/DrawPage1.c:125: 	DrawStatScreenBar(9,13,7,	// Con
+@ StatusScreen/DrawPages/src/DrawPage1.c:127: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
+	ldrb	r7, [r2, #17]	@ tmp317,
+	ldrb	r3, [r3, #19]	@ tmp319,
+@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	DrawStatScreenBar(9,13,7,	// Con
 	movs	r0, r4	@, unit
-@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
-	adds	r6, r6, r3	@ tmp313, tmp310, tmp312
-@ StatusScreen/DrawPages/src/DrawPage1.c:125: 	DrawStatScreenBar(9,13,7,	// Con
-	ldr	r3, .L2+192	@ tmp315,
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:128: 	unit->pClassData->maxCon );
+@ StatusScreen/DrawPages/src/DrawPage1.c:127: 	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
+	adds	r7, r7, r3	@ tmp320, tmp317, tmp319
+@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	DrawStatScreenBar(9,13,7,	// Con
+	ldr	r3, .L6+192	@ tmp322,
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:129: 	unit->pClassData->maxCon );
 	ldr	r3, [r4, #4]	@ unit_2->pClassData, unit_2->pClassData
-@ StatusScreen/DrawPages/src/DrawPage1.c:125: 	DrawStatScreenBar(9,13,7,	// Con
-	ldrb	r3, [r3, #25]	@ tmp319,
-	lsls	r6, r6, #24	@ tmp314, tmp313,
-	lsls	r3, r3, #24	@ tmp319, tmp319,
-	asrs	r6, r6, #24	@ _52, tmp314,
-	asrs	r3, r3, #24	@ tmp319, tmp319,
+@ StatusScreen/DrawPages/src/DrawPage1.c:126: 	DrawStatScreenBar(9,13,7,	// Con
+	ldrb	r3, [r3, #25]	@ tmp326,
+	lsls	r7, r7, #24	@ tmp321, tmp320,
+	lsls	r3, r3, #24	@ tmp326, tmp326,
+	asrs	r7, r7, #24	@ _60, tmp321,
+	asrs	r3, r3, #24	@ tmp326, tmp326,
 	movs	r2, #7	@,
 	movs	r1, #13	@,
-	str	r3, [sp, #4]	@ tmp319,
-	str	r0, [sp]	@ tmp346,
-	movs	r3, r6	@, _52
+	str	r3, [sp, #4]	@ tmp326,
+	str	r0, [sp]	@ tmp366,
+	movs	r3, r7	@, _60
 	movs	r0, #9	@,
-	bl	.L7		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:140: 	NuDrawStatScreenBwl();
-	ldr	r3, .L2+196	@ tmp321,
-	bl	.L6		@
-@ StatusScreen/DrawPages/src/DrawPage1.c:141: }
-	pop	{r0, r1, r2, r4, r5, r6, r7}
+	ldr	r7, [sp, #16]	@ tmp262, %sfp
+	bl	.L9		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:134: 	UnitExt* ext = GetUnitExtByUnit(unit);
+	movs	r0, r4	@, unit
+	ldr	r3, .L6+196	@ tmp328,
+	bl	.L10		@
+	movs	r4, r0	@ ext, tmp367
+@ StatusScreen/DrawPages/src/DrawPage1.c:135: 	if( NULL == ext )
+	cmp	r0, r5	@ ext,
+	beq	.L2		@,
+@ StatusScreen/DrawPages/src/DrawPage1.c:142: 		GetStringFromIndex(gpEqpString));
+	ldr	r3, .L6+200	@ tmp329,
+	ldrh	r0, [r3]	@ gpEqpString, gpEqpString
+	bl	.L8		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:138: 	DrawTextInline(		// Status
+	ldr	r6, .L6+204	@ tmp333,
+	movs	r3, r5	@, tmp193
+	movs	r2, #3	@,
+	ldr	r1, .L6+208	@ tmp332,
+	str	r0, [sp, #4]	@ tmp368,
+	str	r5, [sp]	@ tmp193,
+	movs	r0, r6	@ tmp333, tmp333
+	ldr	r5, [sp, #12]	@ tmp194, %sfp
+	bl	.L11		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:144: 	DrawIcon(
+	ldr	r3, .L6+212	@ tmp337,
+	ldrh	r0, [r4, #14]	@ tmp336,
+	bl	.L10		@
+	movs	r2, #128	@,
+	ldr	r3, .L6+216	@ tmp339,
+	movs	r1, r0	@ _13, tmp369
+	lsls	r2, r2, #7	@,,
+	movs	r0, r3	@ tmp339, tmp339
+	ldr	r3, .L6+220	@ tmp340,
+	bl	.L10		@
+.L2:
+@ StatusScreen/DrawPages/src/DrawPage1.c:158: 	NuDrawStatScreenBwl();
+	ldr	r3, .L6+224	@ tmp341,
+	bl	.L10		@
+@ StatusScreen/DrawPages/src/DrawPage1.c:159: }
+	add	sp, sp, #28	@,,
+	@ sp needed	@
+	pop	{r4, r5, r6, r7}
 	pop	{r0}
 	bx	r0
-.L3:
+.L7:
 	.align	2
-.L2:
+.L6:
 	.word	gStatScreen
 	.word	GetStringFromIndex
 	.word	1278
 	.word	gStatScreen+48
-	.word	gBmFrameTmap0+66
 	.word	DrawTextInline
+	.word	gBmFrameTmap0+66
 	.word	1279
-	.word	gBmFrameTmap0+194
 	.word	gStatScreen+112
+	.word	gBmFrameTmap0+194
 	.word	1260
-	.word	gBmFrameTmap0+322
 	.word	gStatScreen+56
+	.word	gBmFrameTmap0+322
 	.word	1261
-	.word	gBmFrameTmap0+450
 	.word	gStatScreen+64
+	.word	gBmFrameTmap0+450
 	.word	1263
-	.word	gBmFrameTmap0+578
 	.word	gStatScreen+80
-	.word	gBmFrameTmap0+706
+	.word	gBmFrameTmap0+578
 	.word	gStatScreen+88
+	.word	gBmFrameTmap0+706
 	.word	gpLuckString
-	.word	gBmFrameTmap0+82
 	.word	gStatScreen+72
+	.word	gBmFrameTmap0+82
 	.word	gpCharmString
-	.word	gBmFrameTmap0+210
 	.word	gStatScreen+128
-	.word	gBmFrameTmap0+338
+	.word	gBmFrameTmap0+210
 	.word	gStatScreen+96
+	.word	gBmFrameTmap0+338
 	.word	1271
-	.word	gBmFrameTmap0+466
 	.word	gStatScreen+104
+	.word	gBmFrameTmap0+466
 	.word	gpStatString
 	.word	gStatScreen+136
-	.word	gBmFrameTmap0+594
+	.word	gBmFrameTmap0+722
 	.word	GetUnitPower
 	.word	DrawStatScreenBar
 	.word	GetMagAt
@@ -473,16 +524,23 @@ StatScreen_DrawPage1:
 	.word	GetClassMaxCha
 	.word	GetMov
 	.word	GetCon
+	.word	GetUnitExtByUnit
+	.word	gpEqpString
+	.word	gStatScreen+120
+	.word	gBmFrameTmap0+594
+	.word	GetItemIconId
+	.word	gBmFrameTmap0+600
+	.word	DrawIcon
 	.word	NuDrawStatScreenBwl
 	.size	StatScreen_DrawPage1, .-StatScreen_DrawPage1
 	.ident	"GCC: (devkitARM release 56) 11.1.0"
 	.code 16
 	.align	1
-.L6:
+.L10:
 	bx	r3
-.L7:
+.L11:
 	bx	r5
-.L5:
+.L8:
 	bx	r6
-.L4:
+.L9:
 	bx	r7

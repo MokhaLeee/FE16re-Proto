@@ -147,5 +147,6 @@ void ClearMenuCommandOverride(void); //! FE8U = 0x804F6F9
 // 0x801E685
 void ForceMenuItemPanel(MenuProc*, Unit*, u8, u8);
 void UpdateMenuItemPanel(s8);
+void DrawItemMenuLine(struct TextHandle*, u16 item, u8 color, u16* Bg );
 
 #endif // GBAFE_MENU_H

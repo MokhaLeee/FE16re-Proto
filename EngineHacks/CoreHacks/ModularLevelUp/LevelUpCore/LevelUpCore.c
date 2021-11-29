@@ -5,8 +5,6 @@
 
 static int SetGrowthInline(MLU_Func func, u8 cnt, struct BattleUnit* bu, u8 bonus){
 	u8 total = func((Unit*)bu) + bonus;
-	if( total>100 )
-		total = 100;
 	
 	if( total > NextRN2s_100(cnt) )
 		return 1;

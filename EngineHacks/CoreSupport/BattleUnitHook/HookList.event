@@ -8,7 +8,8 @@ Unit2BattleFuncList:
 
 ALIGN 4
 Battle2UnitFuncList:
-	POIN BattleToUnitVanilla
+	POIN BattleToUnitVanilla_WpnExcept
+	POIN BattleToUnitSaveMagWpn
 	POIN BattleToUnit_SaveMagCha
 	WORD 0
 	

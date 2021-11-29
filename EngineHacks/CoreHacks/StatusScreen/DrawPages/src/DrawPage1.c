@@ -2,6 +2,7 @@
 #include "StatusScreen.h"
 #include "StatusGetter.h"
 #include "StrMagCha.h"
+#include "MagicSystem.h"
 
 static void DrawPage1_Texts(){
 	// Draw Text
@@ -69,7 +70,7 @@ static void DrawPage1_Texts(){
 	
 	DrawTextInline(		// Status
 		&gStatScreen.text[STATSCREEN_TEXT_STATUS],
-		gBmFrameTmap0 + TILEMAP_INDEX(9, 9),
+		gBmFrameTmap0 + TILEMAP_INDEX(9, 11),
 		TEXT_COLOR_GOLD, 0, 0,
 		GetStringFromIndex(gpStatString));
 }
@@ -129,6 +130,22 @@ static void DrawPage1_NumBar(Unit* unit){
 }
 
 
+static void DrawPage1_WpnEqp(Unit* unit){
+	UnitExt* ext = GetUnitExtByUnit(unit);
+	if( NULL == ext )
+		return;
+	
+	DrawTextInline(		// Status
+		&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
+		gBmFrameTmap0 + TILEMAP_INDEX(9, 9),
+		TEXT_COLOR_GOLD, 0, 0,
+		GetStringFromIndex(gpEqpString));
+	
+	DrawIcon(
+        gBmFrameTmap0 + TILEMAP_INDEX(12, 9),
+        GetItemIconId(ext->WpnEqp),
+        TILEREF(0, STATSCREEN_BGPAL_ITEMICONS));
+}
 
 
 // ORG 0x8087184
@@ -137,6 +154,7 @@ void StatScreen_DrawPage1(void){
 	
 	DrawPage1_Texts();
 	DrawPage1_NumBar(unit);
+	DrawPage1_WpnEqp(unit);
 	NuDrawStatScreenBwl();
 }
 

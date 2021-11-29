@@ -17,7 +17,7 @@ ORG FreeSpaceBLRange 	//defined in custom definitions
 #undef inBLRange
 POP
 
-	MESSAGE _CoreSupport_At CURRENTOFFSET
+
 	#include "CoreSupport/UnitMenu/UnitMenu.event"
 	#include "CoreSupport/UnitActionRework/UnitActionRework.event"
 	#include "CoreSupport/IconDisplay/IconDisplay.event"
@@ -26,7 +26,8 @@ POP
 	#include "CoreSupport/ExpandedModularSave/ExModularSave.event"
 	#include "CoreSupport/MoveLimitViewFix/MoveLimitViewFix.event"
 
-	MESSAGE _CoreHacks_At CURRENTOFFSET
+
+
 	#include "CoreHacks/StatusGetter/StatusGetter.event"
 	#include "CoreHacks/RecoverableRN/RecoverableRN.event"
 	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
@@ -35,10 +36,11 @@ POP
 	#include "CoreHacks/SkillSystem/SkillSystem.event"
 	#include "CoreHacks/AOE_Attack/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
+	#include "CoreHacks/MagicSystem/MagicSystem.event"
 
-	MESSAGE _External_At CURRENTOFFSET
+
 	#include "External/HpBars/HpBars.event"
 	#include "External/MovementArrowHack/MovementArrowHack.event"
-
+	#include "External/FixWpnRnk.event"
 
 

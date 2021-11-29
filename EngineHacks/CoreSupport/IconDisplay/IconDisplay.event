@@ -44,8 +44,9 @@ IDRIconUsageLookup:
 #endif
 
 IDRIconGetters:
-	POIN GetVanillaIconGfx // Sheet #0, vanilla
-
+	POIN GetVanillaIconGfx 	// Sheet #0, vanilla
+//	POIN GetSkillIconGfx	// Sheet #1, Skill Icons
+//	POIN GetIconSheet3Gfx	// Sheet #2, StatusScreen Page3
 	ORG (IDRIconGetters + 4 * ICON_SHEET_COUNT)
 
 #define InjectIconSheet(aSheetIndex, aIconGetterFunc) "PUSH; ORG IDRIconGetters + 4 * (aSheetIndex); POIN (aIconGetterFunc); POP"
