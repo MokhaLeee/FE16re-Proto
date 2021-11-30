@@ -3,11 +3,16 @@
 
 	#include "src/MagMenuCore.lyn.event"
 
+
+
+	// ==================================
+	// ========== Black  Magic ==========
+	// ==================================
 	ALIGN 4
 	BMagSelectMenu:
 		BYTE 	$0 $0 $0F $0				//Geometry
-		WORD 	$0
-		POIN 	BMagSlelct_MenuCmdTable	//Pointer to command definitions
+		WORD	0
+		POIN 	BMagSlelct_MenuCmdTable		//Pointer to command definitions
 		WORD 	$0 $0 $0 
 		POIN	$22861						//B Press
 		POIN	$4F521 						//R Press
@@ -28,5 +33,36 @@
 		UM_Separator
 	
 	
+	
+	
+	
+	// ==================================
+	// ========== White  Magic ==========
+	// ==================================
+	ALIGN 4
+	WMagSelectMenu:
+		BYTE 	$0 $0 $0F $0				//Geometry
+		WORD 	$0
+		POIN 	WMagSlelct_MenuCmdTable	//Pointer to command definitions
+		WORD 	$0 $0 $0 
+		POIN	$22861						//B Press
+		POIN	$4F521 						//R Press
+		POIN	$4F459						//HelpBox
+	
+	#define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, 0x8023C69)"
+	
+	ALIGN 4
+	WMagSlelct_MenuCmdTable:
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		
+		UM_Separator
 	
 #endif // MAGIC_SYSTEM_FE16RE_MENU

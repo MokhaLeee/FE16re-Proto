@@ -12,7 +12,7 @@ typedef struct
     u16 msgName;      //* name text id
     u16 msgDesc;      //* description text id
     const void* icon; //* icon gfx address
-	u8 unk[8];
+	u8 unk[4];
 } SkillInfo;
 
 extern const SkillInfo* const SkillInfoTable[];

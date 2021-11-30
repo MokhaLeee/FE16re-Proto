@@ -1,6 +1,6 @@
 
 ALIGN 4
 ChapterInitFuncList:
-	POIN InitRN2|1
-	POIN ResetUnitMagic|1
+	POIN InitRN2
+	POIN ResetUnitsMagic
 	WORD $0 $0

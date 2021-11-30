@@ -2,9 +2,10 @@
 #include "MagicSystem.h"
 #include "UnitExt.h"
 #include "StrMagCha.h"
-extern TargetSelectionDefinition gpTargetSelectFuncs_Attack[];
-static u16 itemDura(u8 use){ return (u16)use << 8; }
 
+#define ITEM_DURA(use) use<<8
+extern TargetSelectionDefinition gpTargetSelectFuncs_Attack[];
+static int SetWpnEqp(Unit* unit, u16 item);
 
 static int isUnitAlly(Unit* unit){
 	if( unit->index < 0x40 )
@@ -13,18 +14,22 @@ static int isUnitAlly(Unit* unit){
 		return FALSE;
 }
 
-// W.I.P.
+
 static int trySetEqpMag(Unit* unit){
+	u16 mag = 0;
 	UnitExt* ext = GetUnitExtByUnit(unit);
 	if( NULL == ext )
 		return FALSE;
 	
-	if( 1 == isMagListEmpty(ext) )
-		return FALSE;
+	for(int i=0; i<0xF; i++)
+		if( 0!=GetBMagUse(ext,i) )
+		{
+			mag = MAKE_ITEM( gpBMagList[i].index, GetBMagUse(ext,i) );
+			SetWpnEqp(unit, mag);
+			return TRUE;
+		}
 	
-	u16 item = itemDura(ext->mlist.m[0]) | 0x3D;
-	SetWpnEqp(unit, item);
-	return TRUE;
+		return FALSE;
 }
 
 static int trySetEqpPhy(Unit* unit){
@@ -36,7 +41,7 @@ static int trySetEqpPhy(Unit* unit){
 	
 }
 
-int SetWpnEqp(Unit* unit, u16 item){
+static int SetWpnEqp(Unit* unit, u16 item){
 	UnitExt* unitExt = GetUnitExtByUnit(unit);
 	
 	if( NULL == unitExt )
@@ -44,6 +49,25 @@ int SetWpnEqp(Unit* unit, u16 item){
 	
 	if( 0 == TestWpn(item) )
 		return FALSE;		
+	
+	unitExt->WpnEqp = item;
+	
+	if( 0 == ITEM_USE(item) )
+		unitExt->WpnEqp = 0;
+	
+	return TRUE;
+}
+
+
+u16 GetWpnEqp(UnitExt* ext){
+	return ext->WpnEqp;
+}
+
+int SetWpnEqpForce(Unit* unit, u16 item){
+	UnitExt* unitExt = GetUnitExtByUnit(unit);
+	
+	if( NULL == unitExt )
+		return FALSE;	
 	
 	unitExt->WpnEqp = item;
 	if( 0 == (item&0xFF) )
@@ -66,12 +90,13 @@ int SaveEqpToMag(UnitExt* ext, u16 item){
 }
 
 int SetWpnEqpAuto(Unit* unit){
-	UnitExt* unitExt = GetUnitExtByUnit(unit);
-	if( NULL == unitExt )
+	UnitExt* ext = GetUnitExtByUnit(unit);
+	if( NULL == ext )
 		return 2;
 	
-	if( 0 != unitExt->WpnEqp )
-		return 0;
+	if( 0 != ext->WpnEqp )
+		if( 0!=TestWpn(ext->WpnEqp) )
+			return 0;
 	
 	if( *GetMagAt(unit) > unit->pow )
 		if( 1==trySetEqpMag(unit) )
@@ -88,6 +113,7 @@ int SetWpnEqpAuto(Unit* unit){
 // with asm
 // 0=normal; 1=mag
 int SetupBattleWpnCore(struct BattleUnit* bu){
+	u8 shouldAuto = FALSE;
 	UnitExt* ext = GetUnitExtByUnit((Unit*)bu);
 	
 	if( NULL == ext )
@@ -96,11 +122,20 @@ int SetupBattleWpnCore(struct BattleUnit* bu){
 	if( !isUnitAlly( (Unit*)bu ) )
 		return 0;
 	
-	if( 0 == ext->WpnEqp )
+	// No equipment or equip with W.Mag
+	if( &gBattleActor == bu )	// 默认攻击者已经装备好了(默认不处理Cp)
+		shouldAuto = FALSE;
+	else if( 0==ext->WpnEqp )
+		shouldAuto = TRUE;
+	else if( 0==TestWpn(ext->WpnEqp) )
+		shouldAuto = TRUE;		// 去掉W.Mag
+	
+	if( shouldAuto )
 		if( 0 == SetWpnEqpAuto((Unit*)bu) )
 			return 0;
 	
-	if( 1 != TestWpn(ext->WpnEqp) )
+	//if( 1 != TestWpn(ext->WpnEqp) )
+	if( !IsItemMagic(ext->WpnEqp) )
 		return 0;
 	
 	// W.I.P
@@ -128,7 +163,7 @@ int newSubAttackEffect(MenuProc* pmu, MenuCommandProc* pcmd){
 	u16 wpn = gActiveUnit->items[pcmd->commandDefinitionIndex];
 	
 	// Set Wpn-Eqp System
-	SetWpnEqp(gActiveUnit,wpn);
+	SetWpnEqpForce(gActiveUnit,wpn);
 	EquipUnitItemSlot(
 		gActiveUnit, 
 		pcmd->commandDefinitionIndex);

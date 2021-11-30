@@ -1,0 +1,13 @@
+#ifndef MAGICSYSTEM_SETLIST
+#define MAGICSYSTEM_SETLIST
+
+
+
+
+#include "core/SetListCore.lyn.event"
+
+
+
+
+
+#endif

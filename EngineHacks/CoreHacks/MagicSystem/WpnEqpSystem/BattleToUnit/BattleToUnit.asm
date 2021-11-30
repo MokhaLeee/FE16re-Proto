@@ -248,7 +248,7 @@ BattleToUnitSaveMagWpn:
 	ldrsb	r3, [r5, r3]	@ tmp154,
 	cmp	r3, #63	@ tmp154,
 	bgt	.L14		@,
-@ MagicSystem/WpnEqpSystem/BattleToUnit/BattleToUnit.c:55: 		SetWpnEqp(unit,sItem);
+@ MagicSystem/WpnEqpSystem/BattleToUnit/BattleToUnit.c:55: 		SetWpnEqpForce(unit,sItem);
 	movs	r1, r7	@, sItem
 	ldr	r3, .L15+4	@ tmp155,
 	movs	r0, r5	@, unit
@@ -266,7 +266,7 @@ BattleToUnitSaveMagWpn:
 	.align	2
 .L15:
 	.word	GetUnitExtByUnit
-	.word	SetWpnEqp
+	.word	SetWpnEqpForce
 	.word	SaveEqpToMag
 	.size	BattleToUnitSaveMagWpn, .-BattleToUnitSaveMagWpn
 	.ident	"GCC: (devkitARM release 56) 11.1.0"

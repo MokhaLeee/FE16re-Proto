@@ -18,6 +18,13 @@ PUSH
 	
 	// BattleToUnit should not save magic weapon
 	// This is in BattleUnitHook
+	
+	// Set bu in Staff
+	ORG $2CB28
+	jumpToHack(UnitToBattleStaff)
+	
+	ORG $2FC58
+	jumpToHack(ActionStaffGetItem)
 POP
 
 #endif // MAGIC_SYSTEM_FE16RE_WPNEQP

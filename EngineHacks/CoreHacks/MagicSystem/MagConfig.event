@@ -1,0 +1,55 @@
+#ifndef MAGIC_SYSTEM_CONFIG
+#define MAGIC_SYSTEM_CONFIG
+
+#define MagList(id,base) "BYTE id base 0 0; WORD 0"
+
+ALIGN 4
+BMagList:
+{
+	MagList(Fire,7)
+	MagList(Thunder,7)
+	MagList(Elfire,7)
+	MagList(Bolting,7)
+	
+	MagList(Fimbulvetr,7)
+	MagList(Forblaze,7)
+	MagList(Excalibur,7)
+	MagList(Lightning,7)
+	
+	MagList(Shine,7)
+	MagList(Divine,7)
+	MagList(Purge,7)
+	MagList(Aura,7)
+	
+	MagList(Flux,7)
+	MagList(Luna,7)
+	MagList(Nosferatu,7)
+	WORD 0 0
+}
+
+ALIGN 4
+WMagList:
+{
+	MagList(Heal,7)
+	MagList(Mend,7)
+	MagList(Recover,7)
+	MagList(Physic,7)
+	
+	MagList(Fortify,7)
+	MagList(Restore,7)
+	MagList(Silence,7)
+	MagList(Sleep,7)
+	
+	MagList(Berserk,7)
+	MagList(Warp,7)
+	MagList(Rescue,7)
+	MagList(TorchStaff,7)
+	
+	MagList(Hammerne,7)
+	MagList(Unlock,7)
+	MagList(Barrier,7)
+	WORD 0 0
+}	
+	
+	
+#endif // MAGIC_SYSTEM_CONFIG

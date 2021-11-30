@@ -1,11 +1,11 @@
-#ifndef STATIC_VALUE
-#define STATIC_VALUE
+#ifndef VALUE_GLOBAL
+#define VALUE_GLOBAL
 
 ALIGN 4
-ReturnTRUE:
+PUSH; ORG CURRENTOFFSET+1; ReturnTRUE:; POP
 	SHORT $2001 $4770	// mov r0,#1; 	bx lr;
-
-ReturnFALSE:
+	
+PUSH; ORG CURRENTOFFSET+1; ReturnFALSE:; POP
 	SHORT $2000 $4770	// mov r0,#0; 	bx lr;
 
 
@@ -45,4 +45,4 @@ gpStatString:
 gpEqpString:
 	SHORT ssWpnEqpName
 
-#endif // STATIC_VALUE
+#endif // VALUE_GLOBAL

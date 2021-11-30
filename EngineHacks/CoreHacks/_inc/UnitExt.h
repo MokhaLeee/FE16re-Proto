@@ -38,7 +38,6 @@ UnitExt* GetUnitExt(u8 index);
 UnitExt* GetUnitExtByCharID(u8 number);
 UnitExt* GetUnitExtByUnit(Unit* unit);
 
-
 // Mod Save
 void UnitExt_SaveSa(void* dest, unsigned size);
 void UnitExt_LoadSa(const void* src, unsigned size);

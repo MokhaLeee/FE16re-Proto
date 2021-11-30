@@ -9,7 +9,8 @@ IconSheet3:
 ORG IconSheet3 + 4*MAX_SIZE_IconSheet3
 #define SetIcon3(id,icon) "PUSH; ORG 4*id+IconSheet3; POIN icon; POP;"
 
-#include "gfx/gfx.event"
+#include "mastery/_mastery.event"
+//#include "magic/_magic.event"
 
 #include "src/mss_IconCore.lyn.event"
 InjectIconSheet(2, GetIconSheet3Gfx)

@@ -1,50 +1,56 @@
 ## umBMagName
-B.Magic
+ B.Magic
 
 ## umBMagDesc
 B.Magic
 
+## umWMagName
+ W.Magic
+
+## umWMagDesc
+W.Magic
+
 
 ## umGambitName
-Gambit
+ Gambit
 
 ## umGambitDesc
 Gambit: Three House's[N]
 Style AOE attack.
 
 ## umAOEDefaultName
-Default
+ Default
 
 ## umAOEDefaultDesc
 Default
 
 ## umAOEAssemblyName
-Assembly
+ Assembly
 
 ## umAOEAssemblyDesc
 Assembly
 
 ## umAOEBaszeName
-Basze
+ Basze
 
 ## umAOEBaszeDesc
 Basze
 
 ## umAOEAbsorptionName
-Absorption
+ Absorption
 
 ## umAOEAbsorptionDesc
 Absorption
 
 ## umAOEFusilladeName
-Fusillade
+ Fusillade
 
 ## umAOEFusilladeDesc
 Fusillade
 
 
 ## umAOEFireArrowsName
-FireArrows
+ FireArrows
 
 ## umAOEFireArrowsDesc
 FireArrows

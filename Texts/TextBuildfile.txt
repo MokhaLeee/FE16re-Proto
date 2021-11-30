@@ -1,6 +1,9 @@
 #0x212
 Lysithea
 
+#0x4EC
+Skl
+
 #0x903 msgCharmName
 Charm
 

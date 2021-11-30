@@ -2,8 +2,10 @@
 #define GBAFE_ITEM_H
 
 // bmitem.c
-
 #include "unit.h"
+#define MAKE_ITEM(id,use) (id&0xFF)|((use&0xFF)<<8)
+#define ITEM_USE(item) ( (item>>8) & 0xFF)
+#define ITEM_ID(item) (item & 0xFF)
 
 
 typedef u16 Item;
@@ -239,9 +241,7 @@ const ItemData* GetItemData(u8); //! FE8U = 0x80177B1
 
 
 // Mokha
-#define MAKE_ITEM(id,use) (id&0xFF)|((use&0xFF)<<8)
-#define ITEM_USE(item) ( (item>>8) & 0xFF)
-#define ITEM_ID(item) (item & 0xFF)
+
 
 // 0x802C0B5
 u8 GetBattleUnitUpdatedWeaponExp(struct BattleUnit*);

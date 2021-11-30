@@ -52,7 +52,7 @@ void BattleToUnitSaveMagWpn(Unit* unit, BattleUnit* bu){
 	
 	if( (NULL!=ext) && (1==isUnitAlly(unit)) )
 	{										//只对我军生效
-		SetWpnEqp(unit,sItem);
+		SetWpnEqpForce(unit,sItem);
 		if( TRUE == SaveEqpToMag(ext,sItem) )	//如果是魔法就不用再保存了
 			return;
 	}

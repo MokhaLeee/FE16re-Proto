@@ -38,7 +38,6 @@ ORG FreeSpace
 // For Debug
 MESSAGE
 
-
 PUSH
 	ORG	$2C5AC
 	BYTE $64 $20	//Exp=100

@@ -12,6 +12,11 @@ enum{
 	MAG_IS_SET	= (1<<0),
 };
 
+enum{	// mag type
+	EPHY = 0,
+	EBMAG = 1,
+	EWMAG = 2,
+};
 
 typedef struct MagListInfo MagListInfo;
 struct MagListInfo{
@@ -23,13 +28,15 @@ struct MagListInfo{
 extern const MagListInfo* gpBMagList;
 extern const MagListInfo* gpWMagList;
 extern const MenuDefinition BMagSelectMenu;
+extern const MenuDefinition WMagSelectMenu;
 extern const TargetSelectionDefinition gTSfunc_BMag;
-
+extern const TargetSelectionDefinition gTSfunc_WMag;
 
 // Get
 // If not, return 0x10
 u8 GetBMagOffset(u16 item);
 u8 GetWMagOffset(u16 item);
+
 
 // If not, return 0xFF
 u8 GetBMagUse(UnitExt*, u8);
@@ -41,12 +48,13 @@ u8 GetWMagUse(UnitExt*, u8);
 int isUnitMagSet(UnitExt* ext);
 // SetUnitMagItem
 int SaveEqpToMag(UnitExt* ext, u16);
-int isMagListEmpty(UnitExt* ext);
+int isBMagListEmpty(UnitExt* ext);
+
 
 // 0=Not Wpn; 1=Magic; 2=Physical Wpn
 int TestWpn(u16 item);
 
-// 0=no, 1=true
+// 0=no, 1=true W.I.P. 可以考虑后续只处理列表中的情况
 int IsItemMagic(u16 item);
 
 
@@ -58,8 +66,9 @@ int SetWMagItem(UnitExt* ext, u16 item);
 
 
 // Weapon-Equipment System
-int SetWpnEqp(Unit*,Item);
+int SetWpnEqpForce(Unit* unit, u16 item);
 int SetWpnEqpAuto(Unit* unit);	// 2=Unit has not extension; 0=dont need set
+u16 GetWpnEqp(UnitExt*);
 
 // On Chapter Init
-void ResetUnitMagic(void);
+void ResetUnitsMagic(void);

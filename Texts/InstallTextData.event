@@ -13,6 +13,10 @@ __TEXTPROCESS212:
 #incbin ".TextEntries/TextBuildfile212.fetxt"
 setText($212, __TEXTPROCESS212)
 
+__TEXTPROCESS4EC:
+#incbin ".TextEntries/TextBuildfile4EC.fetxt"
+setText($4EC, __TEXTPROCESS4EC)
+
 __TEXTPROCESS903:
 #incbin ".TextEntries/TextBuildfilemsgCharmName.fetxt"
 setText($903, __TEXTPROCESS903)
@@ -86,60 +90,68 @@ __TEXTPROCESS914:
 setText($914, __TEXTPROCESS914)
 
 __TEXTPROCESS915:
-#incbin ".TextEntries/TextBuildfileumGambitName.fetxt"
+#incbin ".TextEntries/TextBuildfileumWMagName.fetxt"
 setText($915, __TEXTPROCESS915)
 
 __TEXTPROCESS916:
-#incbin ".TextEntries/TextBuildfileumGambitDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumWMagDesc.fetxt"
 setText($916, __TEXTPROCESS916)
 
 __TEXTPROCESS917:
-#incbin ".TextEntries/TextBuildfileumAOEDefaultName.fetxt"
+#incbin ".TextEntries/TextBuildfileumGambitName.fetxt"
 setText($917, __TEXTPROCESS917)
 
 __TEXTPROCESS918:
-#incbin ".TextEntries/TextBuildfileumAOEDefaultDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumGambitDesc.fetxt"
 setText($918, __TEXTPROCESS918)
 
 __TEXTPROCESS919:
-#incbin ".TextEntries/TextBuildfileumAOEAssemblyName.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEDefaultName.fetxt"
 setText($919, __TEXTPROCESS919)
 
 __TEXTPROCESS91A:
-#incbin ".TextEntries/TextBuildfileumAOEAssemblyDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEDefaultDesc.fetxt"
 setText($91A, __TEXTPROCESS91A)
 
 __TEXTPROCESS91B:
-#incbin ".TextEntries/TextBuildfileumAOEBaszeName.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEAssemblyName.fetxt"
 setText($91B, __TEXTPROCESS91B)
 
 __TEXTPROCESS91C:
-#incbin ".TextEntries/TextBuildfileumAOEBaszeDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEAssemblyDesc.fetxt"
 setText($91C, __TEXTPROCESS91C)
 
 __TEXTPROCESS91D:
-#incbin ".TextEntries/TextBuildfileumAOEAbsorptionName.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEBaszeName.fetxt"
 setText($91D, __TEXTPROCESS91D)
 
 __TEXTPROCESS91E:
-#incbin ".TextEntries/TextBuildfileumAOEAbsorptionDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEBaszeDesc.fetxt"
 setText($91E, __TEXTPROCESS91E)
 
 __TEXTPROCESS91F:
-#incbin ".TextEntries/TextBuildfileumAOEFusilladeName.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEAbsorptionName.fetxt"
 setText($91F, __TEXTPROCESS91F)
 
 __TEXTPROCESS920:
-#incbin ".TextEntries/TextBuildfileumAOEFusilladeDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEAbsorptionDesc.fetxt"
 setText($920, __TEXTPROCESS920)
 
 __TEXTPROCESS921:
-#incbin ".TextEntries/TextBuildfileumAOEFireArrowsName.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEFusilladeName.fetxt"
 setText($921, __TEXTPROCESS921)
 
 __TEXTPROCESS922:
-#incbin ".TextEntries/TextBuildfileumAOEFireArrowsDesc.fetxt"
+#incbin ".TextEntries/TextBuildfileumAOEFusilladeDesc.fetxt"
 setText($922, __TEXTPROCESS922)
+
+__TEXTPROCESS923:
+#incbin ".TextEntries/TextBuildfileumAOEFireArrowsName.fetxt"
+setText($923, __TEXTPROCESS923)
+
+__TEXTPROCESS924:
+#incbin ".TextEntries/TextBuildfileumAOEFireArrowsDesc.fetxt"
+setText($924, __TEXTPROCESS924)
 
 }
 

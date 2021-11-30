@@ -27,7 +27,7 @@ POP
 	#include "CoreSupport/MoveLimitViewFix/MoveLimitViewFix.event"
 
 
-
+	// System-Level EngineHack
 	#include "CoreHacks/StatusGetter/StatusGetter.event"
 	#include "CoreHacks/RecoverableRN/RecoverableRN.event"
 	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
@@ -37,6 +37,9 @@ POP
 	#include "CoreHacks/AOE_Attack/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
 	#include "CoreHacks/MagicSystem/MagicSystem.event"
+	
+	// Some Fix
+	#include "CoreHacks/RangeGetter2/RangeGetterMokha.event"
 
 
 	#include "External/HpBars/HpBars.event"
