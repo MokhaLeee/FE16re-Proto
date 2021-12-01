@@ -341,10 +341,13 @@ enum {
 	CA_TRIANGLEATTACK_ANY = CA_TRIANGLEATTACK_ARMORS | CA_TRIANGLEATTACK_PEGASI,
 };
 
+#define UNIT_CLASS(aUnit) aUnit->pClassData
+#define UNIT_CHAR(aUnit) aUnit->pCharacterData
+#define UNIT_CLASSID(aUnit) (aUnit->pClassData->number)
+#define UNIT_CHARID(aUnit) (aUnit->pCharacterData->number)
+
 #define UNIT_IS_VALID(aUnit) ((aUnit) && (aUnit)->pCharacterData)
-
 #define UNIT_FACTION(aUnit) ((aUnit)->index & 0xC0)
-
 #define UNIT_CATTRIBUTES(aUnit) ((aUnit)->pCharacterData->attributes | (aUnit)->pClassData->attributes)
 
 #define UNIT_MHP_MAX(aUnit) (UNIT_FACTION(unit) == FACTION_RED ? 120 : 60)
@@ -376,6 +379,7 @@ extern const struct ClassData gClassData[];
 
 extern struct Unit gUnitArrayBlue[]; //! FE8U = 0x202BE4C
 extern struct Unit* gActiveUnit; //! FE8U = 0x3004E50
+extern struct Unit* gUnitSubject; //! FE8U = 0x2033F3C
 extern struct Unit* const gUnitLookup[]; //! FE8U = 0x859A5D0
 
 extern u8 gActiveUnitId; //! FE8U = 0x202BE44

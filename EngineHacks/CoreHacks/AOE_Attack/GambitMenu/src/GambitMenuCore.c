@@ -1,12 +1,15 @@
 #include "AOEAttack.h"
+#include "Common.h"
 
 int Gambit_UpperMenu_Usability(const MenuCommandDefinition* cmddef, int param){
-	if( gActiveUnit->state & 0x40 )
-		return 3;
+	//if( gActiveUnit->state & 0x40 )
+		//return 3;
+	gUnitSubject = gActiveUnit;
 	MakeTargetListFor_SubGambitMenu(gActiveUnit,0x2);
 	if( 0 == gTargetArraySize )
 		return 3;
-	return 1;
+	else
+		return 1;
 }
 
 

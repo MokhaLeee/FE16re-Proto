@@ -1,8 +1,9 @@
 #include "AOEAttack.h"
+#include "Common.h"
 void MakeTargetListFor_SubGambitMenu(Unit* unit,u8 range){
 	InitTargets(unit->xPos,unit->yPos);
 	BmMapFill(gMapRange,0);
-	MapIncInBoundedRange(unit->xPos,unit->yPos,0,range);
+	MapIncInBoundedRange(unit->xPos,unit->yPos,1,range);
 	ForEachUnitInRange(AddUnitToTargetListIfNotAllied);
 	
 	return;

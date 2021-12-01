@@ -13,11 +13,12 @@ ORG FreeSpaceBLRange 	//defined in custom definitions
 #define inBLRange
 	
 	#include "CoreHacks/StrMagChaSplit/BLRange.event"
-	
+
 #undef inBLRange
 POP
 
-
+	#include "../_Val_Global.event"
+	
 	#include "CoreSupport/UnitMenu/UnitMenu.event"
 	#include "CoreSupport/UnitActionRework/UnitActionRework.event"
 	#include "CoreSupport/IconDisplay/IconDisplay.event"
@@ -45,5 +46,6 @@ POP
 	#include "External/HpBars/HpBars.event"
 	#include "External/MovementArrowHack/MovementArrowHack.event"
 	#include "External/FixWpnRnk.event"
+	#include "External/SemitransparencyChanges.event"
 
 

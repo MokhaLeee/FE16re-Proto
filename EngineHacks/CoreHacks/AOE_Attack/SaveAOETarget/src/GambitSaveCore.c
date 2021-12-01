@@ -1,4 +1,5 @@
 #include "AOEAttack.h"
+#include "Common.h"
 
 void SaveTarget_PostGambitTargetSelection(void){
 	s8 size = (s8)gTargetArraySize;

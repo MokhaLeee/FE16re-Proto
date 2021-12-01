@@ -68,7 +68,6 @@ void MakeGambitEffect(ProcGamAction* proc, Unit* TargetUnit);
 
 
 // Expanded Save
-extern u8* gpCommonFlagSaveSu;
 void SaveTarget_PostGambitTargetSelection(void);
 void ClearTarget_CommonFlagSaveSu(void);
 

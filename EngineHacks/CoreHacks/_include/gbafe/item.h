@@ -3,9 +3,10 @@
 
 // bmitem.c
 #include "unit.h"
+
 #define MAKE_ITEM(id,use) (id&0xFF)|((use&0xFF)<<8)
 #define ITEM_USE(item) ( (item>>8) & 0xFF)
-#define ITEM_ID(item) (item & 0xFF)
+#define ITEM_ID(item) (item & 0xFF) 
 
 
 typedef u16 Item;
@@ -172,6 +173,7 @@ int MakeNewItem(u8 id); //! FE8U = (0x08016540+1)
 int CanUnitUseWeapon(const struct Unit*, int item); //! FE8U = (0x08016574+1)
 int CanUnitUseWeaponNow(const struct Unit*, int item); //! FE8U = (0x08016750+1)
 
+int CanUnitUseItem(const Unit*, u16 item); // ! FE8U = (0x8028870+1)
 int CanUnitUseStaff(const struct Unit*, int item); //! FE8U = (0x080167A4+1)
 int CanUnitUseStaffNow(const struct Unit*, int item); //! FE8U = (0x08016800+1)
 

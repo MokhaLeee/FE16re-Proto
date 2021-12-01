@@ -1,4 +1,3 @@
-256
 0x00 (No one/Not referenced)
 0x01 Eirika
 0x02 Seth

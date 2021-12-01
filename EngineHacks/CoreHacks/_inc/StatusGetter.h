@@ -1,6 +1,22 @@
 #pragma once
 #include "gbafe.h"
 
+enum{
+	// For Class Rank
+	TH_CLASS_E 	= 1,
+	TH_CLASS_EP	= 2,
+	TH_CLASS_D	= 3,
+	TH_CLASS_DP	= 4,
+	TH_CLASS_C	= 5,
+	TH_CLASS_CP	= 6,
+	TH_CLASS_B	= 7,
+	TH_CLASS_BP	= 8,
+	TH_CLASS_A	= 9,
+	TH_CLASS_AP	= 10,
+	TH_CLASS_S	= 11,
+	TH_CLASS_SP	= 12,
+};
+
 // Status Getters
 s8 GetPow(Unit* unit);
 s8 GetSpd(Unit* unit);
@@ -17,6 +33,9 @@ s8 GetMag(Unit* unit);
 s8 GetCha(Unit* unit);
 u16 prMinRangeGetter(u16 item, Unit* unit);
 u16 prMaxRangeGetter(u16 item, Unit* unit);
+
+int GetRankReason(Unit*);
+int GetRankFaith(Unit*);
 
 typedef s8 (*MSG_Func)(Unit*);
 extern MSG_Func PowMods[];

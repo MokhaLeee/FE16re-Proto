@@ -6,6 +6,8 @@
 #include "proc.h"
 #include "text.h"
 
+#define MAX_CMD_NUM 11
+
 typedef struct MenuGeometry MenuGeometry;
 
 typedef struct MenuDefinition MenuDefinition;

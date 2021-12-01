@@ -26,7 +26,17 @@
 		BMagCmd
 		BMagCmd
 		BMagCmd
+		
 		BMagCmd
+		BMagCmd
+		BMagCmd
+		BMagCmd
+		
+		BMagCmd
+		BMagCmd
+		BMagCmd
+		BMagCmd
+		
 		BMagCmd
 		BMagCmd
 		BMagCmd
@@ -63,6 +73,14 @@
 		WMagCmd
 		WMagCmd
 		
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		WMagCmd
+		
+		WMagCmd
+		WMagCmd
+		WMagCmd		
 		UM_Separator
 	
 #endif // MAGIC_SYSTEM_FE16RE_MENU

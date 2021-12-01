@@ -7,36 +7,43 @@ MESSAGE
 
 #include "Custom Definations.event"
 
-ORG FreeSpace	
+ORG FreeSpaceText
+
 	// Text should be first
 	// To make Engine Hacks got stringID definition
 	
-	MESSAGE Texts_AT CURRENTOFFSET
 	#include "Texts/InstallTextData.event"
+	MESSAGE Used text space ends at CURRENTOFFSET
+	MESSAGE Text Space should end before FreeSpaceTextEnd
 	
 	
-	MESSAGE EngineHacks_AT CURRENTOFFSET
-	#include "_ValGlobal.event"
+MESSAGE
+ORG FreeSpace	
+	
 	#include "EngineHacks/_MasterHackInstaller.event"
+	MESSAGE Used hex space ends at CURRENTOFFSET
 	
 	
 	// Table should after Engine Hacks
 	// Cause some const value is defined in SkillSystem(Ids)
 	
-	MESSAGE Tables_AT CURRENTOFFSET
-	#include "Tables/Table Installer.event"
-
 	
-	MESSAGE Graphics_AT CURRENTOFFSET
 	#include "Graphics/Install_Portraits.event"
+	MESSAGE Used graphics space ends at CURRENTOFFSET
 	
-	
-	MESSAGE END_AT CURRENTOFFSET
+	MESSAGE Used Free Space end at CURRENTOFFSET
+	MESSAGE Free Space should end before FreeSpaceEnd
 
+MESSAGE
+ORG	FreeSpaceTable
+	#include "Tables/Table Installer.event"
+	MESSAGE Used tables space ends at CURRENTOFFSET
+	MESSAGE Table Sapce should end before FreeSpaceTableEnd
 
 
 // For Debug
 MESSAGE
+
 
 PUSH
 	ORG	$2C5AC

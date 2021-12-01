@@ -17,11 +17,11 @@ Eqp
 
 ## ssWpnEqpDesc
 Equipped Weapon, will use[N]
-it in next encountered battle
+it in next encountered battle.
 
 ## ssCharmDesc
 Charm, affects unit's Gambit Mt,[N]
-Hit, and Avoid. (5 x Charm%)
+Hit, and Avoid. (5 x Charm%).
 
 ## ssBrawlDesc
 Brawling mastery level

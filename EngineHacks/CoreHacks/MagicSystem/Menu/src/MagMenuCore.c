@@ -4,28 +4,42 @@
 #include "StatusGetter.h"
 #include "RangeGetter.h"
 #include "AOEAttack.h"
+#include "Common.h"
 
 #include "MagicSystem.h"
 
+#define CMD_CUR_NUM (*gpCommonFlagSaveSu)
+typedef int (*FuncType1) (UnitExt*);
 extern void ItemEffect_Call(Unit*,u16);
+
 
 /* ================================
    ========== Unit  Menu ==========
    ================================ */
-static int Mag_Usability(MenuProc* pmu, MenuCommandProc* pcmd, int magtype){
-	if( gActiveUnit )
+static int Mag_Usability(MenuProc* pmu, int index, FuncType1 IsEmpty){
+	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
+	
+	gUnitSubject = gActiveUnit;
+	CMD_CUR_NUM = 0;
+	
+	// 三房特色判定法：不能用魔法当然不能用
+	if( !IsClassHandleMag(UNIT_CLASSID(gActiveUnit)) )
+		return MCA_NONUSABLE;
+	
+	if( NULL == ext )
+		return MCA_NONUSABLE;
+	
+	if( !isUnitMagSet(ext) )
+		SetUnitMagList(gActiveUnit);
+	
+	if( !IsEmpty(ext) )
 		return MCA_USABLE;
 	else
 		return MCA_NONUSABLE;
 }
 
-static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, int magtype){
-	const MenuDefinition* mdef = 0;
-	if( EBMAG == magtype )
-		mdef = &BMagSelectMenu;
-	else if( EWMAG == magtype )
-		mdef = &WMagSelectMenu;
-	
+static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, const MenuDefinition* mdef){
+
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
 	
@@ -40,21 +54,17 @@ static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, int magtype){
 
 
 
-int BMag_Usability(MenuProc* pmu, MenuCommandProc* pcmd){
-	return Mag_Usability(pmu,pcmd,EBMAG);
-}
+int BMag_Usability(MenuProc* pmu, int index)
+{	return Mag_Usability(pmu,index,isBMagListEmpty); }
 
-int WMag_Usability(MenuProc* pmu, MenuCommandProc* pcmd){
-	return Mag_Usability(pmu,pcmd,EWMAG);
-}
+int WMag_Usability(MenuProc* pmu, int index)
+{	return Mag_Usability(pmu,index,isWMagListEmpty); }
 
-int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
-	return Mag_Effect(pmu,pcmd,EBMAG);
-}
+int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return Mag_Effect(pmu,pcmd,BMagSelectMenu); }
 
-int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
-	return Mag_Effect(pmu,pcmd,EWMAG);
-}
+int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return Mag_Effect(pmu,pcmd,WMagSelectMenu); }
 
 
 
@@ -71,38 +81,48 @@ int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 /* ================================
    =========== Usability ==========
    ================================ */
-static int MagSelect_Usability(MenuProc* pmu, MenuCommandProc* pcmd, int magtype){
+
+int BMagSelect_Usability(MenuProc* pmu, int index)
+{
 	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
 	if( NULL == ext )
 		return MCA_NONUSABLE;
 	
-	if( EBMAG == magtype )		// Black Magic
-	{
-		if( 0 == GetBMagUse(ext,pcmd->commandDefinitionIndex) )
-			return MCA_GRAYED;
-		else
-			return MCA_USABLE;
-	}
-	
-	else if( EWMAG == magtype )	// White Magic
-	{
-		if( 0 == GetWMagUse(ext,pcmd->commandDefinitionIndex) )
-			return MCA_GRAYED;
-		else
-			return MCA_USABLE;
-	}
-	
-	else						// OtherWise
+	if( CMD_CUR_NUM > (MAX_CMD_NUM-1) )
 		return MCA_NONUSABLE;
+	
+	if( 0 == GetBMagUse(ext,index) )
+	{
+		CMD_CUR_NUM++;
+		return MCA_GRAYED;
+	}
+	else
+	{
+		CMD_CUR_NUM++;
+		return MCA_USABLE;
+	}
 }
 
 
-int BMagSelect_Usability(MenuProc* pmu, MenuCommandProc* pcmd){
-	return MagSelect_Usability(pmu,pcmd,EBMAG);
-}
-
-int WMagSelect_Usability(MenuProc* pmu, MenuCommandProc* pcmd){
-	return MagSelect_Usability(pmu,pcmd,EWMAG);
+int WMagSelect_Usability(MenuProc* pmu, int index)
+{
+	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
+	u16 mag = GetWMagItem(ext,index);
+	
+	if( NULL == ext )
+		return MCA_NONUSABLE;
+	if( 0 == mag )
+		return MCA_NONUSABLE;
+	if( CMD_CUR_NUM > (MAX_CMD_NUM-1) )
+		return MCA_NONUSABLE;
+	
+	CMD_CUR_NUM ++;
+	
+	if( IA_STAFF & GetItemAttributes(mag) )
+		if( CanUnitUseItem(gActiveUnit,mag) )
+			return MCA_USABLE;
+	
+	return MCA_GRAYED;
 }
 
 
@@ -131,7 +151,7 @@ int BMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	ClearBG0BG1();
 	
 	MakeTargetListForWeapon(gActiveUnit,mag);
-	StartTargetSelection(&gTSfunc_BMag);
+	StartTargetSelection(gTSfunc_BMag);
 	
 	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
@@ -226,7 +246,7 @@ int WMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
 
 static int MagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd, int magType){
 	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
-	u8 color = 1;
+	u8 color = 0;
 	u8 use = 0;
 	u16 mag = 0;
 	
@@ -241,8 +261,8 @@ static int MagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd, int magType)
 	else if( EWMAG == magType )
 		use = GetWMagUse(ext,pcmd->commandDefinitionIndex);
 	
-	if( 0 == use )
-		color = 0;
+	if( MCA_USABLE == pcmd->availability )
+		color = 1;
 	
 	if( EBMAG == magType )
 		mag = MAKE_ITEM(gpBMagList[pcmd->commandDefinitionIndex].index, use);
@@ -258,13 +278,11 @@ static int MagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd, int magType)
 }
 
 
-int BMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd){
-	return MagSelect_TextDraw(pmu,pcmd,EBMAG);
-}
+int BMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return MagSelect_TextDraw(pmu,pcmd,EBMAG); }
 
-int WMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd){
-	return MagSelect_TextDraw(pmu,pcmd,EWMAG);
-}
+int WMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return MagSelect_TextDraw(pmu,pcmd,EWMAG); }
 
 
 

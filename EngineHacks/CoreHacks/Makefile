@@ -1,5 +1,5 @@
 .SUFFIXES:
-.PHONY: all clean
+.PHONY: all clean lyn
 
 SRC_PATH = ./
 
@@ -107,8 +107,13 @@ ASM_TARGET := $(patsubst %.c,%.asm, $(SRC_FILES) )
 OBJ_TARGET := $(patsubst %.c,%.o, $(SRC_FILES) )
 
 all:
-	$(MAKE) $(LYN_TARGET)
 	$(MAKE) $(ASM_TARGET)
+	$(MAKE) $(LYN_TARGET)
 	rm -f $(OBJ_TARGET)
+	
+lyn:
+	$(MAKE) $(LYN_TARGET)
+	rm -f $(OBJ_TARGET)
+	
 	
 

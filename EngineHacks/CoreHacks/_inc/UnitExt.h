@@ -11,7 +11,8 @@
 
 typedef struct MagList MagList;
 struct MagList{
-	u8 stat;
+	u8 isSet : 1;
+	u8 align : 7;
 	u8 m[0xF];
 	/* 0x10 Long */
 };
@@ -37,6 +38,8 @@ extern UnitExt* gpUnitExtData;	// 0x02026E40, 43*0x20=0x560
 UnitExt* GetUnitExt(u8 index);
 UnitExt* GetUnitExtByCharID(u8 number);
 UnitExt* GetUnitExtByUnit(Unit* unit);
+u8 GetCharIdByExt(const UnitExt*);
+Unit* GetUnitByExt(const UnitExt*);
 
 // Mod Save
 void UnitExt_SaveSa(void* dest, unsigned size);

@@ -3,7 +3,7 @@
 #include "EAstdlib.event"
 	
 	#include MagConfig.event
-	#include "core/MagSystemCore.lyn.event"
+	#include "core/core.event"
 	#include "Menu/Menu.event"
 	#include "TargetSelect/ts.event"
 	#include "WpnEqpSystem/WpnEqpSystem.event"

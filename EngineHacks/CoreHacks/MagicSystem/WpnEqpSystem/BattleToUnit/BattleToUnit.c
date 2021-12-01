@@ -14,31 +14,31 @@ static int isUnitAlly(Unit* unit){
 
 
 
-void BattleToUnitVanilla_WpnExcept(Unit* Object, BattleUnit* ObjectBattle){
-	Object->level 	= ObjectBattle->unit.level;
-	Object->exp 	= ObjectBattle->unit.exp;
-	Object->curHP 	= ObjectBattle->unit.curHP;
-	Object->state 	= ObjectBattle->unit.state;
+void BattleToUnitVanilla_WpnExcept(Unit* unit, BattleUnit* bu){
+	unit->level = bu->unit.level;
+	unit->exp 	= bu->unit.exp;
+	unit->curHP = bu->unit.curHP;
+	unit->state = bu->unit.state;
 	
 	// State
-	*sStatusBufferMaybe &= ( (Object->state>>0x11)&0x3 );
-	if( ObjectBattle->statusOut >= 0 )
-		SetUnitStatus(Object,ObjectBattle->statusOut );
+	*sStatusBufferMaybe &= ( (unit->state>>0x11)&0x3 );
+	if( bu->statusOut >= 0 )
+		SetUnitStatus(unit,bu->statusOut );
 	
 	// Status Up
-	Object->maxHP	+=	ObjectBattle->changeHP;
-	Object->pow		+=	ObjectBattle->changePow;
-	Object->skl		+=	ObjectBattle->changeSkl;
-	Object->spd		+=	ObjectBattle->changeSpd;
-	Object->def		+=	ObjectBattle->changeDef;
-	Object->res		+=	ObjectBattle->changeRes;
-	Object->lck		+=	ObjectBattle->changeLck;
-	UnitCheckStatCaps(Object);
+	unit->maxHP	+=	bu->changeHP;
+	unit->pow	+=	bu->changePow;
+	unit->skl	+=	bu->changeSkl;
+	unit->spd	+=	bu->changeSpd;
+	unit->def	+=	bu->changeDef;
+	unit->res	+=	bu->changeRes;
+	unit->lck	+=	bu->changeLck;
+	UnitCheckStatCaps(unit);
 	
 	//WpnRank
-	u8 iWpnExp = GetBattleUnitUpdatedWeaponExp(ObjectBattle);
+	u8 iWpnExp = GetBattleUnitUpdatedWeaponExp(bu);
 	if( iWpnExp>0 )
-		Object->ranks[ObjectBattle->weaponType] += iWpnExp;
+		unit->ranks[bu->weaponType] += iWpnExp;
 	
 	return;
 }

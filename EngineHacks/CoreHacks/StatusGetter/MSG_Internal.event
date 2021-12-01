@@ -11,6 +11,9 @@ ALIGN 4
 #include "Range/RangeGetterCore.lyn.event"
 #include "Range/ProperRangeGetters_Internal.event"
 
+#include "Ranks/ranks.lyn.event"
+
+//#define _thumb(p) "PUSH; ORG CURRENTOFFSET+1; p:; POP"
 
 ALIGN 4
 prStatScreenMovGetter:
@@ -19,93 +22,55 @@ prStatScreenMovGetter:
 	
 PUSH
 	ORG 0x19190
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoMaxHPGetter:
-	POP
+	_thumb(prGotoMaxHPGetter)
 		jumpToHack(GetHpMax)
 	
 	ORG 0x19150
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoCurHPGetter:
-	POP
+	_thumb(prGotoCurHPGetter)
 		jumpToHack(GetHpCur)
 
 	ORG 0x191B0
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoPowGetter:
-	POP
+	_thumb(prGotoPowGetter)
 	jumpToHack(GetPow)
 	
 		ORG 0x191B8
-		PUSH
-		ORG CURRENTOFFSET+1
-		prGotoMagGetter:
-		POP
+		_thumb(prGotoMagGetter)
 			jumpToHack(GetMag)
 		
 		ORG 0x191C0
-		PUSH
-		ORG CURRENTOFFSET+1
-		prGotoChaGetter:
-		POP
+		_thumb(prGotoChaGetter)
 			jumpToHack(GetCha)
-
+		
+		
 	ORG 0x191D0
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoSklGetter:
-	POP
+	_thumb(prGotoSklGetter)
 		jumpToHack(GetSkl)
 
 	ORG 0x19210
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoSpdGetter:
-	POP
+	_thumb(prGotoSpdGetter)
 		jumpToHack(GetSpd)
 
 	ORG 0x19250
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoDefGetter:
-	POP
+	_thumb(prGotoDefGetter)
 		jumpToHack(GetDef)
 
 	ORG 0x19270
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoResGetter:
-	POP
+	_thumb(prGotoResGetter)
 		jumpToHack(GetRes)
 
 	ORG 0x19298
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoLckGetter:
-	POP
+	_thumb(prGotoLckGetter)
 		jumpToHack(GetLck)
 
 	ORG 0x189B8
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoAidGetter:
-	POP
+	_thumb(prGotoAidGetter)
 		jumpToHack(GetAid)
 	
 	ORG 0x19224
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoMovGetter:
-	POP
+	_thumb(prGotoMovGetter)
 		jumpToHack(GetMov)
 	
 	ORG 0x19284
-	PUSH
-	ORG CURRENTOFFSET+1
-	prGotoConGetter:
-	POP
+	_thumb(prGotoConGetter)
 		jumpToHack(GetCon)
 POP

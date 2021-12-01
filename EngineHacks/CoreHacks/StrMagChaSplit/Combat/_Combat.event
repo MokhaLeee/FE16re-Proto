@@ -1,7 +1,7 @@
 //FE8 str/mag split combat calculations
 //By RobertFpy/Tequila
 
-#define MagGetter 0x191B8		//In ModularStatusGetter
+//#define MagGetter 0x191B8		//In ModularStatusGetter
 #ifdef _FE8_
 	
 	PUSH
@@ -11,15 +11,15 @@
 	
 	//Staff accuracy
 	ORG $2CCE2
-	BL(MagGetter)
+	BL(prGotoMagGetter)
 	
 	//Healing amount
 	ORG $17012
-	BL(MagGetter)
+	BL(prGotoMagGetter)
 	
 	//Staff range
 	ORG $18A32
-	BL(MagGetter)
+	BL(prGotoMagGetter)
 	SHORT 0x1C01 0xE004 //mov r1,r0; b 
 	
 	//Determine whether to add str or mag to damage(Conflict with frenzy skill)
@@ -49,7 +49,7 @@
 	ALIGN 4
 	Update_Magic:
 	#incbin "UpdateMagic.dmp"
-	POIN MagGetter
+	POIN prGotoMagGetter
 	
 	#else
 	ERROR "You're not assembling FE8 events!"

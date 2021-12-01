@@ -1,4 +1,6 @@
+#include "gbafe.h"
 #include "AOEAttack.h"
+#include "Common.h"
 static inline u8 GetGambitDmgReal(Unit* TargetUnit, u8 MaxDmg);
 
 int GambitAction(Proc* proc){

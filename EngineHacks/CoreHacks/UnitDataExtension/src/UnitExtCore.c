@@ -17,8 +17,20 @@ UnitExt* GetUnitExtByUnit(Unit* unit){
 }
 
 
+u8 GetCharIdByExt(const UnitExt* ext){	
+	for(int i=0; i<UNIT_EXT_CNT; i++)
+		if( ext == &gpUnitExtData[i] )
+			return i;
+	return 0;
+}
 
-
+Unit* GetUnitByExt(const UnitExt* ext){
+	u8 charId = GetCharIdByExt(ext);
+	if( 0 != charId )
+		return GetUnitByCharId(charId);
+	else
+		return NULL;
+}
 
 // Core
 void UnitExtReset(void){
