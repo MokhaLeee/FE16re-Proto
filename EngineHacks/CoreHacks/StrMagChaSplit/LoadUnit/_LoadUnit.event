@@ -1,9 +1,0 @@
-
-PUSH
-ORG $17E34
-jumpToHack(LoadUnit_jpt)
-POP
-
-#include LoadUnit_jpt.lyn.event
-#include LoadUnit.lyn.event
-

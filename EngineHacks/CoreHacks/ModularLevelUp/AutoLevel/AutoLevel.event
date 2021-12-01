@@ -1,8 +1,0 @@
-PUSH
-	//Autolevel with character growths
-	ORG $18044
-	jumpToHack(MagCha_Autolevel_ByClass)
-POP
-
-#include "asm/autolevel.lyn.event"
-#include "src/autolevel.lyn.event"

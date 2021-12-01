@@ -1,9 +1,0 @@
-#ifndef RANGE_GETTER_MOKHA_STYLE
-#define RANGE_GETTER_MOKHA_STYLE
-
-
-#include "src/Range2Core.lyn.event"
-
-
-
-#endif // RANGE_GETTER_MOKHA_STYLE
