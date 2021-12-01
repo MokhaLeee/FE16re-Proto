@@ -1,0 +1,25 @@
+#ifndef FE16RE_CONFIG_MOKHA
+#define FE16RE_CONFIG_MOKHA
+
+
+
+
+
+
+
+
+
+// ===================================
+// ============ External =============
+// ===================================
+
+// If uncommented, will enable the Movement Arrow Hack.
+#define MOVEARROW_HACK
+
+// If uncommented, will display a Hp bar on Map Sprits
+#define HP_BARS
+
+//If uncommented, will enable Menu Semitransparency.
+#define SEMITRANSPARENCY_CHANGES
+
+#endif // FE16RE_CONFIG_MOKHA

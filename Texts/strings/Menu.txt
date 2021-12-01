@@ -1,0 +1,56 @@
+## umBMagName
+ B.Magic
+
+## umBMagDesc
+B.Magic
+
+## umWMagName
+ W.Magic
+
+## umWMagDesc
+W.Magic
+
+
+## umGambitName
+ Gambit
+
+## umGambitDesc
+Gambit: Three House's[N]
+Style AOE attack.
+
+## umAOEDefaultName
+ Default
+
+## umAOEDefaultDesc
+Default
+
+## umAOEAssemblyName
+ Assembly
+
+## umAOEAssemblyDesc
+Assembly
+
+## umAOEBaszeName
+ Basze
+
+## umAOEBaszeDesc
+Basze
+
+## umAOEAbsorptionName
+ Absorption
+
+## umAOEAbsorptionDesc
+Absorption
+
+## umAOEFusilladeName
+ Fusillade
+
+## umAOEFusilladeDesc
+Fusillade
+
+
+## umAOEFireArrowsName
+ FireArrows
+
+## umAOEFireArrowsDesc
+FireArrows

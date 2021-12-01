@@ -1,0 +1,15 @@
+
+ALIGN 4
+Unit2BattleFuncList:
+	POIN UnitToBattleVanilla
+	POIN UnitToBattle_StatUpClear
+	POIN UnitToBattle_SetMagCha
+	WORD 0
+
+ALIGN 4
+Battle2UnitFuncList:
+	POIN BattleToUnitVanilla_WpnExcept
+	POIN BattleToUnitSaveMagWpn
+	POIN BattleToUnit_SaveMagCha
+	WORD 0
+	

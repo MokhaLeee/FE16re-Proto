@@ -1,0 +1,17 @@
+#ifndef MSS_FE16RE
+#define MSS_FE16RE
+
+#include "DrawPages/DrawPages.event"
+#include "SkillStatScreen/SkillsStatScreen.event"
+#include "rText/_rText.event"
+#include "Icons/Icons.event"
+
+PUSH
+	ORG $86E44
+	jumpToHack(StatScreen_DrawLeftText)
+	
+	ORG $87184
+	jumpToHack(StatScreen_DrawPage1)
+POP
+
+#endif // MSS_FE16RE

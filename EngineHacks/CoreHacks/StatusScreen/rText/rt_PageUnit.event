@@ -1,0 +1,77 @@
+ALIGN 4
+RText_PageUnit:
+	// Line 1
+	ST_Str:
+	RMenu(ST_Res,ST_Mag,ST_Name,ST_Lck,0x66,0x18,0x546)
+	
+	ST_Mag:
+	RMenu(ST_Str,ST_Skl,ST_Name,ST_Cha,0x66,0x28,0x547)
+	
+	ST_Skl:
+	RMenu(ST_Mag,ST_Spd,ST_Name,ST_Mov,0x66,0x38,0x548)
+	
+	ST_Spd:
+	RMenu(ST_Skl,ST_Def,ST_Name,ST_Con,0x66,0x48,0x549)
+	
+	ST_Def:
+	RMenu(ST_Spd,ST_Res,ST_Name,ST_Eqp,0x66,0x58,0x54B)
+	
+	ST_Res:
+	RMenu(ST_Def,ST_Skill0,ST_Class,ST_Stat,0x66,0x68,0x54C)
+	
+	
+	// Line 2
+	ST_Lck:
+	RMenu(ST_Stat,ST_Cha,ST_Str,ST_Name,0xA6,0x18,0x54A)
+	
+	ST_Cha:
+	RMenu(ST_Lck,ST_Mov,ST_Mag,ST_Name,0xA6,0x28,ssCharmDesc)
+	
+	ST_Mov:
+	RMenu(ST_Cha,ST_Con,ST_Skl,ST_Name,0xA6,0x38,0x54D)
+	
+	ST_Con:
+	RMenu(ST_Mov,ST_Eqp,ST_Spd,ST_Name,0xA6,0x48,0x54E)
+	
+	ST_Eqp:
+	RMenu(ST_Con,ST_Stat,ST_Def,ST_Name,0xA6,0x58,ssWpnEqpDesc)
+	
+	ST_Stat:
+	RMenu(ST_Eqp,ST_Skill0,ST_Res,ST_Class,0xA6,0x68,0x552,ConditionGetter)
+	
+	
+	// Left
+	ST_Name:
+	RMenu(ST_HP,ST_Class,ST_Con,ST_Spd,0x18,0x50,0x0,NameDescGetter)
+	
+	ST_Class:
+	RMenu(ST_Name,ST_Level,ST_Stat,ST_Res,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	ST_Level:
+	RMenu(ST_Class,ST_HP,ST_Stat,ST_Exp,0x6,0x78,0x542)
+	
+	ST_Exp:
+	RMenu(ST_Class,ST_HP,ST_Level,ST_Res,0x26,0x78,0x543)
+	
+	ST_HP:
+	RMenu(ST_Level,ST_Name,ST_Stat,ST_Res,0x6,0x88,0x544)
+	
+	
+	// Skills
+	ST_Skill0:
+	RMenu(ST_Res,ST_Str,ST_HP,ST_Skill1,136,136,0,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill1:
+	RMenu(ST_Res,ST_Str,ST_Skill0,ST_Skill2,152,136,1,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill2:
+	RMenu(ST_Res,ST_Str,ST_Skill1,ST_Skill3,168,136,2,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill3:
+	RMenu(ST_Stat,ST_Stat,ST_Skill2,ST_Skill4,184,136,3,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill4:
+	RMenu(ST_Stat,ST_Stat,ST_Skill3,ST_Skill5,200,136,4,HbRedirect_Skill,HbPopuplate_Skill)
+	
+	ST_Skill5:
+	RMenu(ST_Stat,ST_Stat,ST_Skill4,ST_HP,216,136,5,HbRedirect_Skill,HbPopuplate_Skill)
