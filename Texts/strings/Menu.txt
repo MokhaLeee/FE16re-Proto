@@ -10,9 +10,15 @@ B.Magic
 ## umWMagDesc
 W.Magic
 
+## umMagGrayBox
+you have run out of magic uses.[X]
+
+## umSubMagGrayBox
+Magic have no effect[N]
+on current position.[N]
 
 ## umGambitName
- Gambit
+ Gambit[X]
 
 ## umGambitDesc
 Gambit: Three House's[N]

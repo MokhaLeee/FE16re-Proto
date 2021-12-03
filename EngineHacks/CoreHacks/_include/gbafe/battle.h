@@ -16,6 +16,7 @@ enum {
 	BATTLE_MAX_DAMAGE = 127,
 };
 
+typedef struct BattleUnit BattleUnit;
 struct BattleUnit {
 	/* 00 */ struct Unit unit;
 

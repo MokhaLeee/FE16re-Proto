@@ -29,20 +29,22 @@ POP
 
 
 	// System-Level EngineHack
-	#include "CoreHacks/StatusGetter/StatusGetter.event"
+	#include "CoreHacks/ModularStatusGetter/StatusGetter.event"
 	#include "CoreHacks/RecoverableRN/RecoverableRN.event"
 	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
 	#include "CoreHacks/ModularLevelUp/ModularLevelUp.event"
 	#include "CoreHacks/UnitDataExtension/UnitExt.event"
-	#include "CoreHacks/SkillSystem/SkillSystem.event"
+	#include "CoreHacks/SkillSystem/_SkillSystem.event"
 	#include "CoreHacks/AOE_Attack/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
 	#include "CoreHacks/MagicSystem/MagicSystem.event"
-	
-	// Some Fix
 	#include "CoreHacks/RangeGetter2/RangeGetterMokha.event"
-
-
+	#include "CoreHacks/ModularBattleStatusGetter/ModularBattleStatusGetter.event"
+	
+	// Quailty of Life
+	#include "External/FE8U_Mokha_Fixs.event"
+	#include "External/PortraitHeight/PortraitHeight.event"
+	
 	#include "External/HpBars/HpBars.event"
 	#include "External/MovementArrowHack/MovementArrowHack.event"
 	#include "External/FixWpnRnk.event"

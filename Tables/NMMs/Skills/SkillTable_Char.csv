@@ -1,7 +1,7 @@
 INLINE SkillTable_Char,Base Skill0,Base Skill1,Base Skill2,Skill Level 5,Skill Level 10,Skill Level 15,Skill Level 20,Skill Level 25
 0x00 (No one/Not referenced),0,0,0,0,0,0,0,0
-0x01 Eirika,0,0,0,0,0,0,0,0
-0x02 Seth,1,0,0,0,0,0,0,0
+0x01 Eirika,SKILLID_BlowUncanny,0,0,0,0,0,0,0
+0x02 Seth,SKILLID_BlowDeath,SKILLID_BlowUncanny,SKILLID_BlowDarting,SKILLID_BlowDeath,SKILLID_BlowArmored,0,0,0
 0x03 Gilliam,0,0,0,0,0,0,0,0
 0x04 Franz,0,0,0,0,0,0,0,0
 0x05 Moulder,0,0,0,0,0,0,0,0

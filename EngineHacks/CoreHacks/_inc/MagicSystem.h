@@ -7,6 +7,7 @@
 #define GET_B_MAG(m) (m & 0xF)
 #define GET_W_MAG(m) ((m>>0x4) & 0xF)
 
+
 enum{
 	MAGIC_LIST_SIZE = 0xF,
 };
@@ -48,7 +49,7 @@ u8 GetWMagIndex(u8 loc);		// if not, return 0;
 u8 GetBMagUse(UnitExt*, u8);	// if not, return 0xFF
 u8 GetWMagUse(UnitExt*, u8);
 
-u16 GetWMagItem(UnitExt*, u8);	// if noUse or offset>0xF, return 0
+u16 GetBMagItem(UnitExt*, u8);	// if noUse or offset>0xF, return 0
 u16 GetWMagItem(UnitExt*, u8);
 
 // Judgement

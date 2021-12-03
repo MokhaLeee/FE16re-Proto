@@ -2,7 +2,7 @@ ALIGN 4
 RText_PageUnit:
 	// Line 1
 	ST_Str:
-	RMenu(ST_Res,ST_Mag,ST_Name,ST_Lck,0x66,0x18,0x546)
+	RMenu(ST_Skill0,ST_Mag,ST_Name,ST_Lck,0x66,0x18,0x546)
 	
 	ST_Mag:
 	RMenu(ST_Str,ST_Skl,ST_Name,ST_Cha,0x66,0x28,0x547)

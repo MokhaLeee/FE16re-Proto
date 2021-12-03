@@ -100,7 +100,10 @@ clean:
 # ============
 # = MAKE ALL =
 # ============
+SRC_SKILLS_PATH = ./SkillSystem/Skills
 DIRS = $(shell find $(SRC_PATH) -maxdepth 3 -type d)
+DIRS += $(shell find $(SRC_SKILLS_PATH) -maxdepth 3 -type d)
+
 SRC_FILES := $(foreach dir, $(DIRS), $(wildcard $(dir)/*.c))
 LYN_TARGET := $(patsubst %.c,%.lyn.event, $(SRC_FILES) )
 ASM_TARGET := $(patsubst %.c,%.asm, $(SRC_FILES) )

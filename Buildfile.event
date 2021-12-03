@@ -2,6 +2,7 @@ MESSAGE
 	
 #include "EAstdlib.event"
 #include "Extensions/Hack Installation.txt"
+//#include "Tools/Tool Helpers.txt"
 #include "_6CDefinitions.event"
 #include "_FuncDefs.event"
 
@@ -11,7 +12,7 @@ ORG FreeSpaceText
 
 	// Text should be first
 	// To make Engine Hacks got stringID definition
-	
+	#include "Texts/repointedTextTable.event"
 	#include "Texts/InstallTextData.event"
 	MESSAGE Used text space ends at CURRENTOFFSET
 	MESSAGE Text Space should end before FreeSpaceTextEnd
@@ -23,12 +24,7 @@ ORG FreeSpace
 	#include "EngineHacks/_MasterHackInstaller.event"
 	MESSAGE Used hex space ends at CURRENTOFFSET
 	
-	
-	// Table should after Engine Hacks
-	// Cause some const value is defined in SkillSystem(Ids)
-	
-	
-	#include "Graphics/Install_Portraits.event"
+	#include "Graphics/_MasterGfxInstaller.event"
 	MESSAGE Used graphics space ends at CURRENTOFFSET
 	
 	MESSAGE Used Free Space end at CURRENTOFFSET
@@ -36,14 +32,23 @@ ORG FreeSpace
 
 MESSAGE
 ORG	FreeSpaceTable
+	
+	// Table should after Engine Hacks
+	// Cause some const value is defined in SkillSystem(Ids)
+	
 	#include "Tables/Table Installer.event"
 	MESSAGE Used tables space ends at CURRENTOFFSET
 	MESSAGE Table Sapce should end before FreeSpaceTableEnd
 
 
 // For Debug
-MESSAGE
-
+MESSAGE 
+MESSAGE DEBUG INFO
+MESSAGE BMagSelect_Usability_ BMagSelect_Usability
+MESSAGE BlowSkillCheck_ BlowSkillCheck
+MESSAGE BMagSelect_TextDraw_ BMagSelect_TextDraw
+MESSAGE UnitBMagList_ UnitBMagList
+MESSAGE BC_DefRes_ BC_DefRes
 
 PUSH
 	ORG	$2C5AC
@@ -65,5 +70,12 @@ PUSH
 	BYTE 100		// Seth Hp=100
 	
 	ORG $8B3C29
-	BYTE $26		// Eirika Class = Mage
+	BYTE Sage_F		// Eirika Class = Mage
+	
+	ORG $E48E48		// Eirika Skills
+	BYTE SKILLID_BlowArmored SKILLID_BlowDeath //SKILLID_BlowFiendish
+	
+	ORG $E48E50		// Seth Skills
+	BYTE SKILLID_BlowUncanny SKILLID_BlowDeath
 POP
+

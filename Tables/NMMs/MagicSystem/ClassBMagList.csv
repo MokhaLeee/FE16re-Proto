@@ -36,49 +36,49 @@ Wyvern Lord,0,0,0,0
 Wyvern Lord (F),0,0,0,0
 Wyvern Knight,0,0,0,0
 Wyvern Knight (F),0,0,0,0
-Mage,Fire,0,0,0
-Mage (F),Fire,0,0,0
-Sage,0,0,0,0
-Sage (F),0,0,0,0
-Mage Knight,0,0,0,0
-Mage Knight (F),0,0,0,0
-Bishop,0,0,0,0
-Bishop (F),0,0,0,0
-Shaman,0,0,0,0
-Shaman (F),0,0,0,0
-Druid,0,0,0,0
-Druid (F),0,0,0,0
-Summoner,0,0,0,0
-Summoner (F),0,0,0,0
+Mage,Fire,Elfire,Bolting,0
+Mage (F),Fire,Elfire,Nosferatu,0
+Sage,Fire,Bolting,Excalibur,Nosferatu
+Sage (F),Fire,Bolting,Excalibur,Nosferatu
+Mage Knight,Fire,Bolting,Excalibur,Nosferatu
+Mage Knight (F),Fire,Bolting,Excalibur,Nosferatu
+Bishop,Lightning,Purge,Ivaldi,Nosferatu
+Bishop (F),Lightning,Purge,Ivaldi,Nosferatu
+Shaman,Flux,Nosferatu,0,0
+Shaman (F),Flux,Nosferatu,0,0
+Druid,Flux,Nosferatu,Gleipnir,Excalibur
+Druid (F),Flux,Nosferatu,Gleipnir,Excalibur
+Summoner,Flux,Nosferatu,Gleipnir,0
+Summoner (F),Flux,Nosferatu,Gleipnir,0
 Rogue,0,0,0,0
 Gorgon Egg,0,0,0,0
 Great Knight,0,0,0,0
 Great Knight (F),0,0,0,0
 Recruit (2),0,0,0,0
 Journeyman (3),0,0,0,0
-Pupil (3),0,0,0,0
+Pupil (3),Fire,Bolting,Excalibur,Nosferatu
 Recruit (3),0,0,0,0
 Manakete,0,0,0,0
 Manakete (F),0,0,0,0
 Journeyman (1),0,0,0,0
-Pupil (1),0,0,0,0
+Pupil (1),Fire,0,0,0
 Fighter,0,0,0,0
 Warrior,0,0,0,0
 Brigand,0,0,0,0
 Pirate,0,0,0,0
 Berserker,0,0,0,0
-Monk,0,0,0,0
-Priest,0,0,0,0
-Bard,0,0,0,0
+Monk,Lightning,Divine,0,0
+Priest,Nosferatu,0,0,0
+Bard,Lightning,0,0,0
 Recruit (1),0,0,0,0
 Pegasus Knight,0,0,0,0
 Falcon Knight,0,0,0,0
-Cleric,0,0,0,0
-Troubadour,0,0,0,0
-Valkyrie,0,0,0,0
-Dancer,0,0,0,0
+Cleric,Nosferatu,0,0,0
+Troubadour,Nosferatu,0,0,0
+Valkyrie,Nosferatu,0,0,0
+Dancer,Lightning,0,0,0
 Soldier,0,0,0,0
-Necromancer,0,0,0,0
+Necromancer,Nosferatu,Gleipnir,Excalibur,Eclipse
 Fleet,0,0,0,0
 Phantom,0,0,0,0
 Revenant,0,0,0,0
@@ -114,19 +114,19 @@ Civilian,0,0,0,0
 Civilian (F),0,0,0,0
 Civilian,0,0,0,0
 Civilian (F),0,0,0,0
-Peer,0,0,0,0
-Queen,0,0,0,0
-Prince,0,0,0,0
-Queen,0,0,0,0
+Peer,Nosferatu,0,0,0
+Queen,Nosferatu,0,0,0
+Prince,Nosferatu,0,0,0
+Queen,Nosferatu,0,0,0
 (empty),0,0,0,0
 Fallen Prince,0,0,0,0
 Tent,0,0,0,0
-Pontifex,0,0,0,0
+Pontifex,Nosferatu,0,0,0
 Dead Peer,0,0,0,0
 Cyclops,0,0,0,0
 Elder Bael,0,0,0,0
 Journeyman (2),0,0,0,0
-Pupil (2),0,0,0,0
+Pupil (2),Fire,Elfire,0,0
 0x80,0,0,0,0
 0x81,0,0,0,0
 0x82,0,0,0,0

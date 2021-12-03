@@ -54,7 +54,7 @@ u8 GetWMagUse(UnitExt* ext, u8 offset){ return GetMagUse(ext,offset,EWMAG); }
 u16 GetBMagItem( UnitExt* ext, u8 offset )
 {
 	u8 use = GetBMagUse(ext,offset);
-	if( 0 == use )
+	if( (0==use) | (0xFF==use) )
 		return 0;
 	else if( offset > MAGIC_LIST_SIZE )
 		return 0;
@@ -65,7 +65,7 @@ u16 GetBMagItem( UnitExt* ext, u8 offset )
 u16 GetWMagItem( UnitExt* ext, u8 offset )
 {
 	u8 use = GetWMagUse(ext,offset);
-	if( (0==use) & (0xFF==use) )
+	if( (0==use) | (0xFF==use) )
 		return 0;
 	else if( offset > MAGIC_LIST_SIZE )
 		return 0;

@@ -1,0 +1,4 @@
+// Will be included in Modular Battle Status Getter
+
+// Blows
+#include "BlowSkills/BlowSkills.event"

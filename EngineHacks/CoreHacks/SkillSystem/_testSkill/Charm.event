@@ -14,4 +14,3 @@ SkillIconGfx_Charm:
 	WORD $0
 
 InjectSkillInfo(SKILL_CHARM, SkillInfo_Charm)
-InjectSkillInfo(2, SkillInfo_Charm)

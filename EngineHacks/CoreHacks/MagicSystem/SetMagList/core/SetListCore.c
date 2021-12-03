@@ -45,7 +45,7 @@ void ResetUnitsMagic(void){
 
 // W.I.P.
 int isBMagListEmpty(UnitExt* ext){
-	if( !isUnitMagSet(ext) )
+	if( FALSE == isUnitMagSet(ext) )
 		SetUnitMagList(GetUnitByExt(ext));
 	
 	for(int i=0; i<MAGIC_LIST_SIZE; i++)
@@ -56,13 +56,12 @@ int isBMagListEmpty(UnitExt* ext){
 }
 
 int isWMagListEmpty(UnitExt* ext){
-	int cnt = 0;
-	
-	if( isUnitMagSet(ext) )
+	if( FALSE == isUnitMagSet(ext) )
 		SetUnitMagList(GetUnitByExt(ext));
 	
 	for(int i=0; i<MAGIC_LIST_SIZE; i++)
-		cnt += (0 == GET_W_MAG(ext->mlist.m[i]) );
+		if( 0 != GET_W_MAG(ext->mlist.m[i]) )
+			return FALSE;
 	
-	return ( 0==cnt );
+	return TRUE;
 }

@@ -3,9 +3,10 @@
 
 // bmitem.c
 #include "unit.h"
+#include "battle.h"
 
 #define MAKE_ITEM(id,use) (id&0xFF)|((use&0xFF)<<8)
-#define ITEM_USE(item) ( (item>>8) & 0xFF)
+#define ITEM_USE(item) ( (item>>8) & 0xFF )
 #define ITEM_ID(item) (item & 0xFF) 
 
 
@@ -186,7 +187,8 @@ int IsItemCoveringRange(int item, int range); //! FE8U = (0x08016B8C+1)
 
 void EquipUnitItemSlot(struct Unit*, int slot); //! FE8U = (0x08016BC0+1)
 
-int IsItemEffectiveAgainst(int item, const struct Unit*); //! FE8U = (0x08016BEC+1)
+//int IsItemEffectiveAgainst(int item, const struct Unit*); //! FE8U = (0x08016BEC+1)
+int IsItemEffectiveAgainst(int item, const BattleUnit*);
 
 char* GetItemDisplayRangeString(int item); //! FE8U = (0x08016CC0+1)
 int GetWeaponLevelFromExp(int rank); //! FE8U = (0x08016D5C+1)

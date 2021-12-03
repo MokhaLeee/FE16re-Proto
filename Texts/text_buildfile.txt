@@ -4,8 +4,9 @@ Lysithea
 #0x4EC
 Skl
 
-#0x903 msgCharmName
+#0xD4C msgCharmName
 Charm
 
 #include strings/StatusScreen.txt
 #include strings/Menu.txt
+#include strings/Skills_Blow.txt

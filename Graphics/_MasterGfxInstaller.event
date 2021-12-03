@@ -1,0 +1,7 @@
+#ifndef GFX_INSTALLED
+#define GFX_INSTALLED
+
+#include Install_Portraits.event
+#include Install_Spirits.event
+
+#endif // GFX_INSTALLED

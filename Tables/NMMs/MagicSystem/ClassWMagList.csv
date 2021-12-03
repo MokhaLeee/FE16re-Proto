@@ -36,49 +36,49 @@ Wyvern Lord,0,0,0,0
 Wyvern Lord (F),0,0,0,0
 Wyvern Knight,0,0,0,0
 Wyvern Knight (F),0,0,0,0
-Mage,Heal,0,0,0
-Mage (F),Heal,0,0,0
-Sage,0,0,0,0
-Sage (F),0,0,0,0
-Mage Knight,0,0,0,0
-Mage Knight (F),0,0,0,0
-Bishop,0,0,0,0
-Bishop (F),0,0,0,0
-Shaman,0,0,0,0
-Shaman (F),0,0,0,0
-Druid,0,0,0,0
-Druid (F),0,0,0,0
-Summoner,0,0,0,0
-Summoner (F),0,0,0,0
+Mage,Heal,TorchStaff,0,0
+Mage (F),Heal,TorchStaff,0,0
+Sage,Heal,Warp,Rescue,Physic
+Sage (F),Heal,Warp,Rescue,Physic
+Mage Knight,Heal,Warp,Rescue,0
+Mage Knight (F),Heal,Warp,Rescue,0
+Bishop,Heal,Fortify,Rescue,Physic
+Bishop (F),Heal,Fortify,Rescue,Physic
+Shaman,Heal,TorchStaff,0,0
+Shaman (F),Heal,TorchStaff,0,0
+Druid,Heal,Berserk,Rescue,0
+Druid (F),Heal,Berserk,Rescue,0
+Summoner,Heal,TorchStaff,Rescue,0
+Summoner (F),Heal,TorchStaff,Rescue,0
 Rogue,0,0,0,0
 Gorgon Egg,0,0,0,0
 Great Knight,0,0,0,0
 Great Knight (F),0,0,0,0
 Recruit (2),0,0,0,0
 Journeyman (3),0,0,0,0
-Pupil (3),0,0,0,0
+Pupil (3),Heal,Warp,Rescue,Physic
 Recruit (3),0,0,0,0
 Manakete,0,0,0,0
 Manakete (F),0,0,0,0
 Journeyman (1),0,0,0,0
-Pupil (1),0,0,0,0
+Pupil (1),Heal,0,0,0
 Fighter,0,0,0,0
 Warrior,0,0,0,0
 Brigand,0,0,0,0
 Pirate,0,0,0,0
 Berserker,0,0,0,0
-Monk,0,0,0,0
-Priest,0,0,0,0
-Bard,0,0,0,0
+Monk,Heal,TorchStaff,0,0
+Priest,Heal,TorchStaff,Physic,0
+Bard,Heal,0,0,0
 Recruit (1),0,0,0,0
 Pegasus Knight,0,0,0,0
 Falcon Knight,0,0,0,0
-Cleric,0,0,0,0
-Troubadour,0,0,0,0
-Valkyrie,0,0,0,0
-Dancer,0,0,0,0
+Cleric,Heal,TorchStaff,Physic,0
+Troubadour,Heal,TorchStaff,Physic,0
+Valkyrie,Heal,TorchStaff,Physic,Warp
+Dancer,Heal,0,0,0
 Soldier,0,0,0,0
-Necromancer,0,0,0,0
+Necromancer,Heal,Berserk,Rescue,Hammerne
 Fleet,0,0,0,0
 Phantom,0,0,0,0
 Revenant,0,0,0,0
@@ -115,18 +115,18 @@ Civilian (F),0,0,0,0
 Civilian,0,0,0,0
 Civilian (F),0,0,0,0
 Peer,0,0,0,0
-Queen,0,0,0,0
-Prince,0,0,0,0
-Queen,0,0,0,0
+Queen,Heal,0,0,0
+Prince,Heal,0,0,0
+Queen,Heal,0,0,0
 (empty),0,0,0,0
 Fallen Prince,0,0,0,0
 Tent,0,0,0,0
-Pontifex,0,0,0,0
+Pontifex,Heal,0,0,0
 Dead Peer,0,0,0,0
 Cyclops,0,0,0,0
 Elder Bael,0,0,0,0
 Journeyman (2),0,0,0,0
-Pupil (2),0,0,0,0
+Pupil (2),Heal,TorchStaff,0,0
 0x80,0,0,0,0
 0x81,0,0,0,0
 0x82,0,0,0,0

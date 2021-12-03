@@ -54,40 +54,67 @@ int IsClassWMagMaster(int classID)
 
 // Set Mag duration by ClassList
 static void SetBMagDouble(UnitExt* ext){
+	u8 use = 0;
+	
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
 		if( 0 != GET_B_MAG( ext->mlist.m[i] ) )
-			SetBMag( &ext->mlist.m[i],MAG_DOUBLE );
+		{
+			use = gpBMagList[i].baseUse << 1;
+			if( use > 0xF )
+				use = 0xF;
+			SetBMag( &ext->mlist.m[i],use );
+		}
 }
 
 static void SetWMagDouble(UnitExt* ext){
+	u8 use = 0;
+	
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
-		if( 0 != GET_W_MAG( ext->mlist.m[i] ) )
-			SetWMag( &ext->mlist.m[i],MAG_DOUBLE );
+		if( 0 != GET_W_MAG( ext->mlist.m[i] ) ){
+			use = gpWMagList[i].baseUse << 1;
+			if( use > 0xF )
+				use = 0xF;
+			SetWMag( &ext->mlist.m[i],use );
+		}
 }
 
 static void SetBMagHalve(UnitExt* ext){
+	u8 use = 0;
+	
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
 		if( 0 != GET_B_MAG( ext->mlist.m[i] ) )
-			SetBMag( &ext->mlist.m[i],MAG_HALF );
+		{
+			use = gpBMagList[i].baseUse >> 1;
+			if( 0 == use )
+				use = 1;
+			SetBMag( &ext->mlist.m[i],use );
+		}
 }
 
 static void SetWMagHalve(UnitExt* ext){
+	u8 use = 0;
+	
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
 		if( 0 != GET_W_MAG( ext->mlist.m[i] ) )
-			SetWMag( &ext->mlist.m[i],MAG_HALF );
+		{
+			use = gpWMagList[i].baseUse >> 1;
+			if( 0 == use )
+				use = 1;
+			SetWMag( &ext->mlist.m[i],use );
+		}
 }
 
 
 static void SetBMagNormal(UnitExt* ext){
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
 		if( 0 != GET_B_MAG( ext->mlist.m[i] ) )
-			SetBMag( &ext->mlist.m[i],MAG_NORMAL );
+			SetBMag( &ext->mlist.m[i],gpBMagList[i].baseUse );
 }
 
 static void SetWMagNormal(UnitExt* ext){
 	for( int i=0; i<MAGIC_LIST_SIZE; i++ )
 		if( 0 != GET_W_MAG( ext->mlist.m[i] ) )
-			SetWMag( &ext->mlist.m[i],MAG_NORMAL );
+			SetWMag( &ext->mlist.m[i],gpWMagList[i].baseUse );
 }
 
 
@@ -275,6 +302,6 @@ int SetUnitMagList(Unit* unit){
 	else
 		SetWMagNormal(ext);
 	
-	ext->mlist.isSet = 1;
+	ext->mlist.isSet = TRUE;
 	return TRUE;
 }

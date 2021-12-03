@@ -146,6 +146,8 @@ void ClearMenuCommandOverride(void); //! FE8U = 0x804F6F9
 
 
 // Mokha
+extern const MenuDefinition gMenu_UnitMenu[];// 59D1F0
+
 // 0x801E685
 void ForceMenuItemPanel(MenuProc*, Unit*, u8, u8);
 void UpdateMenuItemPanel(s8);

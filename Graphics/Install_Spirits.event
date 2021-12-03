@@ -1,0 +1,52 @@
+/* ====================================================
+   ================ Common Definition =================
+   ==================================================== */
+#define StandingMapSprite(aId, size, gfxPointer) "PUSH; ORG StandingMapSpriteTable + (aId * 8); SHORT 0 size; POIN gfxPointer; POP"
+#define MovingMapSprite(aId, apPointer, gfxPointer) "PUSH; ORG MovingMapSpriteTable + ((aId-1) * 8); POIN gfxPointer apPointer; POP"
+
+#define MapSprite16x16 0
+#define MapSprite16x32 1
+#define MapSprite32x32 2
+
+#define AnimTableEntry(index) "ORG ClassAnimTable + ((index) * 0x20)"
+
+#define SwordAnim(Animation) "BYTE Swords 0x01 ; SHORT Animation"
+#define LanceAnim(Animation) "BYTE Lances 0x01 ; SHORT Animation"
+#define AxeAnim(Animation) "BYTE Axes 0x01 ; SHORT Animation"
+#define HandAxeAnim(Animation) "BYTE HandAxe 0x00 ; SHORT Animation ; BYTE Tomahawk 0x00 ; SHORT Animation ; BYTE Hatchet 0x00 ; SHORT Animation; "
+#define BowAnim(Animation) "BYTE Bows 0x01 ; SHORT Animation"
+#define StaffAnim(Animation) "BYTE Staves 0x01 ; SHORT Animation"
+#define AnimaAnim(Animation) "BYTE Anima 0x01 ; SHORT Animation"
+#define LightAnim(Animation) "BYTE Light 0x01 ; SHORT Animation"
+#define DarkAnim(Animation) "BYTE Dark 0x01 ; SHORT Animation"
+#define UnarmedAnim(Animation) "BYTE Disarmed 0x01 ; SHORT Animation"
+#define SpecialAnim(Animation,Weapon) "BYTE Weapon 0x00 ; SHORT Animation"
+#define MonsterAnim(Animation) "BYTE 0xB 0x01; SHORT Animation"
+#define LaguzAnim(Animations) "BYTE 0xB 0x01; SHORT Animation"
+#define MagicAnim(Animation) "AnimaAnim(Animation); LightAnim(Animation); DarkAnim(Animation)"
+#define EndAnim "WORD 0"
+
+#define ClassAnimTable (0xc00008-0x20) //we shouldn't need to repoint this
+#define StandingMapSpriteTable 0x8AF880
+#define MovingMapSpriteTable 0x9A2E00
+/* ====================================================
+   ============== Common Definition End ===============
+   ==================================================== */
+
+
+{
+#define Sp_EirikaLord 0x1
+#define Sp_SageF 0x21
+#define Mp_SageF 0x28
+StandingMapSprite(Sp_SageF, MapSprite16x32, Byleth_f_std)
+MovingMapSprite(Mp_SageF,0x81DA694,Byleth_f_mov)
+}
+
+
+
+ALIGN 4
+Byleth_f_std:
+	#incext Png2Dmp "Spirits/Byleth_f_std.png" --lz77
+Byleth_f_mov:
+	#incext Png2Dmp "Spirits/Byleth_f_mov.png" --lz77
+	

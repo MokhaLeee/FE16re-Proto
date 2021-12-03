@@ -48,6 +48,10 @@ static int CheckRomSkill_Class(Unit* unit, int skillId){
 */
 int JudgeSkill(Unit* unit, int skillId){
 	UnitExt* unitext = GetUnitExtByUnit(unit);
+	if( 0 == skillId )
+		return FALSE;
+	if( skillId > 0xFE )
+		return FALSE;
 	
 	if( NULL != unitext )
 		for(int i=0; i<5; i++)
@@ -133,6 +137,11 @@ SkillListRAM* UnitGetSkillList(Unit* unit){
 
 
 int JudgeSkillFast(Unit* unit, int skillId){
+	if( 0 == skillId )
+		return FALSE;
+	if( skillId > 0xFE )
+		return FALSE;
+	
 	if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
 		MakeSkillListRAM(unit,gpUnitSkillList0);
 	

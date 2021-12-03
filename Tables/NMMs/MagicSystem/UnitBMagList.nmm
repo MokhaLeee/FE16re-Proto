@@ -1,90 +1,90 @@
 1
-UnitBMagList Editor
+Unit Black Magic List Editor
 0xE48580
-256
+70
 16
 Character List.txt
 NULL
 
-UNIT_BASE1
+Base magic 1
 0
 1
 NEDU
 NULL
 
-UNIT_BASE2
+Base magic 2
 1
 1
 NEDU
 NULL
 
-UNIT_BASE3
+Base magic 3
 2
 1
 NEDU
 NULL
 
-UNIT_EP
+Learned on E+
 3
 1
 NEDU
 NULL
 
-UNIT_D
+Learned on D
 4
 1
 NEDU
 NULL
 
-UNIT_DP
+Learned on D+
 5
 1
 NEDU
 NULL
 
-UNIT_C
+Learned on C
 6
 1
 NEDU
 NULL
 
-UNIT_CP
+Learned on C+
 7
 1
 NEDU
 NULL
 
-UNIT_B
+Learned on B
 8
 1
 NEDU
 NULL
 
-UNIT_BP
+Learned on B+
 9
 1
 NEDU
 NULL
 
-UNIT_A
+Learned on A
 10
 1
 NEDU
 NULL
 
-UNIT_AP
+Learned on A+
 11
 1
 NEDU
 NULL
 
-UNIT_S
+Learned on S
 12
 1
 NEDU
 NULL
 
-UNIT_SP
+Learned on S+
 13
 1
 NEDU
@@ -101,4 +101,3 @@ unuse1
 1
 NEDU
 NULL
-

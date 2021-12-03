@@ -1,36 +1,44 @@
 #include "gbafe.h"
 #include "StrMagCha.h"
 #include "UnitExt.h"
-
+#include "Common.h"
 #include "MagicSystem.h"
 
-extern const ProcCode gProc_tsBMag_onBPress[];
-extern const ProcCode gProc_tsWMag_onBPress[];
+//  Total Count of SubMenu command number
+#define CMD_CUR_NUM (*gpCommonFlagSaveSu)
 
-static int tsMag_onBPress(TargetSelectionProc* pts, TargetEntry* tar, int magType){
-	const ProcCode *pc = 0;
-	if( EBMAG == magType )
-		pc = gProc_tsBMag_onBPress;
-	else if( EWMAG == magType )
-		pc = gProc_tsWMag_onBPress;
-	else
-		return TSE_PLAY_BOOP | TSE_END | TSE_DISABLE;
-	
-	
+extern ProcCode gProcCode_tsBmagReturn[];
+
+// fork from $8022E64
+static int tsMag_onBPress(TargetSelectionProc* pts, TargetEntry* tar, const ProcCode* pc){
 	if( MapEventEngineExists() )
 		return TSE_NONE;
-	
-	ProcStart(pc,(Proc*)3);
-	return TSE_PLAY_BOOP | TSE_END | TSE_DISABLE;
+	else
+	{
+		ProcStart(pc,(Proc*)3);
+		return TSE_PLAY_BOOP | TSE_END | TSE_DISABLE;
+	}
 }
 
 
 
 int tsBMag_onBPress(TargetSelectionProc* pts, TargetEntry* tar){
-	return tsMag_onBPress(pts,tar,EBMAG);
+	return tsMag_onBPress(pts,tar,gProcCode_tsBmagReturn);
 }
 
-int tsWMag_onBPress(TargetSelectionProc* pts, TargetEntry* tar){
-	return tsMag_onBPress(pts,tar,EWMAG);
+
+
+void BuildBmagReturnMenu_OnTS(Proc* parent){
+	// Reset Sub-Menu num
+	CMD_CUR_NUM = 0;
+	
+	_ResetIconGraphics();
+	LoadIconPalettes(0x4);
+	
+	MenuProc* umMag = StartMenu(BMagSelectMenu);
+	
+	//StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	//SetFaceBlinkControlById(0,5);
+	ForceMenuItemPanel(umMag,gActiveUnit,0xF,0xB);
 }
 

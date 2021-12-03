@@ -5,11 +5,11 @@
 #define Eirika_MugOffset 0x2
 
 
-setMugEntry(Eirika_MugOffset,Prot_Lysithea,4,6,4,4)
+setMugEntry(Eirika_MugOffset,Prot_Lysithea,2,6,2,4)
 
 ALIGN 4
 Prot_Lysithea:
-	#incext PortraitFormatter "Portrait/Lysithea.png"
+	#incext PortraitFormatter "Portrait/Lysithea4.png"
 
 
 #endif // PORTRAIT_INSTALLED

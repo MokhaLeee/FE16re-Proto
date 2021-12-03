@@ -8,9 +8,13 @@
 
 #include "MagicSystem.h"
 
+//  Total Count of SubMenu command number
 #define CMD_CUR_NUM (*gpCommonFlagSaveSu)
+
 typedef int (*FuncType1) (UnitExt*);
 extern void ItemEffect_Call(Unit*,u16);
+extern short TextId_umMagGrayBox;
+extern short TextId_umSubMagGrayBox;
 
 
 /* ================================
@@ -20,7 +24,6 @@ static int Mag_Usability(MenuProc* pmu, int index, FuncType1 IsEmpty){
 	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
 	
 	gUnitSubject = gActiveUnit;
-	CMD_CUR_NUM = 0;
 	
 	// 三房特色判定法：不能用魔法当然不能用
 	if( !IsClassHandleMag(UNIT_CLASSID(gActiveUnit)) )
@@ -29,17 +32,34 @@ static int Mag_Usability(MenuProc* pmu, int index, FuncType1 IsEmpty){
 	if( NULL == ext )
 		return MCA_NONUSABLE;
 	
-	if( !isUnitMagSet(ext) )
+	if( FALSE == isUnitMagSet(ext) )
 		SetUnitMagList(gActiveUnit);
 	
 	if( !IsEmpty(ext) )
 		return MCA_USABLE;
 	else
-		return MCA_NONUSABLE;
+		return MCA_GRAYED;
 }
 
-static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, const MenuDefinition* mdef){
+int BMag_Usability(MenuProc* pmu, int index)
+{	return Mag_Usability(pmu,index,isBMagListEmpty); }
 
+int WMag_Usability(MenuProc* pmu, int index)
+{	return Mag_Usability(pmu,index,isWMagListEmpty); }
+
+
+
+static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, const MenuDefinition* mdef){
+	// 如果不能用就用MenuHelpBox
+	if( MCA_USABLE != pcmd->availability )
+	{
+		MenuCallHelpBox(pmu,TextId_umMagGrayBox);
+		return ME_NONE; //ME_PLAY_BOOP;
+	}
+	
+	// Reset Sub-Menu num
+	CMD_CUR_NUM = 0;
+	
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
 	
@@ -52,21 +72,11 @@ static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, const MenuDefinition
 }
 
 
-
-
-int BMag_Usability(MenuProc* pmu, int index)
-{	return Mag_Usability(pmu,index,isBMagListEmpty); }
-
-int WMag_Usability(MenuProc* pmu, int index)
-{	return Mag_Usability(pmu,index,isWMagListEmpty); }
-
 int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return Mag_Effect(pmu,pcmd,BMagSelectMenu); }
 
 int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return Mag_Effect(pmu,pcmd,WMagSelectMenu); }
-
-
 
 
 
@@ -85,22 +95,23 @@ int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 int BMagSelect_Usability(MenuProc* pmu, int index)
 {
 	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
-	if( NULL == ext )
+	u8 mag = GetBMagItem( ext,index );
+	
+	if( (NULL==ext) | (0==mag) )
 		return MCA_NONUSABLE;
 	
 	if( CMD_CUR_NUM > (MAX_CMD_NUM-1) )
 		return MCA_NONUSABLE;
 	
-	if( 0 == GetBMagUse(ext,index) )
-	{
-		CMD_CUR_NUM++;
+	// Count for total cmd-number
+	CMD_CUR_NUM++;
+	
+	MakeTargetListForWeapon(gActiveUnit,mag);
+	
+	if( 0 == GetTargetListSize() )
 		return MCA_GRAYED;
-	}
 	else
-	{
-		CMD_CUR_NUM++;
 		return MCA_USABLE;
-	}
 }
 
 
@@ -109,10 +120,9 @@ int WMagSelect_Usability(MenuProc* pmu, int index)
 	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
 	u16 mag = GetWMagItem(ext,index);
 	
-	if( NULL == ext )
+	if( (NULL==ext) | (0==mag) )
 		return MCA_NONUSABLE;
-	if( 0 == mag )
-		return MCA_NONUSABLE;
+	
 	if( CMD_CUR_NUM > (MAX_CMD_NUM-1) )
 		return MCA_NONUSABLE;
 	
@@ -140,19 +150,29 @@ int BMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	if( NULL == ext )
 		return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 	
+	// 如果不能用就用MenuHelpBox
+	if( MCA_USABLE != pcmd->availability )
+	{
+		MenuCallHelpBox(pmu,TextId_umSubMagGrayBox);
+		return ME_NONE; //ME_PLAY_BOOP;
+	}
+	
 	mag = MAKE_ITEM(
 		gpBMagList[pcmd->commandDefinitionIndex].index,
 		GetBMagUse(ext,pcmd->commandDefinitionIndex) );
 	
 	// Set Wpn-Eqp System
 	SetWpnEqpForce(gActiveUnit,mag);
-
+	gActionData.itemSlotIndex = 0;
+	
 	ClearIcons();
 	ClearBG0BG1();
 	
 	MakeTargetListForWeapon(gActiveUnit,mag);
 	StartTargetSelection(gTSfunc_BMag);
 	
+	// Reset cmd-count
+	CMD_CUR_NUM = 0;
 	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
 
@@ -166,6 +186,13 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	if( NULL == ext )
 		return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 	
+	// 如果不能用就用MenuHelpBox
+	if( MCA_USABLE != pcmd->availability )
+	{
+		MenuCallHelpBox(pmu,TextId_umSubMagGrayBox);
+		return ME_NONE;//ME_PLAY_BOOP;
+	}
+	
 	mag = MAKE_ITEM(
 			gpWMagList[pcmd->commandDefinitionIndex].index,
 			GetWMagUse(ext,pcmd->commandDefinitionIndex) );
@@ -175,6 +202,9 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 
 	//ClearIcons();
 	ClearBG0BG1();
+	
+	// Reset cmd-count
+	CMD_CUR_NUM = 0;
 	
 	// W.I.P
 	ItemEffect_Call(gActiveUnit,mag);

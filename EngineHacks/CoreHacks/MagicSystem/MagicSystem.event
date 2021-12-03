@@ -10,13 +10,6 @@
 	#include "SetMagList/SetMagList.event"
 
 
-	
-ALIGN 4
-gpBMagList:
-	POIN BMagList
-gpWMagList:
-	POIN WMagList
-
 
 
 #endif // MAGIC_SYSTEM_FE16RE

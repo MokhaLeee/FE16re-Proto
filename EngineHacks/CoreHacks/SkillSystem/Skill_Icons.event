@@ -1,0 +1,27 @@
+#ifndef SKILL_ICON_INCLUDED
+#define SKILL_ICON_INCLUDED
+
+SI_BlowArmored:
+	#incext Png2Dmp "Icons/BlowArmored.png"
+
+SI_BlowDarting:
+	#incext Png2Dmp "Icons/BlowDarting.png"
+
+SI_BlowDeath:
+	#incext Png2Dmp "Icons/BlowDeath.png"
+	
+SI_BlowDuelist:
+	#incext Png2Dmp "Icons/BlowDuelist.png"
+
+SI_BlowFiendish:
+	#incext Png2Dmp "Icons/BlowFiendish.png"	
+
+SI_BlowUncanny:
+	#incext Png2Dmp "Icons/BlowUncanny.png"	
+
+SI_BlowWarding:
+	#incext Png2Dmp "Icons/BlowWarding.png"
+
+
+
+#endif // SKILL_ICON_INCLUDED

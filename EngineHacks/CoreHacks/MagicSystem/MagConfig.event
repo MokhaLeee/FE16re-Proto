@@ -4,52 +4,99 @@
 #define MagList(id,base) "BYTE id base 0 0; WORD 0"
 
 ALIGN 4
+gpBMagList:
+	POIN BMagList
+gpWMagList:
+	POIN WMagList
+
+ALIGN 4
 BMagList:
 {
-	MagList(Fire,7)
-	MagList(Thunder,7)
-	MagList(Elfire,7)
-	MagList(Bolting,7)
+	MagList(Fire,8)
+	MagList(Lightning,8)
+	MagList(Flux,8)
+	MagList(Thunder,8)
 	
-	MagList(Fimbulvetr,7)
-	MagList(Forblaze,7)
-	MagList(Excalibur,7)
-	MagList(Lightning,7)
+	MagList(Elfire,8)
+	MagList(Divine,8)
+	MagList(Luna,8)
+	MagList(Nosferatu,8)
 	
-	MagList(Shine,7)
-	MagList(Divine,7)
-	MagList(Purge,7)
-	MagList(Aura,7)
+	MagList(Luna,8)
+	MagList(Bolting,4)
+	MagList(Purge,8)
+	MagList(Eclipse,8)
 	
-	MagList(Flux,7)
-	MagList(Luna,7)
-	MagList(Nosferatu,7)
+	
+	MagList(Excalibur,8)
+	MagList(Ivaldi,8)
+	MagList(Gleipnir,8)
 	WORD 0 0
 }
 
 ALIGN 4
 WMagList:
 {
-	MagList(Heal,7)
-	MagList(Mend,7)
-	MagList(Recover,7)
-	MagList(Physic,7)
+	MagList(Heal,8)
+	MagList(Mend,8)
+	MagList(Recover,8)
+	MagList(Physic,8)
 	
-	MagList(Fortify,7)
-	MagList(Restore,7)
-	MagList(Silence,7)
-	MagList(Sleep,7)
+	MagList(Fortify,8)
+	MagList(Restore,8)
+	MagList(Silence,8)
+	MagList(Sleep,8)
 	
-	MagList(Berserk,7)
-	MagList(Warp,7)
-	MagList(Rescue,7)
-	MagList(TorchStaff,7)
+	MagList(Berserk,8)
+	MagList(Warp,8)
+	MagList(Rescue,8)
+	MagList(TorchStaff,8)
 	
-	MagList(Hammerne,7)
-	MagList(Unlock,7)
-	MagList(Barrier,7)
+	MagList(Hammerne,8)
+	MagList(Unlock,8)
+	MagList(Barrier,8)
 	WORD 0 0
 }	
 	
+
+ALIGN 4
+ClassHandleMag:
+	BYTE Mage 		Mage_F
+	BYTE Sage 		Sage_F
+	BYTE MageKnight	MageKnight_F
+	BYTE Bishop		Bishop_F
+	BYTE Shaman		Shaman_F
+	BYTE Druid		Druid_F
+	BYTE Summoner	Summoner_F
+	BYTE Monk		Priest
+	BYTE Bard		Cleric
+	BYTE Valkyrie	Dancer
+	BYTE Necromancer Queen
+	BYTE Prince		Queen_2
+	BYTE Pontifex	Pupil_2
+	BYTE 0
+
+ALIGN 4
+ClassLeaningMag:
+	BYTE Pupil_1
+	BYTE 0
 	
+ALIGN 4
+ClassBMagMaster:
+	BYTE Sage 		Sage_F
+	BYTE Druid		Druid_F
+	BYTE Necromancer Queen
+	BYTE Prince		Queen_2
+	BYTE Pontifex
+	BYTE 0
+
+ALIGN 4
+ClassWMagMaster:
+	BYTE Bishop		Bishop_F
+	BYTE Necromancer Queen
+	BYTE Prince		Queen_2
+	BYTE Pontifex
+	BYTE 0
+
+
 #endif // MAGIC_SYSTEM_CONFIG

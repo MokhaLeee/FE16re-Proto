@@ -2,8 +2,11 @@
 #define RANGE_GETTER_MOKHA_STYLE
 
 
-#include "src/Range2Core.lyn.event"
+#include "src/RangeGetterCore.lyn.event"
 
-
+/*
+void FillMapForItems(Unit* unit, u16 itemList[]);
+void FillMapForSingleItem(Unit* unit, u16 item);
+*/
 
 #endif // RANGE_GETTER_MOKHA_STYLE

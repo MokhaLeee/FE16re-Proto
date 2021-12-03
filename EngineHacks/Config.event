@@ -1,17 +1,13 @@
 #ifndef FE16RE_CONFIG_MOKHA
 #define FE16RE_CONFIG_MOKHA
 
-
-
-
-
-
-
-
-
 // ===================================
 // ============ External =============
 // ===================================
+
+// If uncommented, will enable the 
+// Moudlar Portrait Height filter on Status Screen
+#define MODUALR_PROTRAIT_HEIGHT
 
 // If uncommented, will enable the Movement Arrow Hack.
 #define MOVEARROW_HACK
@@ -21,5 +17,8 @@
 
 //If uncommented, will enable Menu Semitransparency.
 #define SEMITRANSPARENCY_CHANGES
+
+
+
 
 #endif // FE16RE_CONFIG_MOKHA
