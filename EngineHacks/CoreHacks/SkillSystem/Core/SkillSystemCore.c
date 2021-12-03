@@ -43,6 +43,15 @@ static int CheckRomSkill_Class(Unit* unit, int skillId){
 	return 0;
 }
 
+static int JudgeSkillROM(Unit* unit, int skillId){
+	if( TRUE == CheckRomSkill_Char(unit,skillId) )
+		return TRUE;
+	else if( TRUE == CheckRomSkill_Class(unit,skillId) )
+		return TRUE;
+	else
+		return FALSE;
+}
+
 /*
 需要注意UnitExt并不是所有人都有的
 */
@@ -58,11 +67,7 @@ int JudgeSkill(Unit* unit, int skillId){
 			if( skillId == GetUnitExtByUnit(unit)->skills[i] )
 				return 1;
 		
-	if( 1 == CheckRomSkill_Char(unit,skillId) )	
-		return 1;
-	if( 1 == CheckRomSkill_Class(unit,skillId) )
-		return 1;
-	return 0;
+	return JudgeSkillROM(unit,skillId);
 }
 
 /*
@@ -142,12 +147,17 @@ int JudgeSkillFast(Unit* unit, int skillId){
 	if( skillId > 0xFE )
 		return FALSE;
 	
-	if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
-		MakeSkillListRAM(unit,gpUnitSkillList0);
+	if( UnitHasExt(unit) )
+	{
+		if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
+			MakeSkillListRAM(unit,gpUnitSkillList0);
 	
-	for( int i=0; i<gpUnitSkillList0->Count; i++ )
-		if( skillId == gpUnitSkillList0->skills[i] )
-			return 1;
+		for( int i=0; i<gpUnitSkillList0->Count; i++ )
+			if( skillId == gpUnitSkillList0->skills[i] )
+				return 1;
+	}
+	else
+		return JudgeSkillROM(unit,skillId);
 	
 	return 0;
 }

@@ -35,6 +35,7 @@ extern UnitExt* gpUnitExtData;	// 0x02026E40, 43*0x20=0x560
 
 
 // Gets Func
+int UnitHasExt(Unit* unit);
 UnitExt* GetUnitExt(u8 index);
 UnitExt* GetUnitExtByCharID(u8 number);
 UnitExt* GetUnitExtByUnit(Unit* unit);
