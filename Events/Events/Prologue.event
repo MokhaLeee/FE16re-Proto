@@ -1,0 +1,74 @@
+#include EAstdlib.event
+EventPointerTable(7,MyPrologue)
+
+#ifndef FreeSpace
+	#define	FreeSpace $B2A610
+	ORG FreeSpace
+#endif
+
+
+
+MyPrologue:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno Dunno Dunno
+POIN Tutorial
+POIN TrapData TrapData
+POIN PlayerUnits EnemyUnits
+POIN $0 $0 $0 $0 $0 $0
+POIN BeginningScene EndingScene
+
+PlayerUnits:
+UNIT Eirika Sage_F Eirika Level(1,Ally,False) [4,4] 0x0 0x0 0x0 0x1 [Rapier,Vulnerary] NoAI
+UNIT Seth Paladin Eirika Level(1,Ally,False) [4,3] 0x0 0x0 0x0 0x1 [SilverLance,SteelSword] NoAI
+UNIT
+
+EnemyUnits:
+UNIT Riev Bishop Riev Level(10,2,True) [8,6] 0x0 0x0 0x0 0x1 [Divine] NoAI
+UNIT Caellach Warrior Riev Level(10,2,True) [9,6] 0x0 0x0 0x0 0x1 [IronAxe] NoAI
+UNIT
+
+TurnBasedEvents:
+END_MAIN
+
+ALIGN 32 //For some reason, CharacterBasedEvents have to be 32-Aligned
+CharacterBasedEvents:
+END_MAIN
+
+LocationBasedEvents:
+END_MAIN
+
+Dunno:
+WORD $00
+END_MAIN
+
+Tutorial:
+WORD $00
+END_MAIN
+
+TrapData:
+ENDTRAP
+
+ALIGN 32
+
+BeginningScene:
+
+
+// 放置角色
+LOAD1 1 PlayerUnits
+ENUN
+LOAD1 1 EnemyUnits
+ENUN
+ENDA
+
+EndingScene:
+MNC2 0x1
+ENDA
+
+MiscBasedEvents:
+DefeatAll(EndingScene)
+END_MAIN
+
+

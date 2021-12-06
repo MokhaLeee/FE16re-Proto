@@ -10,3 +10,4 @@ Charm
 #include strings/StatusScreen.txt
 #include strings/Menu.txt
 #include strings/Skills_Blow.txt
+#include strings/Skills_BattleMisc.txt

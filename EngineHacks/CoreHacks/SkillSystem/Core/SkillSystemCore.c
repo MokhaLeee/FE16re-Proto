@@ -78,12 +78,12 @@ int JudgeSkill(Unit* unit, int skillId){
 
 
 static int IsSkillListHandled(Unit* unit, SkillListRAM* list){
-	return list->CharID == unit->index;
+	return list->unitID == unit->index;
 }
 
 
 static void ResetSkillList_byList(SkillListRAM* list){
-	list->CharID = 0;
+	list->unitID = 0;
 	list->Count = 0;
 	for(int i=0; i<UNIT_SKILL_COUNT_LIST; i++)
 		list->skills[i] = 0;
@@ -101,7 +101,7 @@ void ResetSkillList(void){
 static int MakeSkillListRAM(Unit* unit, SkillListRAM* list){
 	ResetSkillList_byList(list);
 	
-	list->CharID = unit->index;
+	list->unitID = unit->index;
 	
 	for(int i=1; i<MAX_SKILL_COUNT; i++)
 		if( 1 == JudgeSkill(unit,i) )
@@ -147,17 +147,13 @@ int JudgeSkillFast(Unit* unit, int skillId){
 	if( skillId > 0xFE )
 		return FALSE;
 	
-	if( UnitHasExt(unit) )
-	{
-		if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
-			MakeSkillListRAM(unit,gpUnitSkillList0);
+
+	if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
+		MakeSkillListRAM(unit,gpUnitSkillList0);
 	
-		for( int i=0; i<gpUnitSkillList0->Count; i++ )
-			if( skillId == gpUnitSkillList0->skills[i] )
-				return 1;
-	}
-	else
-		return JudgeSkillROM(unit,skillId);
+	for( int i=0; i<gpUnitSkillList0->Count; i++ )
+		if( skillId == gpUnitSkillList0->skills[i] )
+			return 1;
 	
 	return 0;
 }

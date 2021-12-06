@@ -2,7 +2,7 @@ BattleToUnitHook -> Battle2UnitFuncList
 ChapterInitHook -> ResetUnitMagic
 StatusScreen：第一页展示WpnEqp
 Menu：hover用到了RangeGetter
-
+WpnEqp: Modular Counter Check
 1. Usability没有做
 2. WMag的Effect
 3. SetList整体都没做

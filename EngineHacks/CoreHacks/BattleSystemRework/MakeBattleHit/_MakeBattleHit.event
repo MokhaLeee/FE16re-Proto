@@ -1,0 +1,49 @@
+#ifndef MAKE_BATTLE_HIT
+#define MAKE_BATTLE_HIT
+
+
+#include "src/MakeBattleHit.lyn.event"
+
+PUSH
+ORG $2AED0
+jumpToHack(new_BattleUnwind)
+POP
+
+ALIGN 4
+gpCheckVantageTable:
+	POIN CheckVantageTable
+gpCheckDesperationTable:
+	POIN CheckDesperationTable
+gpCheckDoubleTable:
+	POIN CheckDoubleTable
+	
+
+
+
+
+
+// 伏击效果
+ALIGN 4
+CheckVantageTable:
+	POIN Vantage VantageBattalion
+	WORD 0
+
+
+
+	
+// 猛攻效果
+ALIGN 4
+CheckDesperationTable:
+	POIN Desperation DesperationBattalion
+	WORD 0
+
+
+
+
+// Check Double
+ALIGN 4
+CheckDoubleTable:
+	POIN QuickRiposte
+	WORD 0
+
+#endif // MAKE_BATTLE_HIT

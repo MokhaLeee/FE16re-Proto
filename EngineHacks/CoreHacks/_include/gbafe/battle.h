@@ -173,4 +173,20 @@ void BattleGenerateUiStats(Unit*, u8 ItemSlot); // 0x802A401
 // Mokha
 extern u32 gBattleRoundArray; 	// 0x203A5EC
 extern u32* gpCurrentRound;		// 0x203A608
+
+extern void SetBattleUnitTerrainBonuses(BattleUnit* bu, int terrain);
+extern void SetBattleUnitTerrainBonusesAuto(BattleUnit* bu);
+extern void SetBattleUnitWeapon(BattleUnit*, int);
+
+extern void FillPreBattleStats(BattleUnit*, BattleUnit*);
+extern void ComputeBattleUnitStats(BattleUnit*, BattleUnit*);
+
+extern void CopyUnitToBattleStruct(BattleUnit*, Unit*);
+extern void InitBattleUnit(BattleUnit*, Unit*);
+extern s8 BattleGenerateHit(BattleUnit* actor, BattleUnit* target);
+extern int BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
+
+extern void ClearBattleHits();
+extern void ClearRounds();
+
 #endif // GBAFE_BATTLE_H

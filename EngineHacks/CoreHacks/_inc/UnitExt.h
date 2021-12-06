@@ -31,7 +31,7 @@ struct UnitExt{
 	// Below is not in SaveSa
 	/* 10 */ struct MagList mlist;
 };
-extern UnitExt* gpUnitExtData;	// 0x02026E40, 43*0x20=0x560
+extern UnitExt* gpUnitExtData;	// 0x02026E70, 43*0x20=0x560
 
 
 // Gets Func

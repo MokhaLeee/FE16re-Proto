@@ -4,6 +4,8 @@
 #include "StrMagCha.h"
 #include "MagicSystem.h"
 
+extern void StatScreen_DrawLeftText(void);
+
 static void DrawPage1_Texts(){
 	// Draw Text
 	DrawTextInline(		// Str
@@ -156,5 +158,6 @@ void StatScreen_DrawPage1(void){
 	DrawPage1_NumBar(unit);
 	DrawPage1_WpnEqp(unit);
 	NuDrawStatScreenBwl();
+	
 }
 

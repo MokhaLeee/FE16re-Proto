@@ -1428,7 +1428,10 @@ SET_FUNC BattleUpdateBattleStats, 0x802B1C5
 SET_FUNC BattleCheckSureShot, 0x802B1F5
 SET_FUNC BattleCheckPierce, 0x802B279
 SET_FUNC BattleCheckGreatShield, 0x802B2E9
+
 SET_FUNC BattleCheckSilencer, 0x802B38D
+SET_FUNC BattleGenerateHit, 0x802B38D
+
 SET_FUNC BattleCheckPetrify, 0x802B3D1
 SET_FUNC BattleGenerateHitAttributes, 0x802B3ED
 SET_FUNC BattleGenerateHitTriangleAttack, 0x802B579

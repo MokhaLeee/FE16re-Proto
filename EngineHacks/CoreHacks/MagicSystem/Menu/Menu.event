@@ -23,7 +23,7 @@ BMagSelectMenu:
 	POIN	$4F521 						//R Press
 	POIN	$4F459						//HelpBox
 
-#define BMagCmd "MenuCommand($0, $0, OrangeText, BMagSelect_Usability, BMagSelect_TextDraw, BMagSelect_Effect, BMagSelect_Hover, 0x8022DD9)"
+#define BMagCmd "MenuCommand($0, $0, OrangeText, BMagSelect_Usability, BMagSelect_TextDraw, BMagSelect_Effect, BMagSelect_Hover, BWmagCommon_Unhover)"
 
 ALIGN 4
 BMagSlelct_MenuCmdTable:
@@ -63,7 +63,7 @@ WMagSelectMenu:
 	POIN	$4F521 						//R Press
 	POIN	$4F459						//HelpBox
 
-#define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, 0x8023C69)"
+#define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, BWmagCommon_Unhover)"
 	
 ALIGN 4
 WMagSlelct_MenuCmdTable:

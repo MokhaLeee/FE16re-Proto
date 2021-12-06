@@ -67,4 +67,5 @@ s8 ResMod_WpnResBunus(Unit* unit);
 s8 HpMod_WpnHpBunus(Unit* unit);
 
 
-
+// Range Getters
+#define new_GetWeaponRangeMask  ( (u32(*)(u16 item, Unit* unit)) (0x80170D5) )

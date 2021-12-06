@@ -1,7 +1,6 @@
 .SUFFIXES:
 .PHONY: all clean lyn
 
-SRC_PATH = ./
 
 # Making sure devkitARM exists and is set up.
 ifeq ($(strip $(DEVKITARM)),)
@@ -100,9 +99,12 @@ clean:
 # ============
 # = MAKE ALL =
 # ============
+SRC_PATH = ./
 SRC_SKILLS_PATH = ./SkillSystem/Skills
-DIRS = $(shell find $(SRC_PATH) -maxdepth 3 -type d)
-DIRS += $(shell find $(SRC_SKILLS_PATH) -maxdepth 3 -type d)
+SRC_BATTLE_PATH = ./BattleSystemRework
+
+# DIRS = $(shell find $(SRC_PATH) -maxdepth 6 -type d)
+DIRS = $(shell find $(SRC_PATH) -type d)
 
 SRC_FILES := $(foreach dir, $(DIRS), $(wildcard $(dir)/*.c))
 LYN_TARGET := $(patsubst %.c,%.lyn.event, $(SRC_FILES) )

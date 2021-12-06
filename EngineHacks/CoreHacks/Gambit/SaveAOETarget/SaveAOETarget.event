@@ -1,0 +1,11 @@
+#ifndef GAMBIT_SAVE
+#define GAMBIT_SAVE
+
+ALIGN 4
+#include "src/GambitSaveCore.lyn.event"
+
+/* ALIGN 4
+gpCommonSaveSu:
+	WORD 0x2026E30 */
+	
+#endif // GAMBIT_SAVE	

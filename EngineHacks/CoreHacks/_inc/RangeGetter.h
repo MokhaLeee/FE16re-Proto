@@ -12,4 +12,4 @@ DisplayMoveRangeGraphics(4); 		// staff=4; Wpn=2
 
 */
 void FillMapForSingleItem(Unit* unit, u16 item);
-void FillMapForItems(Unit* unit, u16 itemList[]);
+//void FillMapForItems(Unit* unit, u16 itemList[]);

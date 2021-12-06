@@ -22,7 +22,7 @@ void BattleToUnitVanilla_WpnExcept(Unit* unit, BattleUnit* bu){
 	
 	// State
 	*sStatusBufferMaybe &= ( (unit->state>>0x11)&0x3 );
-	if( bu->statusOut >= 0 )
+	if( (bu->statusOut >0)|(0==bu->statusOut) )
 		SetUnitStatus(unit,bu->statusOut );
 	
 	// Status Up
@@ -36,7 +36,7 @@ void BattleToUnitVanilla_WpnExcept(Unit* unit, BattleUnit* bu){
 	UnitCheckStatCaps(unit);
 	
 	//WpnRank
-	u8 iWpnExp = GetBattleUnitUpdatedWeaponExp(bu);
+	s8 iWpnExp = GetBattleUnitUpdatedWeaponExp(bu);
 	if( iWpnExp>0 )
 		unit->ranks[bu->weaponType] += iWpnExp;
 	

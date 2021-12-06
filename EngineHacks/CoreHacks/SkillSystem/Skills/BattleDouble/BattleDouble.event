@@ -1,0 +1,27 @@
+#ifndef BATTLE_CHECK_DOUBLE_SKILL_INSTALLED
+#define BATTLE_CHECK_DOUBLE_SKILL_INSTALLED
+
+// Skill ID
+ALIGN 4
+QuickRiposteID:	BYTE SKILLID_QuickRiposte
+
+
+
+ALIGN 4
+SkillInfo_QuickRiposte:
+	/* name */ SHORT 0
+	/* desc */ SHORT SD_QuickRiposte
+	/* icon */ POIN SI_QuickRiposte
+
+
+
+ALIGN 4
+InjectSkillInfo(SKILLID_QuickRiposte, SkillInfo_QuickRiposte)
+
+
+
+
+#include "QuickRiposte/QuickRiposte.lyn.event"
+
+
+#endif // BATTLE_CHECK_DOUBLE_SKILL_INSTALLED

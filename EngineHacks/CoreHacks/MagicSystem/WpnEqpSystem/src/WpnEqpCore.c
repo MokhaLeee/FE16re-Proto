@@ -4,16 +4,7 @@
 #include "StrMagCha.h"
 #include "StatusGetter.h"
 
-extern TargetSelectionDefinition gpTargetSelectFuncs_Attack[];
 
-
-
-static int isUnitAlly(Unit* unit){
-	if( unit->index < 0x40 )
-		return TRUE;
-	else
-		return FALSE;
-}
 
 u16 GetWpnEqp(UnitExt* ext){ return ext->WpnEqp; }
 
@@ -54,6 +45,9 @@ static int trySetEqpMag(Unit* unit){
 	UnitExt* ext = GetUnitExtByUnit(unit);
 	if( NULL == ext )
 		return FALSE;
+	
+	if( FALSE == isUnitMagSet(ext) )
+		SetUnitMagList(unit);
 	
 	for(int i=0; i<0xF; i++)
 	{
@@ -107,76 +101,19 @@ int SetWpnEqpAuto(Unit* unit){
 	if( GetMag(unit) > GetPow(unit) )
 		if( 1==trySetEqpMag(unit) )
 			return 1;
+		
 	if( 1==trySetEqpPhy(unit) )
 		return 1;
+	
 	if( 1==trySetEqpMag(unit) )
 		return 1;
 	
 	return 0;
 }
 
-
-// with asm
-// 0=normal; 1=mag
-int SetupBattleWpnCore(struct BattleUnit* bu){
-	u8 shouldAuto = FALSE;
-	UnitExt* ext = GetUnitExtByUnit((Unit*)bu);
-	
-	if( NULL == ext )
-		return 0;
-	
-	if( !isUnitAlly( (Unit*)bu ) )
-		return 0;
-	
-	// No equipment or equip with W.Mag
-	if( &gBattleActor == bu )	// 默认攻击者已经装备好了(默认不处理Cp)
-		shouldAuto = FALSE;
-	else if( 0 == ITEM_USE(ext->WpnEqp) )
-		shouldAuto = TRUE;
-	else if( 0==TestWpn(ext->WpnEqp) )
-		shouldAuto = TRUE;		// 去掉W.Mag
-	
-	if( shouldAuto )
-		if( 0 == SetWpnEqpAuto((Unit*)bu) )
-			return 0;
-	
-	//if( 1 != TestWpn(ext->WpnEqp) )
-	if( !IsItemMagic(ext->WpnEqp) )
-		return 0;
-	
-	// W.I.P
-	// Acturally it dependes on diff
-	bu->canCounter = 1;
-	
-	// <!>
-	bu->weaponSlotIndex = MAG_SLOTBU;	// 9
-	
-	bu->weapon = ext->WpnEqp;
-	bu->weaponBefore = ext->WpnEqp;
-	return 1;
-	
-	
-	
-		
-}
+int SetWpnEqpAuto_bu(BattleUnit* bu)
+{	return  SetWpnEqpAuto( GetUnit(bu->unit.index) ); }
 
 
 
-// Misc
 
-// Remake SubAttack-Effect(0x22CF0)
-int newSubAttackEffect(MenuProc* pmu, MenuCommandProc* pcmd){
-	u16 wpn = gActiveUnit->items[pcmd->commandDefinitionIndex];
-	
-	// Set Wpn-Eqp System
-	SetWpnEqpForce(gActiveUnit,wpn);
-	EquipUnitItemSlot(
-		gActiveUnit, 
-		pcmd->commandDefinitionIndex);
-
-	ClearBG0BG1();
-	MakeTargetListForWeapon(gActiveUnit,wpn);
-	StartTargetSelection(gpTargetSelectFuncs_Attack);
-	
-	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
-}

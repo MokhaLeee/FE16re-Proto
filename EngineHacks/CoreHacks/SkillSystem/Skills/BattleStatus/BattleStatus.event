@@ -1,4 +1,4 @@
-// Will be included in Modular Battle Status Getter
+// Will be included in Battle System - Pre Battle
 
 // Blows
 #include "BlowSkills/BlowSkills.event"

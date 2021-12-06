@@ -1,6 +1,8 @@
 #ifndef SKILL_ICON_INCLUDED
 #define SKILL_ICON_INCLUDED
 
+
+// Blow Skills
 SI_BlowArmored:
 	#incext Png2Dmp "Icons/BlowArmored.png"
 
@@ -23,5 +25,23 @@ SI_BlowWarding:
 	#incext Png2Dmp "Icons/BlowWarding.png"
 
 
+
+
+// Battle Misc(0x20)
+SI_Vantage:
+	#incext Png2Dmp "Icons/Vantage.png"
+	
+SI_VantageBattalion:
+	#incext Png2Dmp "Icons/VantageBattalion.png"
+
+SI_Desperation:
+	#incext Png2Dmp "Icons/Desperation.png"
+	
+SI_DesperationBattalion:
+	#incext Png2Dmp "Icons/DesperationBattalion.png"
+
+SI_QuickRiposte:
+	#incext Png2Dmp "Icons/QuickRiposte.png"
+	
 
 #endif // SKILL_ICON_INCLUDED

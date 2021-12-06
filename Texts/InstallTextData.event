@@ -189,6 +189,26 @@ __TEXTPROCESSD76:
 #incbin ".TextEntries/text_buildfileSD_BlowUncanny.fetxt"
 setText($D76, __TEXTPROCESSD76)
 
+__TEXTPROCESSD77:
+#incbin ".TextEntries/text_buildfileSD_Vantage.fetxt"
+setText($D77, __TEXTPROCESSD77)
+
+__TEXTPROCESSD78:
+#incbin ".TextEntries/text_buildfileSD_VantageBattalion.fetxt"
+setText($D78, __TEXTPROCESSD78)
+
+__TEXTPROCESSD79:
+#incbin ".TextEntries/text_buildfileSD_Desperation.fetxt"
+setText($D79, __TEXTPROCESSD79)
+
+__TEXTPROCESSD7A:
+#incbin ".TextEntries/text_buildfileSD_DesperationBattalion.fetxt"
+setText($D7A, __TEXTPROCESSD7A)
+
+__TEXTPROCESSD7B:
+#incbin ".TextEntries/text_buildfileSD_QuickRiposte.fetxt"
+setText($D7B, __TEXTPROCESSD7B)
+
 }
 
 #endif // TEXT_INSTALLER_TEXT_BUILDFILE_TXT

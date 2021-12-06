@@ -36,13 +36,13 @@ Wyvern Lord,0,0,0,0,0,0,0,0
 Wyvern Lord (F),0,0,0,0,0,0,0,0
 Wyvern Knight,0,0,0,0,0,0,0,0
 Wyvern Knight (F),0,0,0,0,0,0,0,0
-Mage,0,0,0,0,0,0,0,0
+Mage,SKILLID_VantageBattalion,0,0,0,0,0,0,0
 Mage (F),0,0,0,0,0,0,0,0
 Sage,0,0,0,0,0,0,0,0
 Sage (F),0,0,0,0,0,0,0,0
 Mage Knight,0,0,0,0,0,0,0,0
 Mage Knight (F),0,0,0,0,0,0,0,0
-Bishop,0,0,0,0,0,0,0,0
+Bishop,SKILLID_QuickRiposte,0,0,0,0,0,0,0
 Bishop (F),0,0,0,0,0,0,0,0
 Shaman,0,0,0,0,0,0,0,0
 Shaman (F),0,0,0,0,0,0,0,0
@@ -62,8 +62,8 @@ Manakete,0,0,0,0,0,0,0,0
 Manakete (F),0,0,0,0,0,0,0,0
 Journeyman (1),0,0,0,0,0,0,0,0
 Pupil (1),0,0,0,0,0,0,0,0
-Fighter,0,0,0,0,0,0,0,0
-Warrior,0,0,0,0,0,0,0,0
+Fighter,SKILLID_QuickRiposte,0,0,0,0,0,0,0
+Warrior,SKILLID_BlowDeath,SKILLID_QuickRiposte,SKILLID_VantageBattalion,0,0,0,0,0
 Brigand,0,0,0,0,0,0,0,0
 Pirate,0,0,0,0,0,0,0,0
 Berserker,0,0,0,0,0,0,0,0

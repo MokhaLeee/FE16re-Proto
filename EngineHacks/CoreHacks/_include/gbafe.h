@@ -41,22 +41,12 @@ extern "C" {
 #include "gbafe/save.h"
 #include "gbafe/event.h"
 #include "gbafe/battle.h"
-
 #include "gbafe/Anime.h"
 
-/* 
-#include "MokhaExt/eTHBasic.h"
-#include "MokhaExt/eTHMagic.h"
-#include "MokhaExt/eUnitExp.h"
-#include "MokhaExt/eMagCha.h"
-#include "MokhaExt/eRAMFree.h"
-#include "MokhaExt/eFreeMU.h"
-#include "MokhaExt/eEventCaller.h"
-#include "MokhaExt/eTsaAnime.h"
-
-#include "MokhaExt/UnitExt.h"
-#include "MokhaExt/MagCha.h" */
-
+#include "constants/characters.h"
+#include "constants/classes.h"
+#include "constants/items.h"
+#include "constants/terrains.h"
 
 #ifdef __cplusplus
 } // extern "C"

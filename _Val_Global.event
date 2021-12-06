@@ -13,14 +13,14 @@ _thumb(ReturnFALSE)
 
 // Common Save-su
 ALIGN 4
-gpCommonFlagSaveSu:
-	WORD 0x2026E30
+gpCommonSaveSu:
+	WORD 0x2026E30	// 0x40
 
 
 // UnitDataExtension
 ALIGN 4
 gpUnitExtData:
-	WORD 0x02026E40	// 43(len) * 0x20(size)
+	WORD 0x02026E70	// 43(len) * 0x20(size)
 
 
 

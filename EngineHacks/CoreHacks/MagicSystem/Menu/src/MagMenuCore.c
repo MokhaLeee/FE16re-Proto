@@ -3,15 +3,19 @@
 #include "StrMagCha.h"
 #include "StatusGetter.h"
 #include "RangeGetter.h"
-#include "AOEAttack.h"
+#include "Gambit.h"
+
 #include "Common.h"
+extern u8* gpCommonSaveSu;
+#define CMD_CUR_NUM (*gpCommonSaveSu)	//  Total Count of SubMenu command number
 
 #include "MagicSystem.h"
 
-//  Total Count of SubMenu command number
-#define CMD_CUR_NUM (*gpCommonFlagSaveSu)
+
+
 
 typedef int (*FuncType1) (UnitExt*);
+typedef u16 (*FuncType2) ( UnitExt*, u8);
 extern void ItemEffect_Call(Unit*,u16);
 extern short TextId_umMagGrayBox;
 extern short TextId_umSubMagGrayBox;
@@ -77,6 +81,65 @@ int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 
 int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return Mag_Effect(pmu,pcmd,WMagSelectMenu); }
+
+
+/* ================================
+   ========= Upper Hover ==========
+   ================================ */
+
+
+static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagitem, u8 mapDisplayStyle){	
+	int magCnt = 0;
+	u16 mag = 0;
+	u32 mask = 0;
+	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
+	
+	if( NULL == ext )
+		return 0;
+	if( MCA_USABLE != pcmd->availability )
+		return 0;
+	
+	for(int i=0; i<MAGIC_LIST_SIZE; i++ )
+	{
+		mag = getmagitem(ext,i);//GetBMagItem(ext,i);
+		if( 0 != mag )
+		{
+			mask = mask | new_GetWeaponRangeMask(mag,gActiveUnit);
+			magCnt++;
+		}
+	}
+	
+	if( 0 == magCnt )
+		return 0;
+	
+	BmMapFill(gMapMovement,-1);
+	BmMapFill(gMapRange,0);
+	
+	FillRangeMapByRangeMask(gActiveUnit,mask);
+	
+	DisplayMoveRangeGraphics(mapDisplayStyle);
+	return 0;
+}
+
+int BMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return Mag_UpperHover(pmu,pcmd,GetBMagItem,2); }
+
+int WMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
+{	return Mag_UpperHover(pmu,pcmd,GetWMagItem,4); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -163,7 +226,7 @@ int BMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	// Set Wpn-Eqp System
 	SetWpnEqpForce(gActiveUnit,mag);
-	gActionData.itemSlotIndex = 0;
+	gActionData.itemSlotIndex = BU_ISLOT_BMAG;
 	
 	ClearIcons();
 	ClearBG0BG1();
@@ -199,6 +262,7 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 			
 	// Set Wpn-Eqp System
 	SetWpnEqpForce(gActiveUnit,mag);
+	gActionData.itemSlotIndex = BU_ISLOT_WMAG;
 
 	//ClearIcons();
 	ClearBG0BG1();
@@ -208,6 +272,8 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	// W.I.P
 	ItemEffect_Call(gActiveUnit,mag);
+	
+	DisplayMoveRangeGraphics(4);
 	return ME_PLAY_BEEP | ME_END | ME_DISABLE;
 	
 }
@@ -315,6 +381,13 @@ int WMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return MagSelect_TextDraw(pmu,pcmd,EWMAG); }
 
 
+int BWmagCommon_Unhover(void){
+	BmMapFill(gMapMovement,-1);
+	BmMapFill(gMapRange,0);
+	DisplayMoveRangeGraphics(0x3);
+	HideMoveRangeGraphicsWrapper();
+	return 0;
+}
 
 
 

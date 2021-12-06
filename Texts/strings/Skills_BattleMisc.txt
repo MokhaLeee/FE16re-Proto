@@ -1,0 +1,25 @@
+## SD_Vantage
+Vantage:[N]
+When foe initiates combat,[N]
+unit still attacks first if HP is <50%.[X]
+
+## SD_VantageBattalion
+Battalion Vantage:[N]
+When foe initiates combat and battalion[N]
+endurance is <1/3, unit will attack first.[X]
+
+## SD_Desperation
+Desperation:[N]
+If unit initiates combat with HP ≤ 50%,[N]
+double attack immediately if possible.[X]
+
+## SD_DesperationBattalion
+Battalion Desperation: If unit initiates[N]
+combat when battalion endurance <1/3,[N]
+double attack immediately if possible.[X]
+
+## SD_QuickRiposte
+Quick Riposte:[N]
+If Unit's HP >50%, if attacked[N]
+by a foe, unit automatically[N]
+makes a follow-up attack.[X]

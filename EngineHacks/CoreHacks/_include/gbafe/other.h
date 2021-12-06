@@ -63,4 +63,8 @@ void* memcpy(void* dest, const void* src, unsigned int count); //! FE8U = (0x080
 void* memset(void* dest, int ch, unsigned int count); //! FE8U = (0x080D1C6C+1)
 
 u8 __modsi3(u8, u8);
+
+
+// Timer
+void StartBlockingTimer(int time); //! FE8U = (0x8014238+1)
 #endif // GBAFE_OTHER_H

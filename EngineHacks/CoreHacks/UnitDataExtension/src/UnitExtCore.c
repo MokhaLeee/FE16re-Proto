@@ -1,5 +1,6 @@
 #include "UnitExt.h"
 
+
 // Gets Func
 int UnitHasExt(Unit* unit){
 	return ( UNIT_CHARID(unit) < UNIT_EXT_CNT );

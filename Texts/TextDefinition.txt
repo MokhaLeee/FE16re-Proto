@@ -47,5 +47,10 @@
 #define SD_BlowWarding $D74
 #define SD_BlowDuelist $D75
 #define SD_BlowUncanny $D76
+#define SD_Vantage $D77
+#define SD_VantageBattalion $D78
+#define SD_Desperation $D79
+#define SD_DesperationBattalion $D7A
+#define SD_QuickRiposte $D7B
 
 #endif // TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT

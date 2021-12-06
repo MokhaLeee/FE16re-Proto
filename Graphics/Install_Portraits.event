@@ -9,7 +9,7 @@ setMugEntry(Eirika_MugOffset,Prot_Lysithea,2,6,2,4)
 
 ALIGN 4
 Prot_Lysithea:
-	#incext PortraitFormatter "Portrait/Lysithea4.png"
+	#incext PortraitFormatter "Portrait/Lysithea1.png"
 
 
 #endif // PORTRAIT_INSTALLED

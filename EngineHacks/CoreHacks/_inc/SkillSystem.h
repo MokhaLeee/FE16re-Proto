@@ -33,7 +33,7 @@ extern const SkillRomTable* gpSkillTable_Class;
 // RAM List Misc
 
 typedef struct{
-	u8 CharID;
+	s8 unitID;
 	u8 Count;
 	u8 skills[UNIT_SKILL_COUNT_LIST];
 } SkillListRAM;

@@ -36,17 +36,72 @@
 
 {
 #define Sp_EirikaLord 0x1
+
+#define SP_Paladin 0x5
+#define MP_Paladin 0x7
+
 #define Sp_SageF 0x21
 #define Mp_SageF 0x28
+
+#define Sp_Bishop 0x24
+#define Mp_Bishop 0x2B
+
+#define SP_Warrior 0x32
+#define MP_Warrior 0x40
+
+#define SP_Fighter 0x31
+#define MP_Fighter 0x3F
+
+
 StandingMapSprite(Sp_SageF, MapSprite16x32, Byleth_f_std)
 MovingMapSprite(Mp_SageF,0x81DA694,Byleth_f_mov)
+
+StandingMapSprite(SP_Paladin, MapSprite16x32, fe2Archer_std)
+MovingMapSprite(MP_Paladin,0x81CB2E0,fe2Archer_mov)
+
+StandingMapSprite(Sp_Bishop, MapSprite16x32, fe2Viliger_f_std)
+MovingMapSprite(Mp_Bishop,0x81C46CC,fe2Viliger_f_mov)
+
+StandingMapSprite(SP_Warrior, MapSprite16x32, Alm_std)
+MovingMapSprite(MP_Warrior,0x81E4340,Alm_mov)
 }
 
 
-
+// Byleth
 ALIGN 4
 Byleth_f_std:
 	#incext Png2Dmp "Spirits/Byleth_f_std.png" --lz77
+
+ALIGN 4
 Byleth_f_mov:
 	#incext Png2Dmp "Spirits/Byleth_f_mov.png" --lz77
+
+
+// Alm
+ALIGN 4
+Alm_std:
+	#incext Png2Dmp "Spirits/Alm_std.png" --lz77
+
+ALIGN 4
+Alm_mov:
+	#incext Png2Dmp "Spirits/Alm_mov.png" --lz77
 	
+	
+// fe2 Archer
+ALIGN 4
+fe2Archer_std:
+	#incext Png2Dmp "Spirits/fe2Archer_std.png" --lz77
+
+ALIGN 4
+fe2Archer_mov:
+	#incext Png2Dmp "Spirits/fe2Archer_mov.png" --lz77
+
+
+// fe2 Viliger-f
+ALIGN 4
+fe2Viliger_f_std:
+	#incext Png2Dmp "Spirits/fe2Viliger_f_std.png" --lz77
+
+ALIGN 4
+fe2Viliger_f_mov:
+	#incext Png2Dmp "Spirits/fe2Viliger_f_mov.png" --lz77

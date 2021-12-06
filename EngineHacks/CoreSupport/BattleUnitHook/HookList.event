@@ -8,8 +8,8 @@ Unit2BattleFuncList:
 
 ALIGN 4
 Battle2UnitFuncList:
-	POIN BattleToUnitVanilla_WpnExcept
-	POIN BattleToUnitSaveMagWpn
+	POIN BattleToUnitVanilla_WpnExcept 	// MagicSystem/WpnEqp System
+	POIN BattleToUnitSaveMagWpn			// MagicSystem/WpnEqp System
 	POIN BattleToUnit_SaveMagCha
 	WORD 0
 	

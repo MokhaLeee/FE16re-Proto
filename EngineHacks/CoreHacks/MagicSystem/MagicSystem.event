@@ -5,7 +5,7 @@
 	#include MagConfig.event
 	#include "core/core.event"
 	#include "Menu/Menu.event"
-	#include "TargetSelect/ts.event"
+	#include "TargetSelect/MagTs.event"
 	#include "WpnEqpSystem/WpnEqpSystem.event"
 	#include "SetMagList/SetMagList.event"
 

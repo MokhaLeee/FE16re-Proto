@@ -72,10 +72,10 @@ UnitMenuTable:
 	UM_Attack_B
 	
 	//B.Magic
-	MenuCommand(umBMagName, umBMagDesc, BlueText, BMag_Usability, BMag_Effect)
+	MenuCommand(umBMagName, umBMagDesc, BlueText, BMag_Usability, BMag_Effect,BMag_UpperHover,BWmagCommon_Unhover)
 	
 	//W.Magic
-	MenuCommand(umWMagName, umWMagDesc, BlueText, WMag_Usability, WMag_Effect)
+	MenuCommand(umWMagName, umWMagDesc, BlueText, WMag_Usability, WMag_Effect,WMag_UpperHover,BWmagCommon_Unhover)
 	
 	//Gambit
 	MenuCommand(umGambitName, umGambitDesc, OrangeText, Gambit_UpperMenu_Usability, Gambit_UpperMenu_Effect, Gambit_UpperMenu_Hover, Gambit_UpperMenu_Unhover)

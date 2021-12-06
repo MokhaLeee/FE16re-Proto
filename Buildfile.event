@@ -27,6 +27,9 @@ ORG FreeSpace
 	#include "Graphics/_MasterGfxInstaller.event"
 	MESSAGE Used graphics space ends at CURRENTOFFSET
 	
+	#include "Events/Events Installer.event"
+	MESSAGE Used events space ends at CURRENTOFFSET
+	
 	MESSAGE Used Free Space end at CURRENTOFFSET
 	MESSAGE Free Space should end before FreeSpaceEnd
 
@@ -44,18 +47,20 @@ ORG	FreeSpaceTable
 // For Debug
 MESSAGE 
 MESSAGE DEBUG INFO
-MESSAGE BMagSelect_Usability_ BMagSelect_Usability
-MESSAGE BlowSkillCheck_ BlowSkillCheck
-MESSAGE BMagSelect_TextDraw_ BMagSelect_TextDraw
-MESSAGE UnitBMagList_ UnitBMagList
-MESSAGE BC_DefRes_ BC_DefRes
+
 
 PUSH
 	ORG	$2C5AC
-	BYTE $64 $20	//Exp=100
+	//BYTE $64 $20	//Exp=100
+	
+	ORG $8B3C51
+	BYTE Warrior	// O'Neill = Warrior
 	
 	ORG $8B3C22
 	BYTE 0x10 		// 光之剑
+	
+	ORG $803D70
+	BYTE 60 10 10 25 		// Eirika Hp/atk/skl/spd
 	
 	ORG $803D78
 	BYTE 181		// Eirika剑A
@@ -73,9 +78,19 @@ PUSH
 	BYTE Sage_F		// Eirika Class = Mage
 	
 	ORG $E48E48		// Eirika Skills
-	BYTE SKILLID_BlowArmored SKILLID_BlowDeath //SKILLID_BlowFiendish
+	BYTE SKILLID_DesperationBattalion SKILLID_BlowDarting
 	
 	ORG $E48E50		// Seth Skills
-	BYTE SKILLID_BlowUncanny SKILLID_BlowDeath
+	BYTE SKILLID_BlowArmored SKILLID_BlowDeath
+	
+	ORG $E49838		// Fighter ROM Skills
+	//BYTE SKILLID_QuickRiposte
+	
+	ORG $E49840		// Warrior ROM Skills
+	//BYTE SKILLID_QuickRiposte SKILLID_VantageBattalion
+	
+	ORG $E49768 	// Mage skills
+	//BYTE SKILLID_VantageBattalion SKILLID_QuickRiposte
+	
 POP
 

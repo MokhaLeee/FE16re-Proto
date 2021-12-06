@@ -109,21 +109,41 @@ int SetBMagItem(UnitExt* ext, u16 item){
 int IsItemMagic(u16 item){
 	u32 attr = GetItemAttributes(item);
 	
-	int isWpnMag = (attr&IA_WEAPON) && (attr&IA_MAGIC);
-	int isStaff = attr & IA_STAFF;
+	if( (attr&IA_WEAPON) && (attr&IA_MAGIC) )
+		return TRUE;
 	
-	return isWpnMag || isStaff;
+	if( attr & IA_STAFF )
+		return TRUE;
+	else
+		return FALSE;
 }
 
+int IsItemBlackMagic(u16 item){
+	for(int i=0; i<MAGIC_LIST_SIZE; i++)
+		if( gpBMagList[i].index == ITEM_ID(item) )
+			return TRUE;
+	return FALSE;
+}
+
+int IsItemWhiteMagic(u16 item){
+	for(int i=0; i<MAGIC_LIST_SIZE; i++)
+		if( gpWMagList[i].index == ITEM_ID(item) )
+			return TRUE;
+	return FALSE;
+}
+
+
 /*
-	0=Not Wpn; 1=Magic; 2=Physical Wpn
+	0=Not Wpn/ No Item; 1=Magic; 2=Physical Wpn
 */
 int TestWpn(u16 item){
 	u32 attr = GetItemAttributes(item);
 	
-	if( !(IA_WEAPON & attr) )
+	if( 0 == ITEM_ID(item) )
 		return 0;
-	else if( attr & IA_MAGIC )
+	else if( !(IA_WEAPON & attr) )
+		return 0;
+	else if( IA_MAGIC & attr )
 		return 1;
 	else
 		return 2;

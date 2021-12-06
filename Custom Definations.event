@@ -20,6 +20,8 @@
 	#define FreeSpaceTableEnd 0xEE0000
 	
 	#define _thumb(func) "PUSH; ORG CURRENTOFFSET+1; func:; POP"
+	#define RETURN_TRUE  "SHORT $2001 $4770"	// mov r0,#1; 	bx lr;
+	#define RETURN_FALSE "SHORT $2000 $4770"	// mov r0,#0; 	bx lr;
 	
 	#define ICON_SHEET_SKILLS 0x1		// For Icon Display
 #endif

@@ -22,6 +22,11 @@ enum{	// mag type
 	EWMAG = 2,
 };
 
+// Special item slot identifiers understood by SetBattleUnitWeapon and other functions
+enum{
+	BU_ISLOT_BMAG	= UNIT_ITEM_COUNT + 4,	// 9
+	BU_ISLOT_WMAG	= UNIT_ITEM_COUNT + 5,	// 10
+};
 
 // <!> Mag definition is in UnitExt.h
 
@@ -52,10 +57,12 @@ u8 GetWMagUse(UnitExt*, u8);
 u16 GetBMagItem(UnitExt*, u8);	// if noUse or offset>0xF, return 0
 u16 GetWMagItem(UnitExt*, u8);
 
+u16 GetWpnEqp(UnitExt*);
+
+
 // Judgement
-// 0=no, 1=yeah, 2=No ext
-int isUnitMagSet(UnitExt* ext);
-// SetUnitMagItem
+int isUnitMagSet(UnitExt* ext);	// 0=no, 1=yeah, 2=No ext
+
 int SaveEqpToMag(UnitExt* ext, u16);
 int isBMagListEmpty(UnitExt* ext);
 int isWMagListEmpty(UnitExt* ext);
@@ -65,13 +72,11 @@ int IsClassLearningMag(int classID);
 int IsClassBMagMaster(int classID);
 int IsClassWMagMaster(int classID);
 
+int TestWpn(u16 item);	// 0=Not Wpn; 1=Magic; 2=Physical Wpn
 
-// 0=Not Wpn; 1=Magic; 2=Physical Wpn
-int TestWpn(u16 item);
-
-// 0=no, 1=true W.I.P. 可以考虑后续只处理列表中的情况
-int IsItemMagic(u16 item);
-
+int IsItemMagic(u16 item);	// 0=no, 1=true W.I.P.
+int IsItemBlackMagic(u16 item);
+int IsItemWhiteMagic(u16 item);
 
 
 // Set
@@ -83,7 +88,8 @@ int SetWMagById(UnitExt* ext, u8 itemID, u8 use);
 
 // Weapon-Equipment System
 int SetWpnEqpForce(Unit* unit, u16 item);
-int SetWpnEqpAuto(Unit* unit);	// 2=Unit has not extension; 0=dont need set
+int SetWpnEqpAuto(Unit*);
+int SetWpnEqpAuto_bu(BattleUnit*);
 u16 GetWpnEqp(UnitExt*);
 
 // On Chapter Init

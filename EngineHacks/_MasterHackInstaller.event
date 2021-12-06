@@ -26,20 +26,21 @@ POP
 	#include "CoreSupport/BattleUnitHook/BattleUnitHook.event"
 	#include "CoreSupport/ExpandedModularSave/ExModularSave.event"
 	#include "CoreSupport/MoveLimitViewFix/MoveLimitViewFix.event"
-
-
+	
 	// System-Level EngineHack
+	#include "CoreHacks/CommonSaveSu/CommonSaveSu.event"
+	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
 	#include "CoreHacks/ModularStatusGetter/StatusGetter.event"
 	#include "CoreHacks/RecoverableRN/RecoverableRN.event"
 	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
 	#include "CoreHacks/ModularLevelUp/ModularLevelUp.event"
 	#include "CoreHacks/UnitDataExtension/UnitExt.event"
 	#include "CoreHacks/SkillSystem/_SkillSystem.event"
-	#include "CoreHacks/AOE_Attack/Gambit.event"
+	#include "CoreHacks/Gambit/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
-	#include "CoreHacks/MagicSystem/MagicSystem.event"
 	#include "CoreHacks/RangeGetter2/RangeGetterMokha.event"
-	#include "CoreHacks/ModularBattleStatusGetter/ModularBattleStatusGetter.event"
+	#include "CoreHacks/MagicSystem/MagicSystem.event"
+	#include "CoreHacks/BattleSystemRework/BattleSystemRework.event"
 	
 	// Quailty of Life
 	#include "External/FE8U_Mokha_Fixs.event"
