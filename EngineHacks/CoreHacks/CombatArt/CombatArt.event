@@ -4,6 +4,7 @@
 #include ConfigCombatArt.event
 #include "Core/caCore.lyn.event"
 #include "Menu/Menu.event"
+#include "StatusBonus/StatusBonus.lyn.event"
 
 ALIGN 4
 gpCombatArtConigList:

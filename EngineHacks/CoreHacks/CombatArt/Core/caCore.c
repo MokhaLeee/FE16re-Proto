@@ -21,6 +21,29 @@ int UnitHasCA(Unit* unit){
 	return FALSE;
 }
 
+// Gets funcs
+u8 GetCS_RangeBonus(u8 CAid){
+	return gpCombatArtConigList[CAid].rangeBonus;
+}
+
+s16 GetCS_mtBonus(u8 CAid){
+	return gpCombatArtConigList[CAid].mtBonus;
+}
+
+s16 GetCS_hitBonus(u8 CAid){
+	return gpCombatArtConigList[CAid].hitBonus;
+}
+
+s16 GetCS_avoBonus(u8 CAid){
+	return gpCombatArtConigList[CAid].avoBonus;
+}
+
+s16 GetCS_CritBonus(u8 CAid){
+	return gpCombatArtConigList[CAid].critBonus;
+}
+
+
+
 
 // W.I.P.
 int CanUnitUseCA(Unit* unit, u8 CAid){
@@ -57,13 +80,15 @@ int SetUnitCAauto(Unit* unit){
 
 
 void SetCombatArtInfo(Unit* unit, u8 combatId){
-	gpBattleFlagSu->isCombat = 0;
+	gpBattleFlagSu->isCombat = 1;
 	gpBattleFlagSu->ActorId = unit->index;
+	gpBattleFlagSu->artId = combatId;
 }
 
 
 void ResetCombatArtInfo(void){
 	gpBattleFlagSu->isCombat = 0;
 	gpBattleFlagSu->ActorId = 0;
+	gpBattleFlagSu->artId = 0;
 }
 

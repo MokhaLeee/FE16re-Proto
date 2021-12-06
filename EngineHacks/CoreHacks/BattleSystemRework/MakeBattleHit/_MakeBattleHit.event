@@ -53,6 +53,7 @@ CheckDoubleTable:
 // 禁止双倍的优先级是最高的
 ALIGN 4
 CheckNullDoubleTable:
+	POIN nullDouble_CombatArt
 	WORD 0
 
 #endif // MAKE_BATTLE_HIT

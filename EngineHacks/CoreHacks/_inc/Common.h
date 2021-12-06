@@ -7,8 +7,9 @@ struct BattleFlagSu{
 	u8 unused0:7;
 	
 	u8 ActorId;
+	u8 artId;
 	
-	u8 free[8];
+	u8 free[7];
 };
 
 extern BattleFlagSu* gpBattleFlagSu;	// 0x10 long

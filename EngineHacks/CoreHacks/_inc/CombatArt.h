@@ -44,6 +44,13 @@ int CanUnitUseCA(Unit*, u8 CAid);
 int UnitHasCA(Unit*);
 int SetUnitCAauto(Unit*);
 
+// Gets
+u8 GetCS_RangeBonus(u8 CAid);
+s16 GetCS_mtBonus(u8 CAid);
+s16 GetCS_hitBonus(u8 CAid);
+s16 GetCS_avoBonus(u8 CAid);
+s16 GetCS_CritBonus(u8 CAid);
+
 
 // Battle Info Misc
 void SetCombatArtInfo(Unit* unit, u8 combatId);

@@ -57,6 +57,7 @@ ChaMods:
 
 ALIGN 4
 RangeMaxMods:
+	POIN Apply_CombatArt_RangeBonus
 	WORD $0
 
 

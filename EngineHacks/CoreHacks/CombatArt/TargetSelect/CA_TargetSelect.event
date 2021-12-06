@@ -1,0 +1,24 @@
+ALIGN 4
+gTSfunc_CombatArt:
+{
+//  struct TargetSelectionDefinition {
+//	/* 00 */ void(*onInit)(TargetSelectionProc*);
+//	/* 04 */ void(*onEnd)(TargetSelectionProc*);
+//
+//	/* 08 */ void(*onInitTarget)(TargetSelectionProc*, TargetEntry*);
+
+//	/* 0C */ void(*onSwitchIn)(TargetSelectionProc*, TargetEntry*);
+//	/* 10 */ void(*onSwitchOut)(TargetSelectionProc*, TargetEntry*);
+
+//	/* 14 */ int(*onAPress)(TargetSelectionProc*, TargetEntry*);
+//	/* 18 */ int(*onBPress)(TargetSelectionProc*, TargetEntry*);
+//	/* 1C */ int(*onRPress)(TargetSelectionProc*, TargetEntry*);
+//  };
+
+
+/* init */			WORD	0	
+/* End */			WORD	0
+/* InitTarget */	WORD	0
+
+
+}

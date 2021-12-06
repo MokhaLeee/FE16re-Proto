@@ -2,6 +2,7 @@
 #define RANGE_GETTER_MOKHA_STYLE
 
 
+#include "MoveLimitViewFix/MoveLimitViewFix.event"
 #include "src/RangeGetterCore.lyn.event"
 
 /*

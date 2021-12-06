@@ -18,7 +18,8 @@ void GambitResetMaps(void){
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapMovement2,-1);
 	BmMapFill(gMapRange,0);
-	gpSubjectMap = &gMapMovement;
+	//gpSubjectMap = &gMapMovement;
+	gpSubjectMap = gMapMovement;
 	DisplayMoveRangeGraphics(0x3);
 	HideMoveRangeGraphicsWrapper();
 	return;

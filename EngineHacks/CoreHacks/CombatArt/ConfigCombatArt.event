@@ -27,6 +27,7 @@ struct CombatArtInfo{
 
 ALIGN 4
 CombatArtConigList:
+	WORD 0 0 0 0 0 0 0 0
 	CA_baseInfo(ITYPE_SWORD,0,CAN_WrathStrike,CAD_WrathStrike,0)
 		CA_bonusInfo(3,5,10,0,0)
 	
@@ -41,8 +42,8 @@ CombatArtConigList:
 	CA_baseInfo(ITYPE_LANCE,0,CAN_TempestLance,CAD_TempestLance,0)
 		CA_bonusInfo(5,8,10,0,0)
 		
-	CA_baseInfo(ITYPE_LANCE,0,CAN_Knightkneeler,CAD_Knightkneeler,0)
-		CA_bonusInfo(4,5,15,0,10)
+	// CA_baseInfo(ITYPE_LANCE,0,CAN_Knightkneeler,CAD_Knightkneeler,0)
+		// CA_bonusInfo(4,5,15,0,10)
 	
 	
 	CA_baseInfo(ITYPE_BOW,1,CAN_CurvedShot,CAD_CurvedShot,0)

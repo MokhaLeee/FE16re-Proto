@@ -11,5 +11,6 @@ Battle2UnitFuncList:
 	POIN BattleToUnitVanilla_WpnExcept 	// MagicSystem/WpnEqp System
 	POIN BattleToUnitSaveMagWpn			// MagicSystem/WpnEqp System
 	POIN BattleToUnit_SaveMagCha
+	POIN ResetCombatArtInfo				// W.I.P.
 	WORD 0
 	

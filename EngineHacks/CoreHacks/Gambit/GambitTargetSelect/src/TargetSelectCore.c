@@ -7,6 +7,8 @@ extern u8* gpCommonSaveSu;
 #define COMMON_NUM (gpCommonSaveSu[0])
 #define COMMON_TARGIT_AT (&gpCommonSaveSu[1])
 
+#include "RangeGetter.h"
+
 void MakeTargetListFor_SubGambitMenu(Unit* unit,u8 range){
 	InitTargets(unit->xPos,unit->yPos);
 	BmMapFill(gMapRange,0);
@@ -18,8 +20,14 @@ void MakeTargetListFor_SubGambitMenu(Unit* unit,u8 range){
 
 void MakeTargetListFor_AfterSelectAPressed(u8 x, u8 y, u8 GambitIndex){
 	InitTargets(x,y);
-	gpSubjectMap = &gMapMovement;
-	ForEachUnitInRange_ByRangeMovement(AddUnitToTargetListIfNotAllied);
+	
+	//gpSubjectMap = gMapMovement;
+	//ForEachUnitInRange_ByRangeMovement(AddUnitToTargetListIfNotAllied);
+	ForEachUnitMaster(
+		AddUnitToTargetListIfNotAllied,
+		&gMapMovement,
+		NU_MOVE_MAP);
+	
 	return;
 }
 

@@ -2,10 +2,15 @@
 #include "UnitExt.h"
 #include "CombatArt.h"
 #include "RangeGetter.h"
+#include "MagicSystem.h"
 
 extern u16 TextId_umCAGrayBox;
+extern u16 TextId_umCAselectGrayBox;
+extern u16 TextId_umCAWpnSelectGrayBox;
 extern const MenuDefinition CAselectMenu[];
-
+extern const MenuDefinition CAwpnSelectMenu[];
+extern TargetSelectionDefinition gtsFuncs_CA[];
+extern const ProcCode gProc_PostTs_Return[];
 
 /* ================================
    ========== Unit  Menu ==========
@@ -98,7 +103,31 @@ int CA_SelectUsability(MenuProc* pmu, int index)
 
 // Effect
 int CA_SelectEffect( MenuProc* pmu, MenuCommandProc* pcmd ){
-	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
+	
+	MenuProc* um;
+	UnitExt* ext = GetUnitExtByUnit(gActiveUnit);
+	
+	if( (NULL == ext) | (MCA_USABLE != pcmd->availability) )
+	{
+		MenuCallHelpBox(pmu,TextId_umCAselectGrayBox);
+		return ME_NONE;
+	}
+	
+	u8 artId = ext->skillbattle[pcmd->commandDefinitionIndex];
+	
+	// Set Battle Info ext( for RangeGetter)
+	SetCombatArtInfo(gActiveUnit,artId);
+	
+	_ResetIconGraphics();
+	LoadIconPalettes(0x4);
+	
+	um = StartMenu(CAwpnSelectMenu);
+	ForceMenuItemPanel(um,gActiveUnit,0xF,0xB);
+	
+	StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	SetFaceBlinkControlById(0,5);
+	
+	return ME_CLEAR_GFX | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
 
 
@@ -182,10 +211,143 @@ int CA_SelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
 
 
 int CA_CommonUnHover(void){
-	ResetCombatArtInfo();
+	
+	// 我们只清除标志位吧
+	// 不去清战技信息,方便Weapon Select
+	//ResetCombatArtInfo();
+	gpBattleFlagSu->isCombat = 0;
+	
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);
 	DisplayMoveRangeGraphics(0x3);
 	HideMoveRangeGraphicsWrapper();
 	return 0;
+}
+
+
+
+
+
+
+
+
+/* ================================
+   ========== Wpn Select ==========
+   ================================ */
+// Usability
+int CA_WpnSelectUsability(MenuProc* pmu, int index){
+	
+	u8 wpnType;
+	u16 item;
+	CombatArtInfo* cur;
+	
+	cur = &gpCombatArtConigList[gpBattleFlagSu->artId];
+	wpnType = cur->wpnType;
+	
+	// 只需要调用标志位
+	// 因为上一层, Unhover只清除了标志位
+	gpBattleFlagSu->isCombat = 1;
+	
+	// Judge Item
+	item = gActiveUnit->items[index];
+		
+	if( item )
+	if( IA_WEAPON & GetItemAttributes(item) )
+	if( GetItemType(item) == wpnType )
+	if( CanUnitUseWeapon(gActiveUnit, item) )
+	if( ITEM_USE(item) > cur->durCost )
+	{
+		MakeTargetListForWeapon(gActiveUnit,item);
+		if( GetTargetListSize() )
+				return MCA_USABLE;
+
+	}
+	return MCA_NONUSABLE;
+}
+
+
+
+
+
+
+int CA_WpnSelectEffect(MenuProc* pmu, MenuCommandProc* pcmd){
+	
+	u16 wpn = gActiveUnit->items[pcmd->commandDefinitionIndex];
+	
+	// Set Wpn-Eqp System
+	SetWpnEqpForce(gActiveUnit,wpn);
+	EquipUnitItemSlot(
+		gActiveUnit, 
+		pcmd->commandDefinitionIndex);
+
+	ClearBG0BG1();
+	MakeTargetListForWeapon(gActiveUnit,wpn);
+	StartTargetSelection(gtsFuncs_CA);
+	
+	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
+}
+
+
+// Hover
+int CA_WpnSelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
+	
+	// On Init
+	u8 wpnType, artId;
+	u16 item;
+	CombatArtInfo* cur;
+	UnitExt* ext;
+	
+	ext = GetUnitExtByUnit(gActiveUnit);
+	
+	if( NULL == ext )
+		return 0;
+	
+	artId = ext->skillbattle[pcmd->commandDefinitionIndex];
+	cur = &gpCombatArtConigList[artId];
+	wpnType = cur->wpnType;
+	
+	// Set Battle Info ext( for RangeGetter)
+	SetCombatArtInfo(gActiveUnit,artId);
+	
+	// Draw Map
+	BmMapFill(gMapMovement,-1);
+	BmMapFill(gMapRange,0);
+	
+	item = gActiveUnit->items[pcmd->commandDefinitionIndex];
+		
+	if( item )
+	if( IA_WEAPON & GetItemAttributes(item) )
+	if( GetItemType(item) == wpnType )
+	if( CanUnitUseWeapon(gActiveUnit, item) )
+	if( ITEM_USE(item) > cur->durCost )
+		FillMapForSingleItem(gActiveUnit,item);
+	
+	DisplayMoveRangeGraphics(RNG_RED);
+	return 0;
+}
+
+
+/* ================================
+   ======= Target Selection =======
+   ================================ */
+int TS_ReturnB_CA(void){
+	
+	if( MapEventEngineExists() )
+		return TSE_NONE;
+	
+	else
+	{
+		ProcStart(gProc_PostTs_Return,(Proc*)3);
+		return TSE_PLAY_BOOP | TSE_END | TSE_DISABLE;
+	}
+}
+
+
+
+void BuildWpnSelectReturnMenu_CA(Proc* parent){
+	_ResetIconGraphics();
+	LoadIconPalettes(0x4);
+	
+	MenuProc* um = StartMenu(CAwpnSelectMenu);
+	ForceMenuItemPanel(um,gActiveUnit,0xF,0xB);
 }

@@ -13,6 +13,11 @@ TextId_umCAdesc:
 TextId_umCAGrayBox:
 	SHORT umCAGrayBox
 
+TextId_umCAselectGrayBox:
+	SHORT umCAselectGrayBox
+
+TextId_umCAWpnSelectGrayBox:
+	SHORT umCAselectGrayBox
 
 ALIGN 4
 CAselectMenu:
@@ -35,3 +40,62 @@ CAselectCmdTable:
 	CAselect
 	MenuCommandEnd
 
+
+
+ALIGN 4
+CAwpnSelectMenu:
+	BYTE 	$1 $1 $0E $0				//Geometry
+	WORD 	$0
+	POIN 	CA_WpnSelectCmdTable
+	WORD 	$0 $0 $0 
+	POIN	$22861						//B Press
+	POIN	$4F521 						//R Press
+	POIN	$4F459						//HelpBox
+
+// Forked from $859C95C
+#define CA_WpnSelect "POIN $80D7CB8; SHORT 0 0; BYTE NormalText $49 0 0; POIN CA_WpnSelectUsability $8022D35 CA_WpnSelectEffect; WORD 0; POIN CA_WpnSelectHover CA_CommonUnHover"
+
+ALIGN 4
+CA_WpnSelectCmdTable:
+	CA_WpnSelect
+	CA_WpnSelect
+	CA_WpnSelect
+	CA_WpnSelect
+	CA_WpnSelect
+	MenuCommandEnd
+
+
+// 
+ALIGN 4
+gtsFuncs_CA:
+	POIN	$803730D
+	POIN 	$8022F11
+	WORD	0
+	POIN 	$8022E8D
+	WORD	0
+	POIN	$8022DF1
+	POIN	TS_ReturnB_CA
+	POIN	$80373F1
+
+
+
+ALIGN 4
+gProc_PostTs_Return:
+{
+	_6C_SET_NAME(str_tsCaReturn)
+	_6C_CALL_ROUTINE(LockGameLogic)
+	_6C_CALL_ROUTINE(0x8022E39)
+	_6C_UNIL_EXISTS(gProc_BkSel)
+	_6C_UNIL_EXISTS(gProc_CameraMovement)
+	_6C_YIELD
+	_6C_CALL_ROUTINE(BuildWpnSelectReturnMenu_CA)
+	_6C_YIELD
+	_6C_CALL_ROUTINE(UnlockGameLogic)
+	_6C_END
+}
+
+ALIGN 4
+str_tsCaReturn:
+	String(E_TS_CA_RETURN)
+	BYTE 0
+ALIGN 4

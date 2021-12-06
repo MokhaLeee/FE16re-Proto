@@ -28,6 +28,10 @@ but null double attack.[X]
 ## umCAGrayBox
 You don't have Combat Art ![X]
 
+## umCAselectGrayBox
+you cannot use[N]
+Combat Art here.[X]
+
 ## umGambitName
  Gambit[X]
 

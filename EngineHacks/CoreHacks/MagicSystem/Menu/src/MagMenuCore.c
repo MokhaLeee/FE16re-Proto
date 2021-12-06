@@ -115,17 +115,18 @@ static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagi
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);
 	
-	FillRangeMapByRangeMask(gActiveUnit,mask);
+	//FillRangeMapByRangeMask(gActiveUnit,mask);
+	FillMapMaster(gActiveUnit, mask, &gMapRange, NU_RANGE_MAP);
 	
 	DisplayMoveRangeGraphics(mapDisplayStyle);
 	return 0;
 }
 
 int BMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
-{	return Mag_UpperHover(pmu,pcmd,GetBMagItem,2); }
+{	return Mag_UpperHover(pmu,pcmd,GetBMagItem,RNG_RED); }
 
 int WMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
-{	return Mag_UpperHover(pmu,pcmd,GetWMagItem,4); }
+{	return Mag_UpperHover(pmu,pcmd,GetWMagItem,RNG_GREEN); }
 
 
 

@@ -17,7 +17,9 @@ extern MapData gMapRange; //! FE8U = (0x0202E4E4)
 extern MapData gMapFog; //! FE8U = (0x0202E4E8)
 extern MapData gMapHidden; //! FE8U = (0x0202E4EC)
 extern MapData gMapMovement2; //! FE8U = (0x0202E4F0)
-extern MapData* gpSubjectMap;
+
+// extern MapData* gpSubjectMap;
+extern MapData gpSubjectMap;
 
 extern u16** const gMapRawTiles; //! FE8U = (0x0859A9D4)
 
