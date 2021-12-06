@@ -16,7 +16,7 @@ TextId_umCAGrayBox:
 
 ALIGN 4
 CAselectMenu:
-	BYTE 	$1 $3 $09 $0				//Geometry
+	BYTE 	$1 $3 $0A $0				//Geometry
 	WORD 	$0
 	POIN 	CAselectCmdTable
 	WORD 	$0 $0 $0 
@@ -24,7 +24,7 @@ CAselectMenu:
 	POIN	$4F521 						//R Press
 	POIN	$4F459						//HelpBox
 
-#define CAselect "WORD $80d7d94; SHORT 0 0; BYTE NormalText $4e; SHORT 0; POIN CA_SelectUsability; POIN CA_SelectTextDraw; POIN CA_SelectEffect; WORD 0 0 0"//MenuCommand(0, 0, NormalText, CA_SelectUsability, CA_SelectTextDraw, CA_SelectEffect, 0, 0)"
+#define CAselect "MenuCommand(0, 0, NormalText, CA_SelectUsability, CA_SelectTextDraw, CA_SelectEffect, CA_SelectHover, CA_CommonUnHover)"
 	
 ALIGN 4
 CAselectCmdTable:

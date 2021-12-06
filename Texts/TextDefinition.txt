@@ -55,5 +55,19 @@
 #define SD_Desperation $D7C
 #define SD_DesperationBattalion $D7D
 #define SD_QuickRiposte $D7E
+#define CAN_WrathStrike $D7F
+#define CAD_WrathStrike $D80
+#define CAN_Grounder $D81
+#define CAD_Grounder $D82
+#define CAN_BaneOfMonsters $D83
+#define CAD_BaneOfMonsters $D84
+#define CAN_TempestLance $D85
+#define CAD_TempestLance $D86
+#define CAN_Knightkneeler $D87
+#define CAD_Knightkneeler $D88
+#define CAN_CurvedShot $D89
+#define CAD_CurvedShot $D8A
+#define CAN_HeavyDraw $D8B
+#define CAD_HeavyDraw $D8C
 
 #endif // TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT

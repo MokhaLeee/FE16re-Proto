@@ -221,6 +221,62 @@ __TEXTPROCESSD7E:
 #incbin ".TextEntries/text_buildfileSD_QuickRiposte.fetxt"
 setText($D7E, __TEXTPROCESSD7E)
 
+__TEXTPROCESSD7F:
+#incbin ".TextEntries/text_buildfileCAN_WrathStrike.fetxt"
+setText($D7F, __TEXTPROCESSD7F)
+
+__TEXTPROCESSD80:
+#incbin ".TextEntries/text_buildfileCAD_WrathStrike.fetxt"
+setText($D80, __TEXTPROCESSD80)
+
+__TEXTPROCESSD81:
+#incbin ".TextEntries/text_buildfileCAN_Grounder.fetxt"
+setText($D81, __TEXTPROCESSD81)
+
+__TEXTPROCESSD82:
+#incbin ".TextEntries/text_buildfileCAD_Grounder.fetxt"
+setText($D82, __TEXTPROCESSD82)
+
+__TEXTPROCESSD83:
+#incbin ".TextEntries/text_buildfileCAN_BaneOfMonsters.fetxt"
+setText($D83, __TEXTPROCESSD83)
+
+__TEXTPROCESSD84:
+#incbin ".TextEntries/text_buildfileCAD_BaneOfMonsters.fetxt"
+setText($D84, __TEXTPROCESSD84)
+
+__TEXTPROCESSD85:
+#incbin ".TextEntries/text_buildfileCAN_TempestLance.fetxt"
+setText($D85, __TEXTPROCESSD85)
+
+__TEXTPROCESSD86:
+#incbin ".TextEntries/text_buildfileCAD_TempestLance.fetxt"
+setText($D86, __TEXTPROCESSD86)
+
+__TEXTPROCESSD87:
+#incbin ".TextEntries/text_buildfileCAN_Knightkneeler.fetxt"
+setText($D87, __TEXTPROCESSD87)
+
+__TEXTPROCESSD88:
+#incbin ".TextEntries/text_buildfileCAD_Knightkneeler.fetxt"
+setText($D88, __TEXTPROCESSD88)
+
+__TEXTPROCESSD89:
+#incbin ".TextEntries/text_buildfileCAN_CurvedShot.fetxt"
+setText($D89, __TEXTPROCESSD89)
+
+__TEXTPROCESSD8A:
+#incbin ".TextEntries/text_buildfileCAD_CurvedShot.fetxt"
+setText($D8A, __TEXTPROCESSD8A)
+
+__TEXTPROCESSD8B:
+#incbin ".TextEntries/text_buildfileCAN_HeavyDraw.fetxt"
+setText($D8B, __TEXTPROCESSD8B)
+
+__TEXTPROCESSD8C:
+#incbin ".TextEntries/text_buildfileCAD_HeavyDraw.fetxt"
+setText($D8C, __TEXTPROCESSD8C)
+
 }
 
 #endif // TEXT_INSTALLER_TEXT_BUILDFILE_TXT

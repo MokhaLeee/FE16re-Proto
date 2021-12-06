@@ -76,7 +76,7 @@ int GambitSelectMenu_Effect(MenuProc* procMU, MenuCommandProc* procCMD){
 	MakeTargetListFor_SubGambitMenu(gActiveUnit,0x2);
 	StartTargetSelection(pGambit_TargetSelection_Func);
 	
-	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;;
+	return ME_END_FACE0 | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
 
 

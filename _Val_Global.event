@@ -16,6 +16,8 @@ ALIGN 4
 gpCommonSaveSu:
 	WORD 0x2026E30	// 0x40
 
+gpBattleFlagSu:
+	WORD 0x2026E20	// 0x10
 
 // UnitDataExtension
 ALIGN 4

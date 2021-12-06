@@ -40,6 +40,9 @@
 #define SP_Paladin 0x5
 #define MP_Paladin 0x7
 
+#define SP_Sniper 0x16
+#define MP_Sniper 0x1B
+
 #define Sp_SageF 0x21
 #define Mp_SageF 0x28
 
@@ -56,8 +59,8 @@
 StandingMapSprite(Sp_SageF, MapSprite16x32, Byleth_f_std)
 MovingMapSprite(Mp_SageF,0x81DA694,Byleth_f_mov)
 
-StandingMapSprite(SP_Paladin, MapSprite16x32, fe2Archer_std)
-MovingMapSprite(MP_Paladin,0x81CB2E0,fe2Archer_mov)
+StandingMapSprite(SP_Sniper, MapSprite16x32, fe2Archer_std)
+MovingMapSprite(MP_Sniper,0x81CB2E0,fe2Archer_mov)
 
 StandingMapSprite(Sp_Bishop, MapSprite16x32, fe2Viliger_f_std)
 MovingMapSprite(Mp_Bishop,0x81C46CC,fe2Viliger_f_mov)

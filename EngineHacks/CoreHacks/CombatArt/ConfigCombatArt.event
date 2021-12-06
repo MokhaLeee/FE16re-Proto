@@ -22,12 +22,34 @@ struct CombatArtInfo{
 #define arr "BYTE 1 1; SHORT 0 0; BYTE 0 0; POIN 0; SHORT 0 0 0 0 0; SHORT 0 0 0 0 0"
 #define arr(name,desc) "BYTE 1 1; SHORT name desc; BYTE 0 0; POIN 0; SHORT 0 0 0 0 0; SHORT 0 0 0 0 0"
 
+#define CA_baseInfo(wpnType,rng,name,desc,wpnRank) "BYTE 0 rng; SHORT name desc; BYTE wpnType wpnRank; WORD 0"
+#define CA_bonusInfo(durCost,mtBonus,hitBonus,avoBonus,critBonus) "SHORT durCost mtBonus hitBonus avoBonus critBonus 0 0 0 0 0"
+
 ALIGN 4
 CombatArtConigList:
-	arr(umCAname,umCAname)
-	arr(umWMagDesc,umWMagDesc)
-	arr(umBMagName,umBMagName)
-	arr(umAOEDefaultDesc,umAOEDefaultDesc)
-	arr(umAOEBaszeName,umAOEBaszeName)
+	CA_baseInfo(ITYPE_SWORD,0,CAN_WrathStrike,CAD_WrathStrike,0)
+		CA_bonusInfo(3,5,10,0,0)
+	
+	CA_baseInfo(ITYPE_SWORD,0,CAN_Grounder,CAD_Grounder,0)
+		CA_bonusInfo(4,3,20,0,5)
+		
+	CA_baseInfo(ITYPE_SWORD,0,CAN_BaneOfMonsters,CAD_BaneOfMonsters,0)
+		CA_bonusInfo(4,6,0,0,10)
+	
+	
+	
+	CA_baseInfo(ITYPE_LANCE,0,CAN_TempestLance,CAD_TempestLance,0)
+		CA_bonusInfo(5,8,10,0,0)
+		
+	CA_baseInfo(ITYPE_LANCE,0,CAN_Knightkneeler,CAD_Knightkneeler,0)
+		CA_bonusInfo(4,5,15,0,10)
+	
+	
+	CA_baseInfo(ITYPE_BOW,1,CAN_CurvedShot,CAD_CurvedShot,0)
+		CA_bonusInfo(3,1,30,0,0)
+		
+	CA_baseInfo(ITYPE_BOW,0,CAN_HeavyDraw,CAD_CurvedShot,0)
+		CA_bonusInfo(5,8,10,0,0)
+
 	WORD 0 0 0 0 0 0 0 0
 	

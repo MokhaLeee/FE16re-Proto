@@ -44,7 +44,10 @@ int CanUnitUseCA(Unit*, u8 CAid);
 int UnitHasCA(Unit*);
 int SetUnitCAauto(Unit*);
 
-// List misc
+
+// Battle Info Misc
+void SetCombatArtInfo(Unit* unit, u8 combatId);
+void ResetCombatArtInfo(void);
 
 
 

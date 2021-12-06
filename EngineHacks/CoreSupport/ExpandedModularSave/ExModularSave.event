@@ -159,6 +159,7 @@ gSuspendSaveChunks:
 	DeclSaveChunk($1F80, $860, UnitExt_SaveSu, UnitExt_LoadSu)
 	DeclSaveChunk($27E0, $10A, MsuSave_MagCha, MsuLoad_MagCha)
 	DeclSaveChunk($28F0, $40, MsuSave_Conmon, MsuLoad_Common)
+	DeclSaveChunk($2930, $10, MsuSave_ExternFlag, MsuLoad_ExternFlag)
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	DeclSaveChunkEnd

@@ -24,4 +24,20 @@
 	#define RETURN_FALSE "SHORT $2000 $4770"	// mov r0,#0; 	bx lr;
 	
 	#define ICON_SHEET_SKILLS 0x1		// For Icon Display
+	
+	
+{
+	#define ITYPE_SWORD 0
+	#define ITYPE_LANCE  1
+	#define ITYPE_AXE    2
+	#define ITYPE_BOW    3
+	#define ITYPE_STAFF  4
+	#define ITYPE_ANIMA  5
+	#define ITYPE_LIGHT  6
+	#define ITYPE_DARK   7
+	#define ITYPE_BLLST  8
+	#define ITYPE_ITEM   9
+	#define ITYPE_DRAGN  10
+}
+
 #endif

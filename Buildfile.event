@@ -27,6 +27,9 @@ ORG FreeSpace
 	#include "Graphics/_MasterGfxInstaller.event"
 	MESSAGE Used graphics space ends at CURRENTOFFSET
 	
+	#include "Maps/Master Map Installer.event"
+	MESSAGE Used maps space ends at CURRENTOFFSET
+	
 	#include "Events/Events Installer.event"
 	MESSAGE Used events space ends at CURRENTOFFSET
 	
@@ -47,7 +50,8 @@ ORG	FreeSpaceTable
 // For Debug
 MESSAGE 
 MESSAGE DEBUG INFO
-MESSAGE CA_SelectEffect_ CA_SelectEffect
+MESSAGE CA_SelectHover_ CA_SelectHover
+MESSAGE CA_SelectUsability_ CA_SelectUsability
 
 PUSH
 	ORG	$2C5AC

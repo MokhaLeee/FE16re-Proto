@@ -11,3 +11,4 @@ Charm
 #include strings/Menu.txt
 #include strings/Skills_Blow.txt
 #include strings/Skills_BattleMisc.txt
+#include strings/CombatArt.txt

@@ -5,6 +5,8 @@
 
 int UnitHasCA(Unit* unit){
 	UnitExt* ext = GetUnitExtByUnit(unit);
+	if( NULL == ext )
+		return FALSE;
 	
 	for( int i=0; i < MAX_SIZE_COMBATART; i++ )
 		if( ext->skillbattle[i] )
@@ -20,6 +22,7 @@ int UnitHasCA(Unit* unit){
 }
 
 
+// W.I.P.
 int CanUnitUseCA(Unit* unit, u8 CAid){
 	UnitExt* ext;
 	
@@ -51,4 +54,16 @@ int SetUnitCAauto(Unit* unit){
 	return TRUE;
 }
 
+
+
+void SetCombatArtInfo(Unit* unit, u8 combatId){
+	gpBattleFlagSu->isCombat = 0;
+	gpBattleFlagSu->ActorId = unit->index;
+}
+
+
+void ResetCombatArtInfo(void){
+	gpBattleFlagSu->isCombat = 0;
+	gpBattleFlagSu->ActorId = 0;
+}
 
