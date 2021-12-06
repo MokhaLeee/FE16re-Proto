@@ -15,14 +15,26 @@ you have run out of magic uses.[X]
 
 ## umSubMagGrayBox
 Magic have no effect[N]
-on current position.[N]
+on current position.[X]
+
+## umCAname
+ Combat Art[X]
+
+## umCAdesc
+Combat Art:[N]
+Gains battle bonus[N]
+but null double attack.[X]
+
+## umCAGrayBox
+You don't have Combat Art ![X]
 
 ## umGambitName
  Gambit[X]
 
 ## umGambitDesc
-Gambit: Three House's[N]
-Style AOE attack.
+Gambit:[N]
+Three House's Style[N] 
+AOE attack.[X]
 
 ## umAOEDefaultName
  Default

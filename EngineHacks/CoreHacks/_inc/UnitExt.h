@@ -18,10 +18,15 @@ struct MagList{
 };
 
 
+enum{
+	MAX_SIZE_COMBATART = 5,
+	MAX_SIZE_SIKLL = 5,
+};
+
 typedef struct UnitExt UnitExt;
 struct UnitExt{
-	/* 00 */ u8 skillbattle[5];
-	/* 05 */ u8 skills[5];
+	/* 00 */ u8 skillbattle[MAX_SIZE_COMBATART];
+	/* 05 */ u8 skills[MAX_SIZE_SIKLL];
 	/* 0A */ u8 ClassRank;
 	/* 0B */ u8 BattalionIndex;
 	/* 0C */ u8 BattalionUseHp;

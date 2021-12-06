@@ -4,6 +4,7 @@ typedef int (*MakeBattleFunc) (BattleUnit*);
 extern MakeBattleFunc* gpCheckVantageTable;		// 待伏
 extern MakeBattleFunc* gpCheckDesperationTable;	// 强攻
 extern MakeBattleFunc* gpCheckDoubleTable;		// 回击
+extern MakeBattleFunc* gpCheckNullDoubleTable;	// 不能双倍
 
 static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
 static int GetBattleUnitHitCount(BattleUnit* actor);
@@ -33,6 +34,16 @@ int CheckDoubleLoop(BattleUnit* actor, BattleUnit* target){
 
 	for(int i=0; gpCheckDoubleTable[i]; i++)
 		if( gpCheckDoubleTable[i](actor) )
+			return TRUE;
+		
+	return FALSE;	
+}
+
+
+int CheckNullDoubleLoop(BattleUnit* actor, BattleUnit* target){
+
+	for(int i=0; gpCheckNullDoubleTable[i]; i++)
+		if( gpCheckNullDoubleTable[i](actor) )
 			return TRUE;
 		
 	return FALSE;	
@@ -85,10 +96,11 @@ void new_BattleUnwind(){
 
 	if( CanDouble(&gBattleActor, &gBattleTarget) )
 	{
+		// 此处我们让 UNWIND_DOUBLE_ACT 与 UNWIND_DESPERA 成为互不影响
 		if( CheckDesperation() )
 			roundInfo |= UNWIND_DESPERA;
 		else
-			roundInfo |= UNWIND_DOUBLE_ACT;	// 此处我们让 UNWIND_DOUBLE_ACT 与 UNWIND_DESPERA 成为互不影响
+			roundInfo |= UNWIND_DOUBLE_ACT;	
 	}
 	if( CanDouble(&gBattleTarget, &gBattleActor) )
 		roundInfo |= UNWIND_DOUBLE_TAR;
@@ -175,17 +187,24 @@ static int GetBattleUnitHitCount(BattleUnit* actor){
 
 // 判定追击
 static int CanDouble(BattleUnit* actor, BattleUnit* target){
+	int can;
+
+	if( actor->battleSpeed < target->battleSpeed )
+		can = FALSE;
+	
+	else if( (actor->battleSpeed - target->battleSpeed) > BATTLE_FOLLOWUP_SPEED_THRESHOLD )
+		can = TRUE;
+	else
+		can = FALSE;
+
 
 	// Modular
 	if( CheckDoubleLoop(actor,target) )
-		return TRUE;
+		can = TRUE;
 	
-	if( actor->battleSpeed < target->battleSpeed )
-		return FALSE;
+	if( CheckNullDoubleLoop(actor,target) )
+		can = FALSE;
 	
-	if( ( actor->battleSpeed - target->battleSpeed ) > BATTLE_FOLLOWUP_SPEED_THRESHOLD )
-		return TRUE;
-	else
-		return FALSE;	
+	return can;
 }
 

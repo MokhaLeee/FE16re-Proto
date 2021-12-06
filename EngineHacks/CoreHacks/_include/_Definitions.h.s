@@ -324,7 +324,10 @@ SET_FUNC Text_GetStringTextWidth, 0x8003EDD
 SET_FUNC GetCharTextWidth, 0x8003F3D
 SET_FUNC Text_GetStringTextCenteredPos, 0x8003F91
 SET_FUNC Text_GetStringNextLine, 0x8003FF5
+
 SET_FUNC Text_DrawString, 0x8004005
+SET_FUNC Text_AppendString, 0x8004005
+
 SET_FUNC Text_DrawNumber, 0x8004075
 SET_FUNC Text_DrawNumberOr2Dashes, 0x8004145
 SET_FUNC Text_DrawChar, 0x8004181

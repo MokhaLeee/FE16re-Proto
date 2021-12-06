@@ -104,7 +104,7 @@ static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagi
 		mag = getmagitem(ext,i);//GetBMagItem(ext,i);
 		if( 0 != mag )
 		{
-			mask = mask | new_GetWeaponRangeMask(mag,gActiveUnit);
+			mask = mask | ItemRange2Mask(mag,gActiveUnit);
 			magCnt++;
 		}
 	}

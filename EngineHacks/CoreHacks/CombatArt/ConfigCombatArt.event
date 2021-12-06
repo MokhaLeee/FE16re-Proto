@@ -1,0 +1,33 @@
+/*
+struct CombatArtInfo{
+	// 0x00 // u8 skillID;
+	// 0x01 // s8 rangeBonus;
+	// 0x02 // u16 name;
+	// 0x04 // u16 Desc;
+	// 0x06 // u8 wpnType;
+	// 0x07 // u8 wpnRank;
+	
+	// 0x08 // UsabilityRoutine canUse;
+	// 0x0C // s16 durCost;
+	// 0x0E // s16 mtBonus;
+	// 0x10 // s16 hitBonus;
+	// 0x12 // s16 avoBonus;
+	// 0x14 // s16 critBonus;
+	// 0x16 // u16 unuse[5];
+	
+	// Total 0x20 //
+};
+*/
+
+#define arr "BYTE 1 1; SHORT 0 0; BYTE 0 0; POIN 0; SHORT 0 0 0 0 0; SHORT 0 0 0 0 0"
+#define arr(name,desc) "BYTE 1 1; SHORT name desc; BYTE 0 0; POIN 0; SHORT 0 0 0 0 0; SHORT 0 0 0 0 0"
+
+ALIGN 4
+CombatArtConigList:
+	arr(umCAname,umCAname)
+	arr(umWMagDesc,umWMagDesc)
+	arr(umBMagName,umBMagName)
+	arr(umAOEDefaultDesc,umAOEDefaultDesc)
+	arr(umAOEBaszeName,umAOEBaszeName)
+	WORD 0 0 0 0 0 0 0 0
+	

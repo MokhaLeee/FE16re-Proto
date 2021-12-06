@@ -1,0 +1,16 @@
+#ifndef THREE_HOUSES_COMBAT_ART
+#define THREE_HOUSES_COMBAT_ART
+
+#include ConfigCombatArt.event
+#include "Core/caCore.lyn.event"
+#include "Menu/Menu.event"
+
+ALIGN 4
+gpCombatArtConigList:
+	POIN CombatArtConigList
+
+
+
+
+
+#endif // THREE_HOUSES_COMBAT_ART

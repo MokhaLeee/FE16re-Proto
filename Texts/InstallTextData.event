@@ -106,108 +106,120 @@ __TEXTPROCESSD61:
 setText($D61, __TEXTPROCESSD61)
 
 __TEXTPROCESSD62:
-#incbin ".TextEntries/text_buildfileumGambitName.fetxt"
+#incbin ".TextEntries/text_buildfileumCAname.fetxt"
 setText($D62, __TEXTPROCESSD62)
 
 __TEXTPROCESSD63:
-#incbin ".TextEntries/text_buildfileumGambitDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumCAdesc.fetxt"
 setText($D63, __TEXTPROCESSD63)
 
 __TEXTPROCESSD64:
-#incbin ".TextEntries/text_buildfileumAOEDefaultName.fetxt"
+#incbin ".TextEntries/text_buildfileumCAGrayBox.fetxt"
 setText($D64, __TEXTPROCESSD64)
 
 __TEXTPROCESSD65:
-#incbin ".TextEntries/text_buildfileumAOEDefaultDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumGambitName.fetxt"
 setText($D65, __TEXTPROCESSD65)
 
 __TEXTPROCESSD66:
-#incbin ".TextEntries/text_buildfileumAOEAssemblyName.fetxt"
+#incbin ".TextEntries/text_buildfileumGambitDesc.fetxt"
 setText($D66, __TEXTPROCESSD66)
 
 __TEXTPROCESSD67:
-#incbin ".TextEntries/text_buildfileumAOEAssemblyDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEDefaultName.fetxt"
 setText($D67, __TEXTPROCESSD67)
 
 __TEXTPROCESSD68:
-#incbin ".TextEntries/text_buildfileumAOEBaszeName.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEDefaultDesc.fetxt"
 setText($D68, __TEXTPROCESSD68)
 
 __TEXTPROCESSD69:
-#incbin ".TextEntries/text_buildfileumAOEBaszeDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEAssemblyName.fetxt"
 setText($D69, __TEXTPROCESSD69)
 
 __TEXTPROCESSD6A:
-#incbin ".TextEntries/text_buildfileumAOEAbsorptionName.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEAssemblyDesc.fetxt"
 setText($D6A, __TEXTPROCESSD6A)
 
 __TEXTPROCESSD6B:
-#incbin ".TextEntries/text_buildfileumAOEAbsorptionDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEBaszeName.fetxt"
 setText($D6B, __TEXTPROCESSD6B)
 
 __TEXTPROCESSD6C:
-#incbin ".TextEntries/text_buildfileumAOEFusilladeName.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEBaszeDesc.fetxt"
 setText($D6C, __TEXTPROCESSD6C)
 
 __TEXTPROCESSD6D:
-#incbin ".TextEntries/text_buildfileumAOEFusilladeDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEAbsorptionName.fetxt"
 setText($D6D, __TEXTPROCESSD6D)
 
 __TEXTPROCESSD6E:
-#incbin ".TextEntries/text_buildfileumAOEFireArrowsName.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEAbsorptionDesc.fetxt"
 setText($D6E, __TEXTPROCESSD6E)
 
 __TEXTPROCESSD6F:
-#incbin ".TextEntries/text_buildfileumAOEFireArrowsDesc.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEFusilladeName.fetxt"
 setText($D6F, __TEXTPROCESSD6F)
 
 __TEXTPROCESSD70:
-#incbin ".TextEntries/text_buildfileSD_BlowDarting.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEFusilladeDesc.fetxt"
 setText($D70, __TEXTPROCESSD70)
 
 __TEXTPROCESSD71:
-#incbin ".TextEntries/text_buildfileSD_BlowDeath.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEFireArrowsName.fetxt"
 setText($D71, __TEXTPROCESSD71)
 
 __TEXTPROCESSD72:
-#incbin ".TextEntries/text_buildfileSD_BlowArmored.fetxt"
+#incbin ".TextEntries/text_buildfileumAOEFireArrowsDesc.fetxt"
 setText($D72, __TEXTPROCESSD72)
 
 __TEXTPROCESSD73:
-#incbin ".TextEntries/text_buildfileSD_BlowFiendish.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowDarting.fetxt"
 setText($D73, __TEXTPROCESSD73)
 
 __TEXTPROCESSD74:
-#incbin ".TextEntries/text_buildfileSD_BlowWarding.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowDeath.fetxt"
 setText($D74, __TEXTPROCESSD74)
 
 __TEXTPROCESSD75:
-#incbin ".TextEntries/text_buildfileSD_BlowDuelist.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowArmored.fetxt"
 setText($D75, __TEXTPROCESSD75)
 
 __TEXTPROCESSD76:
-#incbin ".TextEntries/text_buildfileSD_BlowUncanny.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowFiendish.fetxt"
 setText($D76, __TEXTPROCESSD76)
 
 __TEXTPROCESSD77:
-#incbin ".TextEntries/text_buildfileSD_Vantage.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowWarding.fetxt"
 setText($D77, __TEXTPROCESSD77)
 
 __TEXTPROCESSD78:
-#incbin ".TextEntries/text_buildfileSD_VantageBattalion.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowDuelist.fetxt"
 setText($D78, __TEXTPROCESSD78)
 
 __TEXTPROCESSD79:
-#incbin ".TextEntries/text_buildfileSD_Desperation.fetxt"
+#incbin ".TextEntries/text_buildfileSD_BlowUncanny.fetxt"
 setText($D79, __TEXTPROCESSD79)
 
 __TEXTPROCESSD7A:
-#incbin ".TextEntries/text_buildfileSD_DesperationBattalion.fetxt"
+#incbin ".TextEntries/text_buildfileSD_Vantage.fetxt"
 setText($D7A, __TEXTPROCESSD7A)
 
 __TEXTPROCESSD7B:
-#incbin ".TextEntries/text_buildfileSD_QuickRiposte.fetxt"
+#incbin ".TextEntries/text_buildfileSD_VantageBattalion.fetxt"
 setText($D7B, __TEXTPROCESSD7B)
+
+__TEXTPROCESSD7C:
+#incbin ".TextEntries/text_buildfileSD_Desperation.fetxt"
+setText($D7C, __TEXTPROCESSD7C)
+
+__TEXTPROCESSD7D:
+#incbin ".TextEntries/text_buildfileSD_DesperationBattalion.fetxt"
+setText($D7D, __TEXTPROCESSD7D)
+
+__TEXTPROCESSD7E:
+#incbin ".TextEntries/text_buildfileSD_QuickRiposte.fetxt"
+setText($D7E, __TEXTPROCESSD7E)
 
 }
 

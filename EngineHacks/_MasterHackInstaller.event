@@ -41,6 +41,7 @@ POP
 	#include "CoreHacks/RangeGetter2/RangeGetterMokha.event"
 	#include "CoreHacks/MagicSystem/MagicSystem.event"
 	#include "CoreHacks/BattleSystemRework/BattleSystemRework.event"
+	#include "CoreHacks/CombatArt/CombatArt.event"
 	
 	// Quailty of Life
 	#include "External/FE8U_Mokha_Fixs.event"

@@ -128,6 +128,8 @@ unsigned Text_GetStringTextCenteredPos(unsigned fullLen, const char* cstring); /
 const char* Text_GetStringNextLine(const char*); //! FE8U = 0x8003FF5
 
 void Text_DrawString(struct TextHandle*, const char*); //! FE8U = 0x8004005
+void Text_AppendString(struct TextHandle*, const char*); 
+
 void Text_DrawNumber(struct TextHandle*, int); //! FE8U = 0x8004075
 void Text_DrawNumberOr2Dashes(struct TextHandle*, u8); //! FE8U = 0x8004145
 void Text_DrawChar(struct TextHandle*, char); //! FE8U = 0x8004181

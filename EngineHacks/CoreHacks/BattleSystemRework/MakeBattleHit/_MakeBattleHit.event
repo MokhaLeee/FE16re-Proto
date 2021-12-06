@@ -16,6 +16,8 @@ gpCheckDesperationTable:
 	POIN CheckDesperationTable
 gpCheckDoubleTable:
 	POIN CheckDoubleTable
+gpCheckNullDoubleTable:
+	POIN CheckNullDoubleTable
 	
 
 
@@ -44,6 +46,13 @@ CheckDesperationTable:
 ALIGN 4
 CheckDoubleTable:
 	POIN QuickRiposte
+	WORD 0
+
+
+// Check Null Double
+// 禁止双倍的优先级是最高的
+ALIGN 4
+CheckNullDoubleTable:
 	WORD 0
 
 #endif // MAKE_BATTLE_HIT

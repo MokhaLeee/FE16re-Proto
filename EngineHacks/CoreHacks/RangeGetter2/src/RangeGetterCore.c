@@ -39,7 +39,23 @@ void FillMapForSingleItem(Unit* unit, u16 item){
 
 
 
+u32 ItemRange2Mask(u16 item, Unit* unit){
+	u32 mask = 0;
+	
+	int rngMin = (int)prMinRangeGetter(item,unit);
+	int rngMax = (int)MaxRangeFilter(unit,item);
+	int diff = rngMax - rngMin;
+	
+	for(int i=0; i <= rngMax; i++)
+	{
+		if( i <= diff )
+			mask = (mask << 1) |1;
+		else
+			mask = (mask << 1);
+	}
+	return mask;
 
+}
 
 
 

@@ -13,3 +13,6 @@ DisplayMoveRangeGraphics(4); 		// staff=4; Wpn=2
 */
 void FillMapForSingleItem(Unit* unit, u16 item);
 //void FillMapForItems(Unit* unit, u16 itemList[]);
+
+// 这一个函数同样适配maxRange=0的情况
+u32 ItemRange2Mask(u16 item, Unit* unit);

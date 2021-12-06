@@ -47,7 +47,7 @@ ORG	FreeSpaceTable
 // For Debug
 MESSAGE 
 MESSAGE DEBUG INFO
-
+MESSAGE CA_SelectEffect_ CA_SelectEffect
 
 PUSH
 	ORG	$2C5AC

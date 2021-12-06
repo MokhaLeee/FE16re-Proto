@@ -6,8 +6,6 @@
 #include "proc.h"
 #include "text.h"
 
-#define MAX_CMD_NUM 11
-
 typedef struct MenuGeometry MenuGeometry;
 
 typedef struct MenuDefinition MenuDefinition;
@@ -84,6 +82,11 @@ struct MenuCommandProc {
 
 	/* 3C */ u8 commandDefinitionIndex;
 	/* 3D */ u8 availability;
+};
+
+enum{
+	// Max Number of Commands
+	MAX_CMD_NUM = 11,
 };
 
 enum {
