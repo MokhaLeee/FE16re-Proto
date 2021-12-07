@@ -50,8 +50,7 @@ ORG	FreeSpaceTable
 // For Debug
 MESSAGE 
 MESSAGE DEBUG INFO
-MESSAGE CA_SelectHover_ CA_SelectHover
-MESSAGE CA_WpnSelectUsability_ CA_WpnSelectUsability
+
 
 PUSH
 	ORG	$2C5AC

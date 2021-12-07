@@ -22,7 +22,7 @@ ea_exe="$base_dir/EventAssembler/ColorzCore.exe"
 echo "Make C2EA"
 cd "$base_dir/Tables"
 rm *.event
-./c2ea ../FE8U.gba
+python3 c2ea.py ../FE8U.gba
 
 
 # Assembling Text

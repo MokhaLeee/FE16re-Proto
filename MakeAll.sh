@@ -22,8 +22,8 @@ make lyn
 echo "Make C2EA"
 cd "$base_dir/Tables"
 rm *.event
-./c2ea ../FE8U.gba
-
+# ./c2ea ../FE8U.gba
+python3 c2ea.py ../FE8U.gba
 
 # Assembling Text
 echo "Make Text"
