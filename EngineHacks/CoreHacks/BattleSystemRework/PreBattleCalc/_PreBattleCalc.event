@@ -30,7 +30,7 @@ BTPreLoopTable:
 // Atk - Physical Weapon
 ALIGN 4
 BuStrCalcTable:
-	//POIN Apply_CombatArt_MtBonus
+	POIN Apply_CombatArt_MtBonus	// Combat Art
 	POIN DeathBlow
 	WORD 0
 
@@ -49,14 +49,14 @@ BuASCalcTable:
 // Hit
 ALIGN 4
 BuHitCalcTable:
-	//POIN Apply_CombatArt_HitBonus
+	POIN Apply_CombatArt_HitBonus	// Combat Art
 	POIN UncannyBlow
 	WORD 0
 
 // Avoid
 ALIGN 4
 BuAvoCalcTable:
-	//POIN Apply_CombatArt_AvoBonus
+	POIN Apply_CombatArt_AvoBonus	// Combat Art
 	POIN DuelistsBlow
 	WORD 0
 
@@ -68,7 +68,7 @@ BuCritCalcTable:
 // Crit Aoid
 ALIGN 4
 BuDodgeCalcTable:
-	//POIN Apply_CombatArt_CritBonus
+	POIN Apply_CombatArt_CritBonus	// Combat Art
 	WORD 0
 
 // Defence

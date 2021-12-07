@@ -42,7 +42,7 @@ Sage,0,0,0,0,0,0,0,0
 Sage (F),0,0,0,0,0,0,0,0
 Mage Knight,0,0,0,0,0,0,0,0
 Mage Knight (F),0,0,0,0,0,0,0,0
-Bishop,SKILLID_QuickRiposte,0,0,0,0,0,0,0
+Bishop,SKILLID_QuickRiposte,SKILLID_VantageBattalion,0,0,0,0,0,0
 Bishop (F),0,0,0,0,0,0,0,0
 Shaman,0,0,0,0,0,0,0,0
 Shaman (F),0,0,0,0,0,0,0,0

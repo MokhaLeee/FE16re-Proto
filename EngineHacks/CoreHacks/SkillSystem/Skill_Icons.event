@@ -4,44 +4,44 @@
 
 // Blow Skills
 SI_BlowArmored:
-	#incext Png2Dmp "Icons/BlowArmored.png"
+	#incbin "Icons/BlowArmored.dmp"
 
 SI_BlowDarting:
-	#incext Png2Dmp "Icons/BlowDarting.png"
+	#incbin "Icons/BlowDarting.dmp"
 
 SI_BlowDeath:
-	#incext Png2Dmp "Icons/BlowDeath.png"
+	#incbin "Icons/BlowDeath.dmp"
 	
 SI_BlowDuelist:
-	#incext Png2Dmp "Icons/BlowDuelist.png"
+	#incbin "Icons/BlowDuelist.dmp"
 
 SI_BlowFiendish:
-	#incext Png2Dmp "Icons/BlowFiendish.png"	
+	#incbin "Icons/BlowFiendish.dmp"	
 
 SI_BlowUncanny:
-	#incext Png2Dmp "Icons/BlowUncanny.png"	
+	#incbin "Icons/BlowUncanny.dmp"	
 
 SI_BlowWarding:
-	#incext Png2Dmp "Icons/BlowWarding.png"
+	#incbin "Icons/BlowWarding.dmp"
 
 
 
 
 // Battle Misc(0x20)
 SI_Vantage:
-	#incext Png2Dmp "Icons/Vantage.png"
+	#incbin "Icons/Vantage.dmp"
 	
 SI_VantageBattalion:
-	#incext Png2Dmp "Icons/VantageBattalion.png"
+	#incbin "Icons/VantageBattalion.dmp"
 
 SI_Desperation:
-	#incext Png2Dmp "Icons/Desperation.png"
+	#incbin "Icons/Desperation.dmp"
 	
 SI_DesperationBattalion:
-	#incext Png2Dmp "Icons/DesperationBattalion.png"
+	#incbin "Icons/DesperationBattalion.dmp"
 
 SI_QuickRiposte:
-	#incext Png2Dmp "Icons/QuickRiposte.png"
+	#incbin "Icons/QuickRiposte.dmp"
 	
 
 #endif // SKILL_ICON_INCLUDED

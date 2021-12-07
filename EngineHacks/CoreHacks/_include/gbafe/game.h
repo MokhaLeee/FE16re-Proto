@@ -13,12 +13,12 @@ struct BattleMapState {
 	/* 04 */ u8 statebits; // TODO: enumerate bits
 	/* 06 */ u16 savedVCount;
 	/* 08 */ u32 _unk08;
-	/* 0C */ struct Vec2u cameraRealPos;
-	/* 10 */ struct Vec2u _unk10;
-	/* 14 */ struct Vec2u cursorMapPos;
-	/* 18 */ struct Vec2u cursorMapPosPrev;
-	/* 1C */ struct Vec2u _unk1C;
-	/* 20 */ struct Vec2u cursorDisplayRealPos;
+	/* 0C */ struct Vec2 cameraRealPos;
+	/* 10 */ struct Vec2 _unk10;
+	/* 14 */ struct Vec2 cursorMapPos;
+	/* 18 */ struct Vec2 cursorMapPosPrev;
+	/* 1C */ struct Vec2 cursorPosMenu;
+	/* 20 */ struct Vec2 cursorDisplayRealPos;
 	/* 24 */ struct Vec2 _unk24;
 	/* 28 */ u8 _pad28[0x3C - 0x28];
 	/* 3C */ u8 _unk3C;

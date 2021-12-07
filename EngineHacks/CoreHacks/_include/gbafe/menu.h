@@ -8,6 +8,7 @@
 
 typedef struct MenuGeometry MenuGeometry;
 
+typedef struct MenuDefinition MenuDef;
 typedef struct MenuDefinition MenuDefinition;
 typedef struct MenuCommandDefinition MenuCommandDefinition;
 
@@ -110,6 +111,20 @@ enum MenuEffect {
 	ME_END_AFTER = (1 << 7),
 };
 
+enum
+{
+    // Menu state bits
+
+    MENU_STATE_GAMELOCKING = (1 << 0),
+    MENU_STATE_UNUSED1 = (1 << 1),
+    MENU_STATE_ENDING = (1 << 2),
+    MENU_STATE_NOTSHOWN = (1 << 3),
+    MENU_STATE_FLAT = (1 << 4),
+    MENU_STATE_NOCURSOR = (1 << 5),
+    MENU_STATE_FROZEN = (1 << 6),
+    MENU_STATE_DOOMED = (1 << 7),
+};
+
 // TODO: move to ui.h
 void UpdateHandCursor(int x, int y); //! FE8U = (0804E79C+1)
 
@@ -143,6 +158,12 @@ void MenuCallHelpBox(MenuProc*, u16 textId); //! FE8U = 0x804F581
 // void MarkSomethingInMenu(void); // Draw Cursor while disabled //! FE8U = 0x804F60D
 
 // MenuProc* StartMenu_AndDoSomethingCommands(const MenuDefinition*, int xScreen, int xLeft, int xRight); //! FE8U = 0x804F64D
+MenuProc* StartSemiCenteredOrphanMenu(
+    const MenuDef* def, 
+	int xSubject, 
+	int xTileLeft, 
+	int xTileRight); //! FE8U = 0x804F64D
+
 // void Menu_UpdateMovingCursorGfxPosition(MenuProc*, int, int*); //! FE8U = 0x804F6A5
 void ClearMenuCommandOverride(void); //! FE8U = 0x804F6F9
 
@@ -153,7 +174,7 @@ extern const MenuDefinition gMenu_UnitMenu[];// 59D1F0
 
 // 0x801E685
 void ForceMenuItemPanel(MenuProc*, Unit*, u8, u8);
-void UpdateMenuItemPanel(s8);
+void UpdateMenuItemPanel(s8 index); // 0x801E749
 void DrawItemMenuLine(struct TextHandle*, u16 item, u8 color, u16* Bg );
 
 #endif // GBAFE_MENU_H

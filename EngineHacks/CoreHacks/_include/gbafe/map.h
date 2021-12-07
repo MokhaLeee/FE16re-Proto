@@ -82,6 +82,7 @@ void SetSubjectMap(MapData); //! FE8U = 0x801B999
 void MapIncInBoundedRange(int x, int y, int minRange, int maxRange); //! FE8U = 0x801B9A5
 
 // void FillBgMap(u16 map[], u16); //! FE8U = 0x8001221 Hardware
+// void FillBgMap(u16* map[], u16); //! FE8U = 0x8001221 Hardware
 
 u8 GetCurrentMovCostTable(void); //! FE8U = 0x801B9E5
 

@@ -27,6 +27,14 @@ PUSH
   ORG $1D450
     BYTE $14 // right x coord (open 2)
 
+
+  // On Be Press of Weapon Select
+  ORG $22882
+    BYTE $01 // left x
+
+  ORG $22884
+    BYTE $14 // Right x
+
   /*
 
   Goddammit Teq (capture hooks here too)

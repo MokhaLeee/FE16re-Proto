@@ -8,7 +8,7 @@ extern MakeBattleFunc* gpCheckNullDoubleTable;	// 不能双倍
 
 static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
 static int GetBattleUnitHitCount(BattleUnit* actor);
-static int CanDouble(BattleUnit* actor, BattleUnit* target);
+int CanDouble(BattleUnit* actor, BattleUnit* target);
 
 
 // On Moudular
@@ -186,7 +186,7 @@ static int GetBattleUnitHitCount(BattleUnit* actor){
 
 
 // 判定追击
-static int CanDouble(BattleUnit* actor, BattleUnit* target){
+int CanDouble(BattleUnit* actor, BattleUnit* target){
 	int can;
 
 	if( actor->battleSpeed < target->battleSpeed )
@@ -208,3 +208,31 @@ static int CanDouble(BattleUnit* actor, BattleUnit* target){
 	return can;
 }
 
+
+
+//  ORG $2AF90 (Check Doubling vanilla)
+s8 new_BattleGetFollowUpOrder(BattleUnit** outAttacker, BattleUnit** outDefender) {
+    
+	
+
+    if ( CanDouble(&gBattleActor, &gBattleTarget) ) 
+	{
+        *outAttacker = &gBattleActor;
+        *outDefender = &gBattleTarget;
+    } 
+	else if( CanDouble( &gBattleTarget, &gBattleActor ) )
+	{
+        *outAttacker = &gBattleTarget;
+        *outDefender = &gBattleActor;
+    }
+	else
+		return FALSE;
+
+    if (GetItemWeaponEffect((*outAttacker)->weaponBefore) == WPN_EFFECT_HPHALVE)
+        return FALSE;
+
+    if (GetItemIndex((*outAttacker)->weapon) == ITEM_MONSTER_STONE)
+        return FALSE;
+
+    return TRUE;
+}

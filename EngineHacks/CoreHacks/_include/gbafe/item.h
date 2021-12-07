@@ -251,5 +251,4 @@ const ItemData* GetItemData(u8); //! FE8U = 0x80177B1
 u8 GetBattleUnitUpdatedWeaponExp(struct BattleUnit*);
 int GetWeaponRangeMask(u16); // 0x80170D5
 
-
 #endif // GBAFE_ITEM_H

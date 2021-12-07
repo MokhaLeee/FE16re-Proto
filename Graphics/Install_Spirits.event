@@ -73,6 +73,49 @@ MovingMapSprite(MP_Warrior,0x81E4340,Alm_mov)
 // Byleth
 ALIGN 4
 Byleth_f_std:
+	#incbin "Spirits/Byleth_f_std.dmp"
+
+ALIGN 4
+Byleth_f_mov:
+	#incbin "Spirits/Byleth_f_mov.dmp"
+
+
+// Alm
+ALIGN 4
+Alm_std:
+	#incbin "Spirits/Alm_std.dmp"
+
+ALIGN 4
+Alm_mov:
+	#incbin "Spirits/Alm_mov.dmp"
+	
+	
+// fe2 Archer
+ALIGN 4
+fe2Archer_std:
+	#incbin "Spirits/fe2Archer_std.dmp"
+
+ALIGN 4
+fe2Archer_mov:
+	#incbin "Spirits/fe2Archer_mov.dmp"
+
+
+// fe2 Viliger-f
+ALIGN 4
+fe2Viliger_f_std:
+	#incbin "Spirits/fe2Viliger_f_std.dmp"
+
+ALIGN 4
+fe2Viliger_f_mov:
+	#incbin "Spirits/fe2Viliger_f_mov.dmp"
+
+
+
+
+/* 
+// Byleth
+ALIGN 4
+Byleth_f_std:
 	#incext Png2Dmp "Spirits/Byleth_f_std.png" --lz77
 
 ALIGN 4
@@ -108,3 +151,4 @@ fe2Viliger_f_std:
 ALIGN 4
 fe2Viliger_f_mov:
 	#incext Png2Dmp "Spirits/fe2Viliger_f_mov.png" --lz77
+ */

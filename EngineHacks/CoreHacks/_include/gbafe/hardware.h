@@ -134,6 +134,7 @@ void SyncPalettes_AdditiveFilter(int); //! FE8U = 0x8001095
 void SyncPalettes_SubstractiveFilter(int); //! FE8U = 0x80010F1
 
 void SyncBgAndPals(void); //! FE8U = 0x800114D
+
 void FillBgMap(u16 map[], u16); //! FE8U = 0x8001221
 
 void RegisterBlankTile(int index); //! FE8U = 0x8001241

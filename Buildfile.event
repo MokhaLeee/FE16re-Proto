@@ -34,7 +34,7 @@ ORG FreeSpace
 	MESSAGE Used events space ends at CURRENTOFFSET
 	
 	MESSAGE Used Free Space end at CURRENTOFFSET
-	MESSAGE Free Space should end before FreeSpaceEndw
+	MESSAGE Free Space should end before FreeSpaceEnd
 
 MESSAGE
 ORG	FreeSpaceTable
@@ -51,7 +51,7 @@ ORG	FreeSpaceTable
 MESSAGE 
 MESSAGE DEBUG INFO
 MESSAGE CA_SelectHover_ CA_SelectHover
-MESSAGE Apply_CombatArt_RangeBonus_ Apply_CombatArt_RangeBonus
+MESSAGE CA_WpnSelectUsability_ CA_WpnSelectUsability
 
 PUSH
 	ORG	$2C5AC

@@ -3,8 +3,9 @@
 
 #include ConfigCombatArt.event
 #include "Core/caCore.lyn.event"
-#include "Menu/Menu.event"
+#include "Menu_TargetSelection/Menu.event"
 #include "StatusBonus/StatusBonus.lyn.event"
+//#include "AnimeEffect/_AnimeEffect.event"
 
 ALIGN 4
 gpCombatArtConigList:

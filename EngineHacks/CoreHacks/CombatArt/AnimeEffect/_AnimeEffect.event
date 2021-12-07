@@ -1,0 +1,11 @@
+
+PUSH
+	// W.I.P
+	// 只是展示想一个权益之计
+	// 回头重做 gBattleHitIterator->info |= BATTLE_HIT_ATTR_SURESHOT;
+	ORG $2B884
+	jumpToHack(BattleGenerateHitFix)
+POP
+
+ALIGN 4
+#include "BattleGenerateHitFix.lyn.event"

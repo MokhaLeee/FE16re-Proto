@@ -44,6 +44,9 @@ s16 GetCS_CritBonus(u8 CAid){
 
 
 
+int isCombatArt(void){
+	return (0 != gpBattleFlagSu->isCombat);
+}
 
 // W.I.P.
 int CanUnitUseCA(Unit* unit, u8 CAid){
