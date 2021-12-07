@@ -37,7 +37,7 @@ POP
 	#include "CoreHacks/SkillSystem/_SkillSystem.event"
 	#include "CoreHacks/Gambit/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
-	#include "CoreHacks/RangeGetter2/RangeGetterMokha.event"
+	#include "CoreHacks/MapMaster/MapMaster.event"
 	#include "CoreHacks/MagicSystem/MagicSystem.event"
 	#include "CoreHacks/BattleSystemRework/BattleSystemRework.event"
 	#include "CoreHacks/CombatArt/CombatArt.event"

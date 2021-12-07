@@ -1,7 +1,7 @@
 #include "gbafe.h"
 #include "UnitExt.h"
 #include "CombatArt.h"
-#include "RangeGetter.h"
+#include "MapMaster.h"
 #include "MagicSystem.h"
 
 extern u16 TextId_umCAGrayBox;

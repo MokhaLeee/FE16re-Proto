@@ -7,7 +7,7 @@ extern u8* gpCommonSaveSu;
 #define COMMON_NUM (gpCommonSaveSu[0])
 #define COMMON_TARGIT_AT (&gpCommonSaveSu[1])
 
-#include "RangeGetter.h"
+#include "MapMaster.h"
 
 void MakeTargetListFor_SubGambitMenu(Unit* unit,u8 range){
 	InitTargets(unit->xPos,unit->yPos);

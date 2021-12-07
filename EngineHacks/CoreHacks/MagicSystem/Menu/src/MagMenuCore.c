@@ -2,7 +2,7 @@
 #include "UnitExt.h"
 #include "StrMagCha.h"
 #include "StatusGetter.h"
-#include "RangeGetter.h"
+#include "MapMaster.h"
 #include "Gambit.h"
 
 #include "Common.h"
