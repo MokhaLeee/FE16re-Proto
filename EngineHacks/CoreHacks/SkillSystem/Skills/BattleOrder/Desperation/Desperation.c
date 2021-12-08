@@ -1,18 +1,22 @@
 #include "gbafe.h"
 #include "SkillSystem.h"
+#include "StatusGetter.h"
 
 extern u8 DesperationID;
 extern u8 DesperationBattalionID;
 
 // 猛攻
 int Desperation(BattleUnit* bu){
+	
+	Unit* unit = GetUnit(bu->unit.index);
+	
 	if( &gBattleTarget != bu )
 		return FALSE;
 	
-	if( bu->unit.curHP > (bu->unit.maxHP/2) )
+	if( GetHpCur(unit) > GetHpMax(unit) )
 		return FALSE;
-	
-	if( (*SkillTester)(&bu->unit,DesperationID) )
+
+	if( (*SkillTester)(unit,DesperationID) )
 		return TRUE;
 	else
 		return FALSE;

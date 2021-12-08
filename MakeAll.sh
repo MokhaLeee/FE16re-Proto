@@ -34,8 +34,8 @@ python3 text-process-cn.py text_buildfile.txt InstallTextData.event TextDefiniti
 # Make Hack
 cd "$base_dir"
 echo "Preparing ROM"
-cp -f "$source_rom" "$target_rom" || exit 2
+cp -f "$source_rom" "$target_rom"
 echo "Assembling"
-"$ea_exe" A FE8 "-output:$target_rom" "-input:$main_event"
+"$ea_exe" AA FE8 "-output:$target_rom" "-input:$main_event"
 echo "Done!"
 

@@ -1,15 +1,19 @@
 #include "gbafe.h"
 #include "SkillSystem.h"
+#include "StatusGetter.h"
 
 extern u8 VantageID;
 extern u8 VantageBattalionID;
 
 // 伏
 int Vantage(BattleUnit* bu){
+	
+	Unit* unit = GetUnit(bu->unit.index);
+	
 	if( &gBattleTarget != bu )
 		return FALSE;
 	
-	if( bu->unit.curHP > (bu->unit.maxHP/2) )
+	if( GetHpCur(unit) > GetHpMax(unit) )
 		return FALSE;
 	
 	if( (*SkillTester)(&bu->unit,VantageID) )

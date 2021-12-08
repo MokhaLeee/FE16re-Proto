@@ -10,7 +10,11 @@ static s8 StatusModfiy(MSG_Func* funcs, Unit* unit){
 	return base;	
 }
 
-s8 GetMag(Unit* unit){
+s8 GetMag(Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	Unit* unit = GetUnit(unt->index);
+	
 	s8 stat = *GetMagAt(unit);
 	stat += StatusModfiy(MagMods,unit);	
 	if(stat<0)
@@ -18,7 +22,11 @@ s8 GetMag(Unit* unit){
 	return stat;
 }
 
-s8 GetCha(Unit* unit){
+s8 GetCha(Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	Unit* unit = GetUnit(unt->index);
+	
 	s8 stat = *GetChaAt(unit);
 	stat += StatusModfiy(ChaMods,unit);	
 	if(stat<0)

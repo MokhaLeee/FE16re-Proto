@@ -9,16 +9,28 @@ static s8 StatusModfiy(MSG_Func* funcs, Unit* unit){
 	return base;	
 }
 
-s8 GetAid(Unit* unit){
+s8 GetAid(Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	// Unit* unit = GetUnit(unt->index);
+	
 	return 0;
 }
 
-s8 GetCon(Unit* unit){
+s8 GetCon(Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	Unit* unit = GetUnit(unt->index);
+	
 	s8 stat = unit->pClassData->baseCon + unit->pCharacterData->baseCon;
 	return stat;
 }
 
-s8 GetMov(Unit* unit){
+s8 GetMov(Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	Unit* unit = GetUnit(unt->index);
+	
 	s8 stat = unit->pClassData->baseMov;
 	stat += StatusModfiy(MovMods,unit);
 	

@@ -10,12 +10,20 @@ static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
 }
 
 
-u16 prMinRangeGetter(u16 item, Unit* unit){
+u16 prMinRangeGetter(u16 item, Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	// Unit* unit = GetUnit(unt->index);
+	
 	s16 Stat = GetItemMinRange(item);
 	return Stat;
 }
 
-u16 prMaxRangeGetter(u16 item, Unit* unit){
+u16 prMaxRangeGetter(u16 item, Unit* unt){
+	
+	// to ensure current unit is not &bu->unit
+	Unit* unit = GetUnit(unt->index);
+	
 	s16 Stat = GetItemMaxRange(item);
 	if( 0==Stat )
 		return 0;

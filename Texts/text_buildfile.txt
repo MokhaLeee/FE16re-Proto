@@ -1,11 +1,14 @@
-#0x212
-Lysithea
+# 0x212
+Lysithea[X]
+
+# 0x213
+Dimitri[X]
 
 #0x4EC
-Skl
+Skl[X]
 
 #0xD4C msgCharmName
-Charm
+Charm[X]
 
 #include strings/StatusScreen.txt
 #include strings/Menu.txt

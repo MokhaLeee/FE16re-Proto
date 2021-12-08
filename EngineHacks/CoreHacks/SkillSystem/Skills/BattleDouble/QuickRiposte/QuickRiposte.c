@@ -1,17 +1,21 @@
 #include "gbafe.h"
 #include "SkillSystem.h"
+#include "StatusGetter.h"
 
 extern u8 QuickRiposteID;
 
 // 回击
 int QuickRiposte(BattleUnit* bu){
+	
+	Unit* unit = GetUnit(bu->unit.index);
+	
 	if( &gBattleTarget != bu )
 		return FALSE;
 	
-	if( bu->unit.curHP < (bu->unit.maxHP/2) )
+	if( GetHpCur(unit) < (GetHpMax(unit)/2) )
 		return FALSE;
 	
-	if( (*SkillTester)(&bu->unit,QuickRiposteID) )
+	if( (*SkillTester)(unit,QuickRiposteID) )
 		return TRUE;
 	else
 		return FALSE;
