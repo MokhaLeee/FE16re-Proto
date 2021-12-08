@@ -38,7 +38,22 @@ Unit* GetUnitByExt(const UnitExt* ext){
 }
 
 // Core
-void UnitExtReset(void){
+void ClearAllUnitExtSpace(void){
 	for(int i=0; i<UNIT_EXT_SIZEMAX_SU; i++)
 		*( i+ (u8*)gpUnitExtData ) = 0;
+}
+
+
+// W.I.P.
+void UnitExtReset(Unit* unit){
+	
+	UnitExt* ext = GetUnitExt(UNIT_CHARID(unit));
+	
+	if( NULL == ext )
+		return;
+	
+	// W.I.P
+	ext->WpnEqp = 0;
+	
+	return;
 }

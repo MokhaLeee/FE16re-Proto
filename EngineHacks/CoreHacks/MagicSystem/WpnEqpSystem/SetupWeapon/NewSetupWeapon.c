@@ -21,12 +21,10 @@ extern u16 GetBallistaItemAt(u8 x, u8 y); // 0x803798D
 
 
 
-
-
 // =================================
 // ======== Remake SetupWpn ========
 // =================================
-static int TrySetMag(BattleUnit* bu, int slot)
+int TrySetMag(BattleUnit* bu, s8 slot)
 {
 	u16 wpn = 0;
 	UnitExt* ext = GetUnitExtByUnit(&bu->unit);
@@ -39,10 +37,9 @@ static int TrySetMag(BattleUnit* bu, int slot)
 		return FALSE;
 
 	// 如果被击且无Eqp, SetWpnEqpAuto
-	if( BU_ISLOT_AUTO == slot )
-		if( 0 == ITEM_USE(ext->WpnEqp) )
-			if( FALSE == SetWpnEqpAuto_bu(bu) )
-				return FALSE;
+	if( (slot < 0) && (0 ==ext->WpnEqp) )
+		if( FALSE == SetWpnEqpAuto_bu(bu) )
+			return FALSE;
 	
 	wpn = ext->WpnEqp;
 	
@@ -69,8 +66,9 @@ static int TrySetMag(BattleUnit* bu, int slot)
 
 
 
-void newSetBattleUnitWeapon(struct BattleUnit* bu, int itemSlot) {
+void newSetBattleUnitWeapon(struct BattleUnit* bu, u8 slot) {
 	
+	s8 itemSlot = (s8)slot;
 	bu->canCounter = TRUE;
 	
 	if( TrySetMag(bu,itemSlot) )	// 如果不为0, 则为B/W mag,此时weaponSlotIndex已经设定好了
@@ -122,6 +120,9 @@ void newSetBattleUnitWeapon(struct BattleUnit* bu, int itemSlot) {
 	bu->weaponBefore = bu->weapon;
 	bu->weaponAttributes = GetItemAttributes(bu->weapon);
 	bu->weaponType = GetItemType(bu->weapon);
+	
+	// WpnEqp
+	SetWpnEqp(&bu->unit,bu->weapon);
 	
 	// CONFIG_BIT2 = UI Battle Unit Mode
 	if (gBattleStats.config & BATTLE_CONFIG_BIT2)

@@ -13,7 +13,7 @@
 
 @ ORG $80A4178
 UnitExtInit:
-	blh		UnitExtReset
+	blh		ClearAllUnitExtSpace
 	add		sp, #4
 	pop		{r3}
 	mov		r8, r3

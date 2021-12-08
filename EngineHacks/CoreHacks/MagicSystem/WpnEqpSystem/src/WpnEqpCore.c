@@ -9,7 +9,7 @@
 u16 GetWpnEqp(UnitExt* ext){ return ext->WpnEqp; }
 
 
-static int SetWpnEqp(Unit* unit, u16 item){
+int SetWpnEqp(Unit* unit, u16 item){
 	UnitExt* unitExt = GetUnitExtByUnit(unit);
 	
 	if( NULL == unitExt )

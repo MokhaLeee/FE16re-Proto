@@ -53,6 +53,7 @@ void UnitExt_LoadSa(const void* src, unsigned size);
 
 
 // Core
-void UnitExtReset(void);
+void ClearAllUnitExtSpace(void);
+void UnitExtReset(Unit* unit);		// W.I.P.
 
 #endif // UNIT_EXT

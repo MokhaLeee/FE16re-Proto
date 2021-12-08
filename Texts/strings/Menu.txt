@@ -37,8 +37,7 @@ Combat Art here.[X]
 
 ## umGambitDesc
 Gambit:[N]
-Three House's Style[N] 
-AOE attack.[X]
+Three House's Style AOE attack.[X]
 
 ## umAOEDefaultName
  Default

@@ -25,6 +25,7 @@ POP
 	#include "CoreSupport/ChapterInitHook/_ChapterInit.event"
 	#include "CoreSupport/BattleUnitHook/BattleUnitHook.event"
 	#include "CoreSupport/ExpandedModularSave/ExModularSave.event"
+	#include "CoreSupport/UnitLoadHook/UnitLoadHook.event"
 	
 	// System-Level EngineHack
 	#include "CoreHacks/CommonSaveSu/CommonSaveSu.event"

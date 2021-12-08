@@ -87,6 +87,7 @@ int SetWMagById(UnitExt* ext, u8 itemID, u8 use);
 
 
 // Weapon-Equipment System
+int SetWpnEqp(Unit* unit, u16 item);
 int SetWpnEqpForce(Unit* unit, u16 item);
 int SetWpnEqpAuto(Unit*);
 int SetWpnEqpAuto_bu(BattleUnit*);

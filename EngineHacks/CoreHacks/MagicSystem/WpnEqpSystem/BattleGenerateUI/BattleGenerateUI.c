@@ -13,6 +13,7 @@ static void null_BattleAtk(){
 void new_BattleGenerateUiStats(struct Unit* unit, s8 itemSlot) 
 {
 	u16 wpn;
+//	UnitExt* ext;
 	
 	gBattleStats.config = BATTLE_CONFIG_BIT2;
 
@@ -32,6 +33,11 @@ void new_BattleGenerateUiStats(struct Unit* unit, s8 itemSlot)
 
 	// <!> now here is replaced as newSetBattleUnitWeapon
 	SetBattleUnitWeapon(&gBattleActor, itemSlot);
+
+//	ext = GetUnitExtByCharID(UNIT_CHARIDunit);
+//	if( ext )
+//		if( 0 == ext->WpnEqp )
+//			SetWpnEqpAuto(unit);
 
 	FillPreBattleStats(&gBattleActor, &gBattleTarget);
 

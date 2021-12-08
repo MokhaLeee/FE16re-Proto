@@ -3,7 +3,9 @@
 
 	#include "OffsetGetter/OffsetGetter.lyn.event"
 	#include "Combat/_Combat.event"
-	#include "LoadUnit/_LoadUnit.event"
+	
+	#include "LoadUnit/LoadUnit.lyn.event"	// For Load Unit Hook
+	
 	#include "SaveData/SaveData.lyn.event"
 	
 	// Mainly for BattleUnitHook
