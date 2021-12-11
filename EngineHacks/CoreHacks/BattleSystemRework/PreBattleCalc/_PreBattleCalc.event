@@ -63,12 +63,12 @@ BuAvoCalcTable:
 // Crit
 ALIGN 4
 BuCritCalcTable:
+	POIN Apply_CombatArt_CritBonus	// Combat Art
 	WORD 0
 
 // Crit Aoid
 ALIGN 4
 BuDodgeCalcTable:
-	POIN Apply_CombatArt_CritBonus	// Combat Art
 	WORD 0
 
 // Defence

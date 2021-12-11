@@ -21,7 +21,7 @@ ALIGN 4
 PortraitHeightList:
 
 	// Vanilla
-	BYTE $10	// Lute	
+//	BYTE $10	// Lute	
 	BYTE $19	// Amelia
 	BYTE $21	// Ewan
 	BYTE $23	// Dozla

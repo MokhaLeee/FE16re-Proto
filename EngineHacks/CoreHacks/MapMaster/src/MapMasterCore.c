@@ -74,6 +74,13 @@ void FillMapMaster(Unit* unit, u32 mask, MapData* map, s8 nullVal){
 	// Fill Map
 	BmMapFill(*map, nullVal);
 	
+	// 要不先把0位置画上
+	if( 0 == mask )
+		return;
+	else if( 0b10 == (0b10 & mask) )
+		MapAddInRange(x,y,0,valOff);
+	
+	// Start
 	start = 0;
 	
 	for(int i=0; i <= 32; i++)

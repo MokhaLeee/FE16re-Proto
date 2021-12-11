@@ -53,7 +53,17 @@ void UnitExtReset(Unit* unit){
 		return;
 	
 	// W.I.P
+	
+	// Wpn Eqp
 	ext->WpnEqp = 0;
+	
+	// Combat Art
+	for(int i=0; i < MAX_SIZE_COMBATART; i++)
+		ext->skillbattle[i] = 0;
+
+	// Skills
+	for(int i=0; i < MAX_SIZE_SIKLL; i++)
+		ext->skills[i] = 0;
 	
 	return;
 }

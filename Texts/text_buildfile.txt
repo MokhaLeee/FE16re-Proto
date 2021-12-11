@@ -4,6 +4,9 @@ Lysithea[X]
 # 0x213
 Dimitri[X]
 
+#0x21D
+Flayn[X]
+
 #0x4EC
 Skl[X]
 

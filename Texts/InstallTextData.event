@@ -17,6 +17,10 @@ __TEXTPROCESS213:
 #incbin ".TextEntries/text_buildfile213.fetxt"
 setText($213, __TEXTPROCESS213)
 
+__TEXTPROCESS21D:
+#incbin ".TextEntries/text_buildfile21D.fetxt"
+setText($21D, __TEXTPROCESS21D)
+
 __TEXTPROCESS4EC:
 #incbin ".TextEntries/text_buildfile4EC.fetxt"
 setText($4EC, __TEXTPROCESS4EC)

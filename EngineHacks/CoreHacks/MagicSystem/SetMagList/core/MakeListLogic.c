@@ -158,13 +158,14 @@ void SetBMagBaseChar(Unit* unit){
 	UnitExt* ext = GetUnitExtByUnit(unit);
 	const u8 charId = unit->pCharacterData->number;
 	const u8 bmagRank = GetRankReason(unit);
+	MagListUnit* it = &gpUnitBasedBMagList[charId];
 	
 	for( int i=0; i<MAGLIST_UNIT_BASESIZE; i++ )
 	{
-		u8 magCur = gpUnitBasedBMagList[charId].mags[i];
-		if( magCur )
+		u8 magit = it->mags[i];
+		if( magit )
 		{
-			u8 offset = GetBMagOffset(magCur);
+			u8 offset = GetBMagOffset(magit);
 			if( offset < 0x10 )
 				AddBMag(&ext->mlist.m[offset]);
 		}
@@ -172,40 +173,40 @@ void SetBMagBaseChar(Unit* unit){
 	
 	if( bmagRank == TH_CLASS_SP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_SP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_SP])]);
 	if( bmagRank > TH_CLASS_AP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_S])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_S])]);
 	if( bmagRank > TH_CLASS_A )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_AP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_AP])]);
 	if( bmagRank > TH_CLASS_BP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_A])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_A])]);
 	if( bmagRank > TH_CLASS_B )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_BP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_BP])]);
 	if( bmagRank > TH_CLASS_CP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_B])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_B])]);
 	if( bmagRank > TH_CLASS_C )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_CP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_CP])]);
 	if( bmagRank > TH_CLASS_DP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_C])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_C])]);
 	if( bmagRank > TH_CLASS_D )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_DP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_DP])]);
 	if( bmagRank > TH_CLASS_EP )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_D])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_D])]);
 	if( bmagRank > TH_CLASS_E )
 		AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_EP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_EP])]);
 	
 	AddBMag(
-			&ext->mlist.m[GetBMagOffset(gpUnitBasedBMagList[charId].mags[UNIT_EP])]);
+			&ext->mlist.m[GetBMagOffset(it->mags[UNIT_EP])]);
 }
 
 
@@ -213,10 +214,11 @@ static void SetWMagBaseChar(Unit* unit){
 	UnitExt* ext = GetUnitExtByUnit(unit);
 	const u8 charId = unit->pCharacterData->number;
 	const u8 WMagRank = GetRankReason(unit);
+	MagListUnit* it = &gpUnitBasedWMagList[charId];
 	
 	for( int i=0; i<MAGLIST_UNIT_BASESIZE; i++ )
 	{
-		u8 magCur = gpUnitBasedWMagList[charId].mags[i];
+		u8 magCur = it->mags[i];
 		if( magCur )
 		{
 			u8 offset = GetWMagOffset(magCur);
@@ -227,40 +229,40 @@ static void SetWMagBaseChar(Unit* unit){
 	
 	if( WMagRank == TH_CLASS_SP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_SP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_SP])]);
 	if( WMagRank > TH_CLASS_AP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_S])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_S])]);
 	if( WMagRank > TH_CLASS_A )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_AP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_AP])]);
 	if( WMagRank > TH_CLASS_BP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_A])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_A])]);
 	if( WMagRank > TH_CLASS_B )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_BP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_BP])]);
 	if( WMagRank > TH_CLASS_CP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_B])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_B])]);
 	if( WMagRank > TH_CLASS_C )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_CP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_CP])]);
 	if( WMagRank > TH_CLASS_DP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_C])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_C])]);
 	if( WMagRank > TH_CLASS_D )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_DP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_DP])]);
 	if( WMagRank > TH_CLASS_EP )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_D])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_D])]);
 	if( WMagRank > TH_CLASS_E )
 		AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_EP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_EP])]);
 	
 	AddWMag(
-			&ext->mlist.m[GetWMagOffset(gpUnitBasedWMagList[charId].mags[UNIT_EP])]);
+			&ext->mlist.m[GetWMagOffset(it->mags[UNIT_EP])]);
 }
 
 
@@ -288,19 +290,32 @@ int SetUnitMagList(Unit* unit){
 	SetBMagBaseChar(unit);
 	SetWMagBaseChar(unit);
 	
+	
+	
+	// B-Mag set duration
 	if( IsClassBMagMaster(classId) )
 		SetBMagDouble(ext);
+	
 	else if( IsClassLearningMag(classId) )
 		SetBMagHalve(ext);
+	
 	else
 		SetBMagNormal(ext);
 	
+	
+	
+	// W-Mag set duration
 	if( IsClassWMagMaster(classId) )
 		SetWMagDouble(ext);
+	
 	else if( IsClassLearningMag(classId) )
 		SetWMagHalve(ext);
+	
 	else
 		SetWMagNormal(ext);
+	
+	
+	
 	
 	ext->mlist.isSet = TRUE;
 	return TRUE;

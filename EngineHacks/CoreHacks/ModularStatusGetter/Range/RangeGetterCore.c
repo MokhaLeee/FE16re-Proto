@@ -33,3 +33,13 @@ u16 prMaxRangeGetter(u16 item, Unit* unt){
 		Stat = 0xF;
 	return Stat;
 }
+
+
+
+
+s16 MSG_RngMax_ArchBonus(Unit* unit, u16 item){
+	if( ITYPE_BOW == GetItemType(item) )
+		if( CA_BALLISTAE & UNIT_CATTRIBUTES(unit) )
+			return 1;
+	return 0;
+}

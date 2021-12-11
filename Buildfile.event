@@ -50,6 +50,8 @@ ORG	FreeSpaceTable
 // For Debug
 MESSAGE 
 MESSAGE DEBUG INFO
+MESSAGE BMag_UpperHover_ BMag_UpperHover
+MESSAGE UnitHasCA_ UnitHasCA
 
 
 PUSH

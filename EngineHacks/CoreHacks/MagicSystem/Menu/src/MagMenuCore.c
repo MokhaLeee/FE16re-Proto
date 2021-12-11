@@ -115,8 +115,9 @@ static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagi
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);
 	
-	//FillRangeMapByRangeMask(gActiveUnit,mask);
-	FillMapMaster(gActiveUnit, mask, &gMapRange, NU_RANGE_MAP);
+	// FillRangeMapByRangeMask(gActiveUnit,mask);
+	// FillMapMaster(gActiveUnit, mask, &gMapRange, NU_RANGE_MAP);
+	FillMapRange(gActiveUnit,mask);
 	
 	DisplayMoveRangeGraphics(mapDisplayStyle);
 	return 0;
