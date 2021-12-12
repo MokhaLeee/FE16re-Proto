@@ -16,10 +16,9 @@ static int SetGrowthInline(MLU_Func func, u8 cnt, struct BattleUnit* bu, u8 bonu
 static void LevelUpInternal(struct BattleUnit* bu, u8 growthBonus){
 	u8 total = 0;
 	u8 bonus = 0;
-	u8 count = 10+5*(
+	u8 count = 10+4*(
 		bu->unit.pCharacterData->number +
-		bu->unit.level
-		);
+		bu->unit.level );
 	
 	count = (count+5) & 0xFF;
 	bonus = SetGrowthInline(Growth_HpGetter, count, bu, growthBonus);
