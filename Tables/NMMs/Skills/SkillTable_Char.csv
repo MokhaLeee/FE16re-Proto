@@ -10,7 +10,7 @@ INLINE SkillTable_Char,Base Skill0,Base Skill1,Base Skill2,Skill Level 5,Skill L
 0x08 Neimi,0,0,0,0,0,0,0,0
 0x09 Colm,0,0,0,0,0,0,0,0
 0x0A Garcia,0,0,0,0,0,0,0,0
-0x0B Innes,0,0,0,0,0,0,0,0
+0x0B Innes,SKILLID_BlowDeath,SKILLID_BlowUncanny,SKILLID_BlowDarting,0,0,0,0,0
 0x0C Lute,0,0,0,0,0,0,0,0
 0x0D Natasha,0,0,0,0,0,0,0,0
 0x0E Cormag,0,0,0,0,0,0,0,0

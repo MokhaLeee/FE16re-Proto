@@ -1,13 +1,16 @@
 #ifndef GAMBIT_ACTION
 #define GAMBIT_ACTION
 
-#ifdef HAX_ACTION_APPLICATION_REWORK_EVENT	//UnitActionRework
+#ifdef HAX_AAR	//UnitActionRework
 	
-	Gambit_ActionIndex:
-	BYTE 0x23
+#define ACTION_GAMBIT 0x23
+
+Gambit_ActionIndex:
+	BYTE ACTION_GAMBIT
+
+InjectUnitAction(ACTION_GAMBIT, ActionRoutine(GambitAction) )
 	
-	// #define ACTION_GAMBIT 0x23
-	SetUnitAction(ACTION_GAMBIT, ActionRoutine( (GambitAction |1) ))
+
 
 ALIGN 4
 #include "src/GambitActionCore.lyn.event"
@@ -34,6 +37,6 @@ gpProc_GambitAction:
 	_6C_END
 }
 
-#endif // HAX_ACTION_APPLICATION_REWORK_EVENT	
+#endif // HAX_AAR	
 #endif // GAMBIT_ACTION	
 	

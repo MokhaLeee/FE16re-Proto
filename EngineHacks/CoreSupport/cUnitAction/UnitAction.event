@@ -1,39 +1,32 @@
-#ifndef HAX_ACTION_APPLICATION_REWORK_EVENT
-#define HAX_ACTION_APPLICATION_REWORK_EVENT
+#ifndef HAX_AAR
+#define HAX_AAR
 
 #ifndef _FE8_
 	ERROR _file_ is to be assembled for FE8
 #endif // _FE8_
 
 #include "Extensions/Hack Installation.txt"
-#include "eastdlib.event"
+#include "EAstdlib.event"
 
-PUSH; ORG 0x3200C	
-	replaceWithHack(prNewActionApplication)
-POP
+#ifndef IsPointer
+	#define IsPointer 0x8000000
+#endif // IsPointer
 
-ALIGN 4
-prNewActionApplication:
-	#incbin "asm/ApplyAction.bin"
-	POIN pActionRoutineTable
-
-ALIGN 4
-prWaitAction:
-	#incbin "asm/WaitAction.bin"
+#include "src/ActionRework.lyn.event"
 
 #ifndef ACTION_TABLE_SIZE
 	#define ACTION_TABLE_SIZE 0x30
 #endif
 
 #define NoActionRoutine "WORD 0"
-#define ActionRoutine(apRoutine) "POIN apRoutine"
-#define ActionRoutine(apRoutine, abForcedYeild) "WORD (0x08000000 | apRoutine | (abForcedYeild << 28))"
+#define ActionRoutine(apRoutine) "POIN (apRoutine)"
+#define ActionRoutine(apRoutine, abForcedYeild) "WORD (IsPointer | (apRoutine) | (abForcedYeild << 28))"
 
-#define SetUnitAction(aActionId, adActionRoutine) "PUSH; ORG (pActionRoutineTable + 4*aActionId); adActionRoutine; POP"
+#define InjectUnitAction(aActionId, adActionRoutine) "PUSH; ORG (UnitActionCallTable + 4*aActionId); adActionRoutine; POP"
 
-pActionRoutineTable:
+UnitActionCallTable:
 	NoActionRoutine               // 0x00 ?
-	ActionRoutine(prWaitAction+1) // 0x01 Wait
+	ActionRoutine(WaitAction)     // 0x01 Wait
 	ActionRoutine(0x3229D)        // 0x02 Combat
 	ActionRoutine(0x2FC49, True)  // 0x03 Staff
 	ActionRoutine(0x32359)        // 0x04 Dance
@@ -62,7 +55,7 @@ pActionRoutineTable:
 	NoActionRoutine               // 0x1B ?
 	NoActionRoutine               // 0x1C ?
 	NoActionRoutine               // 0x1D Post Trade/Supply
-	NoActionRoutine               // 0x1E Wait 2 (needs more research)
+	ActionRoutine(WaitAction)     // 0x1E Bumping into fog
 	NoActionRoutine               // 0x1F Backing out (from a trap?)
 	NoActionRoutine               // 0x20 ?
 	NoActionRoutine               // 0x21 Ride Ballista
@@ -81,23 +74,6 @@ pActionRoutineTable:
 	NoActionRoutine               // 0x2E FREE
 	NoActionRoutine               // 0x2F FREE etc...
 
-ORG (pActionRoutineTable+ACTION_TABLE_SIZE*4)
+	ORG UnitActionCallTable + (ACTION_TABLE_SIZE*4)
 
-#endif // HAX_ACTION_APPLICATION_REWORK_EVENT
-
-
-
-
-/*
-Template:
-
-SetUnitAction(ACTION_SHOVE, ActionRoutine(_prShoveAction+1))
-ALIGN 4
-_prShoveAction:
-	#incbin "asm/ShoveAction.bin"
-	POIN (_pr6CShoveMoveWait_New+1)
- */
-ALIGN 4
-#define ACTION_GAMBIT 0x23
-gACTION_GAMBIT:
-	 WORD	0x23
+#endif // HAX_AAR

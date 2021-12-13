@@ -174,13 +174,14 @@ static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target) {
 
 // 判定勇者系武器
 static int GetBattleUnitHitCount(BattleUnit* actor){
-	if ( (&gBattleActor == actor) & (actor->weaponAttributes & IA_BRAVE) )
-	{
-		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
-		return 2;
-	}
-	else
+	
+	if( &gBattleActor != actor )
 		return 1;
+	else if( !(actor->weaponAttributes & IA_BRAVE) )
+		return 1;
+	
+	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
+	return 2;
 }
 
 

@@ -4,8 +4,8 @@
 #include "BattleCalc.h"
 
 
-static int Bts_CalcLoop(BattleUnit* atk,  BattleUnit* def, BTSfunc* table){
-	int result = 0;
+static s16 Bts_CalcLoop(BattleUnit* atk,  BattleUnit* def, BTSfunc* table){
+	s16 result = 0;
 
 	while(*table)
 		result += (*table++)(atk,def);
@@ -111,9 +111,7 @@ void BC_ASpd(BattleUnit* attacker, BattleUnit* defender){
 // Phy: Hit = Weapon Hit + unit.skl + (skill+support+Battlion)
 // Mag: Hit = Weapon Hit + (unit.skl+unit.spd)/2 + (skill+support+Battlion)
 void BC_Hit(BattleUnit* attacker, BattleUnit* defender){
-	s16 base = 0;
-	s16 bonus = 0;
-	s16 hit = 0;
+	s16 base, bonus, hit;
 	
 	if( FALSE == CheckAttackRes(attacker) )
 		base = attacker->unit.skl;
@@ -189,43 +187,42 @@ void BC_Crit(BattleUnit* attacker, BattleUnit* defender){
 void BC_Dodge(BattleUnit* attacker, BattleUnit* defender){
 
 	// Modular
-	s16 dodge = 
+	attacker->battleDodgeRate +=
 		attacker->unit.lck + 
 		Bts_CalcLoop(attacker,defender,gpBuDodgeCalcTable);
 	
 	// Minus Zero
-	dodge += attacker->battleDodgeRate;
-	if( dodge < 0 )
-		dodge = 0;
-	
-	attacker->battleDodgeRate = dodge;
+	if( attacker->battleDodgeRate < 0 )
+		attacker->battleDodgeRate = 0;
+
 }
 
 
 
 
 void BC_DefRes(BattleUnit* attacker, BattleUnit* defender){
-	s16 defres = 0;
-	s16 resBonus = 0;
-	s16 defBonus = 0;
 	
-	// Modualr
-	if( FALSE == CheckLuna(defender) )
+	// If Luna = defender Weapon, return 0
+	if( CheckLuna(defender) )
 	{
-		defBonus = Bts_CalcLoop(attacker,defender,gpBuDefCalcTable);
-		resBonus = Bts_CalcLoop(attacker,defender,gpBuResCalcTable);
+		attacker->battleDefense = 0;
+		return;
 	}
 	
-	if( FALSE == CheckAttackRes(defender) )
-		defres = attacker->unit.def + attacker->terrainDefense + defBonus;
+	// On Calc
+	if( !CheckAttackRes(defender) )
+		attacker->battleDefense +=
+			attacker->unit.def +
+			attacker->terrainDefense +
+			Bts_CalcLoop(attacker,defender,gpBuDefCalcTable);
 	else
-		defres = attacker->unit.res + attacker->terrainResistance + resBonus;
-	
+		attacker->battleDefense +=
+			attacker->unit.res +
+			attacker->terrainResistance +
+			Bts_CalcLoop(attacker,defender,gpBuResCalcTable);
 	
 	// Minus Zero
-	defres += attacker->battleDefense;
-	if( defres < 0 )
-		defres = 0;
-	
-	attacker->battleDefense = defres;
+	if( attacker->battleDefense < 0 )
+		attacker->battleDefense = 0;
+
 }
