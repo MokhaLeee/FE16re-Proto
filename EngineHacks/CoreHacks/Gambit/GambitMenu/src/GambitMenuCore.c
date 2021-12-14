@@ -1,4 +1,5 @@
 #include "Gambit.h"
+#include "MapMaster.h"
 
 #include "Common.h"
 extern u8* gpCommonSaveSu;
@@ -39,7 +40,7 @@ void Gambit_UpperMenu_Hover(MenuProc* procMU, MenuCommandProc* procCMD){
 	if( proc )
 		*((u16*)proc+0x4A/2) = 0x24; 	//Load Red&Green(need new-MapDisplay)
 
-	DisplayMoveRangeGraphics(0x24);
+	DisplayMoveRangeGraphics(MOV_RED | RNG_GREEN);
 	
 }
 
@@ -48,7 +49,7 @@ void Gambit_UpperMenu_Unhover(MenuProc* procMU, MenuCommandProc* procCMD){
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);
 	
-	DisplayMoveRangeGraphics(0x3);
+	DisplayMoveRangeGraphics(MOV_BLUE | RNG_RED);
 	HideMoveRangeGraphicsWrapper();
 }
 
@@ -85,17 +86,17 @@ void GambitSelectMenu_Hover(MenuProc* procMU, MenuCommandProc* procCMD){
 	BmMapFill(gMapRange,0);
 	FillRangeMapForHover(gActiveUnit,2);
 
-	DisplayMoveRangeGraphics(0x24);
+	DisplayMoveRangeGraphics(MOV_RED | RNG_GREEN);
 }
 
 
 void GambitSelectMenu_Unhover(MenuProc* procMU, MenuCommandProc* procCMD){
 	BmMapFill(gMapRange,0);
 	FillRangeMapForHover(gActiveUnit,2);
-	DisplayMoveRangeGraphics(0x3);
+	DisplayMoveRangeGraphics(MOV_BLUE | RNG_RED);
 	
 	// Avoid Text in Tile overflow
-	Text_InitFont();
+	// Text_InitFont();
 	
 	if( !(0x4 & procMU->stateBits) )
 		HideMoveRangeGraphicsWrapper();

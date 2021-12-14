@@ -34,6 +34,8 @@ void BuildWpnSelectReturnMenu_CA(Proc* parent){
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
 	
+	Text_ResetTileAllocation();
+	
 	MenuProc* um = StartMenu(CAwpnSelectMenu);
 	ForceMenuItemPanel(um,gActiveUnit,0xF,0xB);
 	

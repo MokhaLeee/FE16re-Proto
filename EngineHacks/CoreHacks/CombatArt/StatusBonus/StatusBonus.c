@@ -15,6 +15,19 @@ s8 Apply_CombatArt_RangeBonus(Unit* unit, u16 item)
 
 
 // in Pre-Battle Calc
+void CombatArt_PreBattleBonus(BattleUnit* actor, BattleUnit* target){
+	if( gpBattleFlagSu->isCombat )
+	if( &gBattleActor == actor )
+	if( actor->unit.index == gpBattleFlagSu->ActorId )
+	{
+		actor->battleAttack += GetCS_mtBonus(gpBattleFlagSu->artId);
+		actor->battleHitRate += GetCS_hitBonus(gpBattleFlagSu->artId);
+		actor->battleAvoidRate += GetCS_avoBonus(gpBattleFlagSu->artId);
+		actor->battleCritRate += GetCS_CritBonus(gpBattleFlagSu->artId);
+	}
+
+}
+/* 
 s16 Apply_CombatArt_MtBonus(BattleUnit* actor, BattleUnit* target){
 	if( gpBattleFlagSu->isCombat )
 	if( &gBattleActor == actor )
@@ -47,6 +60,7 @@ s16 Apply_CombatArt_CritBonus(BattleUnit* actor, BattleUnit* target){
 		return GetCS_CritBonus(gpBattleFlagSu->artId);
 	return 0;
 }
+*/
 
 
 // in Check Double

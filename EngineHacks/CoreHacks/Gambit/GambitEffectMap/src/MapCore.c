@@ -1,4 +1,5 @@
 #include "Gambit.h"
+#include "MapMaster.h"
 
 void FillRangeMapForHover(Unit* unit,u8 range){
 	MapAddInRange(unit->xPos, unit->yPos, range, 1);
@@ -18,9 +19,8 @@ void GambitResetMaps(void){
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapMovement2,-1);
 	BmMapFill(gMapRange,0);
-	//gpSubjectMap = &gMapMovement;
 	gpSubjectMap = gMapMovement;
-	DisplayMoveRangeGraphics(0x3);
+	DisplayMoveRangeGraphics(MOV_BLUE | RNG_RED);
 	HideMoveRangeGraphicsWrapper();
 	return;
 }

@@ -12,7 +12,7 @@ BTPreLoopTable:
 	POIN BC_OnInit
 	
 	// Here to fit to Vanilla BattleCalc
-
+	POIN CombatArt_PreBattleBonus
 	
 	// On Modular
 	POIN BC_Atk BC_ASpd BC_DefRes BC_Hit BC_Avo BC_Crit BC_Dodge
@@ -30,7 +30,6 @@ BTPreLoopTable:
 // Atk - Physical Weapon
 ALIGN 4
 BuStrCalcTable:
-	POIN Apply_CombatArt_MtBonus	// Combat Art
 	POIN DeathBlow
 	WORD 0
 
@@ -49,24 +48,21 @@ BuASCalcTable:
 // Hit
 ALIGN 4
 BuHitCalcTable:
-	POIN Apply_CombatArt_HitBonus	// Combat Art
 	POIN UncannyBlow
 	WORD 0
 
 // Avoid
 ALIGN 4
 BuAvoCalcTable:
-	POIN Apply_CombatArt_AvoBonus	// Combat Art
 	POIN DuelistsBlow
 	WORD 0
 
 // Crit
 ALIGN 4
 BuCritCalcTable:
-	POIN Apply_CombatArt_CritBonus	// Combat Art
 	WORD 0
 
-// Crit Aoid
+// Aoid
 ALIGN 4
 BuDodgeCalcTable:
 	WORD 0

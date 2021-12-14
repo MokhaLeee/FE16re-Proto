@@ -37,6 +37,7 @@ void BuildBmagReturnMenu_OnTS(Proc* parent){
 	CMD_CUR_NUM = 0;
 	
 	_ResetIconGraphics();
+	Text_ResetTileAllocation();
 	LoadIconPalettes(0x4);
 	
 	MenuProc* umMag = StartMenu(BMagSelectMenu);

@@ -5,6 +5,7 @@ extern MakeBattleFunc* gpCheckVantageTable;		// 待伏
 extern MakeBattleFunc* gpCheckDesperationTable;	// 强攻
 extern MakeBattleFunc* gpCheckDoubleTable;		// 回击
 extern MakeBattleFunc* gpCheckNullDoubleTable;	// 不能双倍
+extern int nullDouble_CombatArt(BattleUnit* bu); // CombatArt/StatusBonus
 
 static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
 static int GetBattleUnitHitCount(BattleUnit* actor);
@@ -177,7 +178,12 @@ static int GetBattleUnitHitCount(BattleUnit* actor){
 	
 	if( &gBattleActor != actor )
 		return 1;
-	else if( !(actor->weaponAttributes & IA_BRAVE) )
+	
+	if( !(actor->weaponAttributes & IA_BRAVE) )
+		return 1;
+	
+	// If Combat Art, null Brave Weapon
+	if( nullDouble_CombatArt(actor) )
 		return 1;
 	
 	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;

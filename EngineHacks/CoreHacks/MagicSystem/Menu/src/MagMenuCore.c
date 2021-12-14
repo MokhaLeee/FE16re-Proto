@@ -235,6 +235,7 @@ int BMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	MakeTargetListForWeapon(gActiveUnit,mag);
 	StartTargetSelection(gTSfunc_BMag);
+	DisplayMoveRangeGraphics(RNG_RED);
 	
 	// Reset cmd-count
 	CMD_CUR_NUM = 0;
@@ -275,7 +276,7 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	// W.I.P
 	ItemEffect_Call(gActiveUnit,mag);
 	
-	DisplayMoveRangeGraphics(4);
+	DisplayMoveRangeGraphics(RNG_GREEN);
 	return ME_PLAY_BEEP | ME_END | ME_DISABLE;
 	
 }
@@ -306,7 +307,7 @@ int BMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	FillRangeMapByRangeMask( gActiveUnit, GetWeaponRangeMask(mag) );
 	
-	DisplayMoveRangeGraphics(2);
+	DisplayMoveRangeGraphics(RNG_RED);
 	return 0;
 }
 
@@ -329,7 +330,7 @@ int WMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
 	BmMapFill(gMapRange,0);
 	
 	FillMapForSingleItem(gActiveUnit,mag);
-	DisplayMoveRangeGraphics(4);
+	DisplayMoveRangeGraphics(RNG_GREEN);
 	return 0;
 }
 

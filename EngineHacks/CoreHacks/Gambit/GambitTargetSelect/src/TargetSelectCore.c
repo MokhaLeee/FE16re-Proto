@@ -57,12 +57,7 @@ void _TargetSelect_Gambit4_TargetChange(struct TargetSelectionProc* proc, struct
 	FillAOEEffectMay_OnChangeTarget(entry->x,entry->y,GambitIndex);
 	BmMapFill(gMapRange,0);
 	FillRangeMapForHover(gActiveUnit,2);
-	DisplayMoveRangeGraphics(0x24);
-	
-/* 	Proc* pproc = ProcFind(gProc_MoveLimitView);
-	if( pproc )
-		*((u16*)pproc+0x4A/2) = 0x24; 	//Load Red&Green(need new-MapDisplay)
-	DisplayMoveRangeGraphics(0x3); */
+	DisplayMoveRangeGraphics(MOV_RED | RNG_GREEN);
 	
 	TargetSelect_ChangeTarget(proc,entry);
 	return;
@@ -94,5 +89,6 @@ int _TargetSelect_Gambit6_BPressed(struct TargetSelectionProc* proc, struct Targ
 void BuildGambitReturnMenu_OnTS(Proc* parent){
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
+	Text_ResetTileAllocation();
 	StartMenu(GambitSelectMenu);
 }
