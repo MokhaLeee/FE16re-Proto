@@ -183,8 +183,8 @@ static int GetBattleUnitHitCount(BattleUnit* actor){
 		return 1;
 	
 	// If Combat Art, null Brave Weapon
-	if( nullDouble_CombatArt(actor) )
-		return 1;
+	// if( nullDouble_CombatArt(actor) )
+	//	return 1;
 	
 	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
 	return 2;
