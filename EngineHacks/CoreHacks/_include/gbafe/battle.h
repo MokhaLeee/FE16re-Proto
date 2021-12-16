@@ -166,7 +166,7 @@ int GetStatIncrease(int growth); //! FE8U = 0x802B9A1
 int BattleUnit_ShouldDisplayWpnBroke(struct BattleUnit* bu); //! FE8U = 0x807A771
 int BattleUnit_ShouldDisplayWRankUp(struct BattleUnit* bu); //! FE8U = 0x802C1B1
 
-void BattleGenerateUiStats(Unit*, u8 ItemSlot); // 0x802A401
+void BattleGenerateUiStats(Unit*, s8 ItemSlot); // 0x802A401
 
 
 

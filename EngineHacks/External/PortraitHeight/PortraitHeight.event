@@ -1,9 +1,4 @@
 #ifdef MODUALR_PROTRAIT_HEIGHT
-
-#ifndef FreeSpace
-	#define FreeSpace $B2A610
-	ORG FreeSpace
-#endif
 	
 PUSH
 	ORG $5C24
@@ -30,6 +25,7 @@ PortraitHeightList:
 	// Extern
 	BYTE $2		// Eirika
 	BYTE $4		// Seth
+	BYTE $F		// Innes
 	
 	// End
 	BYTE 0

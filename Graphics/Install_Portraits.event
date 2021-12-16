@@ -6,6 +6,7 @@
 
 #define Eirika_MugOffset 0x2
 #define Seth_MugOffset 0x4
+#define Innes_MugOffset 0xF
 #define Lute_MugOffset 0x10
 #define Tethys_MugOffset 0x1C
 
@@ -13,10 +14,15 @@
 setMugEntry(Eirika_MugOffset,Prot_Lysithea,2,6,2,4)
 setMugEntry(Seth_MugOffset,Prot_Dimitri,2,6,3,4)
 setMugEntry(Lute_MugOffset,Prot_Flayn,4,5,4,3)
+setMugEntry(Innes_MugOffset,Prot_Lysithea0,4,6,4,4)
 
 ALIGN 4
 Prot_Lysithea:
 	#incext PortraitFormatter "Portrait/Lysithea1.png"
+
+ALIGN 4
+Prot_Lysithea0:
+	#incext PortraitFormatter "Portrait/Lysithea.png"
 
 ALIGN 4
 Prot_Dimitri:

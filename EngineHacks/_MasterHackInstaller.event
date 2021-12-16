@@ -49,5 +49,6 @@ POP
 	#include "External/MovementArrowHack/MovementArrowHack.event"
 	#include "External/FixWpnRnk.event"
 	#include "External/SemitransparencyChanges.event"
+	#include "External/StatScreenBlink/SSBlink.event"
 
 

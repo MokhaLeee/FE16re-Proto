@@ -10,6 +10,9 @@ PUSH
 ORG $22C0A
 SHORT 0 0
 
+ORG $005EA8
+SHORT 0 0
+
 
 
 // Will Use Supply in Prologue
