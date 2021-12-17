@@ -79,9 +79,18 @@ SET_DATA SubAttackMenuCmd, 0x859C95C
 SET_DATA gpTargetSelectFuncs_Attack, 0x859D3F8
 
 
+@ MenuPanel
+SET_DATA ObjData_859A530, 0x859A530
+SET_DATA ObjData_859A53C, 0x859A53C
 
 
+@BkSel
+SET_FUNC EndProcBkSel, 0x80373B5
+SET_FUNC UpdateBkSel, 0x803739
+SET_FUNC BkSel_CallHelpBox, 0x80373F1
 
+SET_DATA BkSel_HelpBoxInfoNormal, 0x8A00FEC
+SET_DATA BkSel_HelpBoxInfoDetail, 0x8A01094
 
 
 

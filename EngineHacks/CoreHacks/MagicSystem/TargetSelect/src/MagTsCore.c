@@ -42,8 +42,9 @@ void BuildBmagReturnMenu_OnTS(Proc* parent){
 	
 	MenuProc* umMag = StartMenu(BMagSelectMenu);
 	
-	//StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
-	//SetFaceBlinkControlById(0,5);
-	ForceMenuItemPanel(umMag,gActiveUnit,0xF,0xB);
+	// Panel
+	StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	SetFaceBlinkControlById(0,5);
+	StartBMagicMenuPanel(umMag,gActiveUnit,0xF,0xB);
 }
 

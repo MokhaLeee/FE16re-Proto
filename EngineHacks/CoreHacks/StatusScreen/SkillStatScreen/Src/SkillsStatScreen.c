@@ -2,67 +2,7 @@
 #include "gbafe.h"
 #include "SkillSystem.h"
 
-// TODO: add all that to CLib
 
-struct StatScreenSt
-{
-    /* 00 */ u8 page;
-    /* 01 */ u8 pageAmt;
-    /* 02 */ u16 pageSlideKey;
-    /* 04 */ short xDispOff;
-    /* 06 */ short yDispOff;
-    /* 08 */ s8 inTransition;
-    /* 0C */ struct Unit* unit;
-    /* 10 */ void* mu;
-    /* 14 */ const void* help;
-    /* 18 */ struct TextHandle text[];
-};
-
-struct HelpBoxProc
-{
-    /* 00 */ PROC_HEADER;
-
-    /* 2C */ const struct HelpBoxInfo* info;
-
-    /* 30 */ short xBox;
-    /* 32 */ short yBox;
-    /* 34 */ short wBox;
-    /* 36 */ short hBox;
-    /* 38 */ short xBoxInit;
-    /* 3A */ short yBoxInit;
-    /* 3C */ short xBoxFinal;
-    /* 3E */ short yBoxFinal;
-    /* 40 */ short wBoxInit;
-    /* 42 */ short hBoxInit;
-    /* 44 */ short wBoxFinal;
-    /* 46 */ short hBoxFinal;
-    /* 48 */ short timer;
-    /* 4A */ short timerMax;
-
-    /* 4C */ u16 mid;
-    /* 4E */ u16 item;
-
-    /* 50 */ u16 moveKey; // move ctrl proc only
-
-    /* 52 */ u8 unk52;
-
-    // NOTE: there's likely more, need to decompile more files
-};
-
-struct HelpBoxInfo
-{
-    /* 00 */ const struct HelpBoxInfo* adjUp;
-    /* 04 */ const struct HelpBoxInfo* adjDown;
-    /* 08 */ const struct HelpBoxInfo* adjLeft;
-    /* 0C */ const struct HelpBoxInfo* adjRight;
-    /* 10 */ u8 xDisplay;
-    /* 11 */ u8 yDisplay;
-    /* 12 */ u16 mid;
-    /* 14 */ void(*redirect)(struct HelpBoxProc* proc);
-    /* 18 */ void(*populate)(struct HelpBoxProc* proc);
-};
-
-enum { STATSCREEN_TEXT_BWL = 34 };
 
 static struct StatScreenSt* const STATSCREEN = (struct StatScreenSt*) 0x02003BFC;
 

@@ -27,8 +27,8 @@ extern const u16 gPal_MiscUIGraphics[];
 
 extern u16 gSomethingRelatedToAnimAndDistance; //! FE8U = 0x203E120
 
-char* GetStringFromIndex(int index); //! FE8U = 0x800A241
-char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
+/* char* GetStringFromIndex(int index); //! FE8U = 0x800A241
+char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281 */
 
 int String_FromNumber(int number, char* buffer); //! FE8U = 0x8014335
 
@@ -67,4 +67,9 @@ u8 __modsi3(u8, u8);
 
 // Timer
 void StartBlockingTimer(int time); //! FE8U = (0x8014238+1)
+
+
+// UI Gfx
+extern void* gNewUIGfxPointers[]; // 0x85B6470
+
 #endif // GBAFE_OTHER_H

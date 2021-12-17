@@ -20,7 +20,9 @@ struct BattleMapState {
 	/* 1C */ struct Vec2 cursorPosMenu;
 	/* 20 */ struct Vec2 cursorDisplayRealPos;
 	/* 24 */ struct Vec2 _unk24;
-	/* 28 */ u8 _pad28[0x3C - 0x28];
+	/* 28 */ u8 _pad28[0x2C - 0x28];
+	/* 2C */ u16 ItemGotButNotYet;
+	/* 2E */ u8 _pad2E[0x3C - 0x2E];
 	/* 3C */ u8 _unk3C;
 	/* 3D */ u8 partialActionTaken; // bits
 };

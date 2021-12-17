@@ -167,4 +167,11 @@ void DrawUiSmallNumber(u16* out, int color, int number); // 0x8004BE5
 
 char* String_ExpandTactName(char*); // 0x800A3B9
 
+
+
+// Mokha
+char* GetStringFromIndex(int index); //! FE8U = 0x800A241
+char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
+
+
 #endif // GBAFE_TEXT_H

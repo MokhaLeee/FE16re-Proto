@@ -1,5 +1,4 @@
-#ifndef StanH_H
-#define StanH_H
+#pragma once
 
 /* Created by stanh, Modified by Mokha */
 
@@ -42,6 +41,9 @@ extern "C" {
 #include "gbafe/event.h"
 #include "gbafe/battle.h"
 #include "gbafe/Anime.h"
+#include "gbafe/MenuItemPanel.h"
+#include "gbafe/StatusScreen.h"
+#include "gbafe/HelpBox.h"
 
 #include "constants/characters.h"
 #include "constants/classes.h"
@@ -51,5 +53,3 @@ extern "C" {
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
-#endif // StanH_H

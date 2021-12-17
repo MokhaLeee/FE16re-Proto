@@ -113,17 +113,17 @@ struct ChapterState {
 
 	u32 unk41_1:1;
 	u32 muteSfxOption:1;
-	u32 unk41_3:5;
+	u32 unk41_3:2;
+	u32 unk41_5:3;
 	u32 subtitleHelpOption:1;
 
-	u32 unk42_1:1;
-	u32 unk42_2:1;
-	u32 unk42_3:1;
-	u32 unk42_4:1;
-	u32 unk42_5:1;
-	u32 unk42_6:1;
-	u32 unk42_7:1;
-	u32 unk42_8:1;
+	u32 Option3_1:1;
+	u32 Option3_2:1;
+	u32 Option3_3:1;
+	u32 BkSelMode:2;
+	u32 Option3_6:1;
+	u32 Option3_7:1;
+	u32 Option3_8:1;
 
 	u32 unk43_1:8;
 
@@ -136,5 +136,17 @@ struct ChapterState {
 };
 
 extern struct ChapterState gChapterData; //! FE8U = (0x202BCF0)
+
+
+extern const struct ROMChapterData gChapterDataTable[];
+extern const void** gUnknown_08A1FB34;
+extern const void* gChapterDataAssetTable[];
+
+const struct ROMChapterData* GetROMChapterStruct(unsigned chIndex);
+const void* GetChapterMapPointer(unsigned chIndex);
+const void* GetChapterMapChangesPointer(unsigned chIndex);
+const void* GetChapterEventDataPointer(unsigned chIndex);
+const char* sub_80346E0(unsigned chIndex);
+int IsDifficultMode(void);
 
 #endif // GBAFE_CHAPTERDATA_H

@@ -69,15 +69,23 @@ static int Mag_Effect(MenuProc* pmu, MenuCommandProc* pcmd, const MenuDefinition
 	
 	MenuProc* umMag = StartMenu(mdef);
 	
-	//StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
-	//SetFaceBlinkControlById(0,5);
-	ForceMenuItemPanel(umMag,gActiveUnit,0xF,0xB);
+	// Panel
+	// 暂时只支持黑魔法
+	if( BMagSelectMenu == mdef )
+	{
+		StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+		SetFaceBlinkControlById(0,5);
+		StartBMagicMenuPanel(umMag,gActiveUnit,0xF,0xB);
+	}
+	
 	return ME_CLEAR_GFX | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
 
 
-int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
-{	return Mag_Effect(pmu,pcmd,BMagSelectMenu); }
+int BMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
+
+	return Mag_Effect(pmu,pcmd,BMagSelectMenu);
+}
 
 int WMag_Effect(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return Mag_Effect(pmu,pcmd,WMagSelectMenu); }
@@ -230,6 +238,9 @@ int BMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 	SetWpnEqpForce(gActiveUnit,mag);
 	gActionData.itemSlotIndex = BU_ISLOT_BMAG;
 	
+	// Panel
+	EndMenuPanelBMag();
+	
 	ClearIcons();
 	ClearBG0BG1();
 	
@@ -301,6 +312,9 @@ int BMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
 	mag = MAKE_ITEM(
 		gpBMagList[pcmd->commandDefinitionIndex].index,
 		GetBMagUse(ext,pcmd->commandDefinitionIndex) );
+	
+	// Panel
+	UpdateMenuPanelBMag(mag);
 	
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);

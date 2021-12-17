@@ -188,5 +188,9 @@ extern int BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
 
 extern void ClearBattleHits();
 extern void ClearRounds();
+int GetBattleUnitHitCount(BattleUnit* actor);
+void BattleUnwind();
+int BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
+s8 BattleCheckDoubling(BattleUnit** outAttacker, BattleUnit** outDefender);
 
 #endif // GBAFE_BATTLE_H

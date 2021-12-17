@@ -96,3 +96,9 @@ u16 GetWpnEqp(UnitExt*);
 // On Chapter Init
 void ResetUnitsMagic(void);
 int SetUnitMagList(Unit* unit);
+
+
+// Menu Panel
+void StartBMagicMenuPanel(MenuProc* pmu, Unit* unit, u8 xPos, u8 yPos);
+void UpdateMenuPanelBMag(u16 item);
+void EndMenuPanelBMag(void);

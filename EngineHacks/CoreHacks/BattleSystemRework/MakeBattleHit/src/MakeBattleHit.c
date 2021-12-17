@@ -7,8 +7,8 @@ extern MakeBattleFunc* gpCheckDoubleTable;		// 回击
 extern MakeBattleFunc* gpCheckNullDoubleTable;	// 不能双倍
 extern int nullDouble_CombatArt(BattleUnit* bu); // CombatArt/StatusBonus
 
-static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
-static int GetBattleUnitHitCount(BattleUnit* actor);
+// int BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target);
+// int GetBattleUnitHitCount(BattleUnit* actor);
 int CanDouble(BattleUnit* actor, BattleUnit* target);
 
 
@@ -88,7 +88,7 @@ static const u8 RoundArr[56] = {
 
 
 // 2AED0
-void new_BattleUnwind(){
+void BattleUnwind(){
 	s8 round[4] = {0};
 	s8 roundInfo = 0;
 	
@@ -120,7 +120,7 @@ void new_BattleUnwind(){
 	
 		if( (ACT_ATTACK == round[i]) )
 		{
-			if(!_BattleGenerateRoundHits(&gBattleActor, &gBattleTarget))
+			if(!BattleGenerateRoundHits(&gBattleActor, &gBattleTarget))
 				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_RETALIATE;
 			else
 				break;
@@ -128,7 +128,7 @@ void new_BattleUnwind(){
 			
 		else if( (TAR_ATTACK == round[i]) )
 		{
-			if(!_BattleGenerateRoundHits(&gBattleTarget, &gBattleActor))
+			if(!BattleGenerateRoundHits(&gBattleTarget, &gBattleActor))
 				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_RETALIATE;
 			else
 				break;
@@ -151,7 +151,8 @@ void new_BattleUnwind(){
 // Internal
 
 // 角色的一轮攻击(勇者系武器的话同时判定两次)
-static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target) {
+// 0x802B018+1
+int BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target) {
 	int i, count;
 	u32 attrs;
 
@@ -174,7 +175,7 @@ static int _BattleGenerateRoundHits(BattleUnit* actor, BattleUnit* target) {
 
 
 // 判定勇者系武器
-static int GetBattleUnitHitCount(BattleUnit* actor){
+int GetBattleUnitHitCount(BattleUnit* actor){
 	
 	if( &gBattleActor != actor )
 		return 1;
@@ -183,8 +184,11 @@ static int GetBattleUnitHitCount(BattleUnit* actor){
 		return 1;
 	
 	// If Combat Art, null Brave Weapon
-	// if( nullDouble_CombatArt(actor) )
-	//	return 1;
+	if( nullDouble_CombatArt(actor) )
+	{
+		actor->weaponAttributes &= ~IA_BRAVE;
+		return 1;
+	}
 	
 	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
 	return 2;
@@ -218,7 +222,7 @@ int CanDouble(BattleUnit* actor, BattleUnit* target){
 
 
 //  ORG $2AF90 (Check Doubling vanilla)
-s8 new_BattleGetFollowUpOrder(BattleUnit** outAttacker, BattleUnit** outDefender) {
+s8 BattleCheckDoubling(BattleUnit** outAttacker, BattleUnit** outDefender) {
     
 	
 

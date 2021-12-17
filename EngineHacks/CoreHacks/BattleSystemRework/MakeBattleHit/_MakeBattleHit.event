@@ -6,11 +6,13 @@
 #include "BKSEL_fix/BKSEL_fix.lyn.event"
 
 PUSH
-	ORG $2AED0
+//	这些已经包含在lyn组件的decomp jump中了
+/* 	ORG $2AED0
 	jumpToHack(new_BattleUnwind)
 
 	ORG $2AF90	// Check Doubling Fix
-	jumpToHack(new_BattleGetFollowUpOrder)
+	jumpToHack(new_BattleGetFollowUpOrder) */
+
 
 
 	// 让战斗预测窗口能够正确显示是否追击
