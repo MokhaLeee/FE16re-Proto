@@ -1,0 +1,14 @@
+#ifndef RANGE_GETTER_MOKHA_STYLE
+#define RANGE_GETTER_MOKHA_STYLE
+
+
+#include "src/MapMasterCore.lyn.event"
+
+
+#include "MoveLimitViewFix/_1D9DC_Loop6C_MoveLimitView.lyn.event"
+PUSH
+	ORG	$1D9DC
+	jumpToHack(_1D9DC_Loop6C_MoveLimitView)
+POP	
+
+#endif // RANGE_GETTER_MOKHA_STYLE

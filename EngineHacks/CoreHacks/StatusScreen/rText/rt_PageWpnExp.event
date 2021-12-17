@@ -1,0 +1,53 @@
+ALIGN 4
+RText_PageWpnExp:
+
+	// Line 1
+	WT_Sword:
+	RMenu(WT_Staff,WT_Lance,WT_Name,WT_Leader,0x68,0x18,0x561)
+	
+	WT_Lance:
+	RMenu(WT_Sword,WT_Axe,WT_Name,WT_Ride,0x68,0x28,0x562)
+
+	WT_Axe:
+	RMenu(WT_Lance,WT_Bow,WT_Name,WT_Fly,0x68,0x38,0x563)
+	
+	WT_Bow:
+	RMenu(WT_Axe,WT_Knu,WT_Name,WT_Heavy,0x68,0x48,0x564)
+	
+	WT_Knu:
+	RMenu(WT_Bow,WT_BMag,WT_Class,0,0x68,0x58,ssBrawlDesc)
+	
+	WT_BMag:
+	RMenu(WT_Knu,WT_Staff,WT_Class,0,0x68,0x68,ssReasonDesc)
+	
+	WT_Staff:
+	RMenu(WT_BMag,WT_Sword,WT_Exp,0,0x68,0x78,ssFaithDesc)
+	
+	// Line 2
+	WT_Leader:
+	RMenu(WT_Heavy,WT_Ride,WT_Sword,WT_Name,0xA8,0x18,ssAuthorityDesc)
+
+	WT_Ride:
+	RMenu(WT_Leader,WT_Fly,WT_Axe,WT_Name,0xA8,0x28,ssRidingDesc)
+	
+	WT_Fly:
+	RMenu(WT_Ride,WT_Heavy,WT_Lance,WT_Name,0xA8,0x38,ssFlyingDesc)
+	
+	WT_Heavy:
+	RMenu(WT_Fly,WT_Leader,WT_Bow,WT_Name,0xA8,0x48,ssHeavyDesc)
+	
+	// Left
+	WT_Name:
+	RMenu(0,WT_Class,WT_Heavy,WT_Bow,0x18,0x50,0x0,NameDescGetter)
+	
+	WT_Class:
+	RMenu(WT_Name,WT_Level,WT_Heavy,WT_BMag,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	WT_Level:
+	RMenu(WT_Class,WT_HP,WT_Heavy,WT_Exp,0x6,0x78,0x542)
+	
+	WT_Exp:
+	RMenu(WT_Class,WT_HP,WT_Level,WT_Staff,0x26,0x78,0x543)
+	
+	WT_HP:
+	RMenu(WT_Level,WT_Name,WT_Heavy,WT_Exp,0x6,0x88,0x544)

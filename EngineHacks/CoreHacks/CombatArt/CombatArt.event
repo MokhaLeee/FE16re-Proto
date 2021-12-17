@@ -1,0 +1,18 @@
+#ifndef THREE_HOUSES_COMBAT_ART
+#define THREE_HOUSES_COMBAT_ART
+
+#include ConfigCombatArt.event
+#include "Core/caCore.lyn.event"
+#include "Menu_TargetSelection/Menu.event"
+#include "StatusBonus/StatusBonus.lyn.event"
+//#include "AnimeEffect/_AnimeEffect.event"
+
+ALIGN 4
+gpCombatArtConigList:
+	POIN CombatArtConigList
+
+
+
+
+
+#endif // THREE_HOUSES_COMBAT_ART

@@ -1,0 +1,23 @@
+
+PUSH
+// 这里相当于判定结束后做补充
+// 取消掉了这里，全部放在 ModularCheckCanCounter(即WeaponEqp过程中)
+
+ORG $2C844
+SHORT $4770	// bx lr
+
+POP
+
+// (ModularCheckCanCounter)属于SepupWeapon的过程
+// 该部分位于 MagicSystem/WeaponEqpSystem
+#include "src/CanCounter.lyn.event"
+#include "src/CheckFuncs.lyn.event"
+
+ALIGN 4
+gpNoJugRangeFuncs:
+	POIN NoJugRangeFuncs
+
+ALIGN 4
+gpNullCounterFuncs:
+	POIN NullCounterFuncs
+

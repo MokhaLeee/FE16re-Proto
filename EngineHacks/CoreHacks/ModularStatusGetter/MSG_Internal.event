@@ -1,0 +1,76 @@
+ALIGN 4
+#include "Vanilla/StatusGetterCore.lyn.event"
+#include "Vanilla/StatusGetterFuncs.lyn.event"
+
+#include "AidConMov/AidConMovGetterCore.lyn.event"
+#include "AidConMov/InjectConGetters.event"
+#include "AidConMov/InjectMovGetters.event"
+
+#include "ChaMag/MagChaGetterCore.lyn.event"
+
+#include "Range/RangeGetterCore.lyn.event"
+#include "Range/ProperRangeGetters_Internal.event"
+
+#include "Ranks/ranks.lyn.event"
+
+//#define _thumb(p) "PUSH; ORG CURRENTOFFSET+1; p:; POP"
+
+ALIGN 4
+prStatScreenMovGetter:
+	SHORT 0xB510 0x68E8 0x1C04 0xF000 0xF80D 0x2800 0xD103 0x2001 0x4240 0x1C03 0xE002 0x6863 0x2112 0x565B 0xBC10 0xBC02 0x4708 0x46C0
+	jumpToHack(GetMov)
+	
+PUSH
+	ORG 0x19190
+	_thumb(prGotoMaxHPGetter)
+		jumpToHack(GetHpMax)
+	
+	ORG 0x19150
+	_thumb(prGotoCurHPGetter)
+		jumpToHack(GetHpCur)
+
+	ORG 0x191B0
+	_thumb(prGotoPowGetter)
+	jumpToHack(GetPow)
+	
+		ORG 0x191B8
+		_thumb(prGotoMagGetter)
+			jumpToHack(GetMag)
+		
+		ORG 0x191C0
+		_thumb(prGotoChaGetter)
+			jumpToHack(GetCha)
+		
+		
+	ORG 0x191D0
+	_thumb(prGotoSklGetter)
+		jumpToHack(GetSkl)
+
+	ORG 0x19210
+	_thumb(prGotoSpdGetter)
+		jumpToHack(GetSpd)
+
+	ORG 0x19250
+	_thumb(prGotoDefGetter)
+		jumpToHack(GetDef)
+
+	ORG 0x19270
+	_thumb(prGotoResGetter)
+		jumpToHack(GetRes)
+
+	ORG 0x19298
+	_thumb(prGotoLckGetter)
+		jumpToHack(GetLck)
+
+	ORG 0x189B8
+	_thumb(prGotoAidGetter)
+		jumpToHack(GetAid)
+	
+	ORG 0x19224
+	_thumb(prGotoMovGetter)
+		jumpToHack(GetMov)
+	
+	ORG 0x19284
+	_thumb(prGotoConGetter)
+		jumpToHack(GetCon)
+POP

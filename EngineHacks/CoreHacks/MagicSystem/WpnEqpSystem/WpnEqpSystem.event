@@ -1,0 +1,42 @@
+#ifndef MAGIC_SYSTEM_FE16RE_WPNEQP
+#define MAGIC_SYSTEM_FE16RE_WPNEQP
+
+
+PUSH
+	// Set WpnEqp to bu->wpnBefore
+	ORG $2A730
+	jumpToHack(newSetBattleUnitWeapon)
+	
+	// Rework on UI battle generate
+	ORG $2A400
+	jumpToHack(new_BattleGenerateUiStats)
+	
+	
+	// BattleToUnit should not save magic weapon
+	// This is in BattleUnitHook
+	
+	// Set bu in Staff
+	ORG $2CB28
+	jumpToHack(UnitToBattleStaff)
+	
+	ORG $2FC58
+	jumpToHack(ActionStaffGetItem)
+	
+	
+	// Set WpnEqp in Sub-Attack Effect
+	ORG $22CF0
+	jumpToHack(newSubAttackEffect)
+POP
+
+#include "asm/WpnEqp.lyn.event"
+#include "src/WpnEqpCore.lyn.event"
+#include "src/Misc.lyn.event"
+#include "BattleToUnit/BattleToUnit.lyn.event"
+#include "SetupWeapon/NewSetupWeapon.lyn.event"
+#include "BattleGenerateUI/BattleGenerateUI.lyn.event"
+
+/* ALIGN 4
+_thumb(ModularCheckCanCounter)
+	RETURN_TRUE */
+
+#endif // MAGIC_SYSTEM_FE16RE_WPNEQP
