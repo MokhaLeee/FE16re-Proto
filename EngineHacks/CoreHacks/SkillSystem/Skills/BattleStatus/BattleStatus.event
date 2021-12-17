@@ -1,4 +1,0 @@
-// Will be included in Battle System - Pre Battle
-
-// Blows
-#include "BlowSkills/BlowSkills.event"

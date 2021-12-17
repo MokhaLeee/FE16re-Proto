@@ -1,6 +1,0 @@
-#ifndef COMMON_SAVESU_INSTALLED
-#define COMMON_SAVESU_INSTALLED
-
-#include "src/CommonSaveSu.lyn.event"
-
-#endif // COMMON_SAVESU_INSTALLED

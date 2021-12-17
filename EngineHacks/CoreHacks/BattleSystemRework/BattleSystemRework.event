@@ -1,8 +1,0 @@
-#ifndef MOKHA_STYLE_BATTLE_SYSTEM_REWORK
-#define MOKHA_STYLE_BATTLE_SYSTEM_REWORK
-
-#include "PreBattleCalc/_PreBattleCalc.event"
-#include "CheckCanCounter/CheckCanCounter.event"
-#include "MakeBattleHit/_MakeBattleHit.event"
-
-#endif // MOKHA_STYLE_BATTLE_SYSTEM_REWORK
