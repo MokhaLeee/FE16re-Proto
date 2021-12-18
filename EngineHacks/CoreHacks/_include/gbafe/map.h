@@ -86,4 +86,10 @@ void MapIncInBoundedRange(int x, int y, int minRange, int maxRange); //! FE8U = 
 
 u8 GetCurrentMovCostTable(void); //! FE8U = 0x801B9E5
 
+
+
+// Mokha
+void MapSetInMagicSealedRange(int value); //  0x801B950+1
+
+
 #endif // GBAFE_MAP_H

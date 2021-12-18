@@ -9,6 +9,7 @@
 	#include "WpnEqpSystem/WpnEqpSystem.event"
 	#include "SetMagList/SetMagList.event"
 	#include "MenuPanel/MenuPanelBMag.lyn.event"
+	#include "MapDisplay/MapDisplay.lyn.event"
 
 
 

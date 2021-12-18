@@ -226,3 +226,29 @@ int CA_SelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
 	return 0;
 }
 
+
+
+/* ================================
+   ========== Help Box ============
+   ================================ */
+
+void CA_SelectHelpBox(MenuProc* pmu, MenuCommandProc* pcmd){
+	u8 artId;
+	CombatArtInfo* info;
+	UnitExt* ext;
+	
+	ext = GetUnitExtByUnit(gActiveUnit);
+	
+	if( NULL == ext )
+		return;
+	
+	artId = ext->skillbattle[pcmd->commandDefinitionIndex];
+	info = &gpCombatArtConigList[artId];
+	
+	
+	SetHelpBox_ByText(
+		8*pcmd->xDrawTile, 
+		8*pcmd->yDrawTile, 
+		info->Desc );
+}
+

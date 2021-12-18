@@ -94,8 +94,9 @@ SET_DATA BkSel_HelpBoxInfoNormal, 0x8A00FEC
 SET_DATA BkSel_HelpBoxInfoDetail, 0x8A01094
 
 
-
-
+@Help Box
+SET_FUNC SetHelpBox_ByItem, 0x8088E61
+SET_FUNC SetHelpBox_ByText, 0x8088DE1
 
 
 

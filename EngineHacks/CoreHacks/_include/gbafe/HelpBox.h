@@ -1,4 +1,5 @@
 #pragma once
+#include "gbafe.h"
 
 typedef struct HelpBoxProc HelpBoxProc;
 struct HelpBoxProc
@@ -59,3 +60,5 @@ extern const ProcInstruction gProc_HelpTextBubble[]; // 0x8A00AD0
 extern struct HelpTextRAM gHelpTextOriginTile; // 0x203E788
 
 void LoadDialogueBoxGfx(void* dest, s8 index); // 0x8089805
+void SetHelpBox_ByItem(u16 x, u16 y, u16 item);// 0x8088E61
+void SetHelpBox_ByText(u16 x, u16 y, u16 textIndex);// 0x8088DE1

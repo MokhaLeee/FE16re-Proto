@@ -9,6 +9,10 @@ enum{
 	
 	NU_MOVE_MAP = -1,
 	ON_MOVE_MAP = 1,
+	
+	NU_MOVE2_MAP = 0,
+	
+	ON_UNIT_MAP = 0,
 };
 
 
@@ -52,7 +56,9 @@ DisplayMoveRangeGraphics(RNG_GREEN);
 即可实现在任意地图上进行展示了
 */
 u32 ItemRange2Mask(u16 item, Unit* unit);
-void FillMapMaster(Unit* unit, u32 mask, MapData*, s8 nullVal);
+void AddMapMasterCore(s8 x, s8 y, u32 mask, MapData, s8 nullVal);
+void FillMapMasterCore(s8 x, s8 y, u32 mask, MapData, s8 nullVal);
+void FillMapMaster(Unit* unit, u32 mask, MapData, s8 nullVal);
 void FillMapMovement(Unit* unit, u32 mask);
 void FillMapRange(Unit* unit, u32 mask);
 

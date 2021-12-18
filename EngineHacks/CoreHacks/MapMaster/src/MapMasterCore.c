@@ -8,7 +8,7 @@
 
 
 static s16 MaxRangeFilter(Unit* unit, u16 item){
-	u16 rngMax = prMaxRangeGetter(item,unit);
+	u16 rngMax = GetRngMax(item,unit);
 	if( 0 == rngMax )
 		rngMax = GetUnitMagBy2Range(unit);
 	return rngMax;
@@ -26,7 +26,7 @@ void FillMapForSingleItem(Unit* unit, u16 item){
 	const u8 x = unit->xPos;
 	const u8 y = unit->yPos;
 	
-	u16 rngMin = prMinRangeGetter(item,unit);
+	u16 rngMin = GetRngMin(item,unit);
 	u16 rngMax = MaxRangeFilter(unit,item);
 	
 	MapAddInRange(x,y,rngMax,1);
@@ -42,7 +42,7 @@ void FillMapForSingleItem(Unit* unit, u16 item){
 u32 ItemRange2Mask(u16 item, Unit* unit){
 	u32 mask = 0;
 	
-	int rngMin = (int)prMinRangeGetter(item,unit);
+	int rngMin = (int)GetRngMin(item,unit);
 	int rngMax = (int)MaxRangeFilter(unit,item);
 	int diff = rngMax - rngMin;
 	
@@ -58,21 +58,17 @@ u32 ItemRange2Mask(u16 item, Unit* unit){
 }
 
 
-// 内嵌BmMapFill
-void FillMapMaster(Unit* unit, u32 mask, MapData* map, s8 nullVal){
+void AddMapMasterCore(s8 x, s8 y, u32 mask, MapData map, s8 nullVal){
 	
 	// On init
 	u8 start,end, cur,pre;
 	s8 valOn, valOff;
 	
-	const s8 x = unit->xPos;
-	const s8 y = unit->yPos;	
-	
 	valOn = 1;
 	valOff = nullVal -1;
 	
 	// Fill Map
-	BmMapFill(*map, nullVal);
+	// BmMapFill(map, nullVal);
 	
 	// 要不先把0位置画上
 	if( 0 == mask )
@@ -111,12 +107,26 @@ void FillMapMaster(Unit* unit, u32 mask, MapData* map, s8 nullVal){
 	
 }
 
+
+// 内嵌BmMapFill
+void FillMapMasterCore(s8 x, s8 y, u32 mask, MapData map, s8 nullVal){
+	BmMapFill(map, nullVal);
+	AddMapMasterCore(x,y,mask,map,nullVal);
+	
+}
+
+
+
+void FillMapMaster(Unit* unit, u32 mask, MapData map, s8 nullVal){
+	FillMapMasterCore(unit->xPos, unit->yPos, mask, map, nullVal);
+}
+
 void FillMapMovement(Unit* unit, u32 mask){
-	FillMapMaster(unit,mask,&gMapMovement,NU_MOVE_MAP);
+	FillMapMaster(unit,mask,gMapMovement,NU_MOVE_MAP);
 }
 
 void FillMapRange(Unit* unit, u32 mask){
-	FillMapMaster(unit,mask,&gMapRange,NU_RANGE_MAP);
+	FillMapMaster(unit,mask,gMapRange,NU_RANGE_MAP);
 }
 
 

@@ -31,7 +31,7 @@ POP
 	#include "CoreHacks/MenuPanel/MenuPanel.lyn.event"
 	#include "CoreHacks/MapMaster/MapMaster.event"
 	#include "CoreHacks/UnitDataExtension/UnitDataExtension.event"
-	#include "CoreHacks/ModularStatusGetter/StatusGetter.event"
+	#include "CoreHacks/StatusGetter/StatusGetter.event"
 	#include "CoreHacks/StrMagChaSplit/StrMagChaSplit.event"
 	#include "CoreHacks/RecoverableRN/RecoverableRN.event"
 	#include "CoreHacks/ModularLevelUp/ModularLevelUp.event"
@@ -39,7 +39,7 @@ POP
 	#include "CoreHacks/Gambit/Gambit.event"
 	#include "CoreHacks/StatusScreen/StatusScreen.event"
 	#include "CoreHacks/MagicSystem/MagicSystem.event"
-	#include "CoreHacks/BattleSystemRework/BattleSystemRework.event"
+	#include "CoreHacks/BattleSystem/BattleSystem.event"
 	#include "CoreHacks/CombatArt/CombatArt.event"
 	
 	// Quailty of Life

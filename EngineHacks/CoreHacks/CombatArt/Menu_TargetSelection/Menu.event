@@ -30,7 +30,7 @@ CAselectMenu:
 	WORD 	$0 $0 $0 
 	POIN	CA_SelectBPress				// $22861 //B Press
 	POIN	$4F521 						// R Press
-	POIN	$4F459						// HelpBox
+	POIN	CA_SelectHelpBox			// HelpBox
 
 #define CAselect "MenuCommand(0, 0, NormalText, CA_SelectUsability, CA_SelectTextDraw, CA_SelectEffect, CA_SelectHover, CA_CommonUnHover)"
 	

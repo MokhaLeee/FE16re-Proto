@@ -3,7 +3,9 @@
 
 #include "Common.h"
 struct CAramSpace;
-extern struct CAramSpace* gpCommonSaveSu;
+
+// Define this in your own C file
+// extern struct CAramSpace* gpCommonSaveSu;
 
 enum{
 	// CombatArtInfo->attr

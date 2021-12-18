@@ -1,8 +1,8 @@
 #ifndef MAGIC_SYSTEM_FE16RE_MENU
 #define MAGIC_SYSTEM_FE16RE_MENU
 
-
-#include "src/MagMenuCore.lyn.event"
+#include "src/MagicSystem_UnitMenu.lyn.event"
+#include "src/MagicSystem_ItemMenu.lyn.event"
 
 TextId_umMagGrayBox:
 	SHORT umMagGrayBox
@@ -21,7 +21,7 @@ BMagSelectMenu:
 	WORD 	$0 $0 $0 
 	POIN	$22861						//B Press
 	POIN	$4F521 						//R Press
-	POIN	$4F459						//HelpBox
+	POIN	BMagSelect_HelpBox			//HelpBox
 
 #define BMagCmd "MenuCommand($0, $0, OrangeText, BMagSelect_Usability, BMagSelect_TextDraw, BMagSelect_Effect, BMagSelect_Hover, BWmagCommon_Unhover)"
 
@@ -61,7 +61,7 @@ WMagSelectMenu:
 	WORD 	$0 $0 $0 
 	POIN	$22861						//B Press
 	POIN	$4F521 						//R Press
-	POIN	$4F459						//HelpBox
+	POIN	WMagSelect_HelpBox						//HelpBox
 
 #define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, BWmagCommon_Unhover)"
 	

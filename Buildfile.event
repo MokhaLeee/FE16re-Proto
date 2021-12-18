@@ -51,7 +51,7 @@ ORG	FreeSpaceTable
 MESSAGE 
 MESSAGE DEBUG INFO
 MESSAGE UpdateMenuPanel_CombatArt_ UpdateMenuPanel_CombatArt
-MESSAGE UpdateMenuPanelBMag_ UpdateMenuPanelBMag
+MESSAGE GetUnitExtByUnit_ GetUnitExtByUnit
 
 
 PUSH

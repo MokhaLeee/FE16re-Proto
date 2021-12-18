@@ -1,5 +1,16 @@
 #include "StatusGetter.h"
 
+// 0x803B558
+void FillMovementAndRangeMapForItem(Unit* unit, u16 item);
+
+
+
+
+
+// ==========================================
+// ============ Status Getter ===============
+// ==========================================
+
 static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
 	s16 base = 0;
 	RangeGetter_Func* it = funcs;
@@ -10,7 +21,7 @@ static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
 }
 
 
-u16 prMinRangeGetter(u16 item, Unit* unt){
+u16 GetRngMin(u16 item, Unit* unt){
 	
 	// to ensure current unit is not &bu->unit
 	// Unit* unit = GetUnit(unt->index);
@@ -19,7 +30,7 @@ u16 prMinRangeGetter(u16 item, Unit* unt){
 	return Stat;
 }
 
-u16 prMaxRangeGetter(u16 item, Unit* unt){
+u16 GetRngMax(u16 item, Unit* unt){
 	
 	// to ensure current unit is not &bu->unit
 	Unit* unit = GetUnit(unt->index);
@@ -36,6 +47,12 @@ u16 prMaxRangeGetter(u16 item, Unit* unt){
 
 
 
+
+
+
+// ==========================================
+// ============ Modular Funcs ===============
+// ==========================================
 
 s16 MSG_RngMax_ArchBonus(Unit* unit, u16 item){
 	if( ITYPE_BOW == GetItemType(item) )

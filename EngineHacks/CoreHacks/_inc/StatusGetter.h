@@ -31,8 +31,8 @@ s8 GetCon(Unit* unit);
 s8 GetMov(Unit* unit);
 s8 GetMag(Unit* unit);
 s8 GetCha(Unit* unit);
-u16 prMinRangeGetter(u16 item, Unit* unit);
-u16 prMaxRangeGetter(u16 item, Unit* unit);
+u16 GetRngMin(u16 item, Unit* unit);
+u16 GetRngMax(u16 item, Unit* unit);
 
 int GetRankReason(Unit*);
 int GetRankFaith(Unit*);

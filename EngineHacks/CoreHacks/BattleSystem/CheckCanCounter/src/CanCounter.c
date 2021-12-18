@@ -53,7 +53,7 @@ static int NullCounterCalc(void){
 }
 
 static int CanItemReachRange(BattleUnit* bu, u16 item, u8 range ){
-	return !( prMaxRangeGetter(item,&bu->unit) < range) ;
+	return !( GetRngMax(item,&bu->unit) < range) ;
 }
 
 
