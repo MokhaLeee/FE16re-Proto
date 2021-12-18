@@ -8,7 +8,7 @@
 	#include "TargetSelect/MagTs.event"
 	#include "WpnEqpSystem/WpnEqpSystem.event"
 	#include "SetMagList/SetMagList.event"
-	#include "MenuPanelBMag/MenuPanelBMag.lyn.event"
+	#include "MenuPanel/MenuPanelBMag.lyn.event"
 
 
 

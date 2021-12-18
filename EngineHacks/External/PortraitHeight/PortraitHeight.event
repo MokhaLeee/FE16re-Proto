@@ -25,7 +25,7 @@ PortraitHeightList:
 	// Extern
 	BYTE $2		// Eirika
 	BYTE $4		// Seth
-	BYTE $F		// Innes
+//	BYTE $F		// Innes
 	
 	// End
 	BYTE 0

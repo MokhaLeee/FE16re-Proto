@@ -30,7 +30,9 @@ int CA_UpperUsability( MenuProc* pmu, int index )
 
 
 int CA_UpperEffect( MenuProc* pmu, MenuCommandProc* pcmd )
-{	
+{
+	MenuProc* umCA;
+	
 	// 如果不能用就用MenuHelpBox
 	if( MCA_USABLE != pcmd->availability )
 	{
@@ -38,13 +40,15 @@ int CA_UpperEffect( MenuProc* pmu, MenuCommandProc* pcmd )
 		return ME_NONE;
 	}
 	
+	Text_ResetTileAllocation();	// This is reset font!
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
 	
-	StartMenu(CAselectMenu);
+	umCA = StartMenu(CAselectMenu);
 	
-	// Avoid Text in Tile overflow
-	Text_InitFont();
+	// Menu Panel
+	StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	StartMenuPanel_CombatArt(umCA, gActiveUnit,0xF,0xB);
 	
 	return ME_CLEAR_GFX | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }

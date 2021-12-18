@@ -117,3 +117,5 @@ extern u16 gBmFrameTmap0[0x280]; // bg0 tilemap buffer for stat screen page
 extern u16 gBmFrameTmap1[0x240]; // bg2 tilemap buffer for stat screen page
 
 void DrawStatScreenBar(u16 BarId, u8 x, u8 y, s8 ValueBase, s8 ValueReal, s8 MaxValue); // 0x80870BC
+void DrawBarsInternal(int,int,u16* tilemap,int,int,int,int);// 0x8086B2C
+int GetDisplayRankSpecialCharFromExp(int wexp); // 0x8016DF9

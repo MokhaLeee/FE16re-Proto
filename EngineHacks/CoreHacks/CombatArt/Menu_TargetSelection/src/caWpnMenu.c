@@ -76,6 +76,8 @@ int CA_WpnSelectEffect(MenuProc* pmu, MenuCommandProc* pcmd){
 // On B Press
 int CA_WpnSelectBPress(MenuProc* pmu, MenuCommandProc* pcmd){
 	
+	MenuProc* umCA;
+	
 	// 清除标志位
 	gpBattleFlagSu->isCombat = 0;
 	
@@ -83,8 +85,15 @@ int CA_WpnSelectBPress(MenuProc* pmu, MenuCommandProc* pcmd){
 	FillBgMap(gBg2MapBuffer,0);
 	EnableBgSyncByMask(0b100);
 	Text_ResetTileAllocation();	// This is reset font!
+	_ResetIconGraphics();
+	LoadIconPalettes(0x4);
 	
-	StartMenu(CAselectMenu);
+	// Start Menu
+	umCA = StartMenu(CAselectMenu);
+	
+	// Menu Panel
+	StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	StartMenuPanel_CombatArt(umCA, gActiveUnit,0xF,0xB);
 	
 	HideMoveRangeGraphics();
 	return 0x3B; // W.I.P.
@@ -108,7 +117,7 @@ int CA_WpnSelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
 	// SetCombatArtInfo(gActiveUnit,artId);
 	gpBattleFlagSu->isCombat = 1;
 	
-	// Update Side  window
+	// Update Side window
 	UpdateMenuItemPanel(pcmd->commandDefinitionIndex);
 	
 	// Draw Map

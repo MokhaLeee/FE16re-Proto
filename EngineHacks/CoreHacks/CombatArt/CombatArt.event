@@ -5,6 +5,15 @@
 #include "Core/caCore.lyn.event"
 #include "Menu_TargetSelection/Menu.event"
 #include "StatusBonus/StatusBonus.lyn.event"
+
+ALIGN 4
+#include "MenuPanel/MenuPanelCA.lyn.event"
+text_CA_PhyAtk:
+	SHORT CA_PhyAtk
+text_CA_MagAtk:
+	SHORT CA_MagAtk
+
+ALIGN 4
 //#include "AnimeEffect/_AnimeEffect.event"
 
 ALIGN 4

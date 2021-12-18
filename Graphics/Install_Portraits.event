@@ -14,22 +14,27 @@
 setMugEntry(Eirika_MugOffset,Prot_Lysithea,2,6,2,4)
 setMugEntry(Seth_MugOffset,Prot_Dimitri,2,6,3,4)
 setMugEntry(Lute_MugOffset,Prot_Flayn,4,5,4,3)
-setMugEntry(Innes_MugOffset,Prot_Lysithea0,4,6,4,4)
+//setMugEntry(Innes_MugOffset,Prot_Lysithea0,4,6,4,4)
+setMugEntry(Innes_MugOffset,Prot_Eru, 3,5,3,3)
 
 ALIGN 4
-Prot_Lysithea:
+Prot_Lysithea:	// 2,6,2,4
 	#incext PortraitFormatter "Portrait/Lysithea1.png"
 
 ALIGN 4
-Prot_Lysithea0:
+Prot_Lysithea0:	// 4,6,4,4
 	#incext PortraitFormatter "Portrait/Lysithea.png"
 
 ALIGN 4
-Prot_Dimitri:
+Prot_Dimitri:	// 2,6,3,4
 	#incext PortraitFormatter "Portrait/Dimitri.png"
 	
 ALIGN 4
-Prot_Flayn:
+Prot_Flayn:		// 4,5,4,3
 	#incext PortraitFormatter "Portrait/Flayn.png"
+
+ALIGN 4
+Prot_Eru:		// 3,5,3,3
+	#incext PortraitFormatter "Portrait/Eru.png"
 
 #endif // PORTRAIT_INSTALLED

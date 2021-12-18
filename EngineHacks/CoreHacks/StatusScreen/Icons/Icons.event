@@ -1,16 +1,16 @@
-#define MAX_SIZE_IconSheet3 0x10
+#define MAX_SIZE_IconSheet_FE16_WpnType 0x10
 
 ALIGN 4
-IconSheet3:
+IconSheet_FE16_WpnType:
 	POIN 	Icon_Sword	Icon_Lance	Icon_Axe	Icon_Bow	Icon_Brawl
 	POIN	Icon_Reason	Icon_Faith	Icon_Auth	Icon_Riding	Icon_Flying
 	POIN	Icon_Heavy
 	
-ORG IconSheet3 + 4*MAX_SIZE_IconSheet3
-#define SetIcon3(id,icon) "PUSH; ORG 4*id+IconSheet3; POIN icon; POP;"
+ORG IconSheet_FE16_WpnType + 4*MAX_SIZE_IconSheet_FE16_WpnType
+#define SetIcon3(id,icon) "PUSH; ORG 4*id+IconSheet_FE16_WpnType; POIN icon; POP;"
 
 #include "mastery/_mastery.event"
 //#include "magic/_magic.event"
 
 #include "src/mss_IconCore.lyn.event"
-InjectIconSheet(2, GetIconSheet3Gfx)
+InjectIconSheet(2, GetIconSheet_FE16WpnType)

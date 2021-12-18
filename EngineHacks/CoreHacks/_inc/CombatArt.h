@@ -5,6 +5,14 @@
 struct CAramSpace;
 extern struct CAramSpace* gpCommonSaveSu;
 
+enum{
+	// CombatArtInfo->attr
+	
+	ATTR_CA_INFO_MAGIC_SWARD = 1 << 0,
+
+};
+
+
 typedef int (*UsabilityRoutine) (Unit*);
 
 typedef struct CombatArtInfo CombatArtInfo;
@@ -22,7 +30,8 @@ struct CombatArtInfo{
 	/* 0x10 */ s16 hitBonus;
 	/* 0x12 */ s16 avoBonus;
 	/* 0x14 */ s16 critBonus;
-	/* 0x16 */ u16 unuse[5];
+	/* 0x16 */ u8 unuse16[0x1C-0x16];
+	/* 0x1C */ u32 attr;
 	
 	/* Total 0x20 */
 };
@@ -57,4 +66,8 @@ void SetCombatArtInfo(Unit* unit, u8 combatId);
 void ResetCombatArtInfo(void);
 
 
+// MenuPanel
+void StartMenuPanel_CombatArt(MenuProc* pmu, Unit* unit, u8 xPos, u8 yPos);
+void UpdateMenuPanel_CombatArt(CombatArtInfo* caInfo);
+void EndMenuPanel_CombatArt(void);
 

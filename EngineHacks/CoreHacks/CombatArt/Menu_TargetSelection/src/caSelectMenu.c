@@ -1,8 +1,6 @@
 #include "gbafe.h"
-#include "UnitExt.h"
-#include "CombatArt.h"
-#include "MapMaster.h"
-#include "MagicSystem.h"
+#include "_gbafe16.h"
+
 
 extern u16 TextId_umCAGrayBox;
 extern u16 TextId_umCAselectGrayBox;
@@ -86,11 +84,13 @@ int CA_SelectEffect( MenuProc* pmu, MenuCommandProc* pcmd ){
 	_ResetIconGraphics();
 	LoadIconPalettes(0x4);
 	
+	// Start Menu
 	um = StartMenu(CAwpnSelectMenu);
-	ForceMenuItemPanel(um,gActiveUnit,0xF,0xB);
 	
+	// Menu Panel
+	EndMenuPanel_CombatArt();
 	StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
-	SetFaceBlinkControlById(0,5);
+	ForceMenuItemPanel(um,gActiveUnit,0xF,0xB);
 	
 	return ME_CLEAR_GFX | ME_PLAY_BEEP | ME_END | ME_DISABLE;
 }
@@ -108,10 +108,16 @@ int CA_SelectBPress(MenuProc* pmu, MenuCommandProc* pcmd){
 	EnableBgSyncByMask(0b100);
 	Text_ResetTileAllocation();	// This is reset font!
 	
+	// Menu Panel
+	EndMenuPanel_CombatArt();
+	
+	// Start Unit Menu
 	StartSemiCenteredOrphanMenu(
 		gMenu_UnitMenu,
 		gGameState.cursorPosMenu.x - gGameState.cameraRealPos.x,
 		0x01, 0x14);
+		
+	// Clear map display
 	HideMoveRangeGraphics();
 	
 	return 0x3B; // W.I.P.
@@ -122,24 +128,38 @@ int CA_SelectBPress(MenuProc* pmu, MenuCommandProc* pcmd){
 // Draw Text
 // decomp->uimenu: void RedrawMenu(struct MenuProc* proc)
 int CA_SelectTextDraw(MenuProc* pmu, MenuCommandProc* pcmd){
-
+	u8 color;
+	
 	u8 cmdId = pcmd->commandDefinitionIndex;
 	u8 artId = GetUnitExtByUnit(gActiveUnit)->skillbattle[cmdId];
 	
 	if( MCA_USABLE != pcmd->availability )
-		Text_SetColorId( &pcmd->text, TEXT_COLOR_GRAY );
+		color = TEXT_COLOR_GRAY;
 	else
-		Text_SetColorId( &pcmd->text ,TEXT_COLOR_NORMAL);
+		color = TEXT_COLOR_NORMAL;
+
+	Text_SetColorId( &pcmd->text, color );
 	
 	Text_AppendString(
 		&pcmd->text,
 		GetStringFromIndex(gpCombatArtConigList[artId].name) );
 	
+	// On Draw Text
 	Text_Display(
 		&pcmd->text,
-		TILEMAP_LOCATED(gBg0MapBuffer, 
-		pcmd->xDrawTile, 
-		pcmd->yDrawTile) );
+		TILEMAP_LOCATED(gBg0MapBuffer, pcmd->xDrawTile+2, pcmd->yDrawTile) );
+	
+	// On Draw Icon (with Icon Rework)
+	DrawIcon(
+		TILEMAP_LOCATED(gBg0MapBuffer, pcmd->xDrawTile, pcmd->yDrawTile),
+		ICON_FE16_WPNTYPE( gpCombatArtConigList[artId].wpnType) ,
+		3 << 0xC );
+	
+	// On Draw duration cost
+	DrawUiNumberOrDoubleDashes(
+		TILEMAP_LOCATED(gBg0MapBuffer, pcmd->xDrawTile+0xB, pcmd->yDrawTile),
+		color,
+		gpCombatArtConigList[artId].durCost );
 	
 	return 0;
 }
@@ -167,6 +187,14 @@ int CA_SelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
 	// Set Battle Info ext( for RangeGetter)
 	SetCombatArtInfo(gActiveUnit,artId);
 	
+	// Menu Panel
+	if( NULL == ProcFind(gProc_MenuItemPanel) )
+	{
+		StartFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+		StartMenuPanel_CombatArt(pmu, gActiveUnit,0xF,0xB);
+	}
+	UpdateMenuPanel_CombatArt(cur);
+	
 	// Make mask
 	cnt = 0;
 	mask = 0;
@@ -188,6 +216,7 @@ int CA_SelectHover(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	if( 0 == cnt )
 		return 0;
+	
 	
 	// Draw Map
 	BmMapFill(gMapMovement,-1);

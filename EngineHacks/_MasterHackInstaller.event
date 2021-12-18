@@ -28,6 +28,7 @@ POP
 	
 	// System-Level EngineHack
 	#include "CoreHacks/CommonSaveSu/CommonSaveSu.event"
+	#include "CoreHacks/MenuPanel/MenuPanel.lyn.event"
 	#include "CoreHacks/MapMaster/MapMaster.event"
 	#include "CoreHacks/UnitDataExtension/UnitDataExtension.event"
 	#include "CoreHacks/ModularStatusGetter/StatusGetter.event"

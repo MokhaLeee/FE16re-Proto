@@ -18,10 +18,10 @@ struct PanelProc{
 
 extern const ProcInstruction gProc_MenuItemPanel[]; // FE8U 0x859AE88
 
-void ForceMenuItemPanel(MenuProc* pmu, Unit* unit, u8 xPos, u8 yPos);
-void MenuItemPanel_Idle(PanelProc* proc);
-void UpdateMenuItemPanel(s8 index);
-void EndMenuItemPanel(void);
+void ForceMenuItemPanel(MenuProc* pmu, Unit*, u8 x, u8 y); // 0x801E685
+void MenuItemPanel_Idle(PanelProc* proc); // 0x801E684
+void UpdateMenuItemPanel(s8 index); // 0x801E749
+void EndMenuItemPanel(void); // 0x801EA55
 
 
 extern const struct ObjData* ObjData_859A530[];
