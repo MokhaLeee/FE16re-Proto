@@ -82,7 +82,7 @@ SET_DATA gpTargetSelectFuncs_Attack, 0x859D3F8
 @ MenuPanel
 SET_DATA ObjData_859A530, 0x859A530
 SET_DATA ObjData_859A53C, 0x859A53C
-SET_FUNC MenuItemPanel_Idle, 0x801E685
+SET_FUNC MenuItemPanel_Idle, 0x801E4F5
 
 
 @BkSel
