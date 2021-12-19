@@ -5,7 +5,7 @@ base_dir=$(dirname "$(readlink -f "$0")")
 Compile_Folder="$base_dir/EngineHacks/CoreHacks" 
 main_event="$base_dir/Buildfile.event"
 source_rom="$base_dir/FE8U.gba"
-target_rom="$base_dir/FE16RE-DEMO.gba"
+target_rom="$base_dir/FE16RE.gba"
 ea_exe="$base_dir/EventAssembler/ColorzCore.exe"
 
 

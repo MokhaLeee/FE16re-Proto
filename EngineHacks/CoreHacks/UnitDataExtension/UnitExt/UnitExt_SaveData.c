@@ -20,9 +20,11 @@ void UnitExt_SaveSa(void* dest, unsigned size){
 	//Totally UNIT_EXT_CNT * UNIT_EXT_SIZE_SA = 0x430
 	UnitExt* cur = gpUnitExtData;
 	
-	for(int i=0; i<UNIT_EXT_CNT; i++)
-		WriteAndVerifySramFast( cur++, dest, UNIT_EXT_SIZE_SA);
-	
+	for(int i=0; i<UNIT_EXT_CNT; i++){
+		WriteAndVerifySramFast( cur, dest, UNIT_EXT_SIZE_SA);
+		cur++;
+		dest += UNIT_EXT_SIZE_SA;
+	}
 	return;
 }
 
@@ -30,7 +32,10 @@ void UnitExt_SaveSa(void* dest, unsigned size){
 void UnitExt_LoadSa(const void* src, unsigned size){
 	//Totally UNIT_EXT_CNT * UNIT_EXT_SIZE_SA = 0x430
 	UnitExt* cur = gpUnitExtData;
-	for(int i=0; i<UNIT_EXT_CNT; i++)
-		(*ReadSramFast)(cur, gpUnitExtData, UNIT_EXT_SIZE_SA);
+	for(int i=0; i<UNIT_EXT_CNT; i++){
+		(*ReadSramFast)(src, cur, UNIT_EXT_SIZE_SA);
+		src += UNIT_EXT_SIZE_SA;
+		cur++;
+	}
 	return;
 }
