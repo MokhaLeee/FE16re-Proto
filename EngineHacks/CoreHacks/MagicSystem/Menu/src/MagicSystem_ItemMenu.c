@@ -155,13 +155,7 @@ int WMagSelect_Effect(MenuProc* pmu, MenuCommandProc* pcmd){
 /* ================================
    ============ Hover =============
    ================================ */
-int BWmagCommon_Unhover(void){
-	BmMapFill(gMapMovement,-1);
-	BmMapFill(gMapRange,0);
-	DisplayMoveRangeGraphics(0x3);
-	HideMoveRangeGraphicsWrapper();
-	return 0;
-}
+
 
 
 int BMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
@@ -211,7 +205,15 @@ int WMagSelect_Hover(MenuProc* pmu, MenuCommandProc* pcmd){
 }
 
 
-
+/*  
+// Unused
+int BWmagSelect_Unhover(MenuProc* pum, MenuCommandProc* pcmd){
+	
+	if( pum->stateBits & MENU_STATE_ENDING )
+		HideMoveRangeGraphics();
+	return 0;
+}
+ */
 
 
 
@@ -260,6 +262,15 @@ int WMagSelect_TextDraw(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return MagSelect_TextDraw(pmu,pcmd,EWMAG); }
 
 
+
+
+
+
+
+
+
+
+
 /* ================================
    ========== Help Box ============
    ================================ */
@@ -294,3 +305,4 @@ void WMagSelect_HelpBox(MenuProc* pmu, MenuCommandProc* pcmd){
 	
 	SetHelpBox_ByItem(8*pcmd->xDrawTile, 8*pcmd->yDrawTile, mag);
 }
+

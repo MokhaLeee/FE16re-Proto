@@ -19,7 +19,7 @@ enum{
 enum{
 	// for DisplayMoveRangeGraphics
 	
-	MOV_BLUE 	= 1 << 0,
+	MOV_BLUE 	= 1 << 0,		// $1
 	MOV_RED 	= 1 << 5, 		// $20
 	MOV_GREEN 	= 1 << 6,		// $40
 	
@@ -51,7 +51,7 @@ void FillMapForSingleItem(Unit* unit, u16 item);
 for each item:
 	mask |= ItemRange2Mask(item,unit);
 BmMapFill(gMapRange,0);
-FillMapByMask(unit,mask);
+FillMapRange(unit,mask);
 DisplayMoveRangeGraphics(RNG_GREEN);
 即可实现在任意地图上进行展示了
 */

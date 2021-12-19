@@ -7,10 +7,13 @@
 // Everything in this file is the work of Teq, big thanks to him
 
 PUSH
-	//When filling in the movement table
-	ORG $1CB7A
-	BL(prGotoMovGetter)
-	SHORT 0x1C01 0x6828 //mov r1,r0; ldr r0,[r5]
+	// <!> now we have reworked on function DisplayUnitEffectRange
+	// in MapMaster
+	
+	// When filling in the movement table
+	// ORG $1CB7A
+	// BL(prGotoMovGetter)
+	// SHORT 0x1C01 0x6828 //mov r1,r0; ldr r0,[r5]
 
 	//^
 	ORG $1A3A0

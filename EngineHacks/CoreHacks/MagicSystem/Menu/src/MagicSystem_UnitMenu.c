@@ -106,7 +106,7 @@ static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagi
 	
 	for(int i=0; i<MAGIC_LIST_SIZE; i++ )
 	{
-		mag = getmagitem(ext,i);//GetBMagItem(ext,i);
+		mag = getmagitem(ext,i);
 		if( 0 != mag )
 		{
 			mask = mask | ItemRange2Mask(mag,gActiveUnit);
@@ -120,8 +120,6 @@ static int Mag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd,FuncType2 getmagi
 	BmMapFill(gMapMovement,-1);
 	BmMapFill(gMapRange,0);
 	
-	// FillRangeMapByRangeMask(gActiveUnit,mask);
-	// FillMapMaster(gActiveUnit, mask, &gMapRange, NU_RANGE_MAP);
 	FillMapRange(gActiveUnit,mask);
 	
 	DisplayMoveRangeGraphics(mapDisplayStyle);
@@ -133,6 +131,20 @@ int BMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
 
 int WMag_UpperHover(MenuProc* pmu, MenuCommandProc* pcmd)
 {	return Mag_UpperHover(pmu,pcmd,GetWMagItem,RNG_GREEN); }
+
+
+
+
+
+
+int BWmag_UpperUnhover(MenuProc* pum, MenuCommandProc* pcmd){
+	BmMapFill(gMapMovement,-1);
+	BmMapFill(gMapRange,0);
+	DisplayMoveRangeGraphics(RNG_RED);
+	HideMoveRangeGraphicsWrapper();
+	// HideMoveRangeGraphics();
+	return 0;
+}
 
 
 

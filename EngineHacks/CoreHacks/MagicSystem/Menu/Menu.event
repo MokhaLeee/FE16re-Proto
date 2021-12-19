@@ -23,7 +23,7 @@ BMagSelectMenu:
 	POIN	$4F521 						//R Press
 	POIN	BMagSelect_HelpBox			//HelpBox
 
-#define BMagCmd "MenuCommand($0, $0, OrangeText, BMagSelect_Usability, BMagSelect_TextDraw, BMagSelect_Effect, BMagSelect_Hover, BWmagCommon_Unhover)"
+#define BMagCmd "MenuCommand($0, $0, OrangeText, BMagSelect_Usability, BMagSelect_TextDraw, BMagSelect_Effect, BMagSelect_Hover, /*BWmagSelect_Unhover*/ $8022DD8+1)"
 
 ALIGN 4
 BMagSlelct_MenuCmdTable:
@@ -57,13 +57,13 @@ ALIGN 4
 WMagSelectMenu:
 	BYTE 	$0 $0 $0F $0				//Geometry
 	WORD 	$0
-	POIN 	WMagSlelct_MenuCmdTable	//Pointer to command definitions
+	POIN 	WMagSlelct_MenuCmdTable		//Pointer to command definitions
 	WORD 	$0 $0 $0 
 	POIN	$22861						//B Press
 	POIN	$4F521 						//R Press
-	POIN	WMagSelect_HelpBox						//HelpBox
+	POIN	WMagSelect_HelpBox			//HelpBox
 
-#define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, BWmagCommon_Unhover)"
+#define WMagCmd "MenuCommand($0, $0, OrangeText, WMagSelect_Usability, WMagSelect_TextDraw, WMagSelect_Effect, WMagSelect_Hover, /*BWmagSelect_Unhover*/ $8022DD8+1)"
 	
 ALIGN 4
 WMagSlelct_MenuCmdTable:

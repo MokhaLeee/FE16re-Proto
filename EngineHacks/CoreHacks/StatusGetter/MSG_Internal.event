@@ -1,17 +1,16 @@
 ALIGN 4
 #include "Vanilla/StatusGetterCore.lyn.event"
 #include "Vanilla/StatusGetterFuncs.lyn.event"
+#include "ChaMag/MagChaGetterCore.lyn.event"
+#include "Range/RangeGetterCore.lyn.event"
+#include "Ranks/ranks.lyn.event"
 
 #include "AidConMov/AidConMovGetterCore.lyn.event"
 #include "AidConMov/InjectConGetters.event"
 #include "AidConMov/InjectMovGetters.event"
 
-#include "ChaMag/MagChaGetterCore.lyn.event"
 
-#include "Range/RangeGetterCore.lyn.event"
-#include "Range/ProperRangeGetters_Internal.event"
 
-#include "Ranks/ranks.lyn.event"
 
 //#define _thumb(p) "PUSH; ORG CURRENTOFFSET+1; p:; POP"
 

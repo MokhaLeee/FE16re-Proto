@@ -83,10 +83,10 @@ UnitMenuTable:
 	MenuCommand(umCAname, umCAdesc, BlueText, CA_UpperUsability, CA_UpperEffect)
 	
 	//B.Magic
-	MenuCommand(umBMagName, umBMagDesc, BlueText, BMag_Usability, BMag_Effect,BMag_UpperHover,BWmagCommon_Unhover)
+	MenuCommand(umBMagName, umBMagDesc, BlueText, BMag_Usability, BMag_Effect,BMag_UpperHover, BWmag_UpperUnhover /*$8022C98+1*/)
 	
 	//W.Magic
-	MenuCommand(umWMagName, umWMagDesc, BlueText, WMag_Usability, WMag_Effect,WMag_UpperHover,BWmagCommon_Unhover)
+	MenuCommand(umWMagName, umWMagDesc, BlueText, WMag_Usability, WMag_Effect,WMag_UpperHover, BWmag_UpperUnhover /*$8022C98+1*/)
 	
 	//Gambit
 	MenuCommand(umGambitName, umGambitDesc, OrangeText, Gambit_UpperMenu_Usability, Gambit_UpperMenu_Effect, Gambit_UpperMenu_Hover, Gambit_UpperMenu_Unhover)

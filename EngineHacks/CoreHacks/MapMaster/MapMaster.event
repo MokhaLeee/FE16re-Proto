@@ -1,14 +1,18 @@
-#ifndef RANGE_GETTER_MOKHA_STYLE
-#define RANGE_GETTER_MOKHA_STYLE
+#ifndef MAP_MASTER_MOKHA
+#define MAP_MASTER_MOKHA
 
-
-#include "src/MapMasterCore.lyn.event"
-
-
+#include "core/MapMasterCore.lyn.event"
+#include "ProperRangeGetters.event"
+#include "MapDisplay/MapDisplay.lyn.event"
 #include "MoveLimitViewFix/_1D9DC_Loop6C_MoveLimitView.lyn.event"
+
 PUSH
 	ORG	$1D9DC
 	jumpToHack(_1D9DC_Loop6C_MoveLimitView)
 POP	
 
-#endif // RANGE_GETTER_MOKHA_STYLE
+PROTECT $1CB70 $1CB70+$10	// DisplayUnitEffectRange
+PROTECT $1acbc $1acbc+$10	// FillMapAttackRangeForUnit
+PROTECT $1b618 $1b618+$10	// FillMapStaffRangeForUnit
+
+#endif // MAP_MASTER_MOKHA

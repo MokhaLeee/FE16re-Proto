@@ -34,6 +34,31 @@ struct ProcInstruction {
 
 struct Proc {
 	PROC_FIELDS;
+	/* 2C */ int i32_2C;
+	/* 30 */ int i32_30;
+	/* 34 */ int i32_34;
+	/* 38 */ int i32_38;
+	/* 3C */ int i32_3C;
+	/* 40 */ int i32_40;
+
+	/* 44 */ u8 pad_38[0x4A - 0x44];
+
+	/* 4A */ short i16_4A;
+	/* 4C */ short i16_4C; 
+	/* 4E */ short i16_4E;
+	/* 50 */ short i16_50;
+	/* 52 */ short i16_52;
+
+	/* 54 */ void* ptr_54;
+	/* 58 */ int i32_58;
+	/* 5C */ int i32_5C;
+
+	/* 60 */ u8 pad_60[0x64 - 0x60];
+
+	/* 64 */ short i16_64;
+	/* 66 */ short i16_66;
+	/* 68 */ short i16_68;
+	/* 6A */ short i16_6A;
 };
 
 #define ROOT_PROC_0 (Proc*)(0)
