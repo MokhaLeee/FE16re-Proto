@@ -4,7 +4,7 @@
 enum { UNIT_SKILL_COUNT_SCREEN = 0x6 };
 enum { UNIT_SKILL_COUNT_LIST = 0x1E };
 enum { UNIT_SKILL_COUNT_EXT = 0x5 };
-enum { MAX_SKILL_COUNT = 0x100 };
+enum { MAX_SKILL_COUNT = 0xFF };
 #define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
 
 typedef struct
@@ -52,16 +52,23 @@ void ResetSkillList(void);
  * @param skillId the id of the skill to check for
  * @return non-zero if the unit has the given skill
  */
-int JudgeSkill(Unit* unit, int skillId);
-int JudgeSkillFast(Unit* unit, int skillId);
-extern int (*SkillTester)(Unit* unit, int skillId);
+int JudgeSkill(Unit* unit, u8 skillId);
+int JudgeSkillFast(Unit* unit, u8 skillId);
+int JudgeSkillBattle(BattleUnit* bu, u8 skillId);
+int JudgeSkillBuActor(BattleUnit* bu, u8 skillId);
+int JudgeSkillBuTarget(BattleUnit* bu, u8 skillId);
+
+extern int (*SkillTester)(Unit* unit, u8 skillId);
+extern int (*SkillTesterBu)(BattleUnit* bu, u8 skillId);
+extern int (*SkillTesterBuAct)(BattleUnit* bu, u8 skillId);
+extern int (*SkillTesterBuTar)(BattleUnit* bu, u8 skillId);
 /**
  * Get skill name text id by skill id
  * 
  * @param skillId id of skill
  * @return name text id
  */
-int GetSkillNameMsg(int skillId);
+int GetSkillNameMsg(u8 skillId);
 
 /**
  * Get skill description text id by skill id
@@ -69,7 +76,7 @@ int GetSkillNameMsg(int skillId);
  * @param skillId id of skill
  * @return description text id
  */
-int GetSkillDescriptionMsg(int skillId);
+int GetSkillDescriptionMsg(u8 skillId);
 
 /**
  * Gets address of skill icon image by skill id (for IconDisplay)
@@ -77,6 +84,6 @@ int GetSkillDescriptionMsg(int skillId);
  * @param skillId id of skill
  * @return address of icon gfx
  */
-const void* GetSkillIconGfx(int skillId);
+const void* GetSkillIconGfx(u8 skillId);
 
 int IsSkill(u8);

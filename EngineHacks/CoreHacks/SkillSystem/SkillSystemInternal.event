@@ -1,15 +1,21 @@
 
 ALIGN 4
-#include "Core/SkillSystemCore.lyn.event"
-#include "Core/SkillSystemMisc.lyn.event"
+#include "Core/SkillTester.lyn.event"
+#include "Core/SkillMisc.lyn.event"
 //#include "SkillStatScreen/SkillsStatScreen.event" // in StatusScreen
 
 InjectIconSheet(ICON_SHEET_SKILLS, GetSkillIconGfx)
 
 ALIGN 4
 SkillTester:
-	POIN JudgeSkillFast|1
-
+	POIN JudgeSkillFast
+SkillTesterBu:
+	POIN JudgeSkillBattle
+SkillTesterBuAct:
+	POIN JudgeSkillBuActor
+SkillTesterBuTar:
+	POIN JudgeSkillBuTarget
+	
 gpSkillTable_Char:
 	POIN SkillTable_Char
 

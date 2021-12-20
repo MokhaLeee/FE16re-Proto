@@ -172,6 +172,7 @@ char* String_ExpandTactName(char*); // 0x800A3B9
 // Mokha
 char* GetStringFromIndex(int index); //! FE8U = 0x800A241
 char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
+void GetStringTextBox(char const* str, int* outWidth, int* outHeight); // 0x8003FAC+1
 
 
 #endif // GBAFE_TEXT_H

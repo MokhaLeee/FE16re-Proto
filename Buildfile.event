@@ -51,7 +51,7 @@ ORG	FreeSpaceTable
 MESSAGE 
 MESSAGE DEBUG INFO
 MESSAGE UnitExt_SaveSa_ UnitExt_SaveSa
-MESSAGE UnitExt_LoadSa_ UnitExt_LoadSa
+MESSAGE VantageBattalion_ VantageBattalion
 
 
 PUSH

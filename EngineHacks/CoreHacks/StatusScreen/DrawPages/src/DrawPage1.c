@@ -4,9 +4,31 @@
 #include "StrMagCha.h"
 #include "MagicSystem.h"
 
-extern void StatScreen_DrawLeftText(void);
+static void DrawPage1_Texts();
+static void DrawPage1_NumBar(Unit*);
+static void DrawPage1_WpnEqp(Unit*);
+
+// ORG 0x8087184
+void StatScreen_DrawPage1(void){
+	Unit* unit = gStatScreen.unit;
+	
+	DrawPage1_Texts();
+	DrawPage1_NumBar(unit);
+	DrawPage1_WpnEqp(unit);
+	NuDrawStatScreenBwl();
+	
+}
+
+
+
+
+
+// ==========================================
+// =============== Internal =================
+// ==========================================
 
 static void DrawPage1_Texts(){
+	
 	// Draw Text
 	DrawTextInline(		// Str
 		&gStatScreen.text[STATSCREEN_TEXT_POWLABEL],
@@ -81,83 +103,112 @@ static void DrawPage1_Texts(){
 static void DrawPage1_NumBar(Unit* unit){
 	
 	DrawStatScreenBar(0,5,1,	// Pow
-	unit->pow,
-	GetUnitPower(unit),
-	unit->pClassData->maxPow );
+		unit->pow,
+		GetUnitPower(unit),
+		unit->pClassData->maxPow );
 	
 	DrawStatScreenBar(1,5,3,	// Mag
-	*GetMagAt(unit),
-	GetMag(unit),
-	GetClassMaxMag(unit) );
+		*GetMagAt(unit),
+		GetMag(unit),
+		GetClassMaxMag(unit) );
 	
 	DrawStatScreenBar(2,5,5,	// Skl
-	unit->skl,
-	GetUnitSkill(unit),
-	unit->pClassData->maxSkl );
+		unit->skl,
+		GetUnitSkill(unit),
+		unit->pClassData->maxSkl );
 	
 	DrawStatScreenBar(3,5,7,	// Spd
-	unit->spd,
-	GetUnitSpeed(unit),
-	unit->pClassData->maxSpd );
+		unit->spd,
+		GetUnitSpeed(unit),
+		unit->pClassData->maxSpd );
 	
 	DrawStatScreenBar(4,5,9,	// Def
-	unit->def,
-	GetUnitDefense(unit),
-	unit->pClassData->maxDef );
+		unit->def,
+		GetUnitDefense(unit),
+		unit->pClassData->maxDef );
 	
 	DrawStatScreenBar(5,5,11,	// Res
-	unit->res,
-	GetUnitResistance(unit),
-	unit->pClassData->maxRes );
+		unit->res,
+		GetUnitResistance(unit),
+		unit->pClassData->maxRes );
 	
 	DrawStatScreenBar(6,13,1,	// Lck
-	unit->lck,
-	GetUnitLuck(unit),
-	30 );
+		unit->lck,
+		GetUnitLuck(unit),
+		30 );
 	
 	DrawStatScreenBar(7,13,3,	// Cha
-	*GetChaAt(unit),
-	GetCha(unit),
-	GetClassMaxCha(unit) );
+		*GetChaAt(unit),
+		GetCha(unit),
+		GetClassMaxCha(unit) );
 	
 	DrawStatScreenBar(8,13,5,	// Mov
-	unit->pClassData->baseMov,
-	GetMov(unit),
-	0xF );
+		unit->pClassData->baseMov,
+		GetMov(unit),
+		0xF );
 	
 	DrawStatScreenBar(9,13,7,	// Con
-	unit->pClassData->baseCon + unit->pCharacterData->baseCon,
-	GetCon(unit),
-	unit->pClassData->maxCon );
+		unit->pClassData->baseCon + unit->pCharacterData->baseCon,
+		GetCon(unit),
+		unit->pClassData->maxCon );
 }
 
+
+static const char ch_Eqp[] = "Eqp";
+static const char ch_nope[] = "nope";
 
 static void DrawPage1_WpnEqp(Unit* unit){
+	u16 item;
+	
+	
 	UnitExt* ext = GetUnitExtByUnit(unit);
-	if( NULL == ext )
-		return;
 	
-	DrawTextInline(		// Status
-		&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
-		gBmFrameTmap0 + TILEMAP_INDEX(9, 9),
-		TEXT_COLOR_GOLD, 0, 0,
-		GetStringFromIndex(gpEqpString));
-	
-	DrawIcon(
-        gBmFrameTmap0 + TILEMAP_INDEX(12, 9),
-        GetItemIconId(ext->WpnEqp),
-        TILEREF(0, STATSCREEN_BGPAL_ITEMICONS));
+	if( NULL == ext || FACTION_BLUE != UNIT_FACTION(unit) )
+	{
+		s8 slot = GetUnitEquippedWeaponSlot(unit);
+		
+		if( slot >= -1 && slot < 5 )
+			item = unit->items[slot];
+		else
+			item = 0;
+	}
+	else
+		item = ext->WpnEqp;
+
+
+	if( item )
+	{
+		DrawTextInline(		// Status
+			&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
+			gBmFrameTmap0 + TILEMAP_INDEX(9, 9),
+			TEXT_COLOR_GOLD, 0, 0,
+			GetStringFromIndex(gpEqpString));
+			
+		DrawIcon(
+			gBmFrameTmap0 + TILEMAP_INDEX(12, 9),
+			GetItemIconId(item),
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS));
+	}
+	else
+	{
+		Text_InsertString(
+			&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
+			0x0,
+			TEXT_COLOR_GOLD,
+			ch_Eqp );
+			
+		Text_InsertString(
+			&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
+			0x14,
+			TEXT_COLOR_NORMAL,
+			ch_nope );
+		
+		Text_Display(
+			&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
+			TILEMAP_LOCATED(gBmFrameTmap0, 9, 9) );
+	}
 }
 
 
-// ORG 0x8087184
-void StatScreen_DrawPage1(void){
-	Unit* unit = gStatScreen.unit;
-	
-	DrawPage1_Texts();
-	DrawPage1_NumBar(unit);
-	DrawPage1_WpnEqp(unit);
-	NuDrawStatScreenBwl();
-	
-}
+
 

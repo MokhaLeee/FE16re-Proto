@@ -21,19 +21,13 @@ static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
 }
 
 
-u16 GetRngMin(u16 item, Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	// Unit* unit = GetUnit(unt->index);
+u16 GetRngMin(u16 item, Unit* unit){
 	
 	s16 Stat = GetItemMinRange(item);
 	return Stat;
 }
 
-u16 GetRngMax(u16 item, Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+u16 GetRngMax(u16 item, Unit* unit){
 	
 	s16 Stat = GetItemMaxRange(item);
 	if( 0==Stat )

@@ -11,10 +11,7 @@ static s8 StatusModfiy(MSG_Func* funcs, Unit* unit){
 
 
 
-s8 GetPow(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetPow(Unit* unit){
 	
 	s8 stat = unit->pow;
 	stat += StatusModfiy(PowMods,unit);
@@ -24,11 +21,8 @@ s8 GetPow(Unit* unt){
 	return stat;
 }
 
-s8 GetSpd(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
-	
+s8 GetSpd(Unit* unit){
+
 	s8 stat = unit->spd;
 	stat += StatusModfiy(SpdMods,unit);
 	
@@ -37,10 +31,7 @@ s8 GetSpd(Unit* unt){
 	return stat;
 }
 
-s8 GetSkl(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetSkl(Unit* unit){
 	
 	s8 stat = unit->skl;
 	stat += StatusModfiy(SklMods,unit);
@@ -51,10 +42,7 @@ s8 GetSkl(Unit* unt){
 }
 
 
-s8 GetLck(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetLck(Unit* unit){
 	
 	s8 stat = unit->lck;
 	stat += StatusModfiy(LckMods,unit);
@@ -64,10 +52,7 @@ s8 GetLck(Unit* unt){
 	return stat;
 }
 
-s8 GetRes(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetRes(Unit* unit){
 	
 	s8 stat = unit->res;
 	stat += StatusModfiy(ResMods,unit);
@@ -77,10 +62,7 @@ s8 GetRes(Unit* unt){
 	return stat;
 }
 
-s8 GetDef(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetDef(Unit* unit){
 	
 	s8 stat = unit->def;
 	stat += StatusModfiy(PowMods,unit);	
@@ -89,10 +71,7 @@ s8 GetDef(Unit* unt){
 	return stat;
 }
 
-s8 GetHpCur(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetHpCur(Unit* unit){
 	
 	s8 HpCur = unit->curHP;
 	s8 HpMax = unit->maxHP;
@@ -109,10 +88,7 @@ s8 GetHpCur(Unit* unt){
 	return HpCur;
 }
 
-s8 GetHpMax(Unit* unt){
-	
-	// to ensure current unit is not &bu->unit
-	Unit* unit = GetUnit(unt->index);
+s8 GetHpMax(Unit* unit){
 	
 	s8 stat = unit->maxHP;
 	stat += StatusModfiy(HpMaxMods,unit);	

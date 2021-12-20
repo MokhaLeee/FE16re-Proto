@@ -7,16 +7,13 @@ extern u8 QuickRiposteID;
 // 回击
 int QuickRiposte(BattleUnit* bu){
 	
+	// Cause BattleUnit's Hp may change
 	Unit* unit = GetUnit(bu->unit.index);
 	
-	if( &gBattleTarget != bu )
-		return FALSE;
-	
-	if( GetHpCur(unit) < (GetHpMax(unit)/2) )
-		return FALSE;
-	
-	if( (*SkillTester)(unit,QuickRiposteID) )
-		return TRUE;
-	else
-		return FALSE;
+	if( &gBattleTarget == bu )
+		if( (*SkillTesterBuTar)(bu,QuickRiposteID) )
+			if( GetHpCur(unit) > (GetHpMax(unit)/2) )
+				return TRUE;
+
+	return FALSE;
 }

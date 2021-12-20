@@ -8,24 +8,22 @@ extern u8 VantageBattalionID;
 // 伏
 int Vantage(BattleUnit* bu){
 	
-	Unit* unit = GetUnit(bu->unit.index);
+	// Cause BattleUnit's Hp may change
+	Unit* unit = unit = GetUnit(bu->unit.index);
 	
-	if( &gBattleTarget != bu )
-		return FALSE;
-	
-	if( GetHpCur(unit) > GetHpMax(unit) )
-		return FALSE;
-	
-	if( (*SkillTester)(&bu->unit,VantageID) )
-		return TRUE;
-	else
-		return FALSE;
+	if( &gBattleTarget == bu )
+		if( (*SkillTesterBuTar)(bu,VantageID) )
+			if( GetHpCur(unit) < GetHpMax(unit)/2 )
+				return TRUE;
+
+	return FALSE;
 }
 
 int VantageBattalion(BattleUnit* bu){
 	
-	if( (*SkillTester)(&bu->unit,VantageBattalionID) )
-		return TRUE;
-	else
-		return FALSE;
+	if( &gBattleTarget == bu )
+		if( (*SkillTesterBuTar)(bu,VantageBattalionID) )
+			return TRUE;
+	
+	return FALSE;
 }

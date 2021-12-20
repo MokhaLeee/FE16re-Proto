@@ -7,8 +7,6 @@
 #include "Skill_Icons.event"
 #include "Skills/InstallSkills.event"
 
-//#include "_testSkill/Charm.event"
-
 
 #endif // FE16RE_SKILL_SYSTEM_INSTALLED
 

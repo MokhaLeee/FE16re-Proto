@@ -7,7 +7,7 @@ extern u8 BlowFiendishID, BlowWardingID, BlowDuelistID, BlowUncannyID;
 
 static int CheckBlow(BattleUnit* attacker, BattleUnit* defender, u8 skillId){
 	if( &gBattleActor == attacker )
-		if( TRUE == (*SkillTester)((Unit*)attacker,skillId) )
+		if( TRUE == (*SkillTesterBuAct)(attacker,skillId) )
 			return TRUE;
 	return FALSE;
 }

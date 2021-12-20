@@ -1,7 +1,7 @@
 INLINE SkillTable_Char,Base Skill0,Base Skill1,Base Skill2,Skill Level 5,Skill Level 10,Skill Level 15,Skill Level 20,Skill Level 25
 0x00 (No one/Not referenced),0,0,0,0,0,0,0,0
-0x01 Eirika,SKILLID_BlowUncanny,0,0,0,0,0,0,0
-0x02 Seth,SKILLID_BlowDeath,SKILLID_BlowUncanny,SKILLID_BlowDarting,SKILLID_BlowDeath,SKILLID_BlowArmored,0,0,0
+0x01 Eirika,SKILLID_BlowUncanny,SKILLID_DesperationBattalion,0,0,0,0,0,0
+0x02 Seth,SKILLID_BlowDeath,SKILLID_BlowUncanny,SKILLID_BlowDarting,SKILLID_BlowArmored,0,0,0,0
 0x03 Gilliam,0,0,0,0,0,0,0,0
 0x04 Franz,0,0,0,0,0,0,0,0
 0x05 Moulder,0,0,0,0,0,0,0,0
@@ -11,7 +11,7 @@ INLINE SkillTable_Char,Base Skill0,Base Skill1,Base Skill2,Skill Level 5,Skill L
 0x09 Colm,0,0,0,0,0,0,0,0
 0x0A Garcia,0,0,0,0,0,0,0,0
 0x0B Innes,SKILLID_BlowDeath,SKILLID_BlowUncanny,SKILLID_BlowDarting,0,0,0,0,0
-0x0C Lute,0,0,0,0,0,0,0,0
+0x0C Lute,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_QuickRiposte,0,0,0,0,0
 0x0D Natasha,0,0,0,0,0,0,0,0
 0x0E Cormag,0,0,0,0,0,0,0,0
 0x0F Ephraim,0,0,0,0,0,0,0,0

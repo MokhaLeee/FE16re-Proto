@@ -7,25 +7,23 @@ extern u8 DesperationBattalionID;
 
 // 猛攻
 int Desperation(BattleUnit* bu){
-	
+
+	// Cause BattleUnit's Hp may change
 	Unit* unit = GetUnit(bu->unit.index);
 	
-	if( &gBattleTarget != bu )
-		return FALSE;
-	
-	if( GetHpCur(unit) > GetHpMax(unit) )
-		return FALSE;
+	if( &gBattleTarget == bu )
+		if( (*SkillTesterBuAct)(bu,DesperationID) )
+			if( GetHpCur(unit) < GetHpMax(unit)/2 )
+				return TRUE;
 
-	if( (*SkillTester)(unit,DesperationID) )
-		return TRUE;
-	else
-		return FALSE;
+	return FALSE;
 }
 
 int DesperationBattalion(BattleUnit* bu){
 	
-	if( (*SkillTester)(&bu->unit,DesperationBattalionID) )
-		return TRUE;
-	else
-		return FALSE;
+	if( &gBattleActor == bu )
+		if( (*SkillTesterBuAct)(bu,DesperationBattalionID) )
+			return TRUE;
+	
+	return FALSE;
 }

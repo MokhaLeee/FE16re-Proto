@@ -319,14 +319,20 @@ SET_FUNC Text_InitFontExt, 0x8003CB9
 SET_FUNC Text_SetFontStandardGlyphSet, 0x8003CF5
 SET_FUNC Text_ResetTileAllocation, 0x8003D21
 SET_FUNC Text_SetFont, 0x8003D39
+
 SET_FUNC Text_InitClear, 0x8003D5D
+SET_FUNC InitText, 0x8003D5D
+
 SET_FUNC Text_InitDB, 0x8003D85
 SET_FUNC InitClearTextBatch, 0x8003DAD
 SET_FUNC Text_Clear, 0x8003DC9
 SET_FUNC Text_GetXCursor, 0x8003E51
 SET_FUNC Text_SetXCursor, 0x8003E55
 SET_FUNC Text_Advance, 0x8003E59
+
 SET_FUNC Text_SetColorId, 0x8003E61
+
+
 SET_FUNC Text_GetColorId, 0x8003E65
 SET_FUNC Text_SetParameters, 0x8003E69
 SET_FUNC Text_Display, 0x8003E71
@@ -334,6 +340,7 @@ SET_FUNC Text_DisplayBlank, 0x8003EBD
 SET_FUNC Text_GetStringTextWidth, 0x8003EDD
 SET_FUNC GetCharTextWidth, 0x8003F3D
 SET_FUNC Text_GetStringTextCenteredPos, 0x8003F91
+SET_FUNC GetStringTextBox, 0x8003FAD
 SET_FUNC Text_GetStringNextLine, 0x8003FF5
 
 SET_FUNC Text_DrawString, 0x8004005
@@ -352,7 +359,10 @@ SET_FUNC Font_SetDraw1DTileNoClear, 0x8004429
 SET_FUNC DrawTextInline, 0x800443D
 SET_FUNC Text_InsertString, 0x8004481
 SET_FUNC Text_InsertNumberOr2Dashes, 0x80044A5
+
 SET_FUNC Text_AppendStringAscii, 0x80044C9
+SET_FUNC Text_DrawStringAscii, 0x80044C9
+
 SET_FUNC Text_AppendCharAscii, 0x8004505
 SET_FUNC GetCharTextWidthAscii, 0x8004539
 SET_FUNC GetStringTextWidthAscii, 0x8004569
