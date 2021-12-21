@@ -11,6 +11,10 @@ Battle2UnitFuncList:
 	POIN BattleToUnitVanilla_WpnExcept 	// MagicSystem/WpnEqp System
 	POIN BattleToUnitSaveMagWpn			// MagicSystem/WpnEqp System
 	POIN BattleToUnit_SaveMagCha
-	POIN ResetCombatArtInfo				// W.I.P.
+	
+	// W.I.P.
+	// temporarily make Post Battle Funcs at here
+	POIN ResetCombatArtInfo		// Reset Combat Art Flags
+	POIN ResetSkillList			// Reset SkillTester fast list
 	WORD 0
 	

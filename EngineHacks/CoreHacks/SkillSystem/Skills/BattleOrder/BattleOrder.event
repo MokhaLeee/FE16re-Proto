@@ -15,21 +15,25 @@ SkillInfo_Vantage:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_Vantage
 	/* icon */ POIN SI_Vantage
+	/* pad  */ WORD 0
 
 SkillInfo_VantageBattalion:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_VantageBattalion
 	/* icon */ POIN SI_VantageBattalion
+	/* pad  */ WORD 0
 	
 SkillInfo_Desperation:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_Desperation
 	/* icon */ POIN SI_Desperation
+	/* pad  */ WORD 0
 
 SkillInfo_DesperationBattalion:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_DesperationBattalion
 	/* icon */ POIN SI_DesperationBattalion
+	/* pad  */ WORD 0
 
 
 ALIGN 4

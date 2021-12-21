@@ -19,36 +19,43 @@ SkillInfo_BlowDarting:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowDarting
 	/* icon */ POIN SI_BlowDarting
+	/* pad  */ WORD 0
 
 SkillInfo_BlowDeath:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowDeath
 	/* icon */ POIN SI_BlowDeath
+	/* pad  */ WORD 0
 
 SkillInfo_BlowArmored:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowArmored
 	/* icon */ POIN SI_BlowArmored
+	/* pad  */ WORD 0
 
 SkillInfo_BlowFiendish:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowFiendish
 	/* icon */ POIN SI_BlowFiendish
+	/* pad  */ WORD 0
 
 SkillInfo_BlowWarding:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowWarding
 	/* icon */ POIN	SI_BlowWarding
+	/* pad  */ WORD 0
 	
 SkillInfo_BlowDuelist:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowDuelist
 	/* icon */ POIN SI_BlowDuelist
+	/* pad  */ WORD 0
 
 SkillInfo_BlowUncanny:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_BlowUncanny
 	/* icon */ POIN SI_BlowUncanny
+	/* pad  */ WORD 0
 
 InjectSkillInfo(SKILLID_BlowDarting, SkillInfo_BlowDarting)
 InjectSkillInfo(SKILLID_BlowDeath, SkillInfo_BlowDeath)

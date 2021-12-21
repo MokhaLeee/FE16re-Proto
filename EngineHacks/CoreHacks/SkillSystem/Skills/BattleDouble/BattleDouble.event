@@ -12,6 +12,7 @@ SkillInfo_QuickRiposte:
 	/* name */ SHORT 0
 	/* desc */ SHORT SD_QuickRiposte
 	/* icon */ POIN SI_QuickRiposte
+	/* pad  */ WORD 0
 
 
 

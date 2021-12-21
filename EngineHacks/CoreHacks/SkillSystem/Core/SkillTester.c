@@ -100,13 +100,6 @@ static int MakeSkillListRAM(Unit* unit, SkillListRAM* list){
 }
 
 
-int GetSkillListLength(Unit* unit){
-	if( 0==IsSkillListHandled(unit,gpUnitSkillList0) )
-		MakeSkillListRAM(unit,gpUnitSkillList0);
-	
-	return gpUnitSkillList0->Count;
-}
-
 
 SkillListRAM* UnitGetSkillList(Unit* unit){
 	SkillListRAM* list = gpUnitSkillList1;
@@ -123,6 +116,13 @@ SkillListRAM* UnitGetSkillList(Unit* unit){
 	return gpUnitSkillList0;
 }
 
+int GetSkillListLength(Unit* unit){
+	SkillListRAM* list;
+	
+	list = UnitGetSkillList(unit);
+	
+	return list->Count;
+}
 
 
 /*
