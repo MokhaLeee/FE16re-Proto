@@ -89,13 +89,25 @@ PUSH
 	BYTE SKILLID_BlowArmored SKILLID_BlowDeath
 	
 	ORG $E49838		// Fighter ROM Skills
-	//BYTE SKILLID_QuickRiposte
+	// BYTE SKILLID_QuickRiposte
 	
 	ORG $E49840		// Warrior ROM Skills
-	//BYTE SKILLID_QuickRiposte SKILLID_VantageBattalion
+	// BYTE SKILLID_QuickRiposte SKILLID_VantageBattalion
 	
 	ORG $E49768 	// Mage skills
-	//BYTE SKILLID_VantageBattalion SKILLID_QuickRiposte
+	// BYTE SKILLID_VantageBattalion SKILLID_QuickRiposte
 	
+	ORG $80A1B8		// 银弓Bonus	
+	// POIN Bonus_SilverBow
+	
+	ORG $80A1C5		// 银弓Range
+	BYTE $46
 POP
+
+ 	ALIGN 4
+	Bonus_SilverBow:
+		// 	 Hp  Atk Skl Spd Def
+		BYTE $F0 $F0 $F0 $F0 $F0
+		//   Res Lck Mov Con Mag
+		BYTE $F0 $F0 $02 $F0 $02 
 

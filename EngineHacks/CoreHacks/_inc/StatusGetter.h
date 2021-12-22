@@ -31,11 +31,11 @@ s8 GetCon(Unit* unit);
 s8 GetMov(Unit* unit);
 s8 GetMag(Unit* unit);
 s8 GetCha(Unit* unit);
-u16 GetRngMin(u16 item, Unit* unit);
-u16 GetRngMax(u16 item, Unit* unit);
+s8 GetRngMin(u16 item, Unit* unit);
+s8 GetRngMax(u16 item, Unit* unit);
 
-int GetRankReason(Unit*);
-int GetRankFaith(Unit*);
+s8 GetRankReason(Unit*);
+s8 GetRankFaith(Unit*);
 
 typedef s8 (*MSG_Func)(Unit*);
 extern MSG_Func PowMods[];

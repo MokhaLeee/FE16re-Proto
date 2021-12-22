@@ -7,8 +7,8 @@
 
 
 
-static s16 MaxRangeFilter(Unit* unit, u16 item){
-	u16 rngMax = GetRngMax(item,unit);
+static int MaxRangeFilter(Unit* unit, u16 item){
+	int rngMax = GetRngMax(item,unit);
 	if( 0 == rngMax )
 		rngMax = GetUnitMagBy2Range(unit);
 	return rngMax;
@@ -26,8 +26,8 @@ void FillMapForSingleItem(Unit* unit, u16 item){
 	const u8 x = unit->xPos;
 	const u8 y = unit->yPos;
 	
-	u16 rngMin = GetRngMin(item,unit);
-	u16 rngMax = MaxRangeFilter(unit,item);
+	int rngMin = GetRngMin(item,unit);
+	int rngMax = MaxRangeFilter(unit,item);
 	
 	MapAddInRange(x,y,rngMax,1);
 	
@@ -42,8 +42,8 @@ void FillMapForSingleItem(Unit* unit, u16 item){
 u32 ItemRange2Mask(u16 item, Unit* unit){
 	u32 mask = 0;
 	
-	int rngMin = (int)GetRngMin(item,unit);
-	int rngMax = (int)MaxRangeFilter(unit,item);
+	int rngMin = GetRngMin(item,unit);
+	int rngMax = MaxRangeFilter(unit,item);
 	int diff = rngMax - rngMin;
 	
 	for(int i=0; i <= rngMax; i++)

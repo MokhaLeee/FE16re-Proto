@@ -61,7 +61,8 @@ PUSH
 	ORG 0x025764
 		BL(_prMaxFromSubjectUnit)
 	
-	ORG 0x02A8C2
+	//ORG 0x02A8C2
+	ORG 0x02A8C4
 		BL(_prIsCoveringRangeFromR5)
 	
 	ORG 0x0398E8

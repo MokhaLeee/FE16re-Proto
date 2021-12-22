@@ -71,7 +71,6 @@ void DisplayUnitEffectRange(Unit* unit){
 // 0x801ACBC+1
 void FillMapAttackRangeForUnit(const Unit* _unit){
 	u32 mask;
-	u16 item;
 	UnitExt* ext;
 	Unit* unit = (Unit*)_unit;
 	
@@ -96,7 +95,7 @@ void FillMapAttackRangeForUnit(const Unit* _unit){
 	if( MCA_NONUSABLE != BMag_Usability() )
 	for(int i=0; i<MAGIC_LIST_SIZE; i++)
 	{
-		item = GetBMagItem(ext,i);
+		u16 item = GetBMagItem(ext,i);
 		if( item )
 			mask |= ItemRange2Mask(item, unit);	
 	}
@@ -128,7 +127,6 @@ void FillMapAttackRangeForUnit(const Unit* _unit){
 //! FE8U = 0x801B619
 void FillMapStaffRangeForUnit(const struct Unit* _unit){
 	u32 mask;
-	u16 item;
 	UnitExt* ext;
 	Unit* unit = (Unit*)_unit;
 	
@@ -153,7 +151,7 @@ void FillMapStaffRangeForUnit(const struct Unit* _unit){
 	if( MCA_NONUSABLE != WMag_Usability() )
 	for(int i=0; i<MAGIC_LIST_SIZE; i++)
 	{
-		item = GetWMagItem(ext,i);
+		u16 item = GetWMagItem(ext,i);
 		if( item )
 			mask |= ItemRange2Mask(item, unit);	
 	}

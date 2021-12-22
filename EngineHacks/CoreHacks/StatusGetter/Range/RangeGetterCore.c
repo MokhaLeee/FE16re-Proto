@@ -11,8 +11,8 @@ void FillMovementAndRangeMapForItem(Unit* unit, u16 item);
 // ============ Status Getter ===============
 // ==========================================
 
-static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
-	s16 base = 0;
+static s8 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
+	s8 base = 0;
 	RangeGetter_Func* it = funcs;
 	while(*it)
 		base += (*it++)(unit,item);
@@ -21,21 +21,26 @@ static s16 StatusModfiy(RangeGetter_Func* funcs, Unit* unit, u16 item){
 }
 
 
-u16 GetRngMin(u16 item, Unit* unit){
+s8 GetRngMin(u16 item, Unit* unit){
 	
-	s16 Stat = GetItemMinRange(item);
+	s8 Stat = GetItemMinRange(item);
 	return Stat;
 }
 
-u16 GetRngMax(u16 item, Unit* unit){
+s8 GetRngMax(u16 item, Unit* unit){
 	
-	s16 Stat = GetItemMaxRange(item);
+	s8 Stat = GetItemMaxRange(item);
 	if( 0==Stat )
 		return 0;
 	
 	Stat += StatusModfiy(RangeMaxMods,unit,item);
-	if( Stat>0xF)
+	
+	// Minus Zero
+	if( Stat > 0xF)
 		Stat = 0xF;
+	if(Stat < 0)
+		Stat = 0;
+	
 	return Stat;
 }
 
@@ -48,7 +53,7 @@ u16 GetRngMax(u16 item, Unit* unit){
 // ============ Modular Funcs ===============
 // ==========================================
 
-s16 MSG_RngMax_ArchBonus(Unit* unit, u16 item){
+s8 MSG_RngMax_ArchBonus(Unit* unit, u16 item){
 	if( ITYPE_BOW == GetItemType(item) )
 		if( CA_BALLISTAE & UNIT_CATTRIBUTES(unit) )
 			return 1;
