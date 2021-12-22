@@ -7,7 +7,7 @@ struct BattleFlagSu;
 
 
 void Reset_CommonSaveSu(void){
-	for(u8 i=0; i<0x41; i++)
+	for(u8 i=0; i<MAX_SIZE_COMMON_SAVESU; i++)
 		gpCommonSaveSu[i] = 0;
 }
 

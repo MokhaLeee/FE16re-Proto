@@ -16,8 +16,10 @@ extern BattleFlagSu* gpBattleFlagSu;	// 0x10 long
 
 
 
+enum{
+	MAX_SIZE_COMMON_SAVESU = 0x40,
+};
 
-#define MAX_SIZE_COMMON_SAVESU 0x40
 
 //extern void* gpCommonSaveSu;
 void Reset_CommonSaveSu(void);

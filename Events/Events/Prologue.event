@@ -64,6 +64,8 @@ LOAD1 1 PlayerUnits
 ENUN
 LOAD1 1 EnemyUnits
 ENUN
+
+PREP
 ENDA
 
 EndingScene:

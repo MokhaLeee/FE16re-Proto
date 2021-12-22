@@ -4,7 +4,7 @@
 #include "Common.h"
 extern u8* gpCommonSaveSu;
 #define COMMON_NUM (gpCommonSaveSu[0])
-#define COMMON_TARGIT_AT (&gpCommonSaveSu[1])
+#define COMMON_TARGIT(i) (gpCommonSaveSu[i+1])
 
 static inline u8 GetGambitDmgReal(Unit* TargetUnit, u8 MaxDmg);
 
@@ -12,7 +12,7 @@ int GambitAction(Proc* proc){
 	ProcGamAction* newProc = 
 		(ProcGamAction*)ProcStartBlocking(gpProc_GambitAction, proc);
 	newProc->Counter = COMMON_NUM;
-	newProc->gpCurUnitID = COMMON_TARGIT_AT;
+	newProc->gpCurUnitID = &COMMON_TARGIT(0);
 	return 0;
 }
 
