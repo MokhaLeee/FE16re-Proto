@@ -3,7 +3,7 @@
 #include "ModularLu.h"
 #include "RecoverableRN.h"
 
-static u8 CheckCap_Inline(s8 cur, s8 bonus, s8 cap){
+static inline int CheckCap_Inline(s8 cur, s8 bonus, s8 cap){
 	if( 0==bonus )
 		return 0;
 	else if( cur+bonus > cap )
