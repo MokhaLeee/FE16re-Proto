@@ -170,9 +170,10 @@ char* String_ExpandTactName(char*); // 0x800A3B9
 
 
 // Mokha
+extern char gCurrentTextString[]; // 0x0202A6AC;
 char* GetStringFromIndex(int index); //! FE8U = 0x800A241
 char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
 void GetStringTextBox(char const* str, int* outWidth, int* outHeight); // 0x8003FAC+1
-
+void String_StripSomeEndCharacters(char*); // 0x800A1C9
 
 #endif // GBAFE_TEXT_H

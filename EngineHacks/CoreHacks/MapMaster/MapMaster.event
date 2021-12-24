@@ -12,7 +12,7 @@ PUSH
 	jumpToHack(_1D9DC_Loop6C_MoveLimitView)
 	
 	ORG $16cc0
-		jumpToHack(_GetItemDisplayRangeString)
+	jumpToHack(_GetItemDisplayRangeString)
 POP	
 
 PROTECT $1CB70 $1CB70+$10	// DisplayUnitEffectRange

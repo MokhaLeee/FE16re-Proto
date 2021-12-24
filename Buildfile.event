@@ -101,7 +101,7 @@ PUSH
 	// POIN Bonus_SilverBow
 	
 	ORG $80A1C5		// 银弓Range
-	BYTE $46
+	BYTE $4F
 POP
 
  	ALIGN 4
