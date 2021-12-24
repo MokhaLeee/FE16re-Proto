@@ -44,6 +44,7 @@ extern "C" {
 #include "gbafe/MenuItemPanel.h"
 #include "gbafe/StatusScreen.h"
 #include "gbafe/HelpBox.h"
+#include "gbafe/m4a.h"
 
 #include "constants/characters.h"
 #include "constants/classes.h"

@@ -100,6 +100,8 @@ enum
     BG3_SYNC_BIT = BG_SYNC_BIT(3),
 };
 
+
+
 #define ApplyPalettes(aSrc, aPalId, aPalCount) CopyToPaletteBuffer((aSrc), 0x20 * (aPalId), 0x20 * (aPalCount))
 #define ApplyPalette(aSrc, aPalId) ApplyPalettes((aSrc), (aPalId), 1)
 
@@ -126,8 +128,8 @@ void SyncLCDControl(void); //! FE8U = 0x8000E9D
 u32 GetBgControlBuffer(int); //! FE8U = 0x8000F45
 u32 GetBgTileDataOffset(int); //! FE8U = 0x8000F8D
 int GetBgLocalTileIndex(int); //! FE8U = 0x8000FA5
-void SetBgTileDataOffset(int, u32); //! FE8U = 0x8000FDD
-void SetBgMapDataOffset(int, u32); //! FE8U = 0x8001005
+void SetBgTileDataOffset(int bg, u32); //! FE8U = 0x8000FDD
+void SetBgMapDataOffset(int bg, u32); //! FE8U = 0x8001005
 void SetBgScreenSize(int); //! FE8U = 0x800104D
 
 void SyncPalettes_AdditiveFilter(int); //! FE8U = 0x8001095

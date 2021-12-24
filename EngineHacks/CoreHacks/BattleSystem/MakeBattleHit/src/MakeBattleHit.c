@@ -136,8 +136,8 @@ void BattleUnwind(){
 		else
 			break;
 		
-		if( (1==i) | (2==i) )
-			gBattleHitIterator->attributes = BATTLE_HIT_ATTR_FOLLOWUP;
+		//if( (1==i) | (2==i) )
+			//gBattleHitIterator->attributes = BATTLE_HIT_ATTR_FOLLOWUP;
 			
 	}
 	

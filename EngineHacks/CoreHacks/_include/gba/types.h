@@ -32,11 +32,12 @@ typedef volatile s64 vs64;
 struct DispControl
 {
     unsigned bgMode : 3;
-    unsigned : 1; // cgbMode
+    unsigned cgbMode : 1; // cgbMode
     unsigned bmpFrameNum : 1;
     unsigned hblankIntervalFree : 1;
     unsigned obj1dMap : 1;
     unsigned forcedBlank : 1;
+	
     unsigned enableBg0 : 1;
     unsigned enableBg1 : 1;
     unsigned enableBg2 : 1;
@@ -66,7 +67,8 @@ struct BgControl
     unsigned : 2;
     unsigned mosaic : 1;
     unsigned colorMode : 1;
-    unsigned mapBaseBlock : 5;
+    
+	unsigned mapBaseBlock : 5;
     unsigned areaOverflowMode : 1;
     unsigned screenSize : 2;
 };

@@ -32,25 +32,13 @@ static char* strcpy_var(char ch[], int len){
 }
 
 
-
-
-char* _GetItemDisplayRangeString(u16 item) {
-	int len;
-	s8 rngMax, rngMin;
+static char* GetStringCore(s8 rngMin, s8 rngMax){
+	
 	char ch[6];
-	
-	if( !item )
-		return strcpy_const("nope\0");
-
-	
-	rngMax = GetItemMaxRange(item);
-	rngMin = GetItemMinRange(item);
-	
-	// Make string
-	len=0;
+	int len = 0;
 	
 	// min range
-	if( rngMin > 10 ){
+	if( rngMin > 9 ){
 		s8 num = rngMax/10;
 		ch[len++] = '0' + num;
 		ch[len++] = '0' + rngMax - num*10;
@@ -65,7 +53,7 @@ char* _GetItemDisplayRangeString(u16 item) {
 	ch[len++] = '-';
 	
 	// max range
-	if( rngMax > 10 ){
+	if( rngMax > 9 ){
 		s8 num = rngMax/10;
 		ch[len++] = '0' + num;
 		ch[len++] = '0' + rngMax - num*10;
@@ -74,6 +62,51 @@ char* _GetItemDisplayRangeString(u16 item) {
 		ch[len++] = '0' + rngMax;
 	
 	return strcpy_var(ch, len);
+}
+
+
+char* _GetItemDisplayRangeString(u16 item) {
+
+	s8 rngMax, rngMin;
+	
+	if( !item )
+		return strcpy_const("nope\0");
+
+	// W.I.P.
+	rngMax = GetItemMaxRange(item);
+	rngMin = GetItemMinRange(item);
+	
+	return GetStringCore(rngMin, rngMax);
+}
+
+
+char* new_UnitRangeString(Unit* unit) {
+
+	u16 item;
+	s8 rngMax, rngMin;
+	UnitExt* ext;
+	
+	if( NULL == unit )
+		unit = gStatScreen.unit;
+	
+	if( NULL == unit )
+		return strcpy_const("nope\0");
+	
+	ext = GetUnitExtByUnit(unit);
+	
+	if( NULL != ext && 0 != ext->WpnEqp )
+		item = ext->WpnEqp;
+	else
+		item = GetUnitEquippedWeapon(unit);
+	
+	if( !item )
+		return strcpy_const("nope\0");
+
+	// W.I.P.
+	rngMax = GetRngMax(item, unit);
+	rngMin = GetRngMin(item, unit);
+	
+	return GetStringCore(rngMin, rngMax);
 }
 
 #undef STR_LEN

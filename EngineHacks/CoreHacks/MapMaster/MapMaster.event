@@ -11,8 +11,19 @@ PUSH
 	ORG	$1D9DC
 	jumpToHack(_1D9DC_Loop6C_MoveLimitView)
 	
+	// W.I.P.
+	// Draw Status Screen Page2
+	ORG $87630	
+		SHORT $2000	// mov r0, #0
+		BL(Goto_new_UnitRangeString)
+	
 	ORG $16cc0
 	jumpToHack(_GetItemDisplayRangeString)
+	
+	ALIGN 4
+	Goto_new_UnitRangeString:
+		jumpToHack(new_UnitRangeString)
+	
 POP	
 
 PROTECT $1CB70 $1CB70+$10	// DisplayUnitEffectRange

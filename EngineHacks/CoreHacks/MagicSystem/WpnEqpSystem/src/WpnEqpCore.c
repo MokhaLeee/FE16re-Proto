@@ -8,6 +8,20 @@
 
 u16 GetWpnEqp(UnitExt* ext){ return ext->WpnEqp; }
 
+int GetUnitEquippedWeapon(const Unit* unit){ //! FE8U = (0x08016B28+1)
+	UnitExt* ext;
+	
+	ext = GetUnitExtByUnit((Unit*)unit);
+	
+	if( NULL!=ext && 0!=ext->WpnEqp )
+		return ext->WpnEqp;
+	
+	for( int i=0; i<5; i++ )
+		if( CanUnitUseWeapon(unit, unit->items[i]) )
+			return unit->items[i];
+	
+	return 0;
+}
 
 int SetWpnEqp(Unit* unit, u16 item){
 	UnitExt* unitExt = GetUnitExtByUnit(unit);

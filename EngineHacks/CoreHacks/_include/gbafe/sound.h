@@ -24,12 +24,7 @@ void SetSoundMaxChannels(int maxchn); //! FE8U = 0x80028E9
 void Sound_SetupMaxChannelsForSong(int songId); //! FE8U = 0x80028FD
 void CancelPlaySongDelayed(void); //! FE8U = 0x8002AB9
 
-// TODO: m4a header
-void m4aSongNumStart(int);
-void m4aSoundMain(u8); // <Mokha> 0x80D1FD
-#define PlaySfx(aSongId) do { \
-	if (!gChapterData.muteSfxOption) \
-		m4aSongNumStart(aSongId); \
-} while (0)
+// TODO: m4a header now in m4a.h
+
 
 #endif // GBAFE_SOUND_H

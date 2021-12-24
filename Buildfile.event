@@ -102,6 +102,12 @@ PUSH
 	
 	ORG $80A1C5		// 银弓Range
 	BYTE $4F
+	
+	ORG $80A364		// 雷暴 attr 1
+	BYTE $3
+	
+	ORG $80A460		// 远程光魔法 attr 1
+	BYTE $3
 POP
 
  	ALIGN 4

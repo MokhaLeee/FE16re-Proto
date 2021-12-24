@@ -111,11 +111,13 @@ struct ChapterState {
 	u32 textSpeedOption:2;
 	u32 gameSpeedOption:1;
 
-	u32 unk41_1:1;
-	u32 muteSfxOption:1;
-	u32 unk41_3:2;
-	u32 unk41_5:3;
-	u32 subtitleHelpOption:1;
+	u32 /* 01 */ unk41_1:1;
+	u32 /* 02 */ muteSfxOption:1;
+	u32 /* 03 */ unk41_3:2;
+	u32 /* 05 */ unk41_5:3;
+	u32 /* 08 */ subtitleHelpOption:1;
+	u32 /* 09 */ _41_pad:21;
+	u32 /* 31 */ _41_ChIntroSound:2;
 
 	u32 Option3_1:1;
 	u32 Option3_2:1;
